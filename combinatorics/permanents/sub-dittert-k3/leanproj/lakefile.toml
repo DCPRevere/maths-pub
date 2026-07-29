@@ -1,0 +1,37 @@
+name = "permanents"
+defaultTargets = ["PermanentExpansion", "Certificate", "RookSum", "SubDittertK3", "SubDittertLinear", "SubDittertUniversal", "SubDittertK2", "SubDittertM", "SubDittertMaclaurin", "NewtonInequalities"]
+
+[[require]]
+name = "mathlib"
+scope = "leanprover-community"
+rev = "v4.14.0"
+
+[[lean_lib]]
+name = "PermanentExpansion"
+
+[[lean_lib]]
+name = "Certificate"
+
+[[lean_lib]]
+name = "RookSum"
+
+[[lean_lib]]
+name = "SubDittertK3"
+
+[[lean_lib]]
+name = "SubDittertLinear"
+
+[[lean_lib]]
+name = "SubDittertUniversal"
+
+[[lean_lib]]
+name = "SubDittertK2"
+
+[[lean_lib]]
+name = "SubDittertM"
+
+[[lean_lib]]
+name = "SubDittertMaclaurin"
+
+[[lean_lib]]
+name = "NewtonInequalities"

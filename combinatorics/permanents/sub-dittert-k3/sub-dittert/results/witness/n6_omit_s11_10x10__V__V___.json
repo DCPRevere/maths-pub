@@ -1,0 +1,52 @@
+{
+ "claim": "sum_b <Y_b, M_b(w)> equals `value` for every w in A, and value <= 0",
+ "deg_basis": 2,
+ "generators": [
+  {
+   "block": "14x14 trivial",
+   "coef": "3/400",
+   "dim": 14,
+   "index": 0,
+   "kind": "diag",
+   "side": "s11"
+  },
+  {
+   "block": "14x14 trivial",
+   "coef": "3/2500",
+   "dim": 14,
+   "index": 1,
+   "kind": "diag",
+   "side": "s11"
+  },
+  {
+   "block": "14x14 trivial",
+   "coef": "3/10000",
+   "dim": 14,
+   "index": 2,
+   "kind": "diag",
+   "side": "s11"
+  },
+  {
+   "block": "7x7 sign",
+   "coef": "27/10000",
+   "dim": 7,
+   "index": 1,
+   "kind": "diag",
+   "side": "s11"
+  },
+  {
+   "block": "Ind(1|V)",
+   "coef": "1/5348000",
+   "dim": 5,
+   "index": 0,
+   "kind": "diag",
+   "side": "s0"
+  }
+ ],
+ "k": 4,
+ "kind": "infeasible",
+ "n": 6,
+ "omit_block": "10x10 (V'|V')+",
+ "omit_side": "s11",
+ "value": "-53/15000"
+}
