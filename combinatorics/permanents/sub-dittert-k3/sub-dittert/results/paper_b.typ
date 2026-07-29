@@ -458,6 +458,19 @@ to polynomials *strictly* positive on the set, and $F$ vanishes at $J_n\/n$, in
 the relative interior of $K_n$; the representation is exhibited, not deduced,
 and the work is in getting it at the degree $F$ already has.
 
+The toolset sits in a standard line: sum-of-squares relaxations of polynomial
+optimisation are Lasserre's hierarchy [13], and exploiting a symmetry group to
+block-diagonalise the Gram matrix is Gatermann–Parrilo [14]; both are used here
+in their plain forms. What is not taken from that line is the coefficient
+field: the programme is posed and solved over $QQ(n)$ — one symbolic solve
+whose output is a certificate for every $n$ at once, with positivity of the
+resulting rational functions decided by Sturm sequences rather than per-$n$
+numerics. Optimisation uniform in the dimension is itself an active area —
+Levin and Chandrasekaran [15] develop any-dimensional polynomial optimisation
+via de Finetti theorems — and @sec-computational's band law is this paper's
+measured answer, for one problem family, to when such uniformity survives at
+fixed certificate degree.
+
 *Why the degree closes.* Here $deg F = k$, not $n$. At $k = 3$ a Gram basis of
 degree $1$ gives $deg sigma lt.eq 2$ and $deg (sigma_p b_p) lt.eq 3$, matching
 $deg F$ exactly with no surplus top band to cancel. The Gram matrices are
@@ -1316,10 +1329,11 @@ checkable against them.
   [2] M. Putinar, _Positive polynomials on compact semi-algebraic sets_, Indiana
   University Mathematics Journal *42* (1993), 969–984.
 
-  [3] S.-G. Hwang, Linear Algebra and its Applications *95* (1987), 161–169.
-  (Dittert's conjecture at $n = 3$.)
+  [3] S.-G. Hwang, _On a conjecture of E. Dittert_, Linear Algebra and its
+  Applications *95* (1987), 161–169. (Dittert's conjecture at $n = 3$.)
 
-  [4] R. Sinkhorn, Linear and Multilinear Algebra *16* (1984), 167–173.
+  [4] R. Sinkhorn, _A problem related to the van der Waerden permanent theorem_,
+  Linear and Multilinear Algebra *16* (1984), 167–173.
   (Dittert's conjecture at $n = 2$.)
 
   [5] G.-S. Cheon and I. M. Wanless, _An update on Minc's survey of open problems
@@ -1335,15 +1349,17 @@ checkable against them.
   `doi:10.1016/j.disc.2007.01.008`. (Not consulted; no result here depends
   on it.)
 
-  [8] Divya K. U. and K. Somasundaram, _Special Matrices_ *12* (2024), 20240006,
+  [8] Divya K. U. and K. Somasundaram, _Lih Wang's and Dittert's conjectures on
+  permanents_, Special Matrices *12* (2024), 20240006,
   `doi:10.1515/spma-2024-0006`; cf. arXiv:2312.00464v1, whose abstract claims
   Dittert at $n = 4$. The published version makes no such claim.
 
-  [9] Z. Pang, arXiv:2606.01531 (1 June 2026). Dittert for $n gt.eq 17$;
-  preprint, no DOI, not refereed.
+  [9] Z. Pang, _Proof of Dittert's conjecture for dimensions $n gt.eq 17$_,
+  arXiv:2606.01531 (1 June 2026). Preprint, no DOI, not refereed.
 
-  [10] B. Kafidov, arXiv:2607.19439 (21 July 2026). Dittert at $n = 16$;
-  preprint, no DOI, not refereed.
+  [10] B. Kafidov, _Dittert's conjecture in dimension 16 via a joint-deficit
+  scaling lemma_, arXiv:2607.19439 (21 July 2026). Preprint, no DOI, not
+  refereed.
 
   [11] Public repositories claiming Dittert cases, all created 21–25 July 2026,
   none refereed, all accessed 28 July 2026:
@@ -1359,6 +1375,16 @@ checkable against them.
   (2006); G.-S. Cheon, _On the monotonicity of the Dittert function_ (1993). The
   remaining two of the five papers citing [1]; neither works on the
   generalisation.
+
+  [13] J. B. Lasserre, _Global optimization with polynomials and the problem of
+  moments_, SIAM Journal on Optimization *11* (2001), 796–817.
+
+  [14] K. Gatermann and P. A. Parrilo, _Symmetry groups, semidefinite programs,
+  and sums of squares_, Journal of Pure and Applied Algebra *192* (2004),
+  95–128.
+
+  [15] E. Levin and V. Chandrasekaran, _Any-dimensional polynomial optimization
+  via de Finetti theorems_, arXiv:2507.15632 (2025).
 
   [13] The mathlib Community, _The Lean mathematical library_, CPP 2020.
 ]
