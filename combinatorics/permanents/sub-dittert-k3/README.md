@@ -10,7 +10,8 @@ stability bound.
 
 ## Layout
 
-- `sub-dittert/results/paper_b.pdf` — the paper (Typst source alongside).
+- [`paper.pdf`](paper.pdf) — **the paper.** (Typst source and submission kit
+  under `sub-dittert/results/`.)
 - `sub-dittert/results/kit/` — abstract, submission metadata, and
   `README-reproduce.md`, the step-by-step reproduction guide. Start there.
 - `leanproj/` — the Lean 4 development. Every result the paper states as a
