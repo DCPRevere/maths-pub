@@ -730,7 +730,7 @@ def _q(x):
     return f"{x.numerator}/{x.denominator}"
 
 
-def store_witness(n, omit, kind, payload, out):
+def store_witness(n, omit, kind, payload, out, suffix=""):
     """
     Write the exact witness a verdict cites.  METHODS §5: a verdict whose
     certificate lives only in a log does not exist.
@@ -742,9 +742,13 @@ def store_witness(n, omit, kind, payload, out):
     """
     import json
     os.makedirs(WITNESS_DIR, exist_ok=True)
+    # `suffix` keeps two DIFFERENT claims about the same configuration in two
+    # different files.  Without it the zero-value-LP certificate for H2 lands
+    # on the same name as H2's feasible point -- discard 12 a second time, and
+    # at n = 5 it would have destroyed a committed witness.
     tag = "H1_full321" if omit is None else f"omit_{omit[0]}_{omit[1]}"
     safe = "".join(ch if ch.isalnum() or ch in "_-" else "_" for ch in tag)
-    path = os.path.join(WITNESS_DIR, f"n{n}_{safe}.json")
+    path = os.path.join(WITNESS_DIR, f"n{n}_{safe}{suffix}.json")
     doc = {"n": n, "k": 4, "deg_basis": 2,
            "omit_side": None if omit is None else omit[0],
            "omit_block": None if omit is None else omit[1],

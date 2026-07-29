@@ -2,7 +2,8 @@
 import sys, os, random, itertools
 from fractions import Fraction as F
 from math import comb
-sys.path.insert(0, "/home/ae/src/dcprevere/maths/problems/permanents/sub-dittert")
+sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)),
+                                os.pardir, "sub-dittert"))
 import verify_general as vg          # the independent exact verifier
 
 def objPoly(A, n):

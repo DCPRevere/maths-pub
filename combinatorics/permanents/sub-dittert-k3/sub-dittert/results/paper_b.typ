@@ -299,7 +299,7 @@ claimed is either an unrefereed preprint or a public code repository:
     [$n = 4$], [public repository [11], 21 Jul 2026], [public, dated, unrefereed],
     [$n = 4, 5, 8$–$16$], [public repository [11], 23 Jul 2026],
       [public, dated, unrefereed],
-    [$n = 6$–$15$], [public repositories [11], 24 Jul 2026],
+    [$n = 6$–$15$], [public repositories [11], 24–25 Jul 2026],
       [public, dated, unrefereed],
     [$n = 16$], [Kafidov [10], arXiv:2607.19439, 21 Jul 2026], [preprint, no DOI],
     [$n gt.eq 17$], [Pang [9], arXiv:2606.01531, 1 Jun 2026], [preprint, no DOI],
@@ -343,11 +343,16 @@ That quotation is also the clearest available statement of the prior status of
 Theorem D: $k lt.eq 2$ is historically known, for every $n$, and we claim no
 novelty for the statement. Its results are $k = n-1$ for $18 lt.eq n lt.eq 80$,
 $k = n-2$ for $18 lt.eq n lt.eq 40$, and a table over 425 pairs with
-$17 lt.eq n lt.eq 40$ marked conditional on a scaling hypothesis. Note that
+$17 lt.eq n lt.eq 40$ — and all three are conditional on the package's own
+"positive Li-scaling structural hypothesis": its README states the $k = n-1$
+Hall-cut exclusion "with" that hypothesis, the $k = n-2$ exclusion "subject to
+the same structural hypothesis", and the 425-pair table conditional on both it
+and the package's other intermediate cases. What is unconditional there is a
+Sturm-certified floor on the one-zero Birkhoff face at each order. Note that
 $(n,k) = (4,3)$ *is* a $k = n-1$ case, so that package works the same diagonal —
 but from $n = 18$ upward, by a large-$n$ scaling argument that cannot reach
-$n = 4$, and in part conditionally. It does not intersect the line $k = 3$ except
-at $n = 4$, which it excludes.
+$n = 4$, and conditionally throughout. It does not intersect the line $k = 3$
+except at $n = 4$, which it excludes.
 
 One item is flagged rather than paraphrased: Cheon and Wanless 2007 [7] is
 paywalled and was not obtained, and is reported to settle $n lt.eq 3$ for all
@@ -1210,8 +1215,15 @@ every canonical block positive definite under exact $L D L^T$. The full pinning
 is infeasible at all three dimensions, as are twelve of the thirteen
 single-block omissions. The one programme that survives — 201 pins, omitting the
 $16 times 16$ block of $sigma_11$ — has an exact strictly feasible rational point
-at $n = 5$, with least pivot $5.85 times 10^(-5)$, and is boundary-undecided at
-$n = 6$ and $n = 7$. Every verdict has its witness stored as exact rationals and
+at every dimension tested, $n = 5, 6, 7, 8$, with least stored pivots
+$5.11 times 10^(-5)$, $4.94 times 10^(-5)$, $4.84 times 10^(-5)$ and
+$1.96 times 10^(-5)$. The cases $n gt.eq 6$ had resisted every floating-point
+instrument, and the failure has an exact explanation: three integer relations
+among the seventy diagonal constraints leave the working coordinates roughly
+twelve digits below the constant column's scale, so each solver ran beneath its
+own cancellation floor. A change of variables taking the constraint values
+themselves as the unknowns — validated first against the known $n = 5$ verdict
+as a positive control — produced the points. Every verdict has its witness stored as exact rationals and
 re-checked by a standalone verifier that re-derives the constraint system and the
 pin rows from the problem definition, carries its own elimination and its own
 $L D L^T$, and confirms that every canonical basis has full column rank — without
@@ -1333,7 +1345,7 @@ checkable against them.
   [10] B. Kafidov, arXiv:2607.19439 (21 July 2026). Dittert at $n = 16$;
   preprint, no DOI, not refereed.
 
-  [11] Public repositories claiming Dittert cases, all created 21–24 July 2026,
+  [11] Public repositories claiming Dittert cases, all created 21–25 July 2026,
   none refereed, all accessed 28 July 2026:
   `123ljh0bot/Dittert_Conjecture_in_Dimension_4` ($n = 4$, Lean 4 with an SOS
   certificate); `pedromnasc/dittert-conjecture-proof` ($n = 4, 5, 8$–$16$, and

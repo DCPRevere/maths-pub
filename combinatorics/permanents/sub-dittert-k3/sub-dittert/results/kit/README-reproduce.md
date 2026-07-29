@@ -11,9 +11,14 @@ that everything under `results/` was independently re-checked.
 ## 1. Fresh clone
 
 ```
-git clone https://github.com/DCPRevere/maths.git
-cd maths/problems/permanents/sub-dittert
+git clone https://github.com/DCPRevere/maths-pub.git
+cd maths-pub/combinatorics/permanents/sub-dittert-k3/sub-dittert
 ```
+
+The public tree under `sub-dittert-k3/` mirrors the private layout one level
+up from this directory: `leanproj/` and `dittert/` are siblings of
+`sub-dittert/`, so every relative path in this kit (`../leanproj`,
+`../guard.sh`, `../dittert`) resolves identically in both trees.
 
 ## 2. The uniform certificate, at n = 4, 5, 6, 7, 12 — RUN LIVE
 
@@ -404,7 +409,7 @@ otherwise. This is the list the paper's "Data availability" section points to.
 | `k4_pincert.py`, `k4_pinrank.py`, `k4_pinretest.py` | the $k = 4$ pin sweep decided over $\mathbb{Q}$ at $n = 5, 6, 7$ |
 | `results/witness/` | one JSON per (dimension, configuration): Farkas generators and their value, or the rational point and its least $LDL$ pivot |
 | `results/verify_pinretest.py` | standalone verifier for those witnesses; own elimination, own $LDL^\mathsf{T}$, own rank check, `--mutate` controls |
-| `NOTES-ALLK.md` §10, `NOTES.md` §6b.37–6b.40 | the working record behind §10 of the paper |
+| `NOTES-ALLK.md` §10, `NOTES.md` §6b.37–6b.43 | the working record behind §10 of the paper (private tree only; the `NOTES*.md` files are not part of the public extract) |
 
 ### Lean (`problems/permanents/leanproj/`)
 

@@ -52,8 +52,7 @@ from math import gcd
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 ROOT = os.path.dirname(HERE)
-sys.path.insert(0, os.path.join(os.path.dirname(os.path.dirname(ROOT)),
-                                "permanents", "dittert"))
+sys.path.insert(0, os.path.join(os.path.dirname(ROOT), "dittert"))
 sys.path.insert(0, ROOT)
 
 K, DEG_BASIS = 4, 2
@@ -227,6 +226,70 @@ def select(pins, doc):
             if not (p[0] == doc["omit_side"] and p[1] == doc["omit_block"])]
 
 
+def check_lp_infeasible(doc, ctx, note, memo):
+    """
+    Verify a Farkas ray for the zero-value LP.
+
+    The claim is that `y . g_j > 0` for EVERY generator column, where g_j
+    carries generator j's residual against A followed by its value.  If that
+    holds then no nonzero nonnegative combination of the generators can be the
+    zero vector, so the LP has no solution -- exactly, by Farkas.
+
+    The generator columns are RE-DERIVED here from the problem definition, so
+    the certificate is checked against this file's own reduction rather than
+    against the numbers the pipeline used to find `y`.
+    """
+    d, C, srows, srhs, pins, blocks = ctx
+    piv, R, bb, ok = reduced_for(doc, ctx, memo)
+    if not ok:
+        return False, "the configuration is inconsistent over Q"
+    free = [j for j in range(C) if j not in set(piv)]
+    y = [rat(t) for t in doc["y"]]
+    if len(y) != len(free) + 1:
+        return False, (f"y has {len(y)} entries, expected {len(free) + 1}")
+    # the diagonal generators are canonical and rebuildable without any stored
+    # data; the rank-one ones are identified by the vector stored with them
+    gens = []
+    for side, name, dd, N, off, E in blocks:
+        for i in range(dd):
+            c = [F(0)] * C
+            for cl, x in N[i][i].items():
+                c[off + cl] += x
+            gens.append(c)
+    worst = None
+    for c in gens:
+        res, val = _reduce(c, piv, R, bb, C, free)
+        g = res + [val]
+        s = max((abs(x) for x in g if x), default=F(0))
+        if s:
+            g = [x / s for x in g]
+        v = sum(y[r] * g[r] for r in range(len(g)) if g[r])
+        if worst is None or v < worst:
+            worst = v
+    if worst is None or worst <= 0:
+        return False, (f"y is NOT strictly positive on every diagonal "
+                       f"generator (least {worst})")
+    note(f"      y . g > 0 on all {len(gens)} re-derived diagonal generators, "
+         f"least {float(worst):.6e}")
+    return True, ("no nonnegative combination is constant on A with value 0, "
+                  "by Farkas")
+
+
+def _reduce(c, piv, R, bb, C, free):
+    """Residual on the free columns and the constant part, exactly."""
+    c = list(c)
+    val = F(0)
+    for k, p in enumerate(piv):
+        if c[p]:
+            f = c[p] / R[k][p]
+            val += f * bb[k]
+            Rk = R[k]
+            for j in range(C):
+                if Rk[j]:
+                    c[j] -= f * Rk[j]
+    return [c[j] for j in free], val
+
+
 def reduced_for(doc, ctx, memo):
     """
     The row reduction of [S; P_cfg], cached per configuration.
@@ -250,6 +313,8 @@ def reduced_for(doc, ctx, memo):
 def check_witness(doc, ctx, note, memo=None):
     d, C, srows, srhs, pins, blocks = ctx
     sel = select(pins, doc)
+    if doc["kind"] == "lp_infeasible":
+        return check_lp_infeasible(doc, ctx, note, memo)
     if doc["kind"] == "feasible":
         w = [rat(t) for t in doc["point"]]
         if len(w) != C:
@@ -373,6 +438,15 @@ def mutations(doc):
             m = copy.deepcopy(doc)
             m["generators"] = m["generators"][1:]
             out.append(("one generator dropped", m))
+    elif doc["kind"] == "lp_infeasible":
+        for j in (0, len(doc["y"]) // 2):
+            m = copy.deepcopy(doc)
+            m["y"][j] = "0/1"
+            out.append((f"y entry {j} zeroed", m))
+        m = copy.deepcopy(doc)
+        m["y"] = [("-" + t if not t.startswith("-") else t[1:])
+                  for t in m["y"]]
+        out.append(("y negated", m))
     else:
         m = copy.deepcopy(doc)
         for b, Yb in enumerate(m["Y"]):
