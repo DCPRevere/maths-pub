@@ -2218,9 +2218,18 @@ rejected. Anything less is stated as what it is.
       has not completed is the assembled $1274 times 1274$ factorisation —
       check [4] of the standard — and block definiteness is not assembled
       definiteness, so the cell is not settled],
-    [$(8,4)$], [not settled], [an exact witness is stored; the inexpensive
-      checks are under way and the assembled-Gram factorisation has not
-      been attempted],
+    [$(8,4)$], [not settled; one check short of anchor grade], [on the
+      stored exact witness `n8_H2_201.json`, five of the six checks of the
+      $(5,4)$ standard hold: the full-monomial identity over all 496,448
+      coefficients, computed in two parts that sum exactly; $sigma_k$ by
+      two structurally different algorithms; the bound $1021\/512$;
+      equality only at $J_8\/8$; mutation tests rejected — and the
+      conjugacy is proved exactly, all 64 transporters inducing basis
+      bijections. Positivity holds block-wise: all 21 canonical blocks
+      positive definite over $QQ$, least pivot $1.960 times 10^(-5)$. What
+      has not run is the assembled $2144 times 2144$ factorisation — check
+      [4] of the standard — and block definiteness is not assembled
+      definiteness, so the cell is not settled],
     [$(9,4)$], [not settled], [no witness exists: the exact solve exceeded
       available memory at this size. Nothing is stored, and nothing is
       claimed],
