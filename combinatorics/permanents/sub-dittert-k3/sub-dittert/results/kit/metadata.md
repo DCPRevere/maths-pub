@@ -2,9 +2,10 @@
 
 ## Title
 
-The Cheon–Hwang Sub-Dittert Conjecture at k = 3, for Every Dimension
+The Cheon–Hwang Sub-Dittert Conjecture at k = 3 and k = 4
 
-Subtitle: with a decomposition of the deficit uniform in n and k
+Subtitle: with a stability form of the Tverberg–Friedland theorem and a
+decomposition of the deficit uniform in n and k
 
 ## Author
 
@@ -35,17 +36,25 @@ D C P Revere, dcprevere@gmail.com. Unaffiliated; no institution line.
   Sturm-sequence positivity decisions and the exact rational rounding and
   verification pipeline.
 - **68V20** (secondary) — Formalisation of mathematics in connection with
-  theorem provers. Every result the paper states as a theorem is proved in
-  Lean 4 and cited by declaration name, and two of them (Newton's inequalities
-  and Maclaurin's inequality, absent from Mathlib v4.14.0) are contributed as
-  formalisations of classical mathematics rather than as new results.
+  theorem provers. The k = 3 line and the k = 2, 3, 4 stability cells are
+  proved in Lean 4 and cited by declaration name at pinned commits, and two results
+  (Newton's inequalities and Maclaurin's inequality, absent from Mathlib
+  v4.14.0) are contributed as formalisations of classical mathematics rather
+  than as new results. The paper grades every claim by support layer
+  (kernel-checked / exact-verifier / verified computation), and two of its
+  exact verifiers parse the paper's own displayed numbers so displayed and
+  checked cannot drift.
+- **15B51** (secondary) — Stochastic matrices. The Tverberg–Friedland
+  stability theorem (Theorem G) lives on the doubly stochastic polytope, and
+  the k = 4 argument runs on a collar around it.
 
 ## Keywords
 
-permanent, Dittert's conjecture, Cheon–Hwang conjecture, doubly stochastic
-matrix, Positivstellensatz certificate, semidefinite programming, symmetry
-reduction, Bose–Mesner algebra, Sturm sequence, elementary symmetric function,
-Newton's inequalities, Maclaurin's inequality, computer-assisted proof, Lean 4,
+permanent, subpermanent sum, Dittert's conjecture, Cheon–Hwang conjecture,
+doubly stochastic matrix, Tverberg–Friedland theorem, stability inequality,
+Positivstellensatz certificate, semidefinite programming, symmetry reduction,
+Bose–Mesner algebra, Sturm sequence, elementary symmetric function, Newton's
+inequalities, Maclaurin's inequality, computer-assisted proof, Lean 4,
 formalised mathematics, exact rational verification
 
 ## Suggested venues
@@ -83,20 +92,30 @@ formalised mathematics, exact rational verification
   formalisation is to be surfaced. Every stated theorem is Lean-checked, and
   the Newton/Maclaurin file is a Mathlib PR candidate in its own right.
 
-## Timing note — the priority claim is the most perishable in this series
+## Timing note — the priority claims are the most perishable in this series
 
 The paper's own §2.1 records that the $k=n$ (Dittert) endpoint moved
 publicly and repeatedly within a single week in July 2026, three of the
-claims in public repositories with no corresponding preprint, and its §11
-calls the "first resolved case with $2<k<n$" claim perishable. Since the
-2026-07-29 rewrite that claim attaches to Theorem A alone — the five
-fixed-dimension anchors, including $(5,4)$, are no longer stated as theorems,
-because they have no Lean support — so the sweep needs to clear the line
-$k = 3$ for $n \ge 4$, not the single pair $(5,4)$ as well. The search
-behind that claim must be re-run before the draft is submitted anywhere; the
-instruction and the query list live in `README-reproduce.md` §9 and §9a, not
-in the paper. This kit's own interim competitor check (below) is not a
-substitute for that re-run; it is a narrower, same-day sanity check.
+claims in public repositories with no corresponding preprint — and, taken
+with the two preprints, one repository (`pedromnasc`) now presents an
+unrefereed assembly claiming Dittert in full. The paper takes no view on its
+correctness and keeps its own priority claims narrowed to what the Lean
+development and the exact verifiers carry, at each part's stated grade.
+
+Since the 2026-07-30 merge the paper carries two priority claims and one
+subordinate one: (1) Theorem A is the first resolved case of Cheon–Hwang
+with $2<k<n$ — attaches to the kernel-checked $k=3$ line, so the sweep needs
+to clear $k = 3$ for $n \ge 4$; (2) Theorem G is claimed as the first
+stability form of the Tverberg–Friedland theorem, with the machine-checked
+half of that claim scoped to the $k = 2, 3, 4$ cells (the paper's stability
+addendum states the scope; sweep terms should include "Tverberg",
+"Friedland", "stability", "subpermanent"); (3) Theorem H extends the
+resolved range at written-proof + exact-verifier grade, and its claim is
+explicitly subordinate to its grade. The searches behind all of these must
+be re-run before the draft is submitted anywhere; the instruction and the
+query list live in `README-reproduce.md` §9 and §9a, not in the paper. This
+kit's own interim competitor check (below) is not a substitute for that
+re-run; it is a narrower, same-day sanity check.
 
 ### Interim competitor probe, run for this kit-readiness pass — NOT the ship-day check
 

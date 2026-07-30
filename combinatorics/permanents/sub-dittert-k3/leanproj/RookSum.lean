@@ -279,25 +279,26 @@ theorem subP_apply {k : ℕ} {S T : Finset (Fin n)} (hS : S.card = k) (hT : T.ca
   rfl
 
 /-- Reordering the rows of a subpermanent by a fixed permutation, and summing over
-the column permutation, is `k!` copies of the subpermanent. -/
-private theorem perm_double (A : Matrix (Fin n) (Fin n) ℝ) {S T : Finset (Fin n)}
-    (hS : S.card = 3) (hT : T.card = 3) :
-    (∑ τ : Equiv.Perm (Fin 3), ∑ σ : Equiv.Perm (Fin 3),
+the column permutation, is `k!` copies of the subpermanent.  Stated at every `k`: the proof
+uses `Fin k` only as a Fintype and `Equiv.Perm (Fin k)` only as a group. -/
+theorem perm_double (A : Matrix (Fin n) (Fin n) ℝ) {S T : Finset (Fin n)}
+    (hS : S.card = k) (hT : T.card = k) :
+    (∑ τ : Equiv.Perm (Fin k), ∑ σ : Equiv.Perm (Fin k),
         ∏ a, A (S.orderEmbOfFin hS (τ a)) (T.orderEmbOfFin hT (σ a)))
-      = 6 * ∑ ρ : Equiv.Perm (Fin 3),
+      = (k.factorial : ℝ) * ∑ ρ : Equiv.Perm (Fin k),
           ∏ a, A (S.orderEmbOfFin hS (ρ a)) (T.orderEmbOfFin hT a) := by
-  have inner : ∀ τ : Equiv.Perm (Fin 3),
-      (∑ σ : Equiv.Perm (Fin 3), ∏ a, A (S.orderEmbOfFin hS (τ a)) (T.orderEmbOfFin hT (σ a)))
-        = ∑ ρ : Equiv.Perm (Fin 3),
+  have inner : ∀ τ : Equiv.Perm (Fin k),
+      (∑ σ : Equiv.Perm (Fin k), ∏ a, A (S.orderEmbOfFin hS (τ a)) (T.orderEmbOfFin hT (σ a)))
+        = ∑ ρ : Equiv.Perm (Fin k),
             ∏ a, A (S.orderEmbOfFin hS (ρ a)) (T.orderEmbOfFin hT a) := by
     intro τ
-    let E : Equiv.Perm (Fin 3) ≃ Equiv.Perm (Fin 3) :=
+    let E : Equiv.Perm (Fin k) ≃ Equiv.Perm (Fin k) :=
       { toFun := fun σ => τ * σ⁻¹
         invFun := fun ρ => (τ⁻¹ * ρ)⁻¹
         left_inv := by intro σ; simp [mul_assoc]
         right_inv := by intro ρ; simp [mul_assoc] }
     rw [← Equiv.sum_comp E
-        (fun ρ : Equiv.Perm (Fin 3) =>
+        (fun ρ : Equiv.Perm (Fin k) =>
           ∏ a, A (S.orderEmbOfFin hS (ρ a)) (T.orderEmbOfFin hT a))]
     refine Finset.sum_congr rfl fun σ _ => ?_
     rw [show E σ = τ * σ⁻¹ from rfl]
@@ -306,7 +307,6 @@ private theorem perm_double (A : Matrix (Fin n) (Fin n) ℝ) {S T : Finset (Fin 
     exact Finset.prod_congr rfl fun a _ => by simp
   rw [Finset.sum_congr rfl fun τ (_ : τ ∈ univ) => inner τ, Finset.sum_const, Finset.card_univ,
     Fintype.card_perm, Fintype.card_fin, nsmul_eq_mul]
-  norm_num [Nat.factorial]
 
 /-- **`6 σ_3` as a doubly ordered rook sum.**  The two `Finset.powersetCard` layers
 of the definition become two sums over injections `Fin 3 → Fin n`. -/
@@ -333,6 +333,7 @@ theorem sigma_three_emb (A : Matrix (Fin n) (Fin n) ℝ) :
       embSum_of_card (F := fun g : Fin 3 → Fin n =>
         ∏ a, A (S.orderEmbOfFin hS3 (τ a)) (g a)) hT3]
   rw [perm_double A hS3 hT3, subP_apply hS3 hT3]
+  norm_num [Nat.factorial]
 
 /-- **The rook sum as a plain six-fold sum against the two distinctness indicators.** -/
 theorem rook_three_triple (A : Matrix (Fin n) (Fin n) ℝ) :
@@ -555,12 +556,42 @@ end Sigma3
 
 section AxiomAudit
 
+#print axioms embSum
+#print axioms embSum_of_card
+#print axioms permEmb
+#print axioms map_permEmb
+#print axioms exists_perm_eq
+#print axioms sum_fiber
 #print axioms sum_emb_eq_sum_powersetCard
+#print axioms injective_three
+#print axioms sum_fun_three
 #print axioms sum_emb_three
 #print axioms sum_distinct_three
+#print axioms sum_pair
+#print axioms prod_three_sums
+#print axioms swap_of_three
+#print axioms swap_of_four
+#print axioms subP
+#print axioms sigP
+#print axioms subP_apply
+#print axioms perm_double
 #print axioms sigma_three_emb
 #print axioms rook_three_triple
+#print axioms W
+#print axioms inner_sieve
+#print axioms colProd
+#print axioms l1
+#print axioms l2
+#print axioms l3
+#print axioms l4
+#print axioms l5
+#print axioms l6
+#print axioms l7
+#print axioms l8
+#print axioms l9
+#print axioms l10
 #print axioms sigma_three_closed
+#print axioms prod_orderEmbOfFin
 #print axioms esym_three_closed
 
 end AxiomAudit

@@ -168,7 +168,11 @@ supporting lemmas, but not every private definition; the one declaration the
 paper names without an audit line is `choose_subset_of_subset`, mentioned only as
 a Mathlib PR candidate and backing no stated result. Per-file coverage
 (audited / named declarations): K3 377/377, Maclaurin 6/6, K2 17/18, M 13/14,
-Universal 21/25, Linear 37/46, Newton 33/39, RookSum 7/38.
+Universal 21/25, Linear 37/46, Newton 33/39, RookSum 7/37. (The RookSum
+denominator previously read 38: a docstring line beginning "theorem there
+is `rfl`..." was counted as a declaration named `there` by a
+column-anchored regex. True declaration count at `32c811e`: 37. The
+current tree audits all 37 — see `LEAN-COVERAGE.md`.)
 
 Partial coverage is not a gap, and the reason is worth stating because a count
 invites the wrong inference: `#print axioms` reports the axioms of the
@@ -181,6 +185,24 @@ those cannot affect a stated result.
 `NewtonCrosscheck.lean` adds 12 more and is deliberately **outside**
 the lakefile: it is a second, independent proof of Theorem F, stored as
 evidence, and elaborates with `lake env lean NewtonCrosscheck.lean`.
+
+**Theorem G's files** are additional to the eight above:
+`StabilityK3.lean` (33 audited; `stabilityAt_two`, `stabilityAt_three`,
+`three_threshold_not_slack`), `TverbergStability.lean` (21 audited;
+`StabilityAt`, `cVal`, `witness33`, `not_stabilityAt_three_three`, the
+`phiPoly` threshold layer), `LayerIdentity.lean` (28 audited;
+`layer_identity` at every k under the weak hypothesis), `SigmaFour.lean`
+(46 audited; `sigma_four_centred`, the (4.3) core expansion at every centred
+B) and `StabilityK4.lean` (14 audited; `stabilityAt_four`, the
+kernel-checked $(k=4, n\ge8)$ cell). The paper cites them at their own
+commits — `1507013` for the first two, `27bda3f`, `365e44e` and `944b517`
+respectively for the rest — and `graded_verify_stability.py`'s V12 (§7a)
+checks the paper's scope claims against exactly those commits, with the
+orphan diff and the sorry scan. `StabilityK5Atoms.lean` (15 audited, commit
+`f2bdc7f`) is partial atom coverage at k = 5 — the paper cites it as
+exactly that, and the (k = 5, n ≥ 14) cell stays at written-proof +
+exact-verifier grade. Re-elaboration follows the same procedure as above;
+per-file counts are in `LEAN-COVERAGE.md`.
 
 One declaration, `NewtonIneq.choose_mul_sub`, returns the strict subset
 `[propext, Quot.sound]`; every other audited declaration returns exactly
@@ -284,6 +306,75 @@ from-the-1992-definition objective, at three random rational points for each
 of $n=4,5,6,7$ (12 checks), at $J_n/n$ where the value must vanish (4
 checks), and one mutation control. All 17 checks: `True`. `ALL OK: True`.
 
+## 7a. The two graded verifiers — Theorems G, H and I — RUN LIVE
+
+The 2026-07-30 merge made `paper_b.typ` the single sub-Dittert paper: it now
+also carries Theorem G (the Tverberg–Friedland stability theorem), Theorem H
+($k = 4$, every $n \ge 10$) and Theorem I (threshold insensitivity), each
+graded by support layer. Two further exact verifiers came with them. **Both
+parse the merged paper itself** — the k = 4 sensitivity table, and the
+stability part's displayed audit counts — so they must run from a tree that
+has `results/paper_b.typ`, with `sub-dittert/` as the working directory.
+
+**Theorem G.** `graded_verify_stability.py` is standalone: standard library
+only, no imports from the directory. V1–V11 verify the layer identity, the
+core expansions, the four slice facts, every one-sided estimate with its
+slack ratio, the per-layer bounds, the closed forms and thresholds, the
+theorem end to end at every covered cell, the (3,3) counterexample and the
+sharpness proposition — all over exact rationals. V12 verifies the paper's
+formalisation-scope claims against the Lean sources **at the pinned
+commits** (`git show`, never the working tree): `StabilityK3.lean` and
+`TverbergStability.lean` at `1507013`, `LayerIdentity.lean` at `27bda3f`,
+`StabilityK4.lean` at `944b517` (the kernel-checked $(k=4, n\ge8)$ cell,
+`stabilityAt_four`) and `SigmaFour.lean` at `365e44e`
+(`sigma_four_centred`). It parses the paper's displayed audit counts — the
+four "N of N declarations" pairs and the 121 total — back out of
+`results/paper_b.typ` so displayed and measured cannot drift.
+
+```
+GUARD_MEM=6G GUARD_CPUS=200% GUARD_THREADS=2 ../guard.sh \
+    python3 -u graded_verify_stability.py
+```
+
+**RUN LIVE 2026-07-30: 5.9 s, TOTAL FAILURES: 0, ALL CHECKS PASS**, against
+the merged paper with the k = 4 cell upgraded. `--mutate` reruns the
+mutation controls alone — **RUN LIVE: ALL CONTROLS FIRE**. Logs:
+`results/graded_verify_stability.log`, `results/graded_verify_mutate.log`.
+
+V12 needs a repository history containing the four pinned commits. From a
+tree without them (a public extract's history differs), run with
+`--no-lean`: the log then **records** that the formalisation-scope claims
+went unchecked in that run instead of passing them quietly — the verifier's
+own designed behaviour, stated in the paper.
+
+**Theorems H and I.** `graded_verify_k4.py` recomputes every displayed
+quantity of the paper's k = 4 part over $\mathbb{Q}$ — the expansion and the
+exactly-zero d = 2 cross part, the end-to-end identity against the 1992
+functional, the five cross-term reductions against brute force, the merge on
+both signs of $\sum z^3$, the four collar facts, every budget line — and
+parses the ten-row sensitivity table out of `results/paper_b.typ`,
+recomputing every row and the flat-at-10 band. Four mutation controls, each
+with a separating witness. Unlike the stability script it imports the
+instrument modules it declares: `graded_assembly_k4.py`, `graded_layers.py`,
+`graded_lemmaB.py`, `graded_y_bounds.py`, `pincer_line.py`,
+`pincer_onesided.py` — that list is the whole transitive closure, and those
+six files must ship wherever the verifier does.
+
+```
+GUARD_MEM=8G GUARD_CPUS=250% GUARD_THREADS=2 ../guard.sh \
+    python3 -u graded_verify_k4.py
+```
+
+**RUN LIVE 2026-07-30: 4.9 s, TOTAL FAILURES: 0, ALL CHECKS PASS**, log
+line "parsed 10 rows" confirming the paper coupling. Log:
+`results/graded_verify_k4.log`.
+
+**Superseded drafts.** The stand-alone drafts `graded_k4_paper.md` and
+`graded_stability_lemma.md` are superseded by the merged paper and carry
+headers saying so; the verifiers no longer read them. Whether the superseded
+drafts ship publicly is a manifest decision — nothing in this kit depends on
+them.
+
 ## 8. Compiling the paper itself
 
 ```
@@ -291,13 +382,14 @@ cd ../sub-dittert/results
 typst compile paper_b.typ
 ```
 
-Tested with `typst 0.15.1`. Produces `paper_b.pdf`, **20 pages**, compiles
-clean. (Earlier notes here said 15 and then 16. The paper grew to 20 on
-2026-07-29 when Theorems C–F — the uniform decomposition, `k = 2`, the
-confinement and the Newton/Maclaurin formalisation — were added, the
-fixed-dimension anchors were demoted out of theorem status to match
-`LEAN-COVERAGE.md`, and the file manifest moved out of the paper into this
-kit.)
+Tested with `typst 0.15.1`. Produces `paper_b.pdf`, **38 pages**, compiles
+clean. (Earlier notes here said 15, 16, then 20. The paper grew to 20 on
+2026-07-29 when Theorems C–F were added and the fixed-dimension anchors were
+demoted out of theorem status to match `LEAN-COVERAGE.md`; it grew to 38 on
+2026-07-30 when the stability part (Theorem G), the k = 4 part (Theorems H
+and I) and the per-cell anchor records at $(k=4, 5 \le n \le 9)$ were merged
+in, making it the single sub-Dittert paper. The title changed in the same
+pass.)
 
 ## 9. Search record
 
@@ -330,8 +422,10 @@ in §2.2.
 - [ ] Re-run the code-host sweep above. The paper's §2 records that the $k=n$
       endpoint moved three times in one week in July 2026, so the "first
       resolved case with $2<k<n$" claim is the most perishable statement in
-      the paper. It now attaches to Theorem A alone: the $(5,4)$ anchor is no
-      longer stated as a theorem. `metadata.md`'s interim probe is a same-day sanity check,
+      the paper. It attaches to Theorem A; Theorem H's extension of the
+      resolved range is explicitly subordinate to its written-proof +
+      exact-verifier grade, and the $(5,4)$ anchor is not stated as a
+      theorem. `metadata.md`'s interim probe is a same-day sanity check,
       not this sweep.
 - [ ] Re-check the four repositories of the paper's [11] for new commits and
       for scope changes to their READMEs; update the access date in [11] if
@@ -341,6 +435,14 @@ in §2.2.
       unrefereed preprints.
 - [ ] Confirm the §2.1 table caption date still matches the date of the last
       sweep.
+- [ ] Run the Theorem G sweep alongside the Cheon–Hwang one: the paper
+      claims the first stability form of the Tverberg–Friedland theorem
+      (machine-checked half scoped to k = 2, 3, 4). Terms: "Tverberg",
+      "Friedland", "stability", "subpermanent", "permanent stability",
+      across the literature indexes AND the code hosts.
+- [ ] Re-check the per-cell anchor table at (k = 4, 5 <= n <= 9): any cell
+      upgraded after the paper's date must be re-graded in the table, and
+      the k = 4 claim restated if all five reach exact-verifier grade.
 
 ## 10. What none of the above establishes
 
@@ -410,6 +512,15 @@ otherwise. This is the list the paper's "Data availability" section points to.
 | `results/witness/` | one JSON per (dimension, configuration): Farkas generators and their value, or the rational point and its least $LDL$ pivot |
 | `results/verify_pinretest.py` | standalone verifier for those witnesses; own elimination, own $LDL^\mathsf{T}$, own rank check, `--mutate` controls |
 | `NOTES-ALLK.md` §10, `NOTES.md` §6b.37–6b.43 | the working record behind §10 of the paper (private tree only; the `NOTES*.md` files are not part of the public extract) |
+
+### The stability and k = 4 parts (Theorems G, H, I)
+
+| file | contents |
+|---|---|
+| `graded_verify_stability.py` | standalone verifier for Theorem G (standard library only); V12 reads the Lean sources at the pinned commits and the paper's own displayed counts |
+| `graded_verify_k4.py` | verifier for Theorems H and I; parses the paper's sensitivity table out of `results/paper_b.typ` |
+| `graded_assembly_k4.py`, `graded_layers.py`, `graded_lemmaB.py`, `graded_y_bounds.py`, `pincer_line.py`, `pincer_onesided.py` | the instrument modules `graded_verify_k4.py` imports — its whole transitive closure |
+| `results/graded_verify_stability.log`, `results/graded_verify_mutate.log`, `results/graded_verify_k4.log` | the stored runs behind §7a |
 
 ### Lean (`problems/permanents/leanproj/`)
 

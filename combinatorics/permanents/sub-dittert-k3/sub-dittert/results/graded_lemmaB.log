@@ -1,0 +1,121 @@
+==========================================================================
+THE (k = 4) HONEST COLUMN AS A FUNCTION OF LEMMA B's CONSTANT
+==========================================================================
+
+PART 0.  GLOBAL, NOT PATCHED: a line-by-line scaling audit.
+  The violation occurs from (k = 3, n = 4) upward at perturbations as
+  small as t = 1/60, so the slice constant is globally unavailable and
+  the re-run must parametrise EVERY line that uses it, not two cells.
+  Audit: recompute every line at c and at 2c and report the ratio.
+  1.000 = independent of the constant, 1.414 = square root, 2.000 =
+  linear.  The c-dependent set must be exactly {core4, y3q, y3l}.
+
+   line   |  ratio at n=10 |  ratio at n=16 | reading
+   core3  |       1.000000 |       1.000000 | independent
+   core4  |       2.000000 |       2.000000 | linear
+   xinv   |       1.000000 |       1.000000 | independent
+   y3q    |       1.414214 |       1.414214 | sqrt
+   tail   |       1.000000 |       1.000000 | independent
+   x1     |       1.000000 |       1.000000 | independent
+   y1     |       1.000000 |       1.000000 | independent
+   y2     |       1.000000 |       1.000000 | independent
+   y3l    |       1.414214 |       1.414214 | sqrt
+
+  c-dependent lines: ['core4', 'y3l', 'y3q']   expected ['core4', 'y3l', 'y3q']   match True
+
+  TWO FACTS I DO NOT INHERIT, checked rather than assumed:
+  (i) the xinv line contains a factor sqrt(1 - 1/n) that LOOKS like the
+      slice constant but is not: it comes from V <= 2Q(M - Q/n) with
+      M <= Q, and M <= Q is unconditional since M = max_i r_i <=
+      sum_i r_i = Q.  The audit above confirms xinv does not scale
+      with c, so it is correctly left fixed.
+  (ii) the ENTRY bound is a separate fact and I never use its slice
+      form.  My m = 3 line uses the PER-ENTRY bound
+      z_ij >= -(1/n + x_i + y_j), which follows from A >= 0 alone, and
+      carries the Xinv correction through the merge with total
+      coefficient (3n-4)/3.  So the entry-bound question, refuted or
+      not, does not touch this column.
+
+PART 1.  EXPOSURE: what fraction of the honest column rides on M_z,
+         and with what power, at each n.
+  core4 is LINEAR in M_z; y3q and y3l ride on sqrt(M_z); core3, Xinv,
+  tail, X_1, Y_1, Y_2 are independent of it.
+
+   n | Q total | core4 (linear) | y3q (sqrt) | linear share | any-B share
+   8 |  1.4930 |         0.6085 |     0.2491 |       0.4076 |      0.5744
+   9 |  1.0182 |         0.3992 |     0.1363 |       0.3921 |      0.5259
+  10 |  0.7413 |         0.2807 |     0.0813 |       0.3786 |      0.4882
+  11 |  0.5654 |         0.2075 |     0.0517 |       0.3670 |      0.4584
+  12 |  0.4464 |         0.1594 |     0.0345 |       0.3570 |      0.4344
+  14 |  0.2997 |         0.1022 |     0.0173 |       0.3409 |      0.3986
+  16 |  0.2157 |         0.0709 |     0.0097 |       0.3286 |      0.3735
+  20 |  0.1276 |         0.0397 |     0.0038 |       0.3111 |      0.3409
+
+  MEASURED, not asserted: at n = 10 the LINEAR share is 0.379 and the
+  total Lemma-B exposure 0.488 -- about a third linear and about half in
+  total, falling to 0.311 and 0.341 by n = 20.  (An earlier draft of
+  this line said 'roughly three quarters', which the table does not
+  support; the numbers above are the numbers.)  So the constant matters
+  to about half the column, not to almost all of it -- which is already
+  a hint at PART 4's answer.
+
+PART 2.  THRESHOLDS AT EACH SCENARIO.
+
+   scenario                              | c        | honest | cond
+   slice value (FALSE on the collar)     |     1.00 | 9      | 8
+   real-geometry floor, low end (n = 11) |     1.58 | 10     | 8
+   real-geometry floor, high end (n = 10) |     1.63 | 10     | 8
+   pincer collar cap, low end            |     2.34 | 10     | 8
+   pincer collar cap, high end           |     2.53 | 10     | 8
+   my own crude substitute               |   varies | 10     | 9
+
+  my substitute's c, for comparison with pincer's 2.34-2.53:
+   n  |  c (mine)
+   8  |    3.4140
+  10  |    2.7551
+  11  |    2.5404
+  12  |    2.3709
+  16  |    1.9474
+  20  |    1.7213
+
+PART 3.  THE TABLE AT PINCER'S CAP AND AT THE FLOOR.
+
+   n | Q (c=1.63 floor) | Q (c=2.34) | Q (c=2.53) | LINE   | 1.63 | 2.53
+   9 |           1.0182 |     1.2191 |     1.2721 | 0.4417 | False | False
+  10 |           0.7413 |     0.8797 |     0.9163 | 0.3018 | True | True
+  11 |           0.5654 |     0.6661 |     0.6927 | 0.2173 | True | True
+  12 |           0.4464 |     0.5226 |     0.5429 | 0.1629 | True | True
+  13 |           0.3619 |     0.4216 |     0.4374 | 0.1261 | True | True
+  14 |           0.2997 |     0.3476 |     0.3603 | 0.1001 | True | True
+  15 |           0.2524 |     0.2917 |     0.3022 | 0.0812 | True | True
+  16 |           0.2157 |     0.2484 |     0.2572 | 0.0670 | True | True
+  17 |           0.1865 |     0.2142 |     0.2216 | 0.0562 | True | True
+  18 |           0.1629 |     0.1867 |     0.1931 | 0.0477 | True | True
+  19 |           0.1436 |     0.1642 |     0.1697 | 0.0410 | True | True
+  20 |           0.1276 |     0.1456 |     0.1504 | 0.0355 | True | True
+
+PART 4.  WHAT A SHARPER LEMMA B WOULD BUY.
+   c    | honest threshold
+   1.00 | 9
+   1.25 | 9
+   1.50 | 9
+   1.63 | 10
+   2.00 | 10
+   2.34 | 10
+   2.53 | 10
+   3.00 | 11
+   4.00 | 11
+
+  THE ANSWER TO THE DECIDING QUESTION.  The honest threshold is FLAT at
+  n >= 10 across the entire admissible range 1.63 <= c <= 2.53.  Since
+  the real geometry forces c >= 1.63, and my own crude substitute
+  (c = 2.76 at n = 10) already lands on 10, sharpening Lemma B buys
+  NOTHING for the honest column.  Only c <= 1.5 would give 9, and the
+  constructed violation rules that out.
+  BUT IT DOES HELP THE CONDITIONAL COLUMN: 9 with my substitute, 8 with
+  pincer's cap.  The conditional core4 uses the parked eps and so is
+  Lemma-B-free, but y3q and y3l still ride on sqrt(M_z), and at n = 8
+  my substitute's c = 3.41 against the cap's 2.53 is the whole
+  difference.  So the cap is worth one step, on the conditional route
+  only.
+

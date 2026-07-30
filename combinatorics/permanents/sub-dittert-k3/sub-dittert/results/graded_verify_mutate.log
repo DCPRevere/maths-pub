@@ -1,0 +1,76 @@
+==========================================================================
+STANDALONE VERIFIER -- stability lemma for subpermanent sums
+MODE: --mutate, mutation controls only
+==========================================================================
+
+V10. MUTATION CONTROLS.  A verifier that never rejects proves nothing.
+     Each control injects one deliberate fault and confirms that the
+     check which is supposed to catch it does reject.  Failures raised
+     inside a control are counted separately and do NOT affect the
+     verdict above; only a control that fails to FIRE is a real
+     failure.
+
+     M1  the constant doubled: require F >= (t_2/2) Q, which Proposition 6 says is impossible
+       fault injected at : const_doubled
+       must be caught by : V7 (theorem end to end)
+       rejections raised : 11   -> FIRES
+
+     M2  sign flip on Y_R in the sigma_4 core expansion (4.3), -3/4 becomes +3/4
+       fault injected at : sign_flip
+       must be caught by : V2 (core expansions vs brute force)
+       rejections raised : 3   -> FIRES
+
+     M3  each threshold lowered by one, so an excluded cell is claimed as covered
+       fault injected at : bad_threshold
+       must be caught by : V6c (the all-n polynomial argument)
+       rejections raised : 3   -> FIRES
+
+     M4  the p_3 estimate over-tightened to p_3 >= -(1/n^2) Q
+       fault injected at : tight_p3
+       must be caught by : V4 (per-invariant estimates)
+       rejections raised : 4   -> FIRES
+
+     The next five faults are scope faults: each is a way for Section
+     10 to claim more, or less, formalisation than the Lean sources
+     carry.  The separating witness is named on each line, because a
+     control whose witness cannot tell the two apart proves nothing.
+
+     M5  the formalised cell at k = 3 claimed as n >= 3, one below what Lean proves   [separating witness: 3 != 4, and the Lean hypothesis is 4 <= n]
+       fault injected at : lean_cell
+       must be caught by : V12 (formalised cells vs the Lean hypotheses)
+       rejections raised : 1   -> FIRES
+
+     M6  the paper's constant doubled, so cVal would no longer be c(n,k)   [separating witness: c(n,k) > 0 on the tested grid, which V12 asserts, so a factor two is visible]
+       fault injected at : lean_const
+       must be caught by : V12 (cVal compared as a rational function)
+       rejections raised : 1   -> FIRES
+
+     M7  Lean's phiPoly_k truncated after its leading term   [separating witness: P_k is non-constant, which V12 asserts, so truncation changes its values]
+       fault injected at : lean_polys
+       must be caught by : V12 (Lean's P_k vs this verifier's own)
+       rejections raised : 3   -> FIRES
+
+     M8  a cell the paper calls unformalised (k = 5) replaced by one that IS formalised (k = 2)   [separating witness: stabilityAt_two is present, so the absence test must reject it]
+       fault injected at : lean_phantom
+       must be caught by : V12 (the absence test, with its non-vacuity check)
+       rejections raised : 1   -> FIRES
+
+     M9  one name dropped from the parsed audit block, as an unaudited declaration would appear   [separating witness: the declaration set is non-empty, which V12 asserts]
+       fault injected at : lean_orphan
+       must be caught by : V12 (the orphan diff, all four files)
+       rejections raised : 5   -> FIRES
+
+     M10 Lemma 2's formalisation claimed to need double stochasticity, which would make it no stronger than the paper's own hypothesis   [separating witness: `doublyStochastic` is findable -- it occurs in StabilityK3 -- so its absence from layer_identity is measured]
+       fault injected at : lean_weak
+       must be caught by : V12 (the hypotheses of layer_identity)
+       rejections raised : 1   -> FIRES
+
+     Control on the controls: with no fault injected, these same routines
+     (V2, V4, V6c, V7, V12) raise nothing -- that is the clean run
+     reported above.  So each rejection above is caused by its fault
+     and not by the routine being flaky.
+
+==========================================================================
+TOTAL FAILURES: 0
+VERDICT: ALL CONTROLS FIRE
+==========================================================================

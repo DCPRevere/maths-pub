@@ -1,58 +1,82 @@
 Cheon and Hwang conjectured in 1992 that E_k(r) + E_k(c) - P_k(A) <= 2 - k!/n^k
 for every non-negative n x n matrix of total sum n and every 1 <= k <= n, with
-equality only at J_n/n; the endpoint k = n is Dittert's conjecture. We prove
-the case k = 3 for every n >= 4 -- the inequality, the equality case, and a
-quantitative strengthening of both -- by a single Positivstellensatz
-certificate whose nineteen symmetry-reduced coefficients are explicit rational
-functions of n. The strengthening is
+equality only at J_n/n; the endpoint k = n is Dittert's conjecture. This paper
+works the intermediate range 2 < k < n on two lines, and proves a stability
+theorem that the second line consumes. The results rest on different support
+layers -- kernel-checked in Lean 4, or written proofs with an exact rational
+verifier -- and each claim is graded explicitly; the grading is part of the
+claim.
 
-    (2 - 6/n^3) - [E_3(r) + E_3(c) - P_3(A)]  >=  theta_2(n) * ||A - J_n/n||_F^2
+The line k = 3, every n >= 4: the inequality, the equality case, and the
+quantitative strengthening
 
-with theta_2(n) = (n^4 + 40 n^2 - 84 n + 40) / (n^5 (n-1)^3 (n-2)), which
-contains the equality case as the special case where the left side vanishes.
-Together with Hwang's 1987 theorem at n = 3 this settles k = 3 in every
-dimension. The proof is uniform in n because the governing degree is k, not n:
-the symmetry-reduced program has the same 12 x 19 shape at every dimension, so
-its solution is computed once over Q(n). Positive definiteness of the two
-n^2 x n^2 Gram matrices is reduced in closed form -- Bose-Mesner algebra of the
-rook's graph for one, the representation theory of S_(n-1) for the other -- to
-the positivity of ten rational functions of n (nine independent; the tenth
-equals one of the other nine divided by n), each decided on n >= 4 by a Sturm
-sequence over Q.
+    (2 - 6/n^3) - [E_3(r) + E_3(c) - P_3(A)]  >=  theta_2(n) * ||A - J_n/n||_F^2,
+    theta_2(n) = (n^4 + 40 n^2 - 84 n + 40) / (n^5 (n-1)^3 (n-2)),
 
-The k = 3 certificate sits inside an exact decomposition of the deficit that is
-uniform in n and in k. The case k = 2, which is classical, follows from that
-decomposition in a few lines; we give the derivation and a machine-checked
-proof. We also formalise, for every 2 <= k <= n, the confinement of any
-violator to a shrinking neighbourhood of the Birkhoff polytope -- at k = n this
-is Theorem 2.1 of Cheon and Wanless 2012, and the extension to all k is a
-routine transfer of their method -- together with the Newton and Maclaurin
-inequalities that the confinement consumes, neither of which is in Mathlib.
-Every result stated below as a theorem is proved in Lean 4 with no sorry and on
-Lean's standard axioms, and is cited by its declaration name.
+by a single Positivstellensatz certificate whose nineteen symmetry-reduced
+coefficients are explicit rational functions of n: the governing degree is k,
+not n, so the reduced program has the same 12 x 19 shape at every dimension and
+is solved once over Q(n), with definiteness of the two n^2 x n^2 Grams reduced
+in closed form to ten rational functions of n decided by Sturm sequences. This
+part is machine-checked end to end (subDittert_k3_full): no sorry, Lean's
+standard axioms. With Hwang's 1987 theorem at n = 3, the line k = 3 is settled
+in every dimension.
+
+A stability form of the Tverberg-Friedland theorem. On the doubly stochastic
+polytope the excess of sigma_k over its minimum at J_n/n is at least
+C(n,k)^2 c(n,k) ||A - J_n/n||_F^2 with c(n,k) = k(k-1)k!/(4 n^k (n-1)^2), for
+k = 2 (every n >= 2), k = 3 (every n >= 4), k = 4 (every n >= 8) and k = 5
+(every n >= 14); the constant is optimal to within a factor two, and the cell
+(k,n) = (3,3) is a genuine exception. Kernel-checked at k = 2, k = 3 and
+k = 4, in each case over the whole range the statement covers for that k;
+written proofs plus an exact verifier at k = 5.
+
+The line k = 4: the Cheon-Hwang inequality holds for every n >= 10, with
+equality only at J_n/n, by a local route -- confinement traps any violator in
+a collar of the Birkhoff polytope, a collar matrix splits orthogonally into a
+line-sum block and a doubly centred block, and the five cross terms between
+the blocks have exact reductions. A companion sensitivity computation, graded
+as exactly that, finds the threshold unmoved at every sampled admissible
+value of the one constant in the argument that is not settled, with the shape
+of the c-dependence asserted mechanically. The theorem is not formalised; its
+support is written proofs plus an exact verifier that re-reads the displayed
+numbers out of the document itself. Fixed-dimension certificates settle the
+cells (5,4) and (6,4) besides, so on the line k = 4 exactly three cells
+remain open -- n = 7, 8, 9 -- and each is recorded at the grade it has
+actually reached.
+
+These results sit inside an exact decomposition of the deficit uniform in n
+and k, from which the classical case k = 2 follows in a few lines with a
+machine-checked proof. We also formalise, for every 2 <= k <= n, the
+confinement of any violator to a shrinking neighbourhood of the Birkhoff
+polytope, together with the Newton and Maclaurin inequalities that the
+confinement consumes, neither of which is in Mathlib. Kernel-checked results
+are cited by Lean declaration name at a pinned commit.
 
 [NOTE ON THIS TEXT: reproduced verbatim from paper_b.typ's abstract block,
-modulo the plain-text rendering of the mathematics. Updated 2026-07-29 (third
-revision that day) for the rewrite that added Theorems C-F: the universal
-decomposition uniform in n and k (universal_identity); k = 2 for every n
-derived from it (subDittert_k2) -- CLASSICAL, no novelty claimed for the
-statement, only for the derivation and the machine-checked proof; the
-confinement for every 2 <= k <= n (theoremM', confinement') -- RECALLED AND
-GENERALISED from Cheon-Wanless 2012, LAA 436, Theorem 2.1, never to be
-presented as new; and Newton's and Maclaurin's inequalities in Lean
-(newtonAt_all, newton_esymF, pnorm_le_two) -- CLASSICAL, the contribution being
-the formalisation of a Mathlib gap.
+modulo the plain-text rendering of the mathematics. Updated 2026-07-30 for
+the merge that made paper_b the single sub-Dittert paper: the k = 4 theorem
+(n >= 10, written-proof + exact-verifier grade, graded_verify_k4.py), the
+Tverberg-Friedland stability theorem, and the per-cell anchor records at
+(k = 4, 5 <= n <= 9) were merged into the k = 3 flagship. The paper's title
+changed accordingly. Theorem letters: A-F unchanged, G = stability, H =
+k = 4 at n >= 10. Second update, same day: Theorem G's k = 4 cell upgraded
+to KERNEL-CHECKED (stabilityAt_four, StabilityK4.lean commit 944b517; the
+(4.3) core expansion is sigma_four_centred, SigmaFour.lean commit 365e44e),
+leaving only (k = 5, n >= 14) at written + exact-verifier grade; the (6,4)
+anchor upgraded to full anchor grade (commit 41b15dd), so the k = 4 open
+cells are exactly n = 7, 8, 9; and the former "Theorem I" was REGRADED to a
+verified sensitivity computation, per NOTES-ALLK 11.41 -- the flat threshold
+is established at the ten sampled c values with the c-dependence structure
+mechanically audited, and the paper claims exactly that, no continuum claim.
 
-In the same pass the five fixed-dimension anchors were DEMOTED out of theorem
-status, because LEAN-COVERAGE.md row 3 gives them no Lean support and the
-paper's standard is that every stated theorem is Lean-backed. The priority
-claim therefore no longer rests on the (5,4) case; it attaches to Theorem A
-alone, which suffices because 2 < 3 < n for every n >= 4. The design-step
-narrative (the sliver, the exact elimination) left the abstract in the same
-pass and now lives in the paper's body only.
+The former stand-alone drafts graded_k4_paper.md and graded_stability_lemma.md
+are superseded by the merged paper; both verifiers now parse the merged typst
+source directly (the k = 4 sensitivity table, and the stability part's
+displayed audit counts), so displayed and checked cannot drift apart.
 
-Three earlier states of this file are superseded: one describing the Lean work
-as carrying "exactly one assumption"; one describing Theorem A as an inequality
-with the equality case held at a lower level of corroboration; and one
-predating Theorems C-F and the demotion of the anchors. None of them describes
-the artefact now.]
+The earlier state of this file, describing the k = 3-only paper, is
+superseded. The 2026-07-29 notes it carried remain true of the k = 3 part:
+the five fixed-dimension anchors stay demoted out of theorem status, the
+priority claim for the intermediate range attaches to Theorem A, and
+Theorems C-F carry no novelty claims for their statements.]

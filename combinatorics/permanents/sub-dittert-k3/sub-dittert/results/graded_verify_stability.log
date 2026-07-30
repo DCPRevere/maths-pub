@@ -1,0 +1,292 @@
+==========================================================================
+STANDALONE VERIFIER -- stability lemma for subpermanent sums
+==========================================================================
+
+V1.  THE LAYER IDENTITY ON THE CENTRED SLICE.
+     sigma_k(A)/C(n,k)^2 - k!/n^k  ==  sum_{m=2}^k t_m sigma_m(B).
+     n=4 k=3: True
+     n=5 k=3: True
+     n=5 k=4: True
+     n=6 k=4: True
+     n=6 k=5: True
+     n=7 k=5: True
+
+V2.  THE CORE EXPANSIONS, against brute-force subpermanent sums.
+     m <= 4 is McCullagh (2012); m = 5 specialises his general form.
+     n=4: sigma_2..sigma_4 core forms verified
+     n=5: sigma_2..sigma_5 core forms verified
+     n=6: sigma_2..sigma_5 core forms verified
+
+V3.  THE FOUR A-PRIORI FACTS.
+     F1 |b_ij| <= 1-1/n and b_ij >= -1/n   F2 M <= 1-1/n
+     F3 Q <= n-1                           F4 ||B||_op <= 1
+     n=4: F1 True  F2 True  F3 True  F4 True   Q=n-1 attained: True
+     n=5: F1 True  F2 True  F3 True  F4 True   Q=n-1 attained: True
+     n=6: F1 True  F2 True  F3 True  F4 True   Q=n-1 attained: True
+     n=7: F1 True  F2 True  F3 True  F4 True   Q=n-1 attained: True
+
+V4.  EACH PER-INVARIANT BOUND, in the direction the proof uses.
+     slack = (used side)/(bound); must be <= 1.  slack = 1 means the
+     bound is ATTAINED, so the write-up may call it tight.
+     bound                     | worst slack | attained at
+     p3  >= -(1/n) Q           |    0.833333 | n=7 antiperm (J-P)/(n-1)
+     p5  >= -(1/n)^3 Q         |    0.856481 | n=7 antiperm (J-P)/(n-1)
+     p4  <= (1-1/n)^2 Q        |    0.861111 | n=7 perm vertex
+     YR  <= M Q                |    1.000000 | n=4 perm vertex  TIGHT
+     YC  <= M Q                |    1.000000 | n=4 perm vertex  TIGHT
+     Gc  <= (1-1/n) M Q        |    0.833333 | n=7 perm vertex
+     Gc' <= (1-1/n) M Q        |    0.833333 | n=7 perm vertex
+     |Ga| <= M Q               |    0.182741 | n=5 convex combo
+     |Gb| <= (1-1/n) Q         |    0.833333 | n=7 perm vertex
+     Q p3 >= -((n-1)/n) Q      |    0.074074 | n=4 antiperm (J-P)/(n-1)
+     Z  <= Q                   |    1.000000 | n=4 perm vertex  TIGHT
+
+V5.  THE PER-LAYER LOWER BOUNDS  sigma_m|core >= -C_m(n) Q.
+     n=4: m=3 ok=True slack=0.6667   m=4 ok=True slack=0.0154   m=5 ok=True slack=0.0000   
+     n=5: m=3 ok=True slack=0.7500   m=4 ok=True slack=0.0039   m=5 ok=True slack=0.0009   
+     n=6: m=3 ok=True slack=0.8000   m=4 ok=True slack=0.0036   m=5 ok=True slack=0.0003   
+     n=7: m=3 ok=True slack=0.8333   m=4 ok=True slack=0.0000   m=5 ok=True slack=0.0003   
+
+V6.  THE BUDGET, ITS CLOSED FORMS, THRESHOLDS, EXCEPTIONAL SETS.
+     Closed form at k = 3:  consumption = (8/3)/(n-2)^2 .
+       matches for 3 <= n < 40: True
+     Closed form at k = 4:
+       consumption = 16/(3(n-2)^2) + 12 n (n-1)/((n-2)^2 (n-3)^2) .
+       matches for 4 <= n < 40: True
+     Closed form at k = 5:
+       consumption = 8/(n-2)^2 + 36 n(n-1)/((n-2)^2 (n-3)^2)
+                     + 24 n^3 C_5(n)/((n-2)^2 (n-3)^2 (n-4)^2) .
+       matches for 5 <= n < 40: True
+     and C_5(n) = (24/5)/n^3 + (10/3)(1-1/n) + 8(1-1/n)^2 :
+       matches for 2 <= n < 40: True
+
+     thresholds and exceptional sets (consumption < 1):
+       k = 2: no layers above 2, so the bound is vacuous and
+              the lemma holds for every n >= 2 with t_2/2.
+       k = 3: closes for n >= 4  (expected 4);  exceptional n = [3]
+              closes at every n from 4 to 399: True
+       k = 4: closes for n >= 8  (expected 8);  exceptional n = [4, 5, 6, 7]
+              closes at every n from 8 to 399: True
+       k = 5: closes for n >= 14  (expected 14);  exceptional n = [5, 6, 7, 8, 9, 10, 11, 12, 13]
+              closes at every n from 14 to 399: True
+
+V6b. THE PAPER'S QUOTED VALUES OF Phi, AND MONOTONICITY.
+       Phi(8,4) = 0.8948   paper says 0.8948   match True
+       Phi(14,5) = 0.8094   paper says 0.8094   match True
+       Phi(15,4) = 0.1351   paper says 0.1351   match True
+       Phi(20,5) = 0.2540   paper says 0.2540   match True
+     Monotone decreasing in n above the threshold:
+       k=3: Phi(n+1,k) < Phi(n,k) for 4 <= n < 600: True
+              Phi(600,3) = 7.457e-06  (tends to 0)
+       k=4: Phi(n+1,k) < Phi(n,k) for 8 <= n < 600: True
+              Phi(600,4) = 4.875e-05  (tends to 0)
+       k=5: Phi(n+1,k) < Phi(n,k) for 14 <= n < 600: True
+              Phi(600,5) = 1.252e-04  (tends to 0)
+
+V6c. Phi(n,k) < 1 FOR ALL n ABOVE THE THRESHOLD, not just to 600.
+     Phi is a rational function of n; clearing its (positive)
+     denominator turns Phi < 1 into a polynomial inequality P_k(n) > 0.
+     Substituting n = m + threshold, ALL coefficients come out
+     nonnegative with the constant term positive, which settles every
+     n >= threshold at once.
+       k=3: rational form matches arithmetic: True
+              denominator > 0 for n >= 4: True
+              P_k(m+4) coefficients all >= 0, constant > 0: True
+              P_k(m+4) = ['4', '12', '3']
+              and P_k(3) = -5  (must be <= 0, the threshold is sharp)
+              write-up's quoted den, P_k, P_k(m+4) and P_k(3): all match
+       k=4: rational form matches arithmetic: True
+              denominator > 0 for n >= 8: True
+              P_k(m+8) coefficients all >= 0, constant > 0: True
+              P_k(m+8) = ['284', '1280', '491', '66', '3']
+              and P_k(7) = -568  (must be <= 0, the threshold is sharp)
+              write-up's quoted den, P_k, P_k(m+8) and P_k(7): all match
+       k=5: rational form matches arithmetic: True
+              denominator > 0 for n >= 14: True
+              P_k(m+14) coefficients all >= 0, constant > 0: True
+              P_k(m+14) = ['1660864', '2716720', '861620', '121160', '8845', '330', '5']
+              and P_k(13) = -306876  (must be <= 0, the threshold is sharp)
+              write-up's quoted den, P_k, P_k(m+14) and P_k(13): all match
+
+V7.  THE THEOREM END TO END:  F(B) >= (t_2/4) Q  on Omega_n.
+     F is assembled from the core expansions verified in V2, so no
+     brute-force sigma_k is needed at large n.  The covered cells are
+     re-checked against brute force where that is feasible.
+     n=4 k=3: holds True   min F/(t_2 Q) = 0.3889  (needs >= 0.25)
+     n=5 k=3: holds True   min F/(t_2 Q) = 0.4444  (needs >= 0.25)
+     n=6 k=3: holds True   min F/(t_2 Q) = 0.4667  (needs >= 0.25)
+     n=8 k=4: holds True   min F/(t_2 Q) = 0.4706  (needs >= 0.25)
+     n=9 k=4: holds True   min F/(t_2 Q) = 0.4776  (needs >= 0.25)
+     n=10 k=4: holds True   min F/(t_2 Q) = 0.4824  (needs >= 0.25)
+     n=12 k=4: holds True   min F/(t_2 Q) = 0.4883  (needs >= 0.25)
+     n=14 k=5: holds True   min F/(t_2 Q) = 0.4878  (needs >= 0.25)
+     n=15 k=5: holds True   min F/(t_2 Q) = 0.4895  (needs >= 0.25)
+     n=16 k=5: holds True   min F/(t_2 Q) = 0.4909  (needs >= 0.25)
+     n=20 k=5: holds True   min F/(t_2 Q) = 0.4943  (needs >= 0.25)
+
+     brute-force cross-check of F at the small covered cells:
+       n=4 k=3: assembled F equals brute-force F: True
+       n=5 k=3: assembled F equals brute-force F: True
+       n=6 k=3: assembled F equals brute-force F: True
+
+V8.  THE (3,3) COUNTEREXAMPLE.  At n = k = 3 the inequality with
+     constant t_2/4 is FALSE, so (3,3) is a genuine exception.
+     WITNESS  A = (J_3 - P)/2, i.e. uniform off a permutation:
+       [0, 1/2, 1/2]
+       [1/2, 0, 1/2]
+       [1/2, 1/2, 0]
+     Q = 1/2   F = 1/36   t_2 = 1/3
+     F/Q          = 1/18  = 0.055556
+     t_2/4        = 1/12  = 0.083333
+     F/Q < t_2/4  : True   <- the inequality FAILS here
+     F/Q as a multiple of t_2: 1/6 = 0.166667
+     Also confirming per(A) is what it should be, per(J_3-P) = 2:
+       per(J_3 - P) = 2
+
+V9.  SHARPNESS SANDWICH.  t_2/4 <= c_opt(n,k) < t_2/2 for k >= 3.
+     Upper: along B = J/n - P one has p_3(B) < 0, so
+       F(sB)/||sB||^2 = t_2/2 + s t_3 (2/3) p_3(B)/Q_B + O(s^2)
+     dips below t_2/2 immediately.  p_3(J/n - P) in closed form is
+       ((n-1)/n^2) (1 - (n-1)^2),  negative for every n >= 3.
+       n=3: p_3 = -2/3 = -0.666667   closed form matches: True
+       n=4: p_3 = -3/2 = -1.500000   closed form matches: True
+       n=5: p_3 = -12/5 = -2.400000   closed form matches: True
+       n=6: p_3 = -10/3 = -3.333333   closed form matches: True
+       n=7: p_3 = -30/7 = -4.285714   closed form matches: True
+       n=8: p_3 = -21/4 = -5.250000   closed form matches: True
+       n=9: p_3 = -56/9 = -6.222222   closed form matches: True
+       n=10: p_3 = -36/5 = -7.200000   closed form matches: True
+       n=11: p_3 = -90/11 = -8.181818   closed form matches: True
+     Lower: the theorem itself, at every covered (n,k).
+     So the optimal constant is pinned to within a factor 2.
+
+V11. SECTION 11 (the v2 addendum).  Every displayed number carries a
+     hard-coded expectation, per the standing rule.
+     witness: per(M) = -8, sigma_4 = -1/32, Q = 1, rank two confirmed
+     Proposition 8, sigma_4(c u v^T) = (3/2) c^4 D(u) D(v):
+       D[1, -1, 0, 0] = 0   paper says 0
+       D[2, -1, -1, 0] = 0   paper says 0
+       D[1, 1, -1, -1] = -4   paper says -4
+       D[3, -1, -1, -1] = 12   paper says 12
+       rank-one example: sigma_4/Q = -1/96   paper says -1/96
+     the eps thresholds quoted as (4, 5, 12), same for eps <= 1/16:
+       eps = 0: (4, 5, 12)   paper says (4, 5, 12)
+       eps = 1/32: (4, 5, 12)   paper says (4, 5, 12)
+       eps = 1/16: (4, 5, 12)   paper says (4, 5, 12)
+     and the elementary-bound floor quoted as about 9/8:
+       floor = 9/8   paper says 9/8
+
+V12. THE FORMALISATION SCOPE.  The paper names the cells that are
+     kernel-checked.  This check reads each Lean source AT THE COMMIT
+     THE PAPER CITES FOR IT, and confirms the scope is neither over-
+     stated nor understated.  It is the only check that reads outside
+     this file.
+     read TverbergStability.lean at 1507013  (13763 chars)
+     read StabilityK3.lean at 1507013  (27254 chars)
+     read LayerIdentity.lean at 27bda3f  (27716 chars)
+     read StabilityK4.lean at 944b517  (14906 chars)
+     read SigmaFour.lean at 365e44e  (31383 chars)
+       cVal = (k : ℝ) * ((k : ℝ) - 1) * (k.factorial : ℝ) / (4 * (n : ℝ) ^ k * ((n : ℝ) - 1) ^ 2)
+       equals c(n,k) = k(k-1)k!/(4 n^k (n-1)^2) over 2<=k<=7, 2<=n<=29: True   (nonzero there: True)
+       StabilityAt carries C(n,k)^2, cVal, ||A-J/n||^2, sigP and k!/n^k: True
+       (this ingredient check is structural; the constant itself is
+        compared as a rational function above)
+       stabilityAt_two: Lean requires n >= 2, paper claims the cell n >= 2   match True
+       stabilityAt_three: Lean requires n >= 4, paper claims the cell n >= 4   match True
+       stabilityAt_four: Lean requires n >= 8, paper claims the cell n >= 8   match True
+       found: stabilityAt_{two, three, four}; absent: stabilityAt_{five}   as the paper states
+       sigma_four_centred: present, with both marginal hypotheses and sigP 4 in its statement
+       phiPoly3: agrees with P_3 at 4 points (degree 2): True;  positivity from n >= 4, paper says 4
+                  Lean's P_3(m+4) form matches: True
+       phiPoly4: agrees with P_4 at 6 points (degree 4): True;  positivity from n >= 8, paper says 8
+                  Lean's P_4(m+8) form matches: True
+       phiPoly5: agrees with P_5 at 8 points (degree 6): True;  positivity from n >= 14, paper says 14
+                  Lean's P_5(m+14) form matches: True
+       Proposition 5: Lean stores sigma_3 = 1 / 4 and ||B||^2 = 1 / 2;
+                      this verifier computes 1/4 and 1/2   match
+       not_stabilityAt_three_three and three_threshold_not_slack: both present
+       sVal = (k.descFactorial m : ℝ) / (n.descFactorial m : ℝ)
+       tVal = (sVal k n m) ^ 2 * ((k - m).factorial : ℝ) / (n : ℝ) ^ (k - m)
+       equal to the paper's s_m, t_m over 2<=k<=7, k<=n<=19, 2<=m<=k: True   (nonzero there: True)
+       layer_identity: every ingredient of Lemma 2 present, at every k
+       hypotheses are 1 <= k <= n and sum B = 0 only -- `doublyStochastic`
+       appears nowhere in the statement, though it does appear in StabilityK3,
+       so that absence is measured and not a failed search
+       StabilityK3.lean: 33 declared, 33 audited, orphans [], phantoms []; no `sorry`, no `native_decide`
+       LayerIdentity.lean: 28 declared, 28 audited, orphans [], phantoms []; no `sorry`, no `native_decide`
+       StabilityK4.lean: 14 declared, 14 audited, orphans [], phantoms []; no `sorry`, no `native_decide`
+       SigmaFour.lean: 46 declared, 46 audited, orphans [], phantoms []; no `sorry`, no `native_decide`
+       the paper displays [(14, 14), (28, 28), (33, 33), (46, 46)]; measured [(14, 14), (28, 28), (33, 33), (46, 46)]   match True
+       the paper displays 121 audited declarations in total; measured 121
+
+V10. MUTATION CONTROLS.  A verifier that never rejects proves nothing.
+     Each control injects one deliberate fault and confirms that the
+     check which is supposed to catch it does reject.  Failures raised
+     inside a control are counted separately and do NOT affect the
+     verdict above; only a control that fails to FIRE is a real
+     failure.
+
+     M1  the constant doubled: require F >= (t_2/2) Q, which Proposition 6 says is impossible
+       fault injected at : const_doubled
+       must be caught by : V7 (theorem end to end)
+       rejections raised : 11   -> FIRES
+
+     M2  sign flip on Y_R in the sigma_4 core expansion (4.3), -3/4 becomes +3/4
+       fault injected at : sign_flip
+       must be caught by : V2 (core expansions vs brute force)
+       rejections raised : 3   -> FIRES
+
+     M3  each threshold lowered by one, so an excluded cell is claimed as covered
+       fault injected at : bad_threshold
+       must be caught by : V6c (the all-n polynomial argument)
+       rejections raised : 3   -> FIRES
+
+     M4  the p_3 estimate over-tightened to p_3 >= -(1/n^2) Q
+       fault injected at : tight_p3
+       must be caught by : V4 (per-invariant estimates)
+       rejections raised : 4   -> FIRES
+
+     The next five faults are scope faults: each is a way for Section
+     10 to claim more, or less, formalisation than the Lean sources
+     carry.  The separating witness is named on each line, because a
+     control whose witness cannot tell the two apart proves nothing.
+
+     M5  the formalised cell at k = 3 claimed as n >= 3, one below what Lean proves   [separating witness: 3 != 4, and the Lean hypothesis is 4 <= n]
+       fault injected at : lean_cell
+       must be caught by : V12 (formalised cells vs the Lean hypotheses)
+       rejections raised : 1   -> FIRES
+
+     M6  the paper's constant doubled, so cVal would no longer be c(n,k)   [separating witness: c(n,k) > 0 on the tested grid, which V12 asserts, so a factor two is visible]
+       fault injected at : lean_const
+       must be caught by : V12 (cVal compared as a rational function)
+       rejections raised : 1   -> FIRES
+
+     M7  Lean's phiPoly_k truncated after its leading term   [separating witness: P_k is non-constant, which V12 asserts, so truncation changes its values]
+       fault injected at : lean_polys
+       must be caught by : V12 (Lean's P_k vs this verifier's own)
+       rejections raised : 3   -> FIRES
+
+     M8  a cell the paper calls unformalised (k = 5) replaced by one that IS formalised (k = 2)   [separating witness: stabilityAt_two is present, so the absence test must reject it]
+       fault injected at : lean_phantom
+       must be caught by : V12 (the absence test, with its non-vacuity check)
+       rejections raised : 1   -> FIRES
+
+     M9  one name dropped from the parsed audit block, as an unaudited declaration would appear   [separating witness: the declaration set is non-empty, which V12 asserts]
+       fault injected at : lean_orphan
+       must be caught by : V12 (the orphan diff, all four files)
+       rejections raised : 5   -> FIRES
+
+     M10 Lemma 2's formalisation claimed to need double stochasticity, which would make it no stronger than the paper's own hypothesis   [separating witness: `doublyStochastic` is findable -- it occurs in StabilityK3 -- so its absence from layer_identity is measured]
+       fault injected at : lean_weak
+       must be caught by : V12 (the hypotheses of layer_identity)
+       rejections raised : 1   -> FIRES
+
+     Control on the controls: with no fault injected, these same routines
+     (V2, V4, V6c, V7, V12) raise nothing -- that is the clean run
+     reported above.  So each rejection above is caused by its fault
+     and not by the routine being flaky.
+
+==========================================================================
+TOTAL FAILURES: 0
+VERDICT: ALL CHECKS PASS
+==========================================================================

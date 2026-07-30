@@ -1,5 +1,5 @@
 name = "permanents"
-defaultTargets = ["PermanentExpansion", "Certificate", "RookSum", "SubDittertK3", "SubDittertLinear", "SubDittertUniversal", "SubDittertK2", "SubDittertM", "SubDittertMaclaurin", "NewtonInequalities"]
+defaultTargets = ["PermanentExpansion", "Certificate", "RookSum", "SubDittertK3", "SubDittertLinear", "SubDittertUniversal", "SubDittertK2", "SubDittertM", "SubDittertMaclaurin", "NewtonInequalities", "GradedInequalities", "TverbergStability", "LayerIdentity", "StabilityK3", "SigmaFour", "StabilityK4", "StabilityK5Atoms"]
 
 [[require]]
 name = "mathlib"
@@ -35,3 +35,24 @@ name = "SubDittertMaclaurin"
 
 [[lean_lib]]
 name = "NewtonInequalities"
+
+[[lean_lib]]
+name = "GradedInequalities"
+
+[[lean_lib]]
+name = "TverbergStability"
+
+[[lean_lib]]
+name = "LayerIdentity"
+
+[[lean_lib]]
+name = "StabilityK3"
+
+[[lean_lib]]
+name = "SigmaFour"
+
+[[lean_lib]]
+name = "StabilityK4"
+
+[[lean_lib]]
+name = "StabilityK5Atoms"

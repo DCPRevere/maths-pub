@@ -1,0 +1,16 @@
+[guard] MemoryMax=10G  swap=off  CPUQuota=200%  threads=2
+
+=== n = 6 to anchor grade: conjugation verification ===
+  n = 6: B = 702, N = 36 variables, 702 basis monomials (36 s to build)
+  sigma_11 Gram H assembled 702x702 from the stored point
+  (A1) all 36 transporters induce a BIJECTION of the 702 basis monomials, so every G_p = P_p H P_p^T exactly
+       => positive definiteness of H implies it for all 36 multiplier Grams.  35 factorisations DEDUCED, none skipped.
+  (A2) checking H against 9 generators of Stab((0,0)) over 492804 entries each
+  (A2) H is EXACTLY invariant under Stab((0,0)): sigma_p is well defined and independent of which transporter is used
+  conjugation verification complete in 37 s
+  ==> (A1) and (A2): BOTH HOLD
+
+=== n = 6: measured cost of check [3] ===
+  check [3] cost at n = 6: 18,233,748 monomial products at a measured 537,040/s = 0.0 hours
+     (the anchor's own route; using the verified conjugations of (A1) to relabel one expansion instead cuts it to about 0.0 hours)
+  the dense anchor export at n = 6 would be about 219 MB of JSON
