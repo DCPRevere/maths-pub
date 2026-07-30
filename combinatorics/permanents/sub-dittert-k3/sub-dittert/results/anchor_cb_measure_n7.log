@@ -1,0 +1,74 @@
+[guard] MemoryMax=7G  swap=off  CPUQuota=100%  threads=2
+==========================================================================
+MEASURED cost of the C_b route against the stored B x B control
+==========================================================================
+The sum(e^3)/B^3 ratios of 105x to 4159x are a COUNT of elimination
+multiply-adds, NOT a wall-time prediction.  This folder's last
+cube-law extrapolation (a two-point B^3.50 fit) under-called the
+(k = 4, n = 7) factorisation by 1.6x, against a shape-matched estimate
+that landed within 0.6%.  The cost below is END TO END and INCLUDES
+building the slices, which cost 283 s on its own at n = 6.  If the
+slice build dominates, the win is single-digit and that is the result.
+
+NOT evidence for the n-uniform theorem: at these n the Gram is already
+known positive definite, so C_b coming out definite is a consequence.
+==========================================================================
+
+=== (k = 4, n = 7) ===
+  witness feasible, B = 1274, setup 10 s
+  slice build and C_b extraction: 1876 s
+  sigma_11: factoring 11 C_b and 11 h_b over Q
+    14x14 trivial              h_b  14x14  PD   C_b   1x1   PD   least C_b pivot 1.000000e+00
+    7x7 sign                   h_b   7x7   PD   C_b   1x1   PD   least C_b pivot 1.000000e+00
+    16x16 Ind(V'|1)            h_b  16x16  PD   C_b  10x10  PD   least C_b pivot 1.223269e-01
+    10x10 (V'|V')+             h_b  10x10  PD   C_b  25x25  PD   least C_b pivot 2.128847e-03
+    4x4 (V'|V')-               h_b   4x4   PD   C_b  25x25  PD   least C_b pivot 2.128847e-03
+    Ind(1|(m-2,2))             h_b   4x4   PD   C_b  18x18  PD   least C_b pivot 1.119185e-02
+    Ind(V'|(m-2,2))            h_b   3x3   PD   C_b  90x90  PD   least C_b pivot 1.369064e-03
+    Ind(V'|(m-2,1,1))          h_b   2x2   PD   C_b 100x100 PD   least C_b pivot 3.957807e-07
+    Ind(1|(m-2,1,1))           h_b   1x1   PD   C_b  20x20  PD   least C_b pivot 3.235436e-06
+    ((m-2,2)|(m-2,2))+         h_b   1x1   PD   C_b  81x81  PD   least C_b pivot 2.004274e-05
+    ((m-2,1,1)|(m-2,1,1))+     h_b   1x1   PD   C_b 100x100 PD   least C_b pivot 7.424018e-09
+  sigma_0: factoring 10 C_b and 10 h_b over Q
+    (1|1) ext +                h_b   4x4   PD   C_b   1x1   PD   least C_b pivot 1.000000e+00
+    (1|1) ext -                h_b   1x1   PD   C_b   1x1   PD   least C_b pivot 1.000000e+00
+    Ind(1|V)                   h_b   5x5   PD   C_b  12x12  PD   least C_b pivot 4.556646e-03
+    (V|V) ext +                h_b   5x5   PD   C_b  36x36  PD   least C_b pivot 2.679494e-04
+    (V|V) ext -                h_b   1x1   PD   C_b  36x36  PD   least C_b pivot 2.679494e-04
+    Ind(1|(n-2,2))             h_b   2x2   PD   C_b  28x28  PD   least C_b pivot 5.354916e-04
+    Ind(V|(n-2,2))             h_b   2x2   PD   C_b 168x168 PD   least C_b pivot 1.894385e-05
+    Ind(V|(n-2,1,1))           h_b   1x1   PD   C_b 180x180 PD   least C_b pivot 1.270353e-04
+    ((n-2,2)|(n-2,2)) ext +    h_b   1x1   PD   C_b 196x196 PD   least C_b pivot 3.531664e-05
+    ((n-2,1,1)|(n-2,1,1)) ext + h_b   1x1   PD   C_b 225x225 PD   least C_b pivot 2.693203e-05
+  exact factorisations: 38 s
+
+  MEASURED, end to end: 1913 s (1876 s slices + C_b, 38 s factorisations)
+
+
+==========================================================================
+CORRECTION appended after the run, by the author of the script.
+==========================================================================
+The "SPEEDUP" line above is WRONG as a replacement cost and must not be
+quoted.  This file measured slices + C_b extraction + factorisations, and
+SKIPPED PART 1 -- the cross-component H-orthogonality of anchor_wtest.py.
+PART 1 is REQUIRED, not optional: without it W^T H W may carry off-diagonal
+blocks, so positive definiteness of the diagonal blocks proves nothing about
+the Gram; it is also what supplies joint independence, since "sum dim = B"
+here is a sum of per-component dimensions computed with separate pivot
+tables.  The file's own header said the comparison must be end to end; the
+code was not.
+
+Honest replacement cost, PART 1 timings from anchor_wtest_n{5,6}.log:
+    B= 350:  107 s + 29 s  =  136 s  vs control  193 s  =>  1.4x
+    B= 702:  897 s + 283 s = 1180 s  vs control 2201 s  =>  1.9x
+    B=1274:  PART 1 not run at n=7; the 1913 s above is the C_b build ALONE
+             and is NOT a replacement cost.  (7,4)'s check [4] is NOT closed
+             by this run.
+
+What survives unchanged: the VERDICTS agree with the control, and the exact
+factorisations are near-free -- 1 s at n=6 against a 2201 s control.  The
+cost moved into the slice build and the orthogonality check, both O(B^3).
+
+anchor_cb_measure.py has since been corrected to print the honest figure and
+to refuse a speedup at any n where PART 1's cost is not recorded.
+==========================================================================

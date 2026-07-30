@@ -1,0 +1,56 @@
+[guard] MemoryMax=5G  swap=off  CPUQuota=100%  threads=2
+==========================================================================
+SEPARATING EXPERIMENT for check [4]'s n-uniform fact
+==========================================================================
+The identity sum(multiplicity x dimension) = B is ALREADY verified
+exactly at n = 5..9.  It is a SATURATED INSTRUMENT for this question:
+it passes whether or not the canonical bases are isotypic-adapted, so
+no support for the fact may be read from it.  The separating
+instrument is EXACT H-ORTHOGONALITY of distinct components, over Q.
+
+A spectral screen was written, run, and WITHDRAWN: the canonical bases
+are NOT orthonormal, so E^T H E is a CONGRUENCE and eigenvalues are
+not preserved.  Its apparent refutation was an artefact.  Congruence
+preserves INERTIA, vacuous on a positive definite example.  The
+figures are MEASURED below rather than quoted here, so they cannot
+drift from the prose.  See the docstring.
+==========================================================================
+
+--- why there is no spectral screen, at (k = 4, n = 6) ---
+  Gram sigma_11 largest eigenvalue        4.4846e+01
+  largest block eigenvalue (16x16 Ind(V'|1))  3.0614e+04
+  largest canonical basis vector norm    1602.186  (not orthonormal)
+  block eigenvalue exceeds the Gram's by 682.7x, so E^T H E is a CONGRUENCE;
+  eigenvalues are not preserved and only INERTIA is, which is vacuous here.
+
+--- PART 1 (exact over Q): span and H-orthogonality, (k = 4, n = 6) ---
+  sigma_11: 9 generator actions on the 702 basis monomials
+    14x14 trivial              block size  14 -> component dim    14
+    7x7 sign                   block size   7 -> component dim     7
+    16x16 Ind(V'|1)            block size  16 -> component dim   128
+    10x10 (V'|V')+             block size  10 -> component dim   160
+    4x4 (V'|V')-               block size   4 -> component dim    64
+    Ind(1|(m-2,2))             block size   4 -> component dim    40
+    Ind(V'|(m-2,2))            block size   3 -> component dim   120
+    Ind(V'|(m-2,1,1))          block size   2 -> component dim    96
+    Ind(1|(m-2,1,1))           block size   1 -> component dim    12
+    ((m-2,2)|(m-2,2))+         block size   1 -> component dim    25
+    ((m-2,1,1)|(m-2,1,1))+     block size   1 -> component dim    36
+    total 702 against B = 702  OK
+    ==> sigma_11: all distinct components are EXACTLY H-orthogonal over Q, and the translates span
+  sigma_0: 11 generator actions on the 702 basis monomials
+    (1|1) ext +                block size   4 -> component dim     4
+    (1|1) ext -                block size   1 -> component dim     1
+    Ind(1|V)                   block size   5 -> component dim    50
+    (V|V) ext +                block size   5 -> component dim   125
+    (V|V) ext -                block size   1 -> component dim    25
+    Ind(1|(n-2,2))             block size   2 -> component dim    36
+    Ind(V|(n-2,2))             block size   2 -> component dim   180
+    Ind(V|(n-2,1,1))           block size   1 -> component dim   100
+    ((n-2,2)|(n-2,2)) ext +    block size   1 -> component dim    81
+    ((n-2,1,1)|(n-2,1,1)) ext + block size   1 -> component dim   100
+    total 702 against B = 702  OK
+    ==> sigma_0: all distinct components are EXACTLY H-orthogonal over Q, and the translates span
+  PART 1 finished in 897 s
+
+==> (k = 4, n = 6): CONSISTENT WITH the n-uniform fact for check [4]

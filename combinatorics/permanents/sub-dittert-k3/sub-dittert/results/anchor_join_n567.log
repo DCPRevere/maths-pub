@@ -1,0 +1,96 @@
+==========================================================================
+JOIN between PART 1 and the congruence assertion -- stored artefact
+==========================================================================
+Composing check [4] uses two runs with DIFFERENT bases of the same
+components.  H-orthogonality of subspaces is basis-independent, so they
+compose -- but the dimensions must agree, and this is the check whose
+first inline version passed while parsing ZERO rows.  Counts are
+therefore asserted against a typed-in 21 before any comparison.
+==========================================================================
+
+=== JOIN CHECK at (k = 4, n = 5) ===
+  PART 1 component dims from: results/anchor_wtest_n5.log
+  C_b / h_b table from:       results/anchor_cb_measure_n5.log
+  parsed 21 PART 1 rows and 21 C_b rows (both must be 21)
+    ((m-2,1,1)|(m-2,1,1))+       d=  1  e=   9  d*e=    9  PART1 dim=    9  h_b PD     C_b PD      OK
+    ((m-2,2)|(m-2,2))+           d=  1  e=   4  d*e=    4  PART1 dim=    4  h_b PD     C_b PD      OK
+    ((n-2,1,1)|(n-2,1,1)) ext +  d=  1  e=  36  d*e=   36  PART1 dim=   36  h_b PD     C_b PD      OK
+    ((n-2,2)|(n-2,2)) ext +      d=  1  e=  25  d*e=   25  PART1 dim=   25  h_b PD     C_b PD      OK
+    (1|1) ext +                  d=  4  e=   1  d*e=    4  PART1 dim=    4  h_b PD     C_b PD      OK
+    (1|1) ext -                  d=  1  e=   1  d*e=    1  PART1 dim=    1  h_b PD     C_b PD      OK
+    (V|V) ext +                  d=  5  e=  16  d*e=   80  PART1 dim=   80  h_b PD     C_b PD      OK
+    (V|V) ext -                  d=  1  e=  16  d*e=   16  PART1 dim=   16  h_b PD     C_b PD      OK
+    10x10 (V'|V')+               d= 10  e=   9  d*e=   90  PART1 dim=   90  h_b PD     C_b PD      OK
+    14x14 trivial                d= 14  e=   1  d*e=   14  PART1 dim=   14  h_b PD     C_b PD      OK
+    16x16 Ind(V'|1)              d= 16  e=   6  d*e=   96  PART1 dim=   96  h_b PD     C_b PD      OK
+    4x4 (V'|V')-                 d=  4  e=   9  d*e=   36  PART1 dim=   36  h_b PD     C_b PD      OK
+    7x7 sign                     d=  7  e=   1  d*e=    7  PART1 dim=    7  h_b PD     C_b PD      OK
+    Ind(1|(m-2,1,1))             d=  1  e=   6  d*e=    6  PART1 dim=    6  h_b PD     C_b PD      OK
+    Ind(1|(m-2,2))               d=  4  e=   4  d*e=   16  PART1 dim=   16  h_b PD     C_b PD      OK
+    Ind(1|(n-2,2))               d=  2  e=  10  d*e=   20  PART1 dim=   20  h_b PD     C_b PD      OK
+    Ind(1|V)                     d=  5  e=   8  d*e=   40  PART1 dim=   40  h_b PD     C_b PD      OK
+    Ind(V'|(m-2,1,1))            d=  2  e=  18  d*e=   36  PART1 dim=   36  h_b PD     C_b PD      OK
+    Ind(V'|(m-2,2))              d=  3  e=  12  d*e=   36  PART1 dim=   36  h_b PD     C_b PD      OK
+    Ind(V|(n-2,1,1))             d=  1  e=  48  d*e=   48  PART1 dim=   48  h_b PD     C_b PD      OK
+    Ind(V|(n-2,2))               d=  2  e=  40  d*e=   80  PART1 dim=   80  h_b PD     C_b PD      OK
+  total component dimension 700 against 2 x B = 2 x 350 = 700  OK
+  ==> (k = 4, n = 5): the two runs describe the SAME components; all 21 blocks agree and every h_b and C_b is PD
+
+=== JOIN CHECK at (k = 4, n = 6) ===
+  PART 1 component dims from: results/anchor_wtest_n6.log
+  C_b / h_b table from:       results/anchor_cb_measure_n6.log
+  parsed 21 PART 1 rows and 21 C_b rows (both must be 21)
+    ((m-2,1,1)|(m-2,1,1))+       d=  1  e=  36  d*e=   36  PART1 dim=   36  h_b PD     C_b PD      OK
+    ((m-2,2)|(m-2,2))+           d=  1  e=  25  d*e=   25  PART1 dim=   25  h_b PD     C_b PD      OK
+    ((n-2,1,1)|(n-2,1,1)) ext +  d=  1  e= 100  d*e=  100  PART1 dim=  100  h_b PD     C_b PD      OK
+    ((n-2,2)|(n-2,2)) ext +      d=  1  e=  81  d*e=   81  PART1 dim=   81  h_b PD     C_b PD      OK
+    (1|1) ext +                  d=  4  e=   1  d*e=    4  PART1 dim=    4  h_b PD     C_b PD      OK
+    (1|1) ext -                  d=  1  e=   1  d*e=    1  PART1 dim=    1  h_b PD     C_b PD      OK
+    (V|V) ext +                  d=  5  e=  25  d*e=  125  PART1 dim=  125  h_b PD     C_b PD      OK
+    (V|V) ext -                  d=  1  e=  25  d*e=   25  PART1 dim=   25  h_b PD     C_b PD      OK
+    10x10 (V'|V')+               d= 10  e=  16  d*e=  160  PART1 dim=  160  h_b PD     C_b PD      OK
+    14x14 trivial                d= 14  e=   1  d*e=   14  PART1 dim=   14  h_b PD     C_b PD      OK
+    16x16 Ind(V'|1)              d= 16  e=   8  d*e=  128  PART1 dim=  128  h_b PD     C_b PD      OK
+    4x4 (V'|V')-                 d=  4  e=  16  d*e=   64  PART1 dim=   64  h_b PD     C_b PD      OK
+    7x7 sign                     d=  7  e=   1  d*e=    7  PART1 dim=    7  h_b PD     C_b PD      OK
+    Ind(1|(m-2,1,1))             d=  1  e=  12  d*e=   12  PART1 dim=   12  h_b PD     C_b PD      OK
+    Ind(1|(m-2,2))               d=  4  e=  10  d*e=   40  PART1 dim=   40  h_b PD     C_b PD      OK
+    Ind(1|(n-2,2))               d=  2  e=  18  d*e=   36  PART1 dim=   36  h_b PD     C_b PD      OK
+    Ind(1|V)                     d=  5  e=  10  d*e=   50  PART1 dim=   50  h_b PD     C_b PD      OK
+    Ind(V'|(m-2,1,1))            d=  2  e=  48  d*e=   96  PART1 dim=   96  h_b PD     C_b PD      OK
+    Ind(V'|(m-2,2))              d=  3  e=  40  d*e=  120  PART1 dim=  120  h_b PD     C_b PD      OK
+    Ind(V|(n-2,1,1))             d=  1  e= 100  d*e=  100  PART1 dim=  100  h_b PD     C_b PD      OK
+    Ind(V|(n-2,2))               d=  2  e=  90  d*e=  180  PART1 dim=  180  h_b PD     C_b PD      OK
+  total component dimension 1404 against 2 x B = 2 x 702 = 1404  OK
+  ==> (k = 4, n = 6): the two runs describe the SAME components; all 21 blocks agree and every h_b and C_b is PD
+
+=== JOIN CHECK at (k = 4, n = 7) ===
+  PART 1 component dims from: results/anchor_wtest_n67_part1.log
+  C_b / h_b table from:       results/anchor_cb_measure_n7.log
+  parsed 21 PART 1 rows and 21 C_b rows (both must be 21)
+    ((m-2,1,1)|(m-2,1,1))+       d=  1  e= 100  d*e=  100  PART1 dim=  100  h_b PD     C_b PD      OK
+    ((m-2,2)|(m-2,2))+           d=  1  e=  81  d*e=   81  PART1 dim=   81  h_b PD     C_b PD      OK
+    ((n-2,1,1)|(n-2,1,1)) ext +  d=  1  e= 225  d*e=  225  PART1 dim=  225  h_b PD     C_b PD      OK
+    ((n-2,2)|(n-2,2)) ext +      d=  1  e= 196  d*e=  196  PART1 dim=  196  h_b PD     C_b PD      OK
+    (1|1) ext +                  d=  4  e=   1  d*e=    4  PART1 dim=    4  h_b PD     C_b PD      OK
+    (1|1) ext -                  d=  1  e=   1  d*e=    1  PART1 dim=    1  h_b PD     C_b PD      OK
+    (V|V) ext +                  d=  5  e=  36  d*e=  180  PART1 dim=  180  h_b PD     C_b PD      OK
+    (V|V) ext -                  d=  1  e=  36  d*e=   36  PART1 dim=   36  h_b PD     C_b PD      OK
+    10x10 (V'|V')+               d= 10  e=  25  d*e=  250  PART1 dim=  250  h_b PD     C_b PD      OK
+    14x14 trivial                d= 14  e=   1  d*e=   14  PART1 dim=   14  h_b PD     C_b PD      OK
+    16x16 Ind(V'|1)              d= 16  e=  10  d*e=  160  PART1 dim=  160  h_b PD     C_b PD      OK
+    4x4 (V'|V')-                 d=  4  e=  25  d*e=  100  PART1 dim=  100  h_b PD     C_b PD      OK
+    7x7 sign                     d=  7  e=   1  d*e=    7  PART1 dim=    7  h_b PD     C_b PD      OK
+    Ind(1|(m-2,1,1))             d=  1  e=  20  d*e=   20  PART1 dim=   20  h_b PD     C_b PD      OK
+    Ind(1|(m-2,2))               d=  4  e=  18  d*e=   72  PART1 dim=   72  h_b PD     C_b PD      OK
+    Ind(1|(n-2,2))               d=  2  e=  28  d*e=   56  PART1 dim=   56  h_b PD     C_b PD      OK
+    Ind(1|V)                     d=  5  e=  12  d*e=   60  PART1 dim=   60  h_b PD     C_b PD      OK
+    Ind(V'|(m-2,1,1))            d=  2  e= 100  d*e=  200  PART1 dim=  200  h_b PD     C_b PD      OK
+    Ind(V'|(m-2,2))              d=  3  e=  90  d*e=  270  PART1 dim=  270  h_b PD     C_b PD      OK
+    Ind(V|(n-2,1,1))             d=  1  e= 180  d*e=  180  PART1 dim=  180  h_b PD     C_b PD      OK
+    Ind(V|(n-2,2))               d=  2  e= 168  d*e=  336  PART1 dim=  336  h_b PD     C_b PD      OK
+  total component dimension 2548 against 2 x B = 2 x 1274 = 2548  OK
+  ==> (k = 4, n = 7): the two runs describe the SAME components; all 21 blocks agree and every h_b and C_b is PD
+
+==========================================================================
+ALL JOINS VERIFIED

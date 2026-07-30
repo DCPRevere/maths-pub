@@ -1,0 +1,17 @@
+=== CONTROLS for anchor_join_check.py ===
+This comparison's first inline version passed while parsing zero rows, so
+it must be shown to REJECT.  Three mutations, each must fail the join.
+
+control 1: a component dimension altered by 1
+  altered 14x14 trivial dim 14 -> 15: join FAILED (correct)
+control 2: rows truncated to 20 (vacuity guard)
+  20 rows instead of 21: join FAILED (correct)
+control 3: rows emptied entirely -- the exact original defect
+  0 rows parsed: join FAILED (correct)
+control 4: an h_b marked NOT PD
+  14x14 trivial h_b -> NOT PD: join FAILED (correct)
+
+re-checking the UNMUTATED join still passes (the controls did not break it):
+  n = 7 unmutated: PASSES
+
+VERDICT: all four mutations rejected and the true join still passes.

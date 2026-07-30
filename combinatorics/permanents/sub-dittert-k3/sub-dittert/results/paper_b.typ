@@ -98,9 +98,9 @@
     $c$-dependence asserted mechanically. The theorem is not formalised; its
     support is written proofs plus an exact verifier that re-reads the
     displayed numbers out of this document. Fixed-dimension certificates
-    settle the cells $(5,4)$ and $(6,4)$ besides, so on the line $k = 4$
-    exactly three cells remain open — $n = 7, 8, 9$ — and each is recorded
-    at the grade it has actually reached.
+    settle the cells $(5,4)$, $(6,4)$ and $(7,4)$ besides, so on the line
+    $k = 4$ exactly two cells remain open — $n = 8$ and $n = 9$ — and each
+    is recorded at the grade it has actually reached.
 
     These results sit inside an exact decomposition of the deficit uniform in
     $n$ and $k$, from which the classical case $k = 2$ follows in a few lines
@@ -347,10 +347,11 @@ minimum only at the barycentre. The second consumes it.
 ]
 
 Between Theorem A's line and Theorem H's range sit the five cells
-$(k = 4, 5 lt.eq n lt.eq 9)$, covered by neither theorem. Two of them are
-settled by fixed-dimension certificates at full anchor grade — $(5,4)$, and
-$(6,4)$ with $Phi_4 lt.eq 107\/54$ on $K_6$ — so the open cells on the line
-$k = 4$ are exactly $n = 7, 8, 9$. @sec-k4-anchors records all five cell by
+$(k = 4, 5 lt.eq n lt.eq 9)$, covered by neither theorem. Three of them are
+settled by fixed-dimension certificates at full anchor grade — $(5,4)$,
+$(6,4)$ with $Phi_4 lt.eq 107\/54$ on $K_6$, and $(7,4)$ with
+$Phi_4 lt.eq 4778\/2401$ on $K_7$ — so the open cells on the line $k = 4$
+are exactly $n = 8$ and $n = 9$. @sec-k4-anchors records all five cell by
 cell, each at the grade it has actually reached; @sec-k4-statement states
 the honest gap rather than leaving it to be inferred.
 
@@ -1906,15 +1907,16 @@ of @sec-k4-collar, the cross-term reductions, the merge and the budget are
 supported by written proofs plus the verifier only. No claim of
 machine-checked status attaches to Theorem H.
 
-*The remaining honest gap is $7 lt.eq n lt.eq 9$.* Theorem H begins at
-$n = 10$, and the anchor certificates of @sec-k4-anchors settle $(5,4)$ and
-$(6,4)$, so $k = 4$ is not settled at exactly $n = 7, 8, 9$ by what this
-paper carries. Two routes close the gap: fixed-$n$ certificates at the three
-open cells, whose state is @sec-k4-anchors; or the certificate-family solve
-in $QQ(n)$, which needs no anchors (@sec-computational). Under the
-hypothesis of the conditional statement below, only the cell $(7,4)$ would
-remain — and what that cell still lacks is exactly one check, the
-assembled-Gram factorisation of the anchor standard.
+*The remaining honest gap is $n = 8$ and $n = 9$.* Theorem H begins at
+$n = 10$, and the anchor certificates of @sec-k4-anchors settle $(5,4)$,
+$(6,4)$ and $(7,4)$, so $k = 4$ is not settled at exactly $n = 8, 9$ by
+what this paper carries. Two routes close the gap: fixed-$n$ certificates
+at the two open cells, whose state is @sec-k4-anchors; or the
+certificate-family solve in $QQ(n)$, which needs no anchors
+(@sec-computational). Under the hypothesis of the conditional statement
+below the line would be fully closed: the conditional route reaches
+$n gt.eq 8$, and its only outstanding cell, $(7,4)$, is settled by anchor
+certificate.
 
 #warnbox[
   *Conditional statement (the hypothesis is part of the statement; this is
@@ -2207,17 +2209,15 @@ rejected. Anything less is stated as what it is.
       all 36 transporters inducing basis bijections with the corner Gram
       invariant under the stabiliser; equality only at $J_6\/6$; mutation
       tests rejected],
-    [$(7,4)$], [not settled; one check short of anchor grade], [on the
-      stored exact witness `n7_H2_201.json`, five of the six checks of the
-      $(5,4)$ standard hold: the full-monomial identity over all 156,555
-      coefficients; $sigma_k$ by two structurally different algorithms; the
-      bound; equality only at $J_7\/7$; mutation tests rejected — and the
-      conjugacy is proved exactly, all 49 transporters inducing basis
-      bijections. Positivity holds block-wise: all 21 canonical blocks
-      positive definite over $QQ$, least pivot $4.840 times 10^(-5)$. What
-      has not completed is the assembled $1274 times 1274$ factorisation —
-      check [4] of the standard — and block definiteness is not assembled
-      definiteness, so the cell is not settled],
+    [$(7,4)$], [settled: $Phi_4 lt.eq 4778\/2401$ on $K_7$, equality only
+      at $J_7\/7$], [anchor grade, on the stored exact witness
+      `n7_H2_201.json`: all six checks of the $(5,4)$ standard — the
+      full-monomial identity over all 156,555 coefficients; $sigma_k$ by
+      two structurally different algorithms; the bound; equality only at
+      $J_7\/7$; mutation tests rejected; conjugacy proved exactly, all 49
+      transporters inducing basis bijections; and check [4], both assembled
+      Gram matrices positive definite over $QQ$, by the congruence route
+      stated below, every link of which is a stored artefact],
     [$(8,4)$], [not settled; one check short of anchor grade], [on the
       stored exact witness `n8_H2_201.json`, five of the six checks of the
       $(5,4)$ standard hold: the full-monomial identity over all 496,448
@@ -2238,13 +2238,37 @@ rejected. Anything less is stated as what it is.
     each at its own grade, as of 30 July 2026.]
 ) <k4-anchor-table>
 
+*How $(7,4)$ closed check [4].* Both assembled Grams are positive definite
+over $QQ$ by congruence rather than by a single direct factorisation, and
+each link of the route is a stored artefact. The 21 isotypic components are
+*exactly* $H$-orthogonal over $QQ$ and their translates span — 1,368,988
+inner products checked, every one exactly zero
+(`anchor_wtest_n67_part1.log`). On each component the congruence block is
+the Kronecker product of two smaller matrices, $h_b$ and $C_b$, and all 21
+of each are positive definite under exact $L D L^T$
+(`anchor_cb_measure_n7.log`; the $h_b$ independently in
+`verify_H2_n7.log`); the Kronecker argument then makes each component block
+positive definite, orthogonality-with-spanning assembles the components,
+and the conjugacy (A1)/(A2) extends the verdict to all 49 multiplier Grams
+(`anchor_check3_n7.log`). The two component computations use different
+bases of the same components, so their join is itself checked — every
+component dimension $d dot.c e$ against the spanned dimension, all 21
+components, total $2548 = 2 times 1274$ (`anchor_join_n567.log`), with four
+rejection controls that fire (`anchor_join_controls.log`). That join check
+is a consistency check between stored artefacts, not an independent
+verification: the mathematics is in the links. $sigma_0$ additionally
+admits a direct assembled factorisation, positive definite over $QQ$ with
+least pivot $1.637015 times 10^(-5)$; the full factorisation record,
+including $sigma_11$'s, is archived when the run completes, and the
+congruence route does not depend on it.
+
 With the cells as they stand, the unconditional state of the line $k = 4$
-is: settled for $n = 5$ and $n = 6$ (anchor grade) and for every
+is: settled for $n = 5, 6, 7$ (anchor grade) and for every
 $n gt.eq 10$ (Theorem H, written-proof plus exact-verifier grade); not
-settled at $n = 7, 8, 9$. The line becomes settled for every $n gt.eq 5$
-exactly when the three open cells of @k4-anchor-table reach at least anchor
-grade, and not before. None of the theorems of this paper depends on any
-cell of the table.
+settled at $n = 8$ and $n = 9$. The line becomes settled for every
+$n gt.eq 5$ exactly when the two open cells of @k4-anchor-table reach at
+least anchor grade, and not before. None of the theorems of this paper
+depends on any cell of the table.
 
 = Toward a certificate family at $k = 4$ and $k = 5$ <sec-computational>
 
@@ -2361,9 +2385,9 @@ the division explicitly because "machine-checked" is otherwise an ambiguous
 claim.
 
 *What is not claimed.* At $k = 4$: nothing beyond Theorem H's range
-$n gt.eq 10$, the settled cells $(5,4)$ and $(6,4)$, and the per-cell
-records of @sec-k4-anchors, each at its stated grade — the cells
-$n = 7, 8, 9$ are open here. At $k = 5$: nothing beyond the stability cell
+$n gt.eq 10$, the settled cells $(5,4)$, $(6,4)$ and $(7,4)$, and the
+per-cell records of @sec-k4-anchors, each at its stated grade — the cells
+$n = 8$ and $n = 9$ are open here. At $k = 5$: nothing beyond the stability cell
 $(k = 5, n gt.eq 14)$ of Theorem G, at written-proof plus exact-verifier
 grade; the Cheon–Hwang inequality itself is not claimed at any $(5, n)$
 except the anchor $(5,4)$ of @sec-anchors, which concerns $k = 4$. No

@@ -41,8 +41,8 @@ value of the one constant in the argument that is not settled, with the shape
 of the c-dependence asserted mechanically. The theorem is not formalised; its
 support is written proofs plus an exact verifier that re-reads the displayed
 numbers out of the document itself. Fixed-dimension certificates settle the
-cells (5,4) and (6,4) besides, so on the line k = 4 exactly three cells
-remain open -- n = 7, 8, 9 -- and each is recorded at the grade it has
+cells (5,4), (6,4) and (7,4) besides, so on the line k = 4 exactly two cells
+remain open -- n = 8 and n = 9 -- and each is recorded at the grade it has
 actually reached.
 
 These results sit inside an exact decomposition of the deficit uniform in n
@@ -69,6 +69,14 @@ cells are exactly n = 7, 8, 9; and the former "Theorem I" was REGRADED to a
 verified sensitivity computation, per NOTES-ALLK 11.41 -- the flat threshold
 is established at the ten sampled c values with the c-dependence structure
 mechanically audited, and the paper claims exactly that, no continuum claim.
+
+Third update, same day: (7,4) settled at full anchor grade (Phi_4 <=
+4778/2401 on K_7) -- check [4] closed by the stored congruence chain
+(H-orthogonality + Kronecker sub-blocks + join check, all committed logs),
+with sigma_0 additionally proved by direct factorisation; (8,4) is one
+check short of anchor grade (assembled 2144x2144 factorisation outstanding);
+so the k = 4 open cells are exactly n = 8 and n = 9, and the honest gap
+paragraphs across the paper say so.
 
 The former stand-alone drafts graded_k4_paper.md and graded_stability_lemma.md
 are superseded by the merged paper; both verifiers now parse the merged typst

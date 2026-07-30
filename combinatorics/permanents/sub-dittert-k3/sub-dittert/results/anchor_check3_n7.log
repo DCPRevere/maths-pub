@@ -1,0 +1,51 @@
+[guard] MemoryMax=7G  swap=off  CPUQuota=120%  threads=2
+trusted verifier results/verify_subdittert.py loaded by path, unmodified
+
+=== POSITIVE CONTROL at (k = 4, n = 5) ===
+  dense (5,4) certificate loaded, 25 multiplier Grams of size 350  (5 s)
+  dense route (no group theory): 7,875 monomials (10 s)
+  n = 5: B = 350, N = 25 variables, 350 basis monomials (7 s to build)
+  sigma_11 Gram H assembled 350x350 from the stored point
+  (A1) all 25 transporters induce a BIJECTION of the 350 basis monomials, so every G_p = P_p H P_p^T exactly
+       => positive definiteness of H implies it for all 25 multiplier Grams.  24 factorisations DEDUCED, none skipped.
+  (A2) checking H against 7 generators of Stab((0,0)) over 122500 entries each
+  (A2) H is EXACTLY invariant under Stab((0,0)): sigma_p is well defined and independent of which transporter is used
+  conjugation verification complete in 7 s
+  claim built from feasible witness: B = 350, orbit split 51 + 356 + 33, 23751 nonzero lambda coefficients  (7 s)
+  streamed route (transporter relabelling): 7,875 monomials (11 s)
+  CONTROL PASSED: streamed and dense expansions are IDENTICAL over Q
+  CONTROL PASSED: identity holds at (k = 4, n = 5) over all 7875 monomials, the count NOTES §6.1a records
+  control rejected (G0[0][0] shifted by 1e-6): identity broken, as required
+  CONTROL PASSED: the 3-part partition reproduces the same 7875 monomials and the same verdict
+
+=== (k = 4, n = 7) anchor checks [1] [2] [3] [5] [6] ===
+  [2] bound 2 - 4!/7^4 = 4778/2401 against the typed-in 4778/2401: MATCH
+  [1] sigma_k, direct subpermanents vs Ryser on per(A+xJ), 4 matrices: AGREE (0 s)
+  n = 7: B = 1274, N = 49 variables, 1274 basis monomials (179 s to build)
+  sigma_11 Gram H assembled 1274x1274 from the stored point
+  (A1) all 49 transporters induce a BIJECTION of the 1274 basis monomials, so every G_p = P_p H P_p^T exactly
+       => positive definiteness of H implies it for all 49 multiplier Grams.  48 factorisations DEDUCED, none skipped.
+  (A2) checking H against 11 generators of Stab((0,0)) over 1623076 entries each
+  (A2) H is EXACTLY invariant under Stab((0,0)): sigma_p is well defined and independent of which transporter is used
+  conjugation verification complete in 184 s
+  claim built from feasible witness: B = 1274, orbit split 51 + 356 + 33, 292825 nonzero lambda coefficients  (180 s)
+  [3] building F(b) from the 1992 definition (trusted verifier)
+      F built: 156,555 monomials (4 s)
+      part 1/1: 156,555 certificate monomials, 156,555 of F, match  (361 s)
+  [3] identity by FULL coefficient comparison over Q: certificate 156,555 monomials, F 156,555 monomials -> IDENTICAL
+      certificate expanded and compared in 361 s
+  [6] F(0) = 0: F constant term 0; constant monomial excluded from all 1274 Gram basis entries: True
+  [5] mutation tests (each must BREAK the identity)
+      control rejected (G0[0][0] shifted by 1e-6)
+      control rejected (H[0][0] shifted by 1e-6 (moves all n^2 multipliers))
+      control rejected (lambda coefficient at () shifted by 1e-6)
+      3 of 3 mutation controls correctly rejected
+
+======================================================================
+(k = 4, n = 7): ALL CHECKS PASS
+    PASS  [2] bound
+    PASS  [1] sigma_k two algorithms
+    PASS  (A1)/(A2) conjugacy
+    PASS  [3] identity
+    PASS  [6] F(0) = 0
+    PASS  [5] mutations

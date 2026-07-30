@@ -1,0 +1,84 @@
+[guard] MemoryMax=5G  swap=off  CPUQuota=100%  threads=2
+==========================================================================
+SEPARATING EXPERIMENT for check [4]'s n-uniform fact
+==========================================================================
+The identity sum(multiplicity x dimension) = B is ALREADY verified
+exactly at n = 5..9.  It is a SATURATED INSTRUMENT for this question:
+it passes whether or not the canonical bases are isotypic-adapted, so
+no support for the fact may be read from it.  The separating
+instrument is EXACT H-ORTHOGONALITY of distinct components, over Q.
+
+A spectral screen was written, run, and WITHDRAWN: the canonical bases
+are NOT orthonormal, so E^T H E is a CONGRUENCE and eigenvalues are
+not preserved.  Its apparent refutation was an artefact.  Congruence
+preserves INERTIA, vacuous on a positive definite example.  The
+figures are MEASURED below rather than quoted here, so they cannot
+drift from the prose.  See the docstring.
+==========================================================================
+
+--- why there is no spectral screen, at (k = 4, n = 5) ---
+  Gram sigma_11 largest eigenvalue        9.0550e+01
+  largest block eigenvalue (16x16 Ind(V'|1))  1.4554e+05
+  largest canonical basis vector norm    1686.416  (not orthonormal)
+  block eigenvalue exceeds the Gram's by 1607.3x, so E^T H E is a CONGRUENCE;
+  eigenvalues are not preserved and only INERTIA is, which is vacuous here.
+
+--- PART 1 (exact over Q): span and H-orthogonality, (k = 4, n = 5) ---
+  sigma_11: 7 generator actions on the 350 basis monomials
+    14x14 trivial              block size  14 -> component dim    14
+    7x7 sign                   block size   7 -> component dim     7
+    16x16 Ind(V'|1)            block size  16 -> component dim    96
+    10x10 (V'|V')+             block size  10 -> component dim    90
+    4x4 (V'|V')-               block size   4 -> component dim    36
+    Ind(1|(m-2,2))             block size   4 -> component dim    16
+    Ind(V'|(m-2,2))            block size   3 -> component dim    36
+    Ind(V'|(m-2,1,1))          block size   2 -> component dim    36
+    Ind(1|(m-2,1,1))           block size   1 -> component dim     6
+    ((m-2,2)|(m-2,2))+         block size   1 -> component dim     4
+    ((m-2,1,1)|(m-2,1,1))+     block size   1 -> component dim     9
+    total 350 against B = 350  OK
+    ==> sigma_11: all distinct components are EXACTLY H-orthogonal over Q, and the translates span
+  sigma_0: 9 generator actions on the 350 basis monomials
+    (1|1) ext +                block size   4 -> component dim     4
+    (1|1) ext -                block size   1 -> component dim     1
+    Ind(1|V)                   block size   5 -> component dim    40
+    (V|V) ext +                block size   5 -> component dim    80
+    (V|V) ext -                block size   1 -> component dim    16
+    Ind(1|(n-2,2))             block size   2 -> component dim    20
+    Ind(V|(n-2,2))             block size   2 -> component dim    80
+    Ind(V|(n-2,1,1))           block size   1 -> component dim    48
+    ((n-2,2)|(n-2,2)) ext +    block size   1 -> component dim    25
+    ((n-2,1,1)|(n-2,1,1)) ext + block size   1 -> component dim    36
+    total 350 against B = 350  OK
+    ==> sigma_0: all distinct components are EXACTLY H-orthogonal over Q, and the translates span
+  PART 1 finished in 108 s
+
+--- PART 2 (exact over Q): is each component Gram  C (x) h_b ?  (k = 4, n = 5) ---
+  sigma_11:
+    14x14 trivial                1 slices, all 1 sub-blocks are exact rational multiples of h_b (identity slice gives 1)
+    7x7 sign                     1 slices, all 1 sub-blocks are exact rational multiples of h_b (identity slice gives 1)
+    16x16 Ind(V'|1)              6 slices, all 21 sub-blocks are exact rational multiples of h_b (identity slice gives 1)
+    10x10 (V'|V')+               9 slices, all 45 sub-blocks are exact rational multiples of h_b (identity slice gives 1)
+    4x4 (V'|V')-                 9 slices, all 45 sub-blocks are exact rational multiples of h_b (identity slice gives 1)
+    Ind(1|(m-2,2))               4 slices, all 10 sub-blocks are exact rational multiples of h_b (identity slice gives 1)
+    Ind(V'|(m-2,2))             12 slices, all 78 sub-blocks are exact rational multiples of h_b (identity slice gives 1)
+    Ind(V'|(m-2,1,1))           18 slices, all 171 sub-blocks are exact rational multiples of h_b (identity slice gives 1)
+    Ind(1|(m-2,1,1))             6 slices, all 21 sub-blocks are exact rational multiples of h_b (identity slice gives 1)
+    ((m-2,2)|(m-2,2))+           4 slices, all 10 sub-blocks are exact rational multiples of h_b (identity slice gives 1)
+    ((m-2,1,1)|(m-2,1,1))+       9 slices, all 45 sub-blocks are exact rational multiples of h_b (identity slice gives 1)
+    ==> sigma_11: component Grams are C (x) h_b
+  sigma_0:
+    (1|1) ext +                  1 slices, all 1 sub-blocks are exact rational multiples of h_b (identity slice gives 1)
+    (1|1) ext -                  1 slices, all 1 sub-blocks are exact rational multiples of h_b (identity slice gives 1)
+    Ind(1|V)                     8 slices, all 36 sub-blocks are exact rational multiples of h_b (identity slice gives 1)
+    (V|V) ext +                 16 slices, all 136 sub-blocks are exact rational multiples of h_b (identity slice gives 1)
+    (V|V) ext -                 16 slices, all 136 sub-blocks are exact rational multiples of h_b (identity slice gives 1)
+    Ind(1|(n-2,2))              10 slices, all 55 sub-blocks are exact rational multiples of h_b (identity slice gives 1)
+    Ind(V|(n-2,2))              40 slices, all 820 sub-blocks are exact rational multiples of h_b (identity slice gives 1)
+    Ind(V|(n-2,1,1))            48 slices, all 1176 sub-blocks are exact rational multiples of h_b (identity slice gives 1)
+    ((n-2,2)|(n-2,2)) ext +     25 slices, all 325 sub-blocks are exact rational multiples of h_b (identity slice gives 1)
+    ((n-2,1,1)|(n-2,1,1)) ext +  36 slices, all 666 sub-blocks are exact rational multiples of h_b (identity slice gives 1)
+    ==> sigma_0: component Grams are C (x) h_b
+  PART 2 finished in 29 s
+
+==> (k = 4, n = 5): CONSISTENT WITH the n-uniform fact for check [4]
