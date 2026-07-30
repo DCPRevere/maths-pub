@@ -70,19 +70,26 @@ What changed, and what did not:
   statements, and the log-by-log (7,4) narrative (now three sentences, with
   filenames in the kit rather than in body prose).
 - The DITTERT-PROGRESS STORY gets no chapter and barely a mention: the k = n
-  public-claims table is gone, and the whole story is now two sentences -- the
-  closing paragraph of section 1.4 (endpoint not attacked, moved publicly in
-  July 2026, pedromnasc claims Dittert in full, no view taken) plus one clause
-  in section 5. Dittert appears otherwise only to define the object.
+  public-claims table is gone, the verbatim README quote is gone, and the whole
+  topic -- broader Dittert context, campaign narrative and competitor
+  positioning together -- is ONE sentence in section 1.4: the endpoint is not
+  attacked here and its status is not this paper's subject, one public
+  unrefereed repository claims Dittert in full on which we take no view, and
+  every priority claim is narrowed to what Lean and the verifiers carry.
+  Dittert appears otherwise only to define the object (the conjecture
+  statement, the k = n scope line, and Hwang's n = 3 theorem in Corollary B).
 - TYPOGRAPHY: journal-grade styling. One statement style throughout (a left
   rule, heavier for named theorems, no fills or rounded corners); a proper
   title block with a centred rule; italic run-in heads and italic emphasis
   instead of boldface (bold survives only on statement heads and table
   headers, 20 spans down from about 130); booktabs tables, horizontal rules
-  only; italic level-2 headings. Inline raw is set in Nimbus Mono PS at 8.9pt
-  against a 9.6pt body, so declaration names sit flush with the prose rather
-  than looming over it, and the tinted code boxes are gone. Equation
-  cross-references render as (19), not "Equation 19".
+  only; italic level-2 headings. Inline raw is sized RELATIVELY at 0.88em, in
+  Nimbus Mono PS, so a declaration name scales with whatever context it sits
+  in and sits slightly smaller than the surrounding prose; the tinted code
+  boxes are gone. Equation cross-references render as (19), not "Equation 19".
+  The space freed by the Dittert cut went to breathing room -- leading 0.53em
+  to 0.58em, more air around headings, statements and displays -- not to new
+  content.
 
 Both verifiers pass against the finished paper, both --mutate runs fire every
 control, and the process-term scan is clean.]

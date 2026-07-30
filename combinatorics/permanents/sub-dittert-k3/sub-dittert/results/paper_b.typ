@@ -1,24 +1,25 @@
 #set page(paper: "a4", margin: (x: 2.0cm, y: 2.05cm), numbering: "1")
 #set text(font: "New Computer Modern", size: 9.6pt)
-#set par(justify: true, leading: 0.53em)
+#set par(justify: true, leading: 0.58em)
 #set heading(numbering: "1.1")
-#show heading.where(level: 1): it => block(above: 1.15em, below: 0.5em)[
+#show heading.where(level: 1): it => block(above: 1.4em, below: 0.6em)[
   #text(11pt, weight: "bold")[#it]
 ]
-#show heading.where(level: 2): it => block(above: 0.95em, below: 0.4em)[
+#show heading.where(level: 2): it => block(above: 1.15em, below: 0.5em)[
   #text(10pt, style: "italic", weight: "regular")[#it]
 ]
 
-// Inline declaration names sit flush with the prose: ~0.85em against the
-// body, in a mono whose x-height matches the serif face, and no tinted box.
+// Inline declaration names sit flush with the prose: RELATIVE sizing, so a
+// name scales with whatever context it sits in (body, a grade line, a table
+// cell), in a mono whose x-height matches the serif face, and no tinted box.
 #show raw: set text(font: "Nimbus Mono PS")
-#show raw.where(block: false): it => text(size: 8.9pt, it)
+#show raw.where(block: false): it => text(size: 0.88em, it)
 #show raw.where(block: true): it => block(
   width: 100%, inset: 6pt, stroke: 0.4pt + luma(180), text(size: 8.2pt, it)
 )
 
 #set math.equation(numbering: "(1)")
-#show math.equation.where(block: true): set block(above: 0.55em, below: 0.55em)
+#show math.equation.where(block: true): set block(above: 0.7em, below: 0.7em)
 #let per = math.op("per")
 #let directsum = math.class("binary", "⊕")
 #let kron = math.class("binary", "⊗")
@@ -39,8 +40,8 @@
 // rule: a heavier one for the named theorems, a hairline for everything else.
 // No fills, no rounded corners.
 #let stmt(rule, body) = block(
-  width: 100%, above: 0.85em, below: 0.85em,
-  stroke: (left: rule), inset: (left: 8pt, top: 2pt, bottom: 2pt),
+  width: 100%, above: 1.0em, below: 1.0em,
+  stroke: (left: rule), inset: (left: 9pt, top: 3pt, bottom: 3pt),
 )[#body]
 #let keybox(body) = stmt(1.4pt + luma(70), body)
 #let claimbox(body) = stmt(0.5pt + luma(160), body)
@@ -70,7 +71,7 @@
   #v(1.1em)
   #text(10.5pt)[D C P Revere]
   #v(0.25em)
-  #text(9pt)[`dcprevere@gmail.com`]
+  #text(9pt)[dcprevere\@gmail.com]
   #v(0.25em)
   #text(8.5pt, style: "italic")[Draft — 30 July 2026]
   #v(0.9em)
@@ -264,8 +265,8 @@ claimed optimal (@sec-machine).
   of squares on the hyperplane $sum_(i j) b_(i j) = 0$:
   $ (2 - 2\/n^2) - Phi_2 (A)
     = 1/2 [ kappa^2 norm(b)^2 + kappa (1 - kappa) (norm(R)^2 + norm(C)^2) ]. $ <eq-k2sos>
-  #leanline[Kernel-checked: `SubDittertK2.subDittert_k2`. *The statement is
-  classical* (@sec-prior); the contributions are the derivation from
+  #leanline[Kernel-checked: `SubDittertK2.subDittert_k2`. _The statement is
+  classical_ (@sec-prior); the contributions are the derivation from
   @eq-universal and the machine-checked proof.]
 ]
 
@@ -362,24 +363,18 @@ different things from refereeing, and weaker ones. @sec-machine is the
 precise record.
 
 _The intermediate range has attracted almost nothing._ The Cheon–Hwang paper
-[1] has five citing papers — [5], [6], [7] and the two of [12] — and none
-works on the generalisation. To our knowledge neither the literature nor any
-public code repository carries a result on the intermediate range. The
-closest item is a `subdittert/` package inside one of the repositories of
-[11], whose README is explicit — "The endpoint `k=n` is Dittert's problem.
-The cases `k<=2` are historically known. This package does _not_ claim the
-unresolved intermediate cases" — which is also the clearest available
-statement of the prior status of Theorem D; its own results lie on the
-diagonals $k = n-1$ and $k = n-2$ from $n = 18$ upward, conditional
-throughout on a structural hypothesis of its own. Reference [7] is paywalled
-and was not obtained; it is reported to settle $n lt.eq 3$ for all $k$, and
-nothing here depends on it.
-
-The endpoint $k = n$ is not attacked here, and its own status is not this
-paper's subject: it moved publicly and repeatedly in July 2026, in preprints
-[9, 10] and public repositories [11] of which none is refereed, and one
-assembly among them — the `pedromnasc` repository — claims Dittert in full,
-on which this paper takes no view.
+[1] has five citing papers — [5], [6], [7] and the two of [12] — none of
+which works on the generalisation, and to our knowledge neither the
+literature nor any public code repository carries a result on the
+intermediate range: the one adjacent package, inside a repository of [11],
+explicitly disclaims the unresolved intermediate cases, and that disclaimer
+is also the clearest available statement of the prior status of Theorem D.
+The endpoint $k = n$ is not attacked here and its status is not this paper's
+subject — one public unrefereed repository of [11] claims Dittert in full, on
+which we take no view — and every priority claim made here is narrowed to
+what the Lean development and the exact verifiers actually carry. Reference
+[7] is paywalled and was not obtained; it is reported to settle
+$n lt.eq 3$ for all $k$, and nothing here depends on it.
 
 = The certificate route: $k = 3$, uniformly in $n$ <sec-cert>
 
@@ -392,8 +387,8 @@ $binom(n,k)^2$ index pairs, against
 $per(A + x J_n) = sum_j x^(n-j)(n-j)! sigma_j (A)$ in $QQ[x]$ with the
 order-$n$ permanent by Ryser), and the polynomial built at $(n,k) = (4,4)$
 compared coefficient by coefficient — 1040 monomials, zero differences —
-against an independent Dittert pipeline that already underlies a verified
-certificate. One trap deserves naming, since the obvious check falls into it:
+against an independent pipeline for the $k = n$ case that already underlies
+a verified certificate. One trap deserves naming, since the obvious check falls into it:
 $2 - gamma(4,3) = 2 - gamma(4,4) = 61\/32$ and
 $2 - gamma(5,4) = 2 - gamma(5,5) = 1226\/625$, so seeing the right _bound_ is
 no evidence at all that the $k = 3$ code does what it claims. Whole
@@ -419,8 +414,8 @@ area [15].
 
 _Why the degree closes._ At $k = 3$ a Gram basis of degree $1$ gives
 $deg sigma lt.eq 2$ and $deg(sigma_p b_p) lt.eq 3 = deg F$, with no surplus
-top band to cancel; the Gram matrices are $n^2 times n^2$. *Why rounding
-works.* The standing obstruction to exact rational rounding is that a tight
+top band to cancel; the Gram matrices are $n^2 times n^2$. _Why rounding
+works._ The standing obstruction to exact rational rounding is that a tight
 bound forces a singular optimal Gram. Here the Hessian of $F$ at $J_n\/n$
 restricted to $\{sum X = 0\}$ is positive definite — at $(n,k) = (4,3)$ its
 characteristic polynomial there is $x (x - 1\/16)^9 (x - 29\/16)^6$ over
@@ -457,8 +452,8 @@ half of the certificate exists at every $n$ at once.
 == Definiteness, and the design problem <sec-design>
 
 What remains is to choose within that family so that both Gram matrices are
-positive definite for every $n gt.eq 4$. Both are block-diagonalised *in
-closed form* — a numerical basis at one $n$ could not settle all $n$. The
+positive definite for every $n gt.eq 4$. Both are block-diagonalised _in
+closed form_ — a numerical basis at one $n$ could not settle all $n$. The
 $sigma_0$ Gram lies in the Bose–Mesner algebra of the rook's graph
 $K_n square K_n$, so it has exactly three eigenvalues
 $theta_0, theta_1, theta_2$, of multiplicities $1$, $2(n-1)$, $(n-1)^2$. For
@@ -504,8 +499,8 @@ still far outside it.
 The fix is to write the cancellations into the coordinates so that they
 happen symbolically rather than numerically —
 $beta_9 = b$, $beta_6 = 2b + x\/n^2$, $beta_12 = 2b - 1 + y\/n$,
-$beta_11 = 2 beta_12 + 2 + z\/n$ — and then *solve for $z$ exactly over
-$QQ(n)$ from the equation $theta_2 = D$* rather than fitting it. That is the
+$beta_11 = 2 beta_12 + 2 + z\/n$ — and then _solve for $z$ exactly over
+$QQ(n)$ from the equation $theta_2 = D$_ rather than fitting it. That is the
 step which makes the difference: the two quantities are affine in $z$ with
 opposite-sign coefficients of size $n^2$ and the window between them has
 width $O(n^(-2))$, so at $n = 10^6$ a numerical fit would need twelve correct
@@ -519,9 +514,9 @@ grid of $n$ finds them:
             n^7 - 7n^6 + 19n^5 - 25n^4 + 16n^3 - 4n^2). $
 ]
 
-The transferable form of the step is short: *in a family of certificates
+The transferable form of the step is short: _in a family of certificates
 indexed by a parameter, identify the tight direction and eliminate it
-symbolically; fit only the slack ones.* The nineteen resulting certificate
+symbolically; fit only the slack ones._ The nineteen resulting certificate
 variables are exact rational functions of $n$, recorded in the accompanying
 material; the largest has numerator of degree 9 over denominator of degree
 12, and $theta_2$ decays like $n^(-5)$, so the endpoint costs margin, not
@@ -840,8 +835,8 @@ covered cell; Propositions S4 and S5; and the formalisation scope of
 @sec-machine against the Lean sources at the commits cited there, read with
 `git show` so the working tree cannot flatter the claim. That last check is
 the one exception to the script being self-contained, and run with
-`--no-lean` it skips it and *records in its log that the scope claims went
-unchecked*. The test matrices are the configurations at which Lemma S3 is
+`--no-lean` it skips it and _records in its log that the scope claims went
+unchecked_. The test matrices are the configurations at which Lemma S3 is
 attained or nearly attained. Four mutation controls fire — the constant
 doubled, a sign flip in @eq-stab-core4, each threshold lowered by one so that
 an excluded cell is claimed as covered, and Lemma S3(a) over-tightened — and
@@ -886,8 +881,8 @@ $ Y_3 = -(n-3)[2 A_1 - A_2 + 2 A_3 - A_4], quad
 $A_3 = sum_b y_b g_3 (b)$, $A_4 = q^T z thin y$, where $compose$ is the
 entrywise product and $I = [n] without S$, $J = [n] without T$ for the
 deleted index pairs. One principle produces all three of the $d = 4$ terms:
-*anything separable in the deleted indices is annihilated by
-$sum_a z_(a b) = sum_b z_(a b) = 0$.* For $Y_1$ what survives is that the
+_anything separable in the deleted indices is annihilated by
+$sum_a z_(a b) = sum_b z_(a b) = 0$._ For $Y_1$ what survives is that the
 restricted $e_1$ is _not_ zero — on $I = [n] without {a}$ one has
 $e_1 (x_I) = -x_a$ and $e_2 (y_J) = e_2 (y) + y_b^2$ — so the terms depending
 on one deleted index alone die and the rest leave $x_a y_b^2$ and
@@ -1024,8 +1019,8 @@ orthogonality-with-spanning assembles the components, and the conjugacy
 extends the verdict to all 49 multiplier Grams. Every link is a stored
 artefact, verified exactly over $QQ$ with rejection controls that fire. The
 two component computations use different bases of the same components, and
-the check reconciling them is a *consistency check between stored artefacts,
-not an independent verification*.
+the check reconciling them is a _consistency check between stored artefacts,
+not an independent verification_.
 
 _The gap, stated once._ Unconditionally, the line $k = 4$ is settled for
 $n = 5, 6, 7$ at anchor grade and for every $n gt.eq 10$ by Theorem H, and is
@@ -1193,8 +1188,8 @@ family in $QQ(n)$ at $k = 4$. To our knowledge Theorem A is the first
 resolved case of the Cheon–Hwang conjecture with $2 < k < n$ and Theorem G
 the first stability form of the Tverberg–Friedland theorem; both claims cover
 public code repositories as well as the indexed literature, both are priority
-claims rather than claims of difficulty, and both are perishable on a line
-that has moved as fast as @sec-prior records.
+claims rather than claims of difficulty, and both are perishable, so they
+should be re-checked before this paper is submitted anywhere.
 
 = Data availability <sec-data>
 
