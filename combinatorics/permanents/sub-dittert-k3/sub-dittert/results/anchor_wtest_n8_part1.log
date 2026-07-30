@@ -1,0 +1,78 @@
+==========================================================================
+SEPARATING EXPERIMENT for check [4]'s n-uniform fact
+==========================================================================
+The identity sum(multiplicity x dimension) = B is ALREADY verified
+exactly at n = 5..9.  It is a SATURATED INSTRUMENT for this question:
+it passes whether or not the canonical bases are isotypic-adapted, so
+no support for the fact may be read from it.  The separating
+instrument is EXACT H-ORTHOGONALITY of distinct components, over Q.
+
+A spectral screen was written, run, and WITHDRAWN: the canonical bases
+are NOT orthonormal, so E^T H E is a CONGRUENCE and eigenvalues are
+not preserved.  Its apparent refutation was an artefact.  Congruence
+preserves INERTIA, vacuous on a positive definite example.  The
+figures are MEASURED below rather than quoted here, so they cannot
+drift from the prose.  See the docstring.
+==========================================================================
+
+--- why there is no spectral screen, at (k = 4, n = 8) ---
+  Gram sigma_11 largest eigenvalue        5.0123e+00
+  largest block eigenvalue (4x4 (V'|V')-)  1.0387e+06
+  largest canonical basis vector norm    51277.050  (not orthonormal)
+  block eigenvalue exceeds the Gram's by 207227.3x, so E^T H E is a CONGRUENCE;
+  eigenvalues are not preserved and only INERTIA is, which is vacuous here.
+
+--- PART 1 (exact over Q): span and H-orthogonality, (k = 4, n = 8) ---
+  sigma_11: 13 generator actions on the 2144 basis monomials
+    14x14 trivial              block size  14 -> component dim    14
+    7x7 sign                   block size   7 -> component dim     7
+    16x16 Ind(V'|1)            block size  16 -> component dim   192
+    10x10 (V'|V')+             block size  10 -> component dim   360
+    4x4 (V'|V')-               block size   4 -> component dim   144
+    Ind(1|(m-2,2))             block size   4 -> component dim   112
+    Ind(V'|(m-2,2))            block size   3 -> component dim   504
+    Ind(V'|(m-2,1,1))          block size   2 -> component dim   360
+    Ind(1|(m-2,1,1))           block size   1 -> component dim    30
+    ((m-2,2)|(m-2,2))+         block size   1 -> component dim   196
+    ((m-2,1,1)|(m-2,1,1))+     block size   1 -> component dim   225
+    total 2144 against B = 2144  OK
+    checking 1,961,595 inner products for exact zero, over all 55 pairs of distinct components
+      component 1/11 (14x14 trivial): 29,820 of 1,961,595 products, 22 s elapsed
+      component 2/11 (7x7 sign): 44,681 of 1,961,595 products, 33 s elapsed
+      component 3/11 (16x16 Ind(V'|1)): 415,433 of 1,961,595 products, 423 s elapsed
+      component 4/11 (10x10 (V'|V')+): 980,993 of 1,961,595 products, 1232 s elapsed
+      component 5/11 (4x4 (V'|V')-): 1,186,481 of 1,961,595 products, 1559 s elapsed
+      component 6/11 (Ind(1|(m-2,2))): 1,333,761 of 1,961,595 products, 1762 s elapsed
+      component 7/11 (Ind(V'|(m-2,2))): 1,742,505 of 1,961,595 products, 2709 s elapsed
+      component 8/11 (Ind(V'|(m-2,1,1))): 1,904,865 of 1,961,595 products, 3396 s elapsed
+      component 9/11 (Ind(1|(m-2,1,1))): 1,917,495 of 1,961,595 products, 3428 s elapsed
+      component 10/11 (((m-2,2)|(m-2,2))+): 1,961,595 of 1,961,595 products, 3829 s elapsed
+      component 11/11 (((m-2,1,1)|(m-2,1,1))+): 1,961,595 of 1,961,595 products, 4289 s elapsed
+    ==> sigma_11: all distinct components are EXACTLY H-orthogonal over Q, and the translates span
+  sigma_0: 15 generator actions on the 2144 basis monomials
+    (1|1) ext +                block size   4 -> component dim     4
+    (1|1) ext -                block size   1 -> component dim     1
+    Ind(1|V)                   block size   5 -> component dim    70
+    (V|V) ext +                block size   5 -> component dim   245
+    (V|V) ext -                block size   1 -> component dim    49
+    Ind(1|(n-2,2))             block size   2 -> component dim    80
+    Ind(V|(n-2,2))             block size   2 -> component dim   560
+    Ind(V|(n-2,1,1))           block size   1 -> component dim   294
+    ((n-2,2)|(n-2,2)) ext +    block size   1 -> component dim   400
+    ((n-2,1,1)|(n-2,1,1)) ext + block size   1 -> component dim   441
+    total 2144 against B = 2144  OK
+    checking 1,884,238 inner products for exact zero, over all 45 pairs of distinct components
+      component 1/10 ((1|1) ext +): 8,560 of 1,884,238 products, 15 s elapsed
+      component 2/10 ((1|1) ext -): 10,699 of 1,884,238 products, 18 s elapsed
+      component 3/10 (Ind(1|V)): 155,529 of 1,884,238 products, 265 s elapsed
+      component 4/10 ((V|V) ext +): 602,409 of 1,884,238 products, 1360 s elapsed
+      component 5/10 ((V|V) ext -): 689,384 of 1,884,238 products, 1499 s elapsed
+      component 6/10 (Ind(1|(n-2,2))): 824,984 of 1,884,238 products, 1848 s elapsed
+      component 7/10 (Ind(V|(n-2,2))): 1,460,584 of 1,884,238 products, 3925 s elapsed
+      component 8/10 (Ind(V|(n-2,1,1))): 1,707,838 of 1,884,238 products, 5568 s elapsed
+      component 9/10 (((n-2,2)|(n-2,2)) ext +): 1,884,238 of 1,884,238 products, 7198 s elapsed
+      component 10/10 (((n-2,1,1)|(n-2,1,1)) ext +): 1,884,238 of 1,884,238 products, 8780 s elapsed
+    ==> sigma_0: all distinct components are EXACTLY H-orthogonal over Q, and the translates span
+  PART 1 finished in 13922 s
+
+==> (k = 4, n = 8): CONSISTENT WITH the n-uniform fact for check [4]

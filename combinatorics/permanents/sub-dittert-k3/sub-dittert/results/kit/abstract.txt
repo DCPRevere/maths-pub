@@ -29,8 +29,8 @@ sigma_k on the doubly stochastic polytope exceeds its minimum by at least
 C(n,k)^2 c(n,k) ||A - J_n/n||_F^2, with c(n,k) = k(k-1)k!/(4 n^k (n-1)^2)
 optimal to within a factor two -- is kernel-checked at k = 2, k = 3 and k = 4
 over the whole range it states for each, and is of independent interest.
-Fixed-dimension certificates settle (k=4, n=5,6,7), so on the line k = 4
-exactly two cells remain open, n = 8 and n = 9. Every result is stated with the
+Fixed-dimension certificates settle (k=4, n=5,6,7,8), so on the line k = 4
+exactly one cell remains open, n = 9. Every result is stated with the
 layer it rests on -- kernel-checked in Lean 4 at a pinned commit, exact
 rational verifier, or verified computation -- and the grading is part of the
 claim.
@@ -93,3 +93,9 @@ What changed, and what did not:
 
 Both verifiers pass against the finished paper, both --mutate runs fire every
 control, and the process-term scan is clean.]
+
+[UPDATE 2026-07-30, evening: (k=4, n=8) reached full anchor grade — check [4]
+  closed by the congruence route, same six-link statement as (7,4); and (7,4)
+  gained a second, independent proof of [4] by direct factorisation of both
+  1274x1274 Grams. The gap is now the single cell (k=4, n=9). Paper and table
+  updated accordingly.]

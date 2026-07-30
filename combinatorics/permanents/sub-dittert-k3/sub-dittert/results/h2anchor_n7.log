@@ -1,0 +1,61 @@
+  selftest: 8 of 8 random matrices agree with exactsd.ldl_pivots (definite and indefinite cases both present)
+
+=== assembled-Gram test, H2 point at n = 7 ===
+  point: n7_H2_201.json, kind feasible, stored least BLOCK pivot 6585513120/136066766029997
+  B = 1274; orbit split 51 + 356 + 33 = 440 (sigma_0 | sigma_11 | lambda)   [197 s to build]
+  the 33 lambda coefficients of THIS point: 13 positive, 20 negative, 0 zero -- mixed sign, exactly as the (5,4) anchor's are, and unconstrained by construction
+    sigma_0  G0: assembled 1274x1274, symmetric, longest numerator 24 digits  (0 s)
+    sigma_0  G0: pivot 50/1274 done, least so far 1.693392e-05, 0 s elapsed
+    sigma_0  G0: pivot 100/1274 done, least so far 1.693392e-05, 41 s elapsed
+    sigma_0  G0: pivot 150/1274 done, least so far 1.693392e-05, 154 s elapsed
+    sigma_0  G0: pivot 200/1274 done, least so far 1.693392e-05, 308 s elapsed
+    sigma_0  G0: pivot 250/1274 done, least so far 1.693392e-05, 484 s elapsed
+    sigma_0  G0: pivot 300/1274 done, least so far 1.693392e-05, 687 s elapsed
+    sigma_0  G0: pivot 350/1274 done, least so far 1.693392e-05, 873 s elapsed
+    sigma_0  G0: pivot 400/1274 done, least so far 1.693392e-05, 997 s elapsed
+    sigma_0  G0: pivot 450/1274 done, least so far 1.693392e-05, 1428 s elapsed
+    sigma_0  G0: pivot 500/1274 done, least so far 1.693392e-05, 1933 s elapsed
+    sigma_0  G0: pivot 550/1274 done, least so far 1.693392e-05, 2490 s elapsed
+    sigma_0  G0: pivot 600/1274 done, least so far 1.693392e-05, 3016 s elapsed
+    sigma_0  G0: pivot 650/1274 done, least so far 1.693392e-05, 3185 s elapsed
+    sigma_0  G0: pivot 700/1274 done, least so far 1.693392e-05, 3327 s elapsed
+    sigma_0  G0: pivot 750/1274 done, least so far 1.693392e-05, 3575 s elapsed
+    sigma_0  G0: pivot 800/1274 done, least so far 1.693392e-05, 3830 s elapsed
+    sigma_0  G0: pivot 850/1274 done, least so far 1.693392e-05, 3988 s elapsed
+    sigma_0  G0: pivot 900/1274 done, least so far 1.693392e-05, 4022 s elapsed
+    sigma_0  G0: pivot 950/1274 done, least so far 1.693392e-05, 4102 s elapsed
+    sigma_0  G0: pivot 1000/1274 done, least so far 1.693392e-05, 4163 s elapsed
+    sigma_0  G0: pivot 1050/1274 done, least so far 1.693392e-05, 4190 s elapsed
+    sigma_0  G0: pivot 1100/1274 done, least so far 1.693392e-05, 4201 s elapsed
+    sigma_0  G0: pivot 1150/1274 done, least so far 1.693392e-05, 4209 s elapsed
+    sigma_0  G0: pivot 1200/1274 done, least so far 1.676071e-05, 4210 s elapsed
+    sigma_0  G0: pivot 1250/1274 done, least so far 1.654313e-05, 4210 s elapsed
+    sigma_0  G0: POSITIVE DEFINITE over Q, least pivot 264040050612418147847171686741494787/16129364987497796596640340122423029034260 = 1.637015e-05  (4210 s)
+    sigma_11 H : assembled 1274x1274, symmetric, longest numerator 16 digits  (0 s)
+    sigma_11 H : pivot 50/1274 done, least so far 4.090819e-06, 154 s elapsed
+    sigma_11 H : pivot 100/1274 done, least so far 4.090819e-06, 401 s elapsed
+    sigma_11 H : pivot 150/1274 done, least so far 4.090819e-06, 952 s elapsed
+    sigma_11 H : pivot 200/1274 done, least so far 4.090819e-06, 1956 s elapsed
+    sigma_11 H : pivot 250/1274 done, least so far 4.090819e-06, 2982 s elapsed
+    sigma_11 H : pivot 300/1274 done, least so far 4.090819e-06, 4042 s elapsed
+    sigma_11 H : pivot 350/1274 done, least so far 4.090819e-06, 4949 s elapsed
+    sigma_11 H : pivot 400/1274 done, least so far 4.090819e-06, 5645 s elapsed
+    sigma_11 H : pivot 450/1274 done, least so far 4.090819e-06, 6807 s elapsed
+    sigma_11 H : pivot 500/1274 done, least so far 4.090819e-06, 8617 s elapsed
+    sigma_11 H : pivot 550/1274 done, least so far 4.090819e-06, 10582 s elapsed
+    sigma_11 H : pivot 600/1274 done, least so far 4.090819e-06, 12391 s elapsed
+    sigma_11 H : pivot 650/1274 done, least so far 4.090819e-06, 13460 s elapsed
+    sigma_11 H : pivot 700/1274 done, least so far 4.090819e-06, 14613 s elapsed
+    sigma_11 H : pivot 750/1274 done, least so far 4.090819e-06, 16691 s elapsed
+    sigma_11 H : pivot 800/1274 done, least so far 4.090819e-06, 18873 s elapsed
+    sigma_11 H : pivot 850/1274 done, least so far 4.090819e-06, 20266 s elapsed
+    sigma_11 H : pivot 900/1274 done, least so far 4.090819e-06, 20814 s elapsed
+    sigma_11 H : pivot 950/1274 done, least so far 4.090819e-06, 21551 s elapsed
+    sigma_11 H : pivot 1000/1274 done, least so far 3.898066e-06, 22223 s elapsed
+    sigma_11 H : pivot 1050/1274 done, least so far 3.811232e-06, 22575 s elapsed
+    sigma_11 H : pivot 1100/1274 done, least so far 3.811232e-06, 22734 s elapsed
+    sigma_11 H : pivot 1150/1274 done, least so far 3.661547e-06, 22876 s elapsed
+    sigma_11 H : pivot 1200/1274 done, least so far 3.587386e-06, 22908 s elapsed
+    sigma_11 H : pivot 1250/1274 done, least so far 3.453061e-06, 22917 s elapsed
+    sigma_11 H : POSITIVE DEFINITE over Q, least pivot 133280440161833561074185654000611676109741808289576413872883649712488927348026939315409084735327644313602246730076520750877769653825986262078108103800270634569811058656400674637759068668211197/39607538828496853144546156478374807601971722591501603630716277634569945786348496169640114195068079987855975679152832253860693361576113449653328652605481577773852232497833778068816932245959661327144 = 3.365027e-06  (22918 s)
+  ==> n = 7: both assembled Grams positive definite over Q. Anchor check (4) holds at B x B, not only block-wise.

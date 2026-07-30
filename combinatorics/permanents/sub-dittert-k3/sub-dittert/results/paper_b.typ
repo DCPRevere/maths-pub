@@ -115,7 +115,7 @@
     factor two — is kernel-checked at $k = 2$, $k = 3$ and $k = 4$ over the
     whole range it states for each, and is of independent interest.
     Fixed-dimension certificates settle $(k=4, n=5,6,7)$, so on the line
-    $k = 4$ exactly two cells remain open, $n = 8$ and $n = 9$. Every result
+    $k = 4$ exactly one cell remains open, $n = 9$. Every result
     is stated with the layer it rests on — kernel-checked in Lean 4 at a
     pinned commit, exact rational verifier, or verified computation — and the
     grading is part of the claim.
@@ -212,7 +212,7 @@ the programme grows to $440$ unknowns, and no family in $n$ is known for it.
     [$k = 4$, $n = 5, 6, 7$],
     [exact per-cell certificates: at small $n$ an exact solve finishes, and
      it gives the sharpest statement available per cell],
-    [anchor grade; the cells $(k=4, n=8)$ and $(k=4, n=9)$ remain open],
+    [anchor grade; the cell $(k=4, n=9)$ remains open],
     table.hline(stroke: 0.7pt + luma(40)),
   ),
   caption: [Which method is used where, and why. The stability theorem
@@ -346,7 +346,7 @@ Egorychev [20] and Falikman [21]. Those theorems give strictness but no rate.
 Between Theorem A's line and Theorem H's range sit the cells
 $(k = 4, 5 lt.eq n lt.eq 9)$. Three are settled by fixed-dimension
 certificates at anchor grade — $(k=4, n=5)$, $(k=4, n=6)$ and $(k=4, n=7)$ —
-so the open cells on the line $k = 4$ are exactly $n = 8$ and $n = 9$.
+so the open cell on the line $k = 4$ is exactly $n = 9$.
 @sec-cells records all five at the grade each has reached and states that gap
 once.
 
@@ -994,12 +994,10 @@ and anything less is stated as what it is.
       [anchor grade on a stored exact witness: identity over all 156,555
        coefficients, conjugacy exact, assembled positivity by the congruence
        route below],
-    [$(k=4, n=8)$], [_not settled_; one check short],
-      [five of the six checks hold on a stored exact witness — identity over
-       all 496,448 coefficients, the bound $1021\/512$, equality only at
-       $J_8\/8$, conjugacy exact, and positivity _block-wise_ for all 21
-       canonical blocks. The assembled $2144 times 2144$ factorisation has
-       not run, and block definiteness is not assembled definiteness],
+    [$(k=4, n=8)$], [settled: $Phi_4 lt.eq 1021\/512$ on $K_8$],
+      [anchor grade on a stored exact witness: identity over all 496,448
+       coefficients, equality only at $J_8\/8$, conjugacy exact, assembled
+       positivity (cone size 2144) by the congruence route below],
     [$(k=4, n=9)$], [_not settled_],
       [no witness exists: the exact solve exceeded available memory at this
        size. Nothing is stored, and nothing is claimed],
@@ -1009,26 +1007,30 @@ and anything less is stated as what it is.
     of 30 July 2026. In every settled cell equality holds only at $J_n\/n$.]
 ) <k4-anchor-table>
 
-At $(k=4, n=7)$ both assembled Grams are positive definite over $QQ$ by
-_congruence_ rather than by a single direct factorisation: the 21 isotypic
-components are exactly $H$-orthogonal over $QQ$ and their translates span; on
-each component the congruence block is a Kronecker product $C_b kron h_b$,
-and all 21 of each factor are positive definite under exact $L D L^T$; the
-Kronecker argument then makes each component block definite,
-orthogonality-with-spanning assembles the components, and the conjugacy
-extends the verdict to all 49 multiplier Grams. Every link is a stored
-artefact, verified exactly over $QQ$ with rejection controls that fire. The
+At $(k=4, n=7)$ and $(k=4, n=8)$ the assembled Grams are positive definite
+over $QQ$ by _congruence_ rather than by a single direct factorisation: the
+21 isotypic components are exactly $H$-orthogonal over $QQ$ and their
+translates span; on each component the congruence block is a Kronecker
+product $C_b kron h_b$, and all 21 of each factor are positive definite under
+exact $L D L^T$; the Kronecker argument then makes each component block
+definite, orthogonality-with-spanning assembles the components, and the
+conjugacy extends the verdict to all multiplier Grams (49 at $n = 7$, 64 at
+$n = 8$). Every link is a stored artefact, verified exactly over $QQ$ with
+rejection controls that fire. At $(k=4, n=7)$ the verdict also has a second,
+independent proof: both assembled $1274 times 1274$ Grams were factorised
+directly over $QQ$, least pivots $1.637015 times 10^(-5)$ and
+$3.365027 times 10^(-6)$, in exact agreement with the congruence route. The
 two component computations use different bases of the same components, and
 the check reconciling them is a _consistency check between stored artefacts,
 not an independent verification_.
 
 _The gap, stated once._ Unconditionally, the line $k = 4$ is settled for
-$n = 5, 6, 7$ at anchor grade and for every $n gt.eq 10$ by Theorem H, and is
-_not settled at $n = 8$ and $n = 9$_. It becomes settled for every
-$n gt.eq 5$ exactly when those two cells reach at least anchor grade, and not
-before. No theorem of this paper depends on any cell of @k4-anchor-table.
+$n = 5, 6, 7, 8$ at anchor grade and for every $n gt.eq 10$ by Theorem H, and
+is _not settled at $n = 9$_. It becomes settled for every $n gt.eq 5$ exactly
+when that one cell reaches at least anchor grade, and not before. No theorem
+of this paper depends on any cell of @k4-anchor-table.
 
-Two routes could close it: fixed-$n$ certificates at the two open cells, or a
+Two routes could close it: a fixed-$n$ certificate at the open cell, or a
 certificate family in $QQ(n)$ at $k = 4$, which would need no anchors and
 would besides supersede the local route and inherit the $k = 3$ formalisation
 pattern. The groundwork for the second is a decided sweep rather than a
