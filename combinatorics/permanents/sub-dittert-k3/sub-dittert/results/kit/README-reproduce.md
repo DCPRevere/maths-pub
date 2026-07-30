@@ -39,7 +39,7 @@ guard, **13.2 s** at under 2 GB. An earlier planning note
 flagged that the full $\mathbb{Q}$ run at $n=12$ "may not fit" a 5-minute/2 GB
 budget — it does, comfortably; the note below explains where a run genuinely doesn't fit.
 
-Reproduced exactly, matching the paper's §6 table:
+Reproduced exactly, matching the paper's §2.4 verification paragraph:
 
 | $n$ | $\sigma_0$ min pivot | $\sigma_{11}$ min pivot | bound $M$ | identity |
 |---|---|---|---|---|
@@ -79,7 +79,7 @@ assembly or the $LDL^T$ itself was the slow part). Given `verify_modp.py`'s
 own docstring warns the exact-$\mathbb{Q}$ route is "hours" at this $n$, we
 did not push further under this pass's 5-minute budget. **The $n=25$
 definiteness figures in the paper are therefore cited from the paper's own
-§6 table (which matches the equivalent table already recorded in
+§2.4 figures (which match the equivalent table already recorded in
 `../NOTES.md` §6a.8c) and were not independently reverified in this pass** —
 flagged explicitly rather than silently assumed checked.
 
@@ -106,7 +106,7 @@ certificates: all six checks pass in all four cases again (timings not
 re-measured).
 
 The verifier prints two minimum pivots per case: the $\sigma_0$ Gram, and the
-minimum over **all** $n^2$ multiplier Grams. The paper's §6.1 quotes these.
+minimum over **all** $n^2$ multiplier Grams. The paper's §4 quotes these.
 They are not the same as the pipeline's figures for the same certificate, which
 factor the multiplier Gram at the corner $p=(0,0)$ only: the $n^2$ multiplier
 Grams are permutation conjugates, so an $LDL^T$ pivot depends on the index
@@ -124,7 +124,7 @@ python3 verify_subdittert.py subdittert_n5k4d2_certificate.json   # DO NOT RUN c
 This certificate's JSON is 61 MB (`subdittert_n5k4d2_certificate.json`) and
 the verifier runs 26 exact rational $LDL^T$ factorisations of size $350$
 because the export deliberately avoids trusting or re-deriving the
-permutation conjugacy between them (see the paper's own §6.1 for why that
+permutation conjugacy between them (see the paper's own §2.4 for why that
 shortcut is refused). The paper states a wall time of 54 minutes; this is
 far outside a 5-minute budget and was **not re-run** for this pass.
 
@@ -196,7 +196,7 @@ evidence, and elaborates with `lake env lean NewtonCrosscheck.lean`.
 B) and `StabilityK4.lean` (14 audited; `stabilityAt_four`, the
 kernel-checked $(k=4, n\ge8)$ cell). The paper cites them at their own
 commits — `1507013` for the first two, `27bda3f`, `365e44e` and `944b517`
-respectively for the rest — and `graded_verify_stability.py`'s V12 (§7a)
+respectively for the rest — and `graded_verify_stability.py`'s V12 (§5)
 checks the paper's scope claims against exactly those commits, with the
 orphan diff and the sorry scan. `StabilityK5Atoms.lean` (15 audited, commit
 `f2bdc7f`) is partial atom coverage at k = 5 — the paper cites it as
@@ -306,15 +306,19 @@ from-the-1992-definition objective, at three random rational points for each
 of $n=4,5,6,7$ (12 checks), at $J_n/n$ where the value must vanish (4
 checks), and one mutation control. All 17 checks: `True`. `ALL OK: True`.
 
-## 7a. The two graded verifiers — Theorems G, H and I — RUN LIVE
+## 7a. The two graded verifiers — Theorems G and H — RUN LIVE
 
-The 2026-07-30 merge made `paper_b.typ` the single sub-Dittert paper: it now
-also carries Theorem G (the Tverberg–Friedland stability theorem), Theorem H
-($k = 4$, every $n \ge 10$) and Theorem I (threshold insensitivity), each
-graded by support layer. Two further exact verifiers came with them. **Both
-parse the merged paper itself** — the k = 4 sensitivity table, and the
-stability part's displayed audit counts — so they must run from a tree that
-has `results/paper_b.typ`, with `sub-dittert/` as the working directory.
+`paper_b.typ` is the single sub-Dittert paper: besides Theorem A it carries
+Theorem G (the Tverberg–Friedland stability theorem, §3.2) and Theorem H
+($k = 4$, every $n \ge 10$, §3.3), each graded by support layer. Two exact
+verifiers come with them, and **each parses a committed displayed record
+rather than restating it**: `graded_verify_stability.py` parses the paper's
+own displayed audit counts, and `graded_verify_k4.py` parses the ten-row
+sensitivity table in `results/kit/sensitivity-k4.md` (moved out of the paper
+body in the 2026-07-30 rewrite, which cut the paper from 38 pages to 12; the
+paper cites the computation in one sentence). Both must run with
+`sub-dittert/` as the working directory, from a tree that has
+`results/paper_b.typ` and `results/kit/sensitivity-k4.md`.
 
 **Theorem G.** `graded_verify_stability.py` is standalone: standard library
 only, no imports from the directory. V1–V11 verify the layer identity, the
@@ -347,13 +351,13 @@ tree without them (a public extract's history differs), run with
 went unchecked in that run instead of passing them quietly — the verifier's
 own designed behaviour, stated in the paper.
 
-**Theorems H and I.** `graded_verify_k4.py` recomputes every displayed
-quantity of the paper's k = 4 part over $\mathbb{Q}$ — the expansion and the
-exactly-zero d = 2 cross part, the end-to-end identity against the 1992
-functional, the five cross-term reductions against brute force, the merge on
-both signs of $\sum z^3$, the four collar facts, every budget line — and
-parses the ten-row sensitivity table out of `results/paper_b.typ`,
-recomputing every row and the flat-at-10 band. Four mutation controls, each
+**Theorem H.** `graded_verify_k4.py` recomputes every displayed quantity of
+the paper's §3.3 over $\mathbb{Q}$ — the expansion and the exactly-zero
+d = 2 cross part, the end-to-end identity against the 1992 functional, the
+five cross-term reductions against brute force, the merge on both signs of
+$\sum z^3$, the four collar facts, every budget line — and parses the
+ten-row sensitivity table out of `results/kit/sensitivity-k4.md`, asserting
+it has exactly ten rows and recomputing every row and the flat-at-10 band. Four mutation controls, each
 with a separating witness. Unlike the stability script it imports the
 instrument modules it declares: `graded_assembly_k4.py`, `graded_layers.py`,
 `graded_lemmaB.py`, `graded_y_bounds.py`, `pincer_line.py`,
@@ -365,8 +369,8 @@ GUARD_MEM=8G GUARD_CPUS=250% GUARD_THREADS=2 ../guard.sh \
     python3 -u graded_verify_k4.py
 ```
 
-**RUN LIVE 2026-07-30: 4.9 s, TOTAL FAILURES: 0, ALL CHECKS PASS**, log
-line "parsed 10 rows" confirming the paper coupling. Log:
+**RUN LIVE 2026-07-30 (post-rewrite): TOTAL FAILURES: 0, ALL CHECKS PASS**,
+log line "parsed 10 rows" confirming the record coupling. Log:
 `results/graded_verify_k4.log`.
 
 **Superseded drafts.** The stand-alone drafts `graded_k4_paper.md` and
@@ -394,7 +398,7 @@ pass.)
 ## 9. Search record
 
 Not a verifying computation — a literature/priority check — but recorded here
-because the paper's §2 rests on it and the paper itself no longer narrates how
+because the paper's §1.4 rests on it and the paper itself no longer narrates how
 the checks were made.
 
 **Citation indexes.** Cheon–Hwang 1992 (the paper's [1]) shows three
@@ -406,7 +410,7 @@ survey [5], Cheon–Yoon 2006 and Cheon 1993 (both [12]).
 
 **Code hosts.** For a computer-assisted proof the code host is effectively the
 venue, so a literature-only sweep can return an empty result confidently and
-wrongly: three of the repositories in the paper's §2.1 table have no arXiv
+wrongly: three of the repositories cited as the paper's [11] have no arXiv
 entry at all. Queries run for the generalisation itself: `subdittert`,
 `sub-dittert`, `subpermanent` and `cheon-hwang` on GitHub — no repositories;
 GitLab, Zenodo, OSF and arXiv likewise returned nothing on the topic. Run once
@@ -415,14 +419,18 @@ at the start of this work and re-run immediately before write-up.
 **Repository state.** See `kit/metadata.md`'s "Interim competitor probe"
 section for the exact `gh` commands, the last-push timestamps, and the
 verbatim re-fetch of the `pedromnasc` scope disclaimer that the paper quotes
-in §2.2.
+in §1.4. The `pedromnasc` assembly itself now gets a single clause in the
+paper's closing paragraph of §1.4 and nothing more.
 
 ## 9a. Ship-day checklist
 
-- [ ] Re-run the code-host sweep above. The paper's §2 records that the $k=n$
-      endpoint moved three times in one week in July 2026, so the "first
-      resolved case with $2<k<n$" claim is the most perishable statement in
-      the paper. It attaches to Theorem A; Theorem H's extension of the
+- [ ] Re-run the code-host sweep above. The $k=n$ endpoint moved repeatedly
+      in July 2026, so the "first resolved case with $2<k<n$" claim is the
+      most perishable statement in the paper. **Note the 2026-07-30 rewrite:
+      the paper no longer carries a table of public $k=n$ claims, and the
+      whole Dittert-progress story is now two sentences — one closing
+      paragraph of §1.4 and one clause in §5. The sweep is still binding;
+      it simply has less prose to correct.** It attaches to Theorem A; Theorem H's extension of the
       resolved range is explicitly subordinate to its written-proof +
       exact-verifier grade, and the $(5,4)$ anchor is not stated as a
       theorem. `metadata.md`'s interim probe is a same-day sanity check,
@@ -433,8 +441,9 @@ in §2.2.
 - [ ] Re-check whether arXiv:2606.01531 (Pang) or arXiv:2607.19439 (Kafidov)
       has acquired a DOI or a published version; the paper describes both as
       unrefereed preprints.
-- [ ] Confirm the §2.1 table caption date still matches the date of the last
-      sweep.
+- [ ] Confirm the "28 July 2026" access date in [11] still matches the date
+      of the last sweep. (That date now appears only in the bibliography, not
+      in a table caption: the rewrite removed the table.)
 - [ ] Run the Theorem G sweep alongside the Cheon–Hwang one: the paper
       claims the first stability form of the Tverberg–Friedland theorem
       (machine-checked half scoped to k = 2, 3, 4). Terms: "Tverberg",
@@ -452,15 +461,15 @@ in §2.2.
 - Anything about $n=25$'s positive-definiteness specifically (§3 above), or
   the $(5,4)$ anchor's live re-verification (§5 above) — both cited from
   stored artefacts rather than reproduced in this pass.
-- That the block-diagonalisation of the paper's §6.2 (Bose–Mesner algebra,
+- That the block-diagonalisation of the paper's §2.3 (Bose–Mesner algebra,
   $S_{n-1}$ representation theory) is correct as an *equivalence*. Lean proves
   semidefiniteness of both Gram families by an explicit change of coordinates
   and completions of squares, which is the direction the theorem needs; the
-  spectral statements of §6.2 — the eigenvalues with their multiplicities, and
-  the converse direction — are not formalised. The paper's §9.5 says so.
+  spectral statements of §2.3 — the eigenvalues with their multiplicities, and
+  the converse direction — are not formalised. The paper's §5 says so.
 - That the priority/competitor landscape is unchanged beyond what the §9
   search record and `metadata.md`'s interim probe cover. The binding
-  pre-submission sweep is outstanding and is item 1 of §9a. The paper's §11
+  pre-submission sweep is outstanding and is item 1 of §9a. The paper's §5
   states the priority claim and calls it perishable; it does not carry the
   re-run instruction, which lives here.
 
@@ -499,9 +508,9 @@ otherwise. This is the list the paper's "Data availability" section points to.
 | file | contents |
 |---|---|
 | `sos.py`, `exactsd.py`, `run.py`, `export.py` | reduced SDP, exact rebuild and rounding, driver, JSON export |
-| `design_lp.py`, `design_sdp.py`, `search_free.py`, `curve.py`, `fit_curve.py`, `exact_design.py` | the failed design branches; the paper's §6.5 is only checkable against them |
+| `design_lp.py`, `design_sdp.py`, `search_free.py`, `curve.py`, `fit_curve.py`, `exact_design.py` | the failed design branches; the paper's §2.3 is only checkable against them |
 
-### The uniform decomposition and band two (Theorems C–D, and §10)
+### The uniform decomposition and band two (Theorems C–D, and §4)
 
 | file | contents |
 |---|---|
@@ -511,20 +520,21 @@ otherwise. This is the list the paper's "Data availability" section points to.
 | `k4_pincert.py`, `k4_pinrank.py`, `k4_pinretest.py` | the $k = 4$ pin sweep decided over $\mathbb{Q}$ at $n = 5, 6, 7$ |
 | `results/witness/` | one JSON per (dimension, configuration): Farkas generators and their value, or the rational point and its least $LDL$ pivot |
 | `results/verify_pinretest.py` | standalone verifier for those witnesses; own elimination, own $LDL^\mathsf{T}$, own rank check, `--mutate` controls |
-| `NOTES-ALLK.md` §10, `NOTES.md` §6b.37–6b.43 | the working record behind §10 of the paper (private tree only; the `NOTES*.md` files are not part of the public extract) |
+| `NOTES-ALLK.md` §10, `NOTES.md` §6b.37–6b.43 | the working record behind §4 of the paper (private tree only; the `NOTES*.md` files are not part of the public extract) |
 
 ### The stability and k = 4 parts (Theorems G, H, I)
 
 | file | contents |
 |---|---|
 | `graded_verify_stability.py` | standalone verifier for Theorem G (standard library only); V12 reads the Lean sources at the pinned commits and the paper's own displayed counts |
-| `graded_verify_k4.py` | verifier for Theorems H and I; parses the paper's sensitivity table out of `results/paper_b.typ` |
+| `graded_verify_k4.py` | verifier for Theorem H; parses the ten-row sensitivity table out of `results/kit/sensitivity-k4.md` |
+| `results/kit/sensitivity-k4.md` | the displayed record of the k = 4 threshold's insensitivity to the collar constant c, graded as a verified computation; the paper cites it in one sentence and this file is what the verifier parses |
 | `graded_assembly_k4.py`, `graded_layers.py`, `graded_lemmaB.py`, `graded_y_bounds.py`, `pincer_line.py`, `pincer_onesided.py` | the instrument modules `graded_verify_k4.py` imports — its whole transitive closure |
-| `results/graded_verify_stability.log`, `results/graded_verify_mutate.log`, `results/graded_verify_k4.log` | the stored runs behind §7a |
+| `results/graded_verify_stability.log`, `results/graded_verify_mutate.log`, `results/graded_verify_k4.log` | the stored runs behind §3.2 and §5 |
 
 ### Lean (`problems/permanents/leanproj/`)
 
-The eight files and their audit counts are in §6 above. Alongside them:
+The eight files and their audit counts are in §6 above (paper §5). Alongside them:
 
 | file | contents |
 |---|---|

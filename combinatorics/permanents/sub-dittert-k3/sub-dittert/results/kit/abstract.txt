@@ -1,90 +1,88 @@
 Cheon and Hwang conjectured in 1992 that E_k(r) + E_k(c) - P_k(A) <= 2 - k!/n^k
 for every non-negative n x n matrix of total sum n and every 1 <= k <= n, with
-equality only at J_n/n; the endpoint k = n is Dittert's conjecture. This paper
-works the intermediate range 2 < k < n on two lines, and proves a stability
-theorem that the second line consumes. The results rest on different support
-layers -- kernel-checked in Lean 4, or written proofs with an exact rational
-verifier -- and each claim is graded explicitly; the grading is part of the
-claim.
+equality only at J_n/n; the endpoint k = n is Dittert's conjecture, and the
+intermediate range 2 < k < n appears to have gone untouched. One structural
+fact organises what follows: the deficit has degree k, not n. Where k is small
+enough that a fixed-degree Positivstellensatz ansatz still matches it, the
+symmetry-reduced programme has the same 12 x 19 shape at every dimension and is
+solved once over Q(n); where it is not, only inequalities uniform in n reach,
+and a local method takes over.
 
-The line k = 3, every n >= 4: the inequality, the equality case, and the
-quantitative strengthening
+On the first route we settle the line k = 3 for every n >= 4 -- the inequality,
+the equality case, and a quantitative strengthening
 
-    (2 - 6/n^3) - [E_3(r) + E_3(c) - P_3(A)]  >=  theta_2(n) * ||A - J_n/n||_F^2,
+    (2 - 6/n^3) - Phi_3(A)  >=  theta_2(n) ||A - J_n/n||_F^2,
     theta_2(n) = (n^4 + 40 n^2 - 84 n + 40) / (n^5 (n-1)^3 (n-2)),
 
-by a single Positivstellensatz certificate whose nineteen symmetry-reduced
-coefficients are explicit rational functions of n: the governing degree is k,
-not n, so the reduced program has the same 12 x 19 shape at every dimension and
-is solved once over Q(n), with definiteness of the two n^2 x n^2 Grams reduced
-in closed form to ten rational functions of n decided by Sturm sequences. This
-part is machine-checked end to end (subDittert_k3_full): no sorry, Lean's
-standard axioms. With Hwang's 1987 theorem at n = 3, the line k = 3 is settled
-in every dimension.
+by a single certificate whose nineteen coefficients are rational functions of
+n, its two n^2 x n^2 Gram matrices reduced in closed form to ten rational
+functions decided by Sturm sequences. This is machine-checked end to end
+(subDittert_k3_full).
 
-A stability form of the Tverberg-Friedland theorem. On the doubly stochastic
-polytope the excess of sigma_k over its minimum at J_n/n is at least
-C(n,k)^2 c(n,k) ||A - J_n/n||_F^2 with c(n,k) = k(k-1)k!/(4 n^k (n-1)^2), for
-k = 2 (every n >= 2), k = 3 (every n >= 4), k = 4 (every n >= 8) and k = 5
-(every n >= 14); the constant is optimal to within a factor two, and the cell
-(k,n) = (3,3) is a genuine exception. Kernel-checked at k = 2, k = 3 and
-k = 4, in each case over the whole range the statement covers for that k;
-written proofs plus an exact verifier at k = 5.
+The second route is local: confinement traps any violator in a collar of the
+Birkhoff polytope, a collar matrix splits orthogonally into a line-sum block
+and a doubly centred block, the centred block is governed by a stability form
+of the Tverberg-Friedland theorem proved here, and the five cross terms between
+the blocks have exact reductions. That yields the Cheon-Hwang inequality at
+k = 4 for every n >= 10 with its equality case. The stability theorem -- that
+sigma_k on the doubly stochastic polytope exceeds its minimum by at least
+C(n,k)^2 c(n,k) ||A - J_n/n||_F^2, with c(n,k) = k(k-1)k!/(4 n^k (n-1)^2)
+optimal to within a factor two -- is kernel-checked at k = 2, k = 3 and k = 4
+over the whole range it states for each, and is of independent interest.
+Fixed-dimension certificates settle (k=4, n=5,6,7), so on the line k = 4
+exactly two cells remain open, n = 8 and n = 9. Every result is stated with the
+layer it rests on -- kernel-checked in Lean 4 at a pinned commit, exact
+rational verifier, or verified computation -- and the grading is part of the
+claim.
 
-The line k = 4: the Cheon-Hwang inequality holds for every n >= 10, with
-equality only at J_n/n, by a local route -- confinement traps any violator in
-a collar of the Birkhoff polytope, a collar matrix splits orthogonally into a
-line-sum block and a doubly centred block, and the five cross terms between
-the blocks have exact reductions. A companion sensitivity computation, graded
-as exactly that, finds the threshold unmoved at every sampled admissible
-value of the one constant in the argument that is not settled, with the shape
-of the c-dependence asserted mechanically. The theorem is not formalised; its
-support is written proofs plus an exact verifier that re-reads the displayed
-numbers out of the document itself. Fixed-dimension certificates settle the
-cells (5,4), (6,4) and (7,4) besides, so on the line k = 4 exactly two cells
-remain open -- n = 8 and n = 9 -- and each is recorded at the grade it has
-actually reached.
+[NOTE ON THIS TEXT: reproduced from paper_b.typ's abstract block, modulo the
+plain-text rendering of the mathematics.
 
-These results sit inside an exact decomposition of the deficit uniform in n
-and k, from which the classical case k = 2 follows in a few lines with a
-machine-checked proof. We also formalise, for every 2 <= k <= n, the
-confinement of any violator to a shrinking neighbourhood of the Birkhoff
-polytope, together with the Newton and Maclaurin inequalities that the
-confinement consumes, neither of which is in Mathlib. Kernel-checked results
-are cited by Lean declaration name at a pinned commit.
+Updated 2026-07-30 for the FULL REWRITE that cut the paper from 38 pages to 12.
+What changed, and what did not:
 
-[NOTE ON THIS TEXT: reproduced verbatim from paper_b.typ's abstract block,
-modulo the plain-text rendering of the mathematics. Updated 2026-07-30 for
-the merge that made paper_b the single sub-Dittert paper: the k = 4 theorem
-(n >= 10, written-proof + exact-verifier grade, graded_verify_k4.py), the
-Tverberg-Friedland stability theorem, and the per-cell anchor records at
-(k = 4, 5 <= n <= 9) were merged into the k = 3 flagship. The paper's title
-changed accordingly. Theorem letters: A-F unchanged, G = stability, H =
-k = 4 at n >= 10. Second update, same day: Theorem G's k = 4 cell upgraded
-to KERNEL-CHECKED (stabilityAt_four, StabilityK4.lean commit 944b517; the
-(4.3) core expansion is sigma_four_centred, SigmaFour.lean commit 365e44e),
-leaving only (k = 5, n >= 14) at written + exact-verifier grade; the (6,4)
-anchor upgraded to full anchor grade (commit 41b15dd), so the k = 4 open
-cells are exactly n = 7, 8, 9; and the former "Theorem I" was REGRADED to a
-verified sensitivity computation, per NOTES-ALLK 11.41 -- the flat threshold
-is established at the ten sampled c values with the c-dependence structure
-mechanically audited, and the paper claims exactly that, no continuum claim.
+- The paper now carries one thesis -- deg F = k, not n -- from which the map of
+  methods follows: a certificate uniform in n where the fixed-degree ansatz
+  still matches (k = 3); the local method where only n-uniform inequalities
+  reach (k = 4, large n); exact per-cell certificates where n is small
+  (k = 4, n = 5, 6, 7). The stability theorem is the local method's engine.
+- Theorem letters A-H are UNCHANGED, as are Corollary B, Lemmas S1-S3 and
+  Propositions S4-S6, and every Lean declaration name. They are external
+  anchors. Proposition S7 (the rank-one D(u)D(v) analysis) was dropped to the
+  kit; the conditional (epsilon <= 1/16) variant is now one clause naming it as
+  a parked research problem, not a boxed statement.
+- The sensitivity table MOVED OUT of the paper body to kit/sensitivity-k4.md,
+  and graded_verify_k4.py was re-pointed at that file in lockstep. The
+  exactly-ten-rows check, the per-row exact recomputation and the
+  band-flat-at-10 assertion all survive unchanged, as does control M4. The
+  paper cites the computation in one sentence.
+- graded_verify_stability.py is UNCHANGED. Its V12 still parses the paper's
+  displayed audit counts -- (33,33), (14,14), (46,46), (28,28), total 121 --
+  and reads the Lean sources at the pinned commits 1507013, 27bda3f, 944b517,
+  365e44e.
+- The honest limits survive verbatim in substance: threshold 8 in Theorem G is
+  a limit of the argument and NOT known sharp, with (k = 4, 4 <= n <= 7)
+  undecided there; the gap is stated ONCE -- (k = 4, n = 8) has five of the six
+  checks, the assembled 2144x2144 factorisation having not run, and
+  (k = 4, n = 9) has no witness at all; the (7,4) join check is described as a
+  consistency check between stored artefacts, not an independent verification.
+- What was cut is process narration, per-cell fold history, duplicate gap
+  statements, and the log-by-log (7,4) narrative (now three sentences, with
+  filenames in the kit rather than in body prose).
+- The DITTERT-PROGRESS STORY gets no chapter and barely a mention: the k = n
+  public-claims table is gone, and the whole story is now two sentences -- the
+  closing paragraph of section 1.4 (endpoint not attacked, moved publicly in
+  July 2026, pedromnasc claims Dittert in full, no view taken) plus one clause
+  in section 5. Dittert appears otherwise only to define the object.
+- TYPOGRAPHY: journal-grade styling. One statement style throughout (a left
+  rule, heavier for named theorems, no fills or rounded corners); a proper
+  title block with a centred rule; italic run-in heads and italic emphasis
+  instead of boldface (bold survives only on statement heads and table
+  headers, 20 spans down from about 130); booktabs tables, horizontal rules
+  only; italic level-2 headings. Inline raw is set in Nimbus Mono PS at 8.9pt
+  against a 9.6pt body, so declaration names sit flush with the prose rather
+  than looming over it, and the tinted code boxes are gone. Equation
+  cross-references render as (19), not "Equation 19".
 
-Third update, same day: (7,4) settled at full anchor grade (Phi_4 <=
-4778/2401 on K_7) -- check [4] closed by the stored congruence chain
-(H-orthogonality + Kronecker sub-blocks + join check, all committed logs),
-with sigma_0 additionally proved by direct factorisation; (8,4) is one
-check short of anchor grade (assembled 2144x2144 factorisation outstanding);
-so the k = 4 open cells are exactly n = 8 and n = 9, and the honest gap
-paragraphs across the paper say so.
-
-The former stand-alone drafts graded_k4_paper.md and graded_stability_lemma.md
-are superseded by the merged paper; both verifiers now parse the merged typst
-source directly (the k = 4 sensitivity table, and the stability part's
-displayed audit counts), so displayed and checked cannot drift apart.
-
-The earlier state of this file, describing the k = 3-only paper, is
-superseded. The 2026-07-29 notes it carried remain true of the k = 3 part:
-the five fixed-dimension anchors stay demoted out of theorem status, the
-priority claim for the intermediate range attaches to Theorem A, and
-Theorems C-F carry no novelty claims for their statements.]
+Both verifiers pass against the finished paper, both --mutate runs fire every
+control, and the process-term scan is clean.]

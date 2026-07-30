@@ -4,8 +4,8 @@ Displayed equals checked.
 
 Every quantity the paper displays is recomputed here over the rationals, with no
 floating-point arithmetic in any decision, and the sensitivity table is PARSED OUT
-OF THE DOCUMENT rather than restated, so the paper and this file cannot drift
-apart.  That is the house rule, adopted after a defect survived commit because
+OF ITS COMMITTED RECORD (results/kit/sensitivity-k4.md) rather than restated, so
+the displayed table and this file cannot drift apart.  That is the house rule, adopted after a defect survived commit because
 the check and the claim were built from the same hand-written formula.
 The k = 4 part was first drafted as graded_k4_paper.md and is now merged into
 the paper; this verifier reads the merged typst source.
@@ -21,7 +21,8 @@ WHAT IS CHECKED, section by section:
           proves nothing)
   Sec 7   the four collar facts
   Sec 8   every budget line recomputed from the layer identity
-  Sec 9   the sensitivity table, row by row, against the parsed document
+  Sec 9   the sensitivity table, row by row, against its parsed record in
+          results/kit/sensitivity-k4.md (the paper cites it in one sentence)
   Sec 10  four mutation controls, each with a SEPARATING witness asserted in
           the same line
 
@@ -49,6 +50,10 @@ from pincer_line import F_line, lam_line, t_coef, u_max
 from pincer_onesided import deficit_centred, sigma_d
 
 PAPER = "results/paper_b.typ"
+# The sensitivity table lives in the kit, not in the paper body: the paper
+# cites it in one sentence.  This file is the DISPLAYED record, and Sec 9
+# parses it rather than restating it, so displayed and checked cannot drift.
+SENS = "results/kit/sensitivity-k4.md"
 OUT = []
 FAIL = 0
 MUT = {}
@@ -248,22 +253,21 @@ def s8_budget_lines():
 
 
 def s9_sensitivity():
-    log("SEC 9.  THE SENSITIVITY TABLE, PARSED OUT OF THE PAPER.")
-    txt = open(PAPER).read()
+    log("SEC 9.  THE SENSITIVITY TABLE, PARSED OUT OF ITS COMMITTED RECORD.")
+    txt = open(SENS).read()
     rows = []
     for line in txt.splitlines():
-        # A data row of the paper's sensitivity table is exactly two typst
-        # cells on one line, the first starting with the c value as a decimal,
-        # the second the bare threshold: `[1.58 (...)], [10],`.  Every other
-        # table in the paper either has more cells per line or opens its first
-        # cell with a non-digit, so the anchoring decides membership.
-        m = re.match(r"^\s*\[([0-9]+\.[0-9]+)[^\]]*\],\s*\[([0-9]+)\],\s*$",
+        # A data row is a markdown row of exactly two cells, the first opening
+        # with the c value as a decimal, the second the bare threshold:
+        # `| 1.58 (...) | 10 |`.  The header and separator rows open with a
+        # non-digit, so the anchoring decides membership.
+        m = re.match(r"^\s*\|\s*([0-9]+\.[0-9]+)[^|]*\|\s*([0-9]+)\s*\|\s*$",
                      line)
         if m:
             rows.append((Fr(m.group(1)), int(m.group(2))))
-    check("Sec9 parsed ten rows from the paper", len(rows) == 10)
+    check("Sec9 parsed ten rows from the record", len(rows) == 10)
     log(f"    parsed {len(rows)} rows")
-    log("     c    | paper | recomputed | match")
+    log("     c    | record | recomputed | match")
     allok = True
     for c, want in rows:
         scale = c * Fr(2) if MUT.get("rescale_c") else c

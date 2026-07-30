@@ -30,9 +30,9 @@ SEC 7.  THE FOUR COLLAR FACTS.
 SEC 8.  EVERY BUDGET LINE, recomputed from the layer identity.
     core3 and xinv reproduced from t_3, t_2 at n = 10, 12, 16, 20: True
 
-SEC 9.  THE SENSITIVITY TABLE, PARSED OUT OF THE PAPER.
+SEC 9.  THE SENSITIVITY TABLE, PARSED OUT OF ITS COMMITTED RECORD.
     parsed 10 rows
-     c    | paper | recomputed | match
+     c    | record | recomputed | match
      1.00 |     9 | 9          | True
      1.25 |     9 | 9          | True
      1.50 |     9 | 9          | True

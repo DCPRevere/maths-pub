@@ -1,5 +1,17 @@
 # Submission metadata
 
+> **Updated 2026-07-30 for the 12-page rewrite.** The paper was rewritten from
+> 38 pages to 12 around a single thesis (deg F = k, not n) and renumbered.
+> Section references in this file and in `README-reproduce.md` point at the NEW
+> numbering: §1 the conjecture, the decomposition and the map of methods; §2 the
+> certificate route at k = 3; §3 the local method (3.1 confinement, 3.2 the
+> Tverberg–Friedland stability theorem, 3.3 the collar assembly at k = 4); §4
+> the small cells at k = 4 and the gap; §5 what is machine-checked and what is
+> not; §6 data availability. Theorem letters A–H, Corollary B, Lemmas S1–S3,
+> Propositions S4–S6 and every Lean declaration name are unchanged. The k = 4
+> sensitivity table moved to `sensitivity-k4.md` and `graded_verify_k4.py` was
+> re-pointed at it in lockstep.
+
 ## Title
 
 The Cheon–Hwang Sub-Dittert Conjecture at k = 3 and k = 4
@@ -22,7 +34,7 @@ D C P Revere, dcprevere@gmail.com. Unaffiliated; no institution line.
   solved once symbolically over $\mathbb{Q}(n)$ after a numerical design
   stage, with the tight direction eliminated exactly rather than fitted. This
   is as central to the paper's contribution as the permanent-theory result
-  itself — see the paper's §6.3 and §6.4, which diagnose the feasible set's
+  itself — see the paper's §2.3, which diagnoses the feasible set's
   geometry (a four-dimensional lineality space, then a sliver of width
   $O(n^{-2})$) and state the transferable design rule: identify the tight
   direction and eliminate it symbolically, fit only the slack ones.
@@ -94,7 +106,7 @@ formalised mathematics, exact rational verification
 
 ## Timing note — the priority claims are the most perishable in this series
 
-The paper's own §2.1 records that the $k=n$ (Dittert) endpoint moved
+The paper's own §1.4 records that the $k=n$ (Dittert) endpoint moved
 publicly and repeatedly within a single week in July 2026, three of the
 claims in public repositories with no corresponding preprint — and, taken
 with the two preprints, one repository (`pedromnasc`) now presents an
@@ -128,7 +140,7 @@ results below use the `gh api users/<user>/repos` and `gh api repos/<owner>/
 
 - `pedromnasc/dittert-conjecture-proof`: last push 2026-07-26T13:41:47Z, no
   update since. Its `subdittert/README.md` still contains, verbatim, the
-  scope disclaimer the paper quotes in §2.2 ("The endpoint `k=n` is
+  scope disclaimer the paper quotes in §1.4 ("The endpoint `k=n` is
   Dittert's problem. The cases `k<=2` are historically known. This package
   does **not** claim the unresolved intermediate cases.") — fetched fresh
   and diffed against the paper's quotation; unchanged.
