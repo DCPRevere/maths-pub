@@ -1,0 +1,7 @@
+
+=== ASSEMBLED-GRAM DIRECT SOLVE at (k = 4, n = 4) ===
+  (k=4, n=4): B = 152, rows = 80, vars = 51/339/33 = 423, NO canonical blocks
+  rank A2 = 33, left-null dim = 47
+  reduced system 47 x 390: rank 46, kernel dim 344
+  raw design: 2 assembled 152x152 blocks, 344 directions (0 s)
+  round 0 scaling: block eigenvalue span [-1.125e+01, +4.187e+00], dscale ratio 5.400e+01

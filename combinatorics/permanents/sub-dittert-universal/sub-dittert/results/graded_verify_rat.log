@@ -1,0 +1,88 @@
+[guard] MemoryMax=8G  swap=off  CPUQuota=400%  threads=4
+--- A  identification: (RAT) is the Holens-Dokovic conjecture
+--- B  REFUTATION: Wanless (1999), order 22, and the family
+    n=22   sigma_21/sigma_22 = 65681/135 = 486.525926   n^2 = 484
+    n=22   a_22/a_2 = 80.30  (the margin (GAP) has where (RAT) is broken)
+      (a,b)    n     RAT fails at k  GAP fails  T-F fails      a_n/a_2
+      (1,1)    7                 []         []         []          2.1
+      (2,1)   10                 []         []         []          4.1
+      (2,2)   13                 []         []         []          8.2
+      (3,2)   16                 []         []         []         17.6
+      (3,3)   19                 []         []         []         36.6
+      (4,3)   22               [22]         []         []         80.3
+      (4,4)   25               [25]         []         []        170.6
+      (5,4)   28               [28]         []         []        380.1
+      (5,5)   31               [31]         []         []        817.5
+      (6,5)   34               [34]         []         []       1839.6
+      (6,6)   37               [37]         []         []       3988.8
+--- C  what survives of (RAT): census, truth boundary, equality set
+    census: 1000 matrices, n = 3..6, every k -- (RAT) failures 0, (GAP) failures 0
+    truth boundary of (RAT):
+      k <= 3, every n           TRUE   Dokovic 1967            [R]
+      k  = 4, every n >= 5      TRUE   Kopotun, LMA 36 (1994)  [R]
+      k  = 4, n = 4             TRUE   this repo, Paper G      [V]
+      k  = 5                    OPEN   (Omega_n; not Lambda^k_n)
+      k  = n, n >= 22           FALSE  Wanless, LAA 286 (1999) [R]/[V]
+--- D  the repair: (GAP)  a_k >= a_2, and what it buys
+          mode lemma j=3     j=4     j=5     j=6     j=7     j=8     j=9     j=10    j=11    j=12   
+         paper   RAT 4       8       14      132     334     645     1079    1648    2362    3232   
+         paper   GAP 4       7       12      84      206     397     667     1026    1483    2049   
+            U4   RAT 10      66      210     465     845     1363    2028    2848    3833    4989   
+            U4   GAP 10      43      122     260     469     758     1135    1609    2187    2877   
+            U5   RAT 6       12      35      61      121     194     314     465     677     940    
+            U5   GAP 6       11      26      44      84      133     217     321     472     659    
+      paper+U5   RAT 4       8       14      34      99      170     292     443     656     920    
+      paper+U5   GAP 4       7       12      27      71      118     204     308     460     647    
+--- E  the diagonal k = n, UNCONDITIONAL, without (RAT)
+    ratio (true gap at T_n)/(claimed (KS_n) bound), exact:
+      n=    3  1.333333
+      n=    4  1.444444
+      n=    5  1.534375
+      n=    8  1.691676
+      n=   12  1.788621
+      n=   30  1.912803
+      n=  100  1.973484
+      n= 1000  1.997335
+--- F  payoff
+    diagonal cells (k,n) = (k,k): (KS_k) is now UNCONDITIONAL (E).
+    off-diagonal cells: (KS_k^weak) holds under (GAP), no threshold;
+    (KS_k) at full strength for n >= n_LOC(k) = 2.1k + O(1) (KSK C).
+
+CHECKS 8028   FAILURES 0
+--- mutations ---
+MUTATION M1: 1602 catches at 3 distinct labels
+    E2 m_n - n!/n^n >= the (KS_n) claim, every n
+    E2 the ratio sits in [4/3, 2), never reaching 2
+    E4 (KS_n) at FULL strength on the zero face
+MUTATION M2: 8 catches at 8 distinct labels
+    B1 Wanless Fig. 1 is doubly stochastic
+    B2 per(Wanless) = 295245/2^40 exactly
+    B2 sigma_21/sigma_22 reproduces the published 65681/135
+    B3 (RAT) at k = n = 22 FAILS: ratio exceeds n^2
+    B3 (RAT) slack at k=n is strictly negative
+    B3 the exact deficit is 5940/5971
+    B4 (RAT) fails at k = n ONLY on this matrix
+    B5 family (4,3) rebuilds Wanless Fig. 1 sigma-vector exactly
+MUTATION M3: 1195 catches at 9 distinct labels
+    A1 (RAT) at k <=> a_k >= a_(k-1)
+    A3 (RAT) at k=n <=> sigma_(n-1) <= n^2 per
+    B4 (RAT) fails at k = n ONLY on this matrix
+    B5 in this family (RAT) can fail ONLY at k = n
+    B5 the smallest family member breaking (RAT) is Wanless n = 22
+    C1 (RAT) census n=3..6, all k: no failure
+    C3 (RAT) EQUALITY at (I+C^t)/2, gcd(t,n)=1, k=n
+    C3 (RAT) STRICT below k=n on the equality family
+    D2 (GAP) at k=3 is exactly (RAT) at k=3
+MUTATION M4: 72 catches at 3 distinct labels
+    D4 the (GAP) layer identity: a_k - a_2 = u_2 (2 c_k sigma_2(X) + sum W_l sigma_l(X))
+    D5 n_GAP is the EXACT boundary of the layer argument
+    D5 n_GAP(3) = n_RAT(3) -- the two lemmas coincide at k=3
+MUTATION M5: 417 catches at 3 distinct labels
+    E1 per(T_n) = m_n = (n-2)!((n-2)/(n-1)^2)^(n-2)
+    E2 the ratio sits in [4/3, 2), never reaching 2
+    E4 Knopp-Sinkhorn floor holds on the zero face
+MUTATION M6: 1041 catches at 4 distinct labels
+    B5 (GAP) holds on every family member
+    C2 (GAP) census n=3..6, all k: no failure
+    D1 (RAT) telescoped implies (GAP)
+    D2 (GAP) at k=3 is exactly (RAT) at k=3

@@ -1,0 +1,89 @@
+========================================================================
+GRADED VERIFIER -- band 1 (deg_basis = 1, k <= 3) positivity theorem
+exact rational arithmetic throughout; mutation controls at the end
+========================================================================
+
+[1] Lemma 1 in band 1 (trusted path, k = 2 vs k = 3)
+  n = 4: 360 matrix entries compared, 0 mismatches; rhs differs on 6 of 12 rows
+  n = 5: 360 matrix entries compared, 0 mismatches; rhs differs on 6 of 12 rows
+  n = 6: 360 matrix entries compared, 0 mismatches; rhs differs on 6 of 12 rows
+
+[2] symbolic band system vs the trusted system, entry for entry
+  (n,k) = (4,2): 240 entries compared cumulatively, 0 mismatches
+  (n,k) = (5,2): 480 entries compared cumulatively, 0 mismatches
+  (n,k) = (6,2): 720 entries compared cumulatively, 0 mismatches
+  (n,k) = (4,3): 960 entries compared cumulatively, 0 mismatches
+  (n,k) = (5,3): 1200 entries compared cumulatively, 0 mismatches
+  (n,k) = (6,3): 1440 entries compared cumulatively, 0 mismatches
+
+[3] Theorem 4's collapse, symbolically in n
+  k = 1: 0 mismatches over 19 coordinates of Q(n)
+  k = 2: 0 mismatches over 19 coordinates of Q(n)
+  k = 3: 0 mismatches over 19 coordinates of Q(n)
+
+[4] law B1 satisfies the trusted linear system at every cell
+  (n,k) = (3,2): 0 violated rows of 12
+  (n,k) = (4,2): 0 violated rows of 12
+  (n,k) = (5,2): 0 violated rows of 12
+  (n,k) = (6,2): 0 violated rows of 12
+  (n,k) = (7,2): 0 violated rows of 12
+  (n,k) = (4,3): 0 violated rows of 12
+  (n,k) = (5,3): 0 violated rows of 12
+  (n,k) = (6,3): 0 violated rows of 12
+  (n,k) = (7,3): 0 violated rows of 12
+
+[5] assembled n^2 x n^2 Grams, exact rational LDL^T
+  (n,k) = (3,2): 9x9 sigma_0 PD, sigma_11 PD
+  (n,k) = (4,2): 16x16 sigma_0 PD, sigma_11 PD
+  (n,k) = (5,2): 25x25 sigma_0 PD, sigma_11 PD
+  (n,k) = (6,2): 36x36 sigma_0 PD, sigma_11 PD
+  (n,k) = (7,2): 49x49 sigma_0 PD, sigma_11 PD
+  (n,k) = (4,3): 16x16 sigma_0 PD, sigma_11 PD
+  (n,k) = (5,3): 25x25 sigma_0 PD, sigma_11 PD
+  (n,k) = (6,3): 36x36 sigma_0 PD, sigma_11 PD
+  (n,k) = (7,3): 49x49 sigma_0 PD, sigma_11 PD
+
+[6] the ten UPP quantities, Sturm on the whole range
+  k = 2: all ten Sturm-positive on n >= 3: True; worst shifted-coefficient threshold n1 = 3 (gap 0)
+  k = 3: all ten Sturm-positive on n >= 4: True; worst shifted-coefficient threshold n1 = 4 (gap 0)
+
+[7] sharpness one step below the range
+  k = 2, n = 2: non-positive quantities ['G0.theta1']
+  k = 3, n = 3: non-positive quantities ['G0.theta1', 'H.C minor2']
+
+========================================================================
+MUTATION CONTROLS -- every one of these MUST be caught
+========================================================================
+
+(M1) perturb one sigma_0 coefficient of the certificate by 1/10^6
+  identity rejected: True
+
+(M2) perturb one lambda coefficient by -1/10^9
+  identity rejected: True
+
+(M3) subtract 1 from the top-left sigma_11 Gram entry
+  LDL rejected: True
+
+(M4) move law B1's beta9 coefficient 1/2 -> 3/2
+  positivity rejected: True
+
+(M5) move law B1's x coefficient 8 -> 0
+  positivity rejected: True
+
+========================================================================
+  PASS  [1] cone is k-free in band 1
+  PASS  [2] symbolic system = trusted system
+  PASS  [3] Theorem 4 collapse over Q(n)
+  PASS  [4] identity half at every cell
+  PASS  [5] both Grams positive definite
+  PASS  [6] positivity for every n in range
+  PASS  [7] fails at n0 - 1
+  CAUGHT  M1 sigma_0 coefficient perturbed
+  CAUGHT  M2 lambda coefficient perturbed
+  CAUGHT  M3 sigma_11 Gram damaged
+  CAUGHT  M4 beta9 law perturbed
+  CAUGHT  M5 x law perturbed
+
+TOTAL: 7/7 checks pass, 5/5 mutations caught
+VERDICT: PASS -- band 1 positivity theorem verified
+========================================================================

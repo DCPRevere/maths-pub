@@ -1,0 +1,55 @@
+[guard] MemoryMax=3G  swap=off  CPUQuota=200%  threads=2
+### n=6  k in [5]  families=39
+    [n=6 done, 0.1s]
+### n=7  k in [5, 6]  families=37
+    [n=7 done, 0.4s]
+### n=8  k in [5, 6, 7]  families=46
+    [n=8 done, 1.2s]
+### n=9  k in [5, 6, 7, 8]  families=41
+    [n=9 done, 2.9s]
+### n=10  k in [5, 6, 7, 8, 9]  families=38
+    [n=10 done, 6.5s]
+### n=11  k in [5, 6, 7, 8, 9, 10]  families=38
+    [n=11 done, 15.6s]
+### n=12  k in [5, 6, 7, 8, 9, 10, 11]  families=44
+    [n=12 done, 41.0s]
+
+records=1141  hits=0
+
+TOP-10 named structured POINTS (t=1) by Phi_k/M:
+  0.999999115  n=12 k=9 circ-reg:all-but-0   exact=2346846753894912/2346848831218463
+  0.999999085  n=12 k=10 circ-reg:all-but-0   exact=1703820678861256704/1703822237373075523
+  0.999999074  n=12 k=8 circ-reg:all-but-0   exact=8800571809479168/8800579956857755
+  0.999998983  n=12 k=11 circ-reg:all-but-0   exact=20445895980398333952/20445916778019263201
+  0.999998949  n=12 k=7 circ-reg:all-but-0   exact=106671083483520/106671195593149
+  0.999998701  n=12 k=6 circ-reg:all-but-0   exact=514228571712/514229239909
+  0.999998249  n=12 k=5 circ-reg:all-but-0   exact=36726166800/36726231091
+  0.999997559  n=11 k=8 circ-reg:all-but-0   exact=643014593333690941/643016163000000000
+  0.999997457  n=11 k=9 circ-reg:all-but-0   exact=11788801278615344643/11788831255000000000
+  0.999997456  n=11 k=7 circ-reg:all-but-0   exact=5845380428261143/5845395300000000
+
+TOP-10 pencil maxima of p_k(t) over admissible t (0 = the bound):
+  p_max=0  at t=0  n=6 k=5 perm:identity
+  p_max=0  at t=0  n=6 k=5 perm:n-cycle
+  p_max=0  at t=0  n=6 k=5 perm:2-cycle-product
+  p_max=0  at t=0  n=6 k=5 perm:2fix+(n-2)cycle
+  p_max=0  at t=0  n=6 k=5 circ-reg:0.1
+  p_max=0  at t=0  n=6 k=5 circ-reg:0.2
+  p_max=0  at t=0  n=6 k=5 circ-reg:0.1.2
+  p_max=0  at t=0  n=6 k=5 circ-reg:0.1.3
+  p_max=0  at t=0  n=6 k=5 circ-reg:0.2.4
+  p_max=0  at t=0  n=6 k=5 circ-reg:0.1.2.3
+
+TOP-10 directions by leading coefficient / ||d||^2 (closest to degeneracy):
+  ord=2 c/||d||^2=-35/1672704  n=12 k=9 perm:identity
+  ord=2 c/||d||^2=-35/1672704  n=12 k=9 perm:n-cycle
+  ord=2 c/||d||^2=-35/1672704  n=12 k=9 perm:2-cycle-product
+  ord=2 c/||d||^2=-35/1672704  n=12 k=9 perm:2fix+(n-2)cycle
+  ord=2 c/||d||^2=-35/1672704  n=12 k=9 circ-reg:0.1
+  ord=2 c/||d||^2=-35/1672704  n=12 k=9 circ-reg:0.2
+  ord=2 c/||d||^2=-35/1672704  n=12 k=9 circ-reg:0.1.2
+  ord=2 c/||d||^2=-35/1672704  n=12 k=9 circ-reg:0.1.3
+  ord=2 c/||d||^2=-35/1672704  n=12 k=9 circ-reg:0.2.4
+  ord=2 c/||d||^2=-35/1672704  n=12 k=9 circ-reg:0.1.2.3
+
+VERDICT: no point with Phi_k > 2 - k!/n^k found

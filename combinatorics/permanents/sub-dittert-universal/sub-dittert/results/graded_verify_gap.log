@@ -1,0 +1,59 @@
+[guard] MemoryMax=8G  swap=off  CPUQuota=200%  threads=4
+--- A  the identities (GAP) is built on
+--- B  the MANDATORY control: Wanless-22 fails (RAT), passes (GAP)
+    Wanless-22: (RAT) at k=22 is 0.994808240 < 1; (GAP) margin a_22/a_2 = 80.30
+--- B7 the generalised family, exact, n = 7 .. 43
+    (1,1) n=  7  (RAT) fails at -   a_n/a_2 =         2.06   (GAP) OK
+    (2,1) n= 10  (RAT) fails at -   a_n/a_2 =         4.12   (GAP) OK
+    (2,2) n= 13  (RAT) fails at -   a_n/a_2 =         8.24   (GAP) OK
+    (3,2) n= 16  (RAT) fails at -   a_n/a_2 =        17.58   (GAP) OK
+    (3,3) n= 19  (RAT) fails at -   a_n/a_2 =        36.60   (GAP) OK
+    (4,3) n= 22  (RAT) fails at [22]   a_n/a_2 =        80.30   (GAP) OK
+    (4,4) n= 25  (RAT) fails at [25]   a_n/a_2 =       170.61   (GAP) OK
+    (5,4) n= 28  (RAT) fails at [28]   a_n/a_2 =       380.13   (GAP) OK
+    (5,5) n= 31  (RAT) fails at [31]   a_n/a_2 =       817.53   (GAP) OK
+    (6,5) n= 34  (RAT) fails at [34]   a_n/a_2 =      1839.63   (GAP) OK
+    (6,6) n= 37  (RAT) fails at [37]   a_n/a_2 =      3988.82   (GAP) OK
+    (7,6) n= 40  (RAT) fails at [40]   a_n/a_2 =      9037.62   (GAP) OK
+    (7,7) n= 43  (RAT) fails at [43]   a_n/a_2 =     19711.01   (GAP) OK
+--- B8 the gadget hub weight p is free: (GAP) still never fails
+--- C  exact census: (GAP) over Omega_n, n = 3..7, every k
+    4865 (n,k,M) cells, exact rationals
+    smallest normalised margin (a_k-a_2)/Q = 0.00000000 at n=3, k=3, (I+C)/2
+--- D  (GAP) is TIGHT: the equality case, and it is isolated
+--- E  (GAP) is UNCONDITIONAL for k <= 4, at every n
+    k <= 4: UNCONDITIONAL at every n.  Dokovic 1967 (k<=3);
+    Kopotun, LMA 36 (1994) 205-216 (k=4, n>=5); Paper G (k=n=4).
+--- F  Theorem GAP-N: (GAP) unconditionally inside an explicit ball
+    56 census cells lie inside the GAP-N ball; all satisfy (GAP)
+    n_GAP(3..12), paper C_l: 4 7 12 84 206 397 667 1026 1483 2049
+    n_GAP(3..12), U5    C_l: 4 7 12 27 71 118 204 308 460 647
+    OPEN window for (GAP): 5 <= k <= n < n_GAP(k)  (k=5: n=5..11; k=6: n=6..26; ...)
+--- G  the shape of k -> a_k: log-concavity FALSE, unimodality holds
+    152 non-trivial matrices: a-log-concavity fails on 148, interior local minima 0
+    consequence (UNI): if (a_2..a_n) never has an interior local
+    minimum then (GAP) at every k reduces to (GAP) at k = n, i.e. to
+    per(M) >= (n!/n^n)(1 + Q/(n-1)^2) -- a quantitative van der Waerden.
+--- H  payoff: what (KS_k) now costs
+    k = 3, 4 : (KS_k^weak) UNCONDITIONAL at every n     [new]
+    k = n    : (KS_n) at FULL strength, unconditional   [Theorem RAT-D]
+    5 <= k, n >= n_GAP(k) : (KS_k^weak), conditional on the layer route
+    5 <= k, n <  n_GAP(k) : OPEN -- the residual (GAP) window
+--- I  the far branch and the diagonal link, priced exactly
+    k          3    4    5     6     7     8    10    12
+    G-uniform  4    8   14   110   273   523  1325  2590
+    n_GAP         4     7    12    84   206   397  1026  2049
+    => the far branch is NOT covered: G-uniform reaches nothing that
+       the layer route has not already reached.
+    RAT-D gives a_n - 1 >= n/(4(n-1)^3); (UNI) needs Q/(n-1)^2,
+    i.e. up to 1/(n-1).  SHORTFALL = 4(n-1)^2/n ~ 4n.  Not owned.
+    KS floor a_n: n=5 -> 1.0300, n=10 -> 1.0069, against n/(n-1)
+    = 1.25 and 1.1111.  Also not owned.
+    GAP-N ball as a fraction of the full range Q <= n-1:
+      k=5  n=5:0.002  n=6:0.006  n=7:0.011  n=8:0.016  n=9:0.023  n=10:0.030  n=11:0.037
+      k=6  n=6:0.001  n=7:0.003  n=8:0.006  n=9:0.008  n=10:0.011  n=11:0.015  n=12:0.018
+      k=7  n=7:0.001  n=8:0.002  n=9:0.004  n=10:0.005  n=11:0.007  n=12:0.009
+    RESIDUAL: 5 <= k <= n < n_GAP(k), minus the GAP-N ball.
+    k = 5 is n = 5..11 -- seven cells -- and it survives.
+
+CHECKS 9522   FAILURES 0

@@ -1,0 +1,99 @@
+[guard] MemoryMax=6G  swap=off  CPUQuota=200%  threads=2
+
+=== n = 6: re-deriving the system from source (15 witnesses) ===
+  canon is constant on each of build_sdp's 87 orbits and separates them -- a complete invariant at n = 6
+  the trusted verifier's F agrees with build_sdp's, 40386 monomials
+  the identity rows agree ENTRY FOR ENTRY between the enumeration and the orbit-collapse routes at n = 6 (86 nonzero rows; 1 vacuous 0 = 0 row(s) the table carries and the collapse does not)  (123 s)
+  system 87 x 440, 321 pins, 21 canonical blocks, B = 702
+  every canonical basis has full column rank, so H > 0 implies E^T H E > 0
+      Y >= 0 by construction (nonnegative sum of e e^T and v v^T); functional constant on A at -4.213463e-01 <= 0
+  PASS  n6_H1_full321.json  [infeasible]  not strictly feasible, exactly
+        control rejected (first generator coefficient negated): a generator coefficient is negative
+        control rejected (first generator coefficient doubled): the functional is NOT constant on A
+        control rejected (claimed value replaced by +1): stored value 1/1 disagrees with the recomputed -16837/39960
+        control rejected (one generator dropped): the functional is NOT constant on A
+      all 87 identity rows hold, all 201 pins vanish, all 21 blocks PD, least pivot 4.940e-05
+  PASS  n6_H2_201.json  [feasible]  strictly feasible, exactly
+        control rejected (point entry 0 shifted by 1e-9): SDP identity row 2 is not satisfied
+        control rejected (point entry 220 shifted by 1e-9): SDP identity row 19 is not satisfied
+        control rejected (least pivot overstated): the stored least pivot disagrees with the recomputed
+      all 87 identity rows hold, all 201 pins vanish, all 21 blocks PD, least pivot 3.611e-05
+  PASS  n6_H2gaugeLDL_201.json  [feasible]  strictly feasible, exactly
+        control rejected (point entry 0 shifted by 1e-9): SDP identity row 2 is not satisfied
+        control rejected (point entry 220 shifted by 1e-9): SDP identity row 19 is not satisfied
+        control rejected (least pivot overstated): the stored least pivot disagrees with the recomputed
+      Y >= 0 by construction (nonnegative sum of e e^T and v v^T); functional constant on A at -6.941151e+01 <= 0
+  PASS  n6_omit_s0_Ind_1_V_.json  [infeasible]  not strictly feasible, exactly
+        control rejected (first generator coefficient negated): a generator coefficient is negative
+        control rejected (first generator coefficient doubled): the functional is NOT constant on A
+        control rejected (claimed value replaced by +1): stored value 1/1 disagrees with the recomputed -25783936803588917/371464880160100
+        control rejected (one generator dropped): the functional is NOT constant on A
+      Y >= 0 by construction (nonnegative sum of e e^T and v v^T); functional constant on A at -4.213463e-01 <= 0
+  PASS  n6_omit_s0_Ind_1__n-2_2__.json  [infeasible]  not strictly feasible, exactly
+        control rejected (first generator coefficient negated): a generator coefficient is negative
+        control rejected (first generator coefficient doubled): the functional is NOT constant on A
+        control rejected (claimed value replaced by +1): stored value 1/1 disagrees with the recomputed -16837/39960
+        control rejected (one generator dropped): the functional is NOT constant on A
+      Y >= 0 by construction (nonnegative sum of e e^T and v v^T); functional constant on A at -4.213463e-01 <= 0
+  PASS  n6_omit_s0_Ind_V__n-2_2__.json  [infeasible]  not strictly feasible, exactly
+        control rejected (first generator coefficient negated): a generator coefficient is negative
+        control rejected (first generator coefficient doubled): the functional is NOT constant on A
+        control rejected (claimed value replaced by +1): stored value 1/1 disagrees with the recomputed -16837/39960
+        control rejected (one generator dropped): the functional is NOT constant on A
+      Y >= 0 by construction (nonnegative sum of e e^T and v v^T); functional constant on A at -3.779349e-01 <= 0
+  PASS  n6_omit_s0__1_1__ext__.json  [infeasible]  not strictly feasible, exactly
+        control rejected (first generator coefficient negated): a generator coefficient is negative
+        control rejected (first generator coefficient doubled): the functional is NOT constant on A
+        control rejected (claimed value replaced by +1): stored value 1/1 disagrees with the recomputed -16837/44550
+        control rejected (one generator dropped): the functional is NOT constant on A
+      Y >= 0 by construction (nonnegative sum of e e^T and v v^T); functional constant on A at -1.668297e+00 <= 0
+  PASS  n6_omit_s0__V_V__ext__.json  [infeasible]  not strictly feasible, exactly
+        control rejected (first generator coefficient negated): a generator coefficient is negative
+        control rejected (first generator coefficient doubled): the functional is NOT constant on A
+        control rejected (claimed value replaced by +1): stored value 1/1 disagrees with the recomputed -8733291137330263594/5234855294509126725
+        control rejected (one generator dropped): the functional is NOT constant on A
+      Y >= 0 by construction (nonnegative sum of e e^T and v v^T); functional constant on A at -3.533333e-03 <= 0
+  PASS  n6_omit_s11_10x10__V__V___.json  [infeasible]  not strictly feasible, exactly
+        control rejected (first generator coefficient negated): a generator coefficient is negative
+        control rejected (first generator coefficient doubled): the functional is NOT constant on A
+        control rejected (claimed value replaced by +1): stored value 1/1 disagrees with the recomputed -53/15000
+        control rejected (one generator dropped): the functional is NOT constant on A
+      y . g > 0 on all 86 re-derived diagonal generators, least 2.375000e-06
+  PASS  n6_omit_s11_16x16_Ind_V__1__lpinf.json  [lp_infeasible]  no nonnegative combination is constant on A with value 0, by Farkas
+        control rejected (y entry 0 zeroed): y is NOT strictly positive on every diagonal generator (least -93013/2788800000)
+        control rejected (y entry 77 zeroed): y is NOT strictly positive on every diagonal generator (least -7999967/11000000)
+        control rejected (y negated): y is NOT strictly positive on every diagonal generator (least -9094279/6000000)
+      Y >= 0 by construction (nonnegative sum of e e^T and v v^T); functional constant on A at -4.213463e-01 <= 0
+  PASS  n6_omit_s11_4x4__V__V__-.json  [infeasible]  not strictly feasible, exactly
+        control rejected (first generator coefficient negated): a generator coefficient is negative
+        control rejected (first generator coefficient doubled): the functional is NOT constant on A
+        control rejected (claimed value replaced by +1): stored value 1/1 disagrees with the recomputed -16837/39960
+        control rejected (one generator dropped): the functional is NOT constant on A
+      Y >= 0 by construction (nonnegative sum of e e^T and v v^T); functional constant on A at -1.223733e+00 <= 0
+  PASS  n6_omit_s11_7x7_sign.json  [infeasible]  not strictly feasible, exactly
+        control rejected (first generator coefficient negated): a generator coefficient is negative
+        control rejected (first generator coefficient doubled): the functional is NOT constant on A
+        control rejected (claimed value replaced by +1): stored value 1/1 disagrees with the recomputed -5883328222674472920729259/4807689773343691350011760
+        control rejected (one generator dropped): the functional is NOT constant on A
+      Y >= 0 by construction (nonnegative sum of e e^T and v v^T); functional constant on A at -4.213463e-01 <= 0
+  PASS  n6_omit_s11_Ind_1__m-2_2__.json  [infeasible]  not strictly feasible, exactly
+        control rejected (first generator coefficient negated): a generator coefficient is negative
+        control rejected (first generator coefficient doubled): the functional is NOT constant on A
+        control rejected (claimed value replaced by +1): stored value 1/1 disagrees with the recomputed -16837/39960
+        control rejected (one generator dropped): the functional is NOT constant on A
+      Y >= 0 by construction (nonnegative sum of e e^T and v v^T); functional constant on A at -4.213463e-01 <= 0
+  PASS  n6_omit_s11_Ind_V___m-2_1_1__.json  [infeasible]  not strictly feasible, exactly
+        control rejected (first generator coefficient negated): a generator coefficient is negative
+        control rejected (first generator coefficient doubled): the functional is NOT constant on A
+        control rejected (claimed value replaced by +1): stored value 1/1 disagrees with the recomputed -16837/39960
+        control rejected (one generator dropped): the functional is NOT constant on A
+      Y >= 0 by construction (nonnegative sum of e e^T and v v^T); functional constant on A at -4.213463e-01 <= 0
+  PASS  n6_omit_s11_Ind_V___m-2_2__.json  [infeasible]  not strictly feasible, exactly
+        control rejected (first generator coefficient negated): a generator coefficient is negative
+        control rejected (first generator coefficient doubled): the functional is NOT constant on A
+        control rejected (claimed value replaced by +1): stored value 1/1 disagrees with the recomputed -16837/39960
+        control rejected (one generator dropped): the functional is NOT constant on A
+
+witnesses: 15 PASS, 0 FAIL
+mutation controls: 57 correctly REJECTED, 0 wrongly accepted
+all witnesses verified and every control failed as required

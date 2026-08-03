@@ -1,0 +1,4 @@
+[guard] MemoryMax=8G  swap=off  CPUQuota=100%  threads=4
+e=10: 1018 classes (pair loop 375s), Lam_10=1769054878080, 2 NOT certified, mass 348364800/1769054878080 = 0.0197%
+    ((0, 0, 1, 1), (0, 1, 1, 1), (2, 1, 1, 1)) mass 174182400
+    ((0, 0, 2), (0, 1, 1), (1, 1, 1), (1, 1, 1)) mass 174182400

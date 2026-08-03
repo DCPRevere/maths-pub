@@ -1,0 +1,584 @@
+==========================================================================
+VERIFIER for Theorem G-uniform  (UNIFORM-G.md)
+exact rational arithmetic; no float in any decision
+==========================================================================
+
+V1  Lemma U1: the partition expansion against brute force
+  [ok ] n=4 m=2 perm: expansion = brute force   3/2
+  [ok ] n=4 m=3 perm: expansion = brute force   1
+  [ok ] n=4 m=4 perm: expansion = brute force   15/32
+  [ok ] n=4 m=2 J/n: expansion = brute force   0
+  [ok ] n=4 m=3 J/n: expansion = brute force   0
+  [ok ] n=4 m=4 J/n: expansion = brute force   0
+  [ok ] n=4 m=2 (J-P)/(n-1): expansion = brute force   1/6
+  [ok ] n=4 m=3 (J-P)/(n-1): expansion = brute force   -1/27
+  [ok ] n=4 m=4 (J-P)/(n-1): expansion = brute force   5/864
+  [ok ] n=4 m=2 half P + half P^2: expansion = brute force   1/2
+  [ok ] n=4 m=3 half P + half P^2: expansion = brute force   0
+  [ok ] n=4 m=4 half P + half P^2: expansion = brute force   -1/32
+  [ok ] n=4 m=2 uniform over all shifts: expansion = brute force   0
+  [ok ] n=4 m=3 uniform over all shifts: expansion = brute force   0
+  [ok ] n=4 m=4 uniform over all shifts: expansion = brute force   0
+  [ok ] n=4 m=2 3-mix: expansion = brute force   5/18
+  [ok ] n=4 m=3 3-mix: expansion = brute force   0
+  [ok ] n=4 m=4 3-mix: expansion = brute force   -5/2592
+  [ok ] n=4 m=2 skew-mix: expansion = brute force   11/50
+  [ok ] n=4 m=3 skew-mix: expansion = brute force   -3/125
+  [ok ] n=4 m=4 skew-mix: expansion = brute force   287/20000
+  [ok ] n=5 m=2 perm: expansion = brute force   2
+  [ok ] n=5 m=3 perm: expansion = brute force   8/5
+  [ok ] n=5 m=4 perm: expansion = brute force   33/25
+  [ok ] n=5 m=5 perm: expansion = brute force   296/625
+  [ok ] n=5 m=2 J/n: expansion = brute force   0
+  [ok ] n=5 m=3 J/n: expansion = brute force   0
+  [ok ] n=5 m=4 J/n: expansion = brute force   0
+  [ok ] n=5 m=5 J/n: expansion = brute force   0
+  [ok ] n=5 m=2 (J-P)/(n-1): expansion = brute force   1/8
+  [ok ] n=5 m=3 (J-P)/(n-1): expansion = brute force   -1/40
+  [ok ] n=5 m=4 (J-P)/(n-1): expansion = brute force   33/6400
+  [ok ] n=5 m=5 (J-P)/(n-1): expansion = brute force   -37/80000
+  [ok ] n=5 m=2 half P + half P^2: expansion = brute force   3/4
+  [ok ] n=5 m=3 half P + half P^2: expansion = brute force   1/10
+  [ok ] n=5 m=4 half P + half P^2: expansion = brute force   -7/400
+  [ok ] n=5 m=5 half P + half P^2: expansion = brute force   -41/2500
+  [ok ] n=5 m=2 uniform over all shifts: expansion = brute force   0
+  [ok ] n=5 m=3 uniform over all shifts: expansion = brute force   0
+  [ok ] n=5 m=4 uniform over all shifts: expansion = brute force   0
+  [ok ] n=5 m=5 uniform over all shifts: expansion = brute force   0
+  [ok ] n=5 m=2 3-mix: expansion = brute force   17/36
+  [ok ] n=5 m=3 3-mix: expansion = brute force   2/45
+  [ok ] n=5 m=4 3-mix: expansion = brute force   353/32400
+  [ok ] n=5 m=5 3-mix: expansion = brute force   -871/202500
+  [ok ] n=5 m=2 skew-mix: expansion = brute force   2/5
+  [ok ] n=5 m=3 skew-mix: expansion = brute force   0
+  [ok ] n=5 m=4 skew-mix: expansion = brute force   1/125
+  [ok ] n=5 m=5 skew-mix: expansion = brute force   0
+  [ok ] n=4 m=3: singleton blocks contribute 0
+  [ok ] n=4 m=4: singleton blocks contribute 0
+
+V2  Lemma U2: sum |mu| over partitions with all blocks >= 2 = D_m
+  [ok ] m=2: sum |mu| = D_m = 1
+  [ok ] m=3: sum |mu| = D_m = 2
+  [ok ] m=4: sum |mu| = D_m = 9
+  [ok ] m=5: sum |mu| = D_m = 44
+  [ok ] m=6: sum |mu| = D_m = 265
+  [ok ] m=7: sum |mu| = D_m = 1854
+  [ok ] m=8: sum |mu| = D_m = 14833
+  [ok ] m=9: sum |mu| = D_m = 133496
+
+V3  coefficient mass D_m^2/m! against the paper's expansions
+  [ok ] m=3: D_m^2/m! = sum |coeff| = 2/3
+  [ok ] m=4: D_m^2/m! = sum |coeff| = 27/8
+  [ok ] m=5: D_m^2/m! = sum |coeff| = 242/15
+
+V4  Lemma U3 (Finner): S(pi,rho)^2 <= Q^m for every surviving pair
+  [ok ] n=4 m=2 perm: all pairs obey |S| <= Q^(m/2)   1 pairs
+  [ok ] n=4 m=3 perm: all pairs obey |S| <= Q^(m/2)   1 pairs
+  [ok ] n=4 m=4 perm: all pairs obey |S| <= Q^(m/2)   16 pairs
+  [ok ] n=4 m=5 perm: all pairs obey |S| <= Q^(m/2)   121 pairs
+  [ok ] n=4 m=2 J/n: all pairs obey |S| <= Q^(m/2)   1 pairs
+  [ok ] n=4 m=3 J/n: all pairs obey |S| <= Q^(m/2)   1 pairs
+  [ok ] n=4 m=4 J/n: all pairs obey |S| <= Q^(m/2)   16 pairs
+  [ok ] n=4 m=5 J/n: all pairs obey |S| <= Q^(m/2)   121 pairs
+  [ok ] n=4 m=2 (J-P)/(n-1): all pairs obey |S| <= Q^(m/2)   1 pairs
+  [ok ] n=4 m=3 (J-P)/(n-1): all pairs obey |S| <= Q^(m/2)   1 pairs
+  [ok ] n=4 m=4 (J-P)/(n-1): all pairs obey |S| <= Q^(m/2)   16 pairs
+  [ok ] n=4 m=5 (J-P)/(n-1): all pairs obey |S| <= Q^(m/2)   121 pairs
+  [ok ] n=4 m=2 half P + half P^2: all pairs obey |S| <= Q^(m/2)   1 pairs
+  [ok ] n=4 m=3 half P + half P^2: all pairs obey |S| <= Q^(m/2)   1 pairs
+  [ok ] n=4 m=4 half P + half P^2: all pairs obey |S| <= Q^(m/2)   16 pairs
+  [ok ] n=4 m=5 half P + half P^2: all pairs obey |S| <= Q^(m/2)   121 pairs
+  [ok ] n=4 m=2 uniform over all shifts: all pairs obey |S| <= Q^(m/2)   1 pairs
+  [ok ] n=4 m=3 uniform over all shifts: all pairs obey |S| <= Q^(m/2)   1 pairs
+  [ok ] n=4 m=4 uniform over all shifts: all pairs obey |S| <= Q^(m/2)   16 pairs
+  [ok ] n=4 m=5 uniform over all shifts: all pairs obey |S| <= Q^(m/2)   121 pairs
+  [ok ] n=4 m=2 3-mix: all pairs obey |S| <= Q^(m/2)   1 pairs
+  [ok ] n=4 m=3 3-mix: all pairs obey |S| <= Q^(m/2)   1 pairs
+  [ok ] n=4 m=4 3-mix: all pairs obey |S| <= Q^(m/2)   16 pairs
+  [ok ] n=4 m=5 3-mix: all pairs obey |S| <= Q^(m/2)   121 pairs
+  [ok ] n=4 m=2 skew-mix: all pairs obey |S| <= Q^(m/2)   1 pairs
+  [ok ] n=4 m=3 skew-mix: all pairs obey |S| <= Q^(m/2)   1 pairs
+  [ok ] n=4 m=4 skew-mix: all pairs obey |S| <= Q^(m/2)   16 pairs
+  [ok ] n=4 m=5 skew-mix: all pairs obey |S| <= Q^(m/2)   121 pairs
+  [ok ] n=3 m=2 perm: all pairs obey |S| <= Q^(m/2)   1 pairs
+  [ok ] n=3 m=3 perm: all pairs obey |S| <= Q^(m/2)   1 pairs
+  [ok ] n=3 m=4 perm: all pairs obey |S| <= Q^(m/2)   16 pairs
+  [ok ] n=3 m=5 perm: all pairs obey |S| <= Q^(m/2)   121 pairs
+  [ok ] n=3 m=6 perm: all pairs obey |S| <= Q^(m/2)   1681 pairs
+  [ok ] n=3 m=2 J/n: all pairs obey |S| <= Q^(m/2)   1 pairs
+  [ok ] n=3 m=3 J/n: all pairs obey |S| <= Q^(m/2)   1 pairs
+  [ok ] n=3 m=4 J/n: all pairs obey |S| <= Q^(m/2)   16 pairs
+  [ok ] n=3 m=5 J/n: all pairs obey |S| <= Q^(m/2)   121 pairs
+  [ok ] n=3 m=6 J/n: all pairs obey |S| <= Q^(m/2)   1681 pairs
+  [ok ] n=3 m=2 (J-P)/(n-1): all pairs obey |S| <= Q^(m/2)   1 pairs
+  [ok ] n=3 m=3 (J-P)/(n-1): all pairs obey |S| <= Q^(m/2)   1 pairs
+  [ok ] n=3 m=4 (J-P)/(n-1): all pairs obey |S| <= Q^(m/2)   16 pairs
+  [ok ] n=3 m=5 (J-P)/(n-1): all pairs obey |S| <= Q^(m/2)   121 pairs
+  [ok ] n=3 m=6 (J-P)/(n-1): all pairs obey |S| <= Q^(m/2)   1681 pairs
+  [ok ] n=3 m=2 half P + half P^2: all pairs obey |S| <= Q^(m/2)   1 pairs
+  [ok ] n=3 m=3 half P + half P^2: all pairs obey |S| <= Q^(m/2)   1 pairs
+  [ok ] n=3 m=4 half P + half P^2: all pairs obey |S| <= Q^(m/2)   16 pairs
+  [ok ] n=3 m=5 half P + half P^2: all pairs obey |S| <= Q^(m/2)   121 pairs
+  [ok ] n=3 m=6 half P + half P^2: all pairs obey |S| <= Q^(m/2)   1681 pairs
+  [ok ] n=3 m=2 uniform over all shifts: all pairs obey |S| <= Q^(m/2)   1 pairs
+  [ok ] n=3 m=3 uniform over all shifts: all pairs obey |S| <= Q^(m/2)   1 pairs
+  [ok ] n=3 m=4 uniform over all shifts: all pairs obey |S| <= Q^(m/2)   16 pairs
+  [ok ] n=3 m=5 uniform over all shifts: all pairs obey |S| <= Q^(m/2)   121 pairs
+  [ok ] n=3 m=6 uniform over all shifts: all pairs obey |S| <= Q^(m/2)   1681 pairs
+  [ok ] n=3 m=2 3-mix: all pairs obey |S| <= Q^(m/2)   1 pairs
+  [ok ] n=3 m=3 3-mix: all pairs obey |S| <= Q^(m/2)   1 pairs
+  [ok ] n=3 m=4 3-mix: all pairs obey |S| <= Q^(m/2)   16 pairs
+  [ok ] n=3 m=5 3-mix: all pairs obey |S| <= Q^(m/2)   121 pairs
+  [ok ] n=3 m=6 3-mix: all pairs obey |S| <= Q^(m/2)   1681 pairs
+      tightest observed (S/Q^(m/2))^2 = 1 at n=4 m=2 perm
+
+V5  Lemma U4: sigma_m(B) >= -C_m(n) Q at every test matrix
+  [ok ] n=4 m=3 perm: sigma_m >= -C_m Q   sigma=1 bound=-4
+  [ok ] n=4 m=4 perm: sigma_m >= -C_m Q   sigma=15/32 bound=-243/8
+  [ok ] n=4 m=3 J/n: sigma_m >= -C_m Q   sigma=0 bound=0
+  [ok ] n=4 m=4 J/n: sigma_m >= -C_m Q   sigma=0 bound=0
+  [ok ] n=4 m=3 (J-P)/(n-1): sigma_m >= -C_m Q   sigma=-1/27 bound=-4/9
+  [ok ] n=4 m=4 (J-P)/(n-1): sigma_m >= -C_m Q   sigma=5/864 bound=-27/8
+  [ok ] n=4 m=3 half P + half P^2: sigma_m >= -C_m Q   sigma=0 bound=-4/3
+  [ok ] n=4 m=4 half P + half P^2: sigma_m >= -C_m Q   sigma=-1/32 bound=-81/8
+  [ok ] n=4 m=3 uniform over all shifts: sigma_m >= -C_m Q   sigma=0 bound=0
+  [ok ] n=4 m=4 uniform over all shifts: sigma_m >= -C_m Q   sigma=0 bound=0
+  [ok ] n=4 m=3 3-mix: sigma_m >= -C_m Q   sigma=0 bound=-20/27
+  [ok ] n=4 m=4 3-mix: sigma_m >= -C_m Q   sigma=-5/2592 bound=-45/8
+  [ok ] n=4 m=3 skew-mix: sigma_m >= -C_m Q   sigma=-3/125 bound=-44/75
+  [ok ] n=4 m=4 skew-mix: sigma_m >= -C_m Q   sigma=287/20000 bound=-891/200
+  [ok ] n=5 m=3 perm: sigma_m >= -C_m Q   sigma=8/5 bound=-16/3
+  [ok ] n=5 m=4 perm: sigma_m >= -C_m Q   sigma=33/25 bound=-54
+  [ok ] n=5 m=5 perm: sigma_m >= -C_m Q   sigma=296/625 bound=-7744/15
+  [ok ] n=5 m=3 J/n: sigma_m >= -C_m Q   sigma=0 bound=0
+  [ok ] n=5 m=4 J/n: sigma_m >= -C_m Q   sigma=0 bound=0
+  [ok ] n=5 m=5 J/n: sigma_m >= -C_m Q   sigma=0 bound=0
+  [ok ] n=5 m=3 (J-P)/(n-1): sigma_m >= -C_m Q   sigma=-1/40 bound=-1/3
+  [ok ] n=5 m=4 (J-P)/(n-1): sigma_m >= -C_m Q   sigma=33/6400 bound=-27/8
+  [ok ] n=5 m=5 (J-P)/(n-1): sigma_m >= -C_m Q   sigma=-37/80000 bound=-484/15
+  [ok ] n=5 m=3 half P + half P^2: sigma_m >= -C_m Q   sigma=1/10 bound=-2
+  [ok ] n=5 m=4 half P + half P^2: sigma_m >= -C_m Q   sigma=-7/400 bound=-81/4
+  [ok ] n=5 m=5 half P + half P^2: sigma_m >= -C_m Q   sigma=-41/2500 bound=-968/5
+  [ok ] n=5 m=3 uniform over all shifts: sigma_m >= -C_m Q   sigma=0 bound=0
+  [ok ] n=5 m=4 uniform over all shifts: sigma_m >= -C_m Q   sigma=0 bound=0
+  [ok ] n=5 m=5 uniform over all shifts: sigma_m >= -C_m Q   sigma=0 bound=0
+  [ok ] n=5 m=3 3-mix: sigma_m >= -C_m Q   sigma=2/45 bound=-34/27
+  [ok ] n=5 m=4 3-mix: sigma_m >= -C_m Q   sigma=353/32400 bound=-51/4
+  [ok ] n=5 m=5 3-mix: sigma_m >= -C_m Q   sigma=-871/202500 bound=-16456/135
+  [ok ] n=5 m=3 skew-mix: sigma_m >= -C_m Q   sigma=0 bound=-16/15
+  [ok ] n=5 m=4 skew-mix: sigma_m >= -C_m Q   sigma=1/125 bound=-54/5
+  [ok ] n=5 m=5 skew-mix: sigma_m >= -C_m Q   sigma=0 bound=-7744/75
+  [ok ] n=6 m=3 perm: sigma_m >= -C_m Q   sigma=20/9 bound=-15/2
+  [ok ] n=6 m=4 perm: sigma_m >= -C_m Q   sigma=5/2 bound=-675/8
+  [ok ] n=6 m=5 perm: sigma_m >= -C_m Q   sigma=14/9 bound=-1815/2
+  [ok ] n=6 m=6 perm: sigma_m >= -C_m Q   sigma=155/324 bound=-1755625/144
+  [ok ] n=6 m=3 J/n: sigma_m >= -C_m Q   sigma=0 bound=0
+  [ok ] n=6 m=4 J/n: sigma_m >= -C_m Q   sigma=0 bound=0
+  [ok ] n=6 m=5 J/n: sigma_m >= -C_m Q   sigma=0 bound=0
+  [ok ] n=6 m=6 J/n: sigma_m >= -C_m Q   sigma=0 bound=0
+  [ok ] n=6 m=3 (J-P)/(n-1): sigma_m >= -C_m Q   sigma=-4/225 bound=-3/10
+  [ok ] n=6 m=4 (J-P)/(n-1): sigma_m >= -C_m Q   sigma=1/250 bound=-27/8
+  [ok ] n=6 m=5 (J-P)/(n-1): sigma_m >= -C_m Q   sigma=-14/28125 bound=-363/10
+  [ok ] n=6 m=6 (J-P)/(n-1): sigma_m >= -C_m Q   sigma=31/1012500 bound=-70225/144
+  [ok ] n=6 m=3 half P + half P^2: sigma_m >= -C_m Q   sigma=2/9 bound=-3
+  [ok ] n=6 m=4 half P + half P^2: sigma_m >= -C_m Q   sigma=1/16 bound=-135/4
+  [ok ] n=6 m=5 half P + half P^2: sigma_m >= -C_m Q   sigma=-1/36 bound=-363
+  [ok ] n=6 m=6 half P + half P^2: sigma_m >= -C_m Q   sigma=-5/648 bound=-351125/72
+  [ok ] n=6 m=3 uniform over all shifts: sigma_m >= -C_m Q   sigma=0 bound=0
+  [ok ] n=6 m=4 uniform over all shifts: sigma_m >= -C_m Q   sigma=0 bound=0
+  [ok ] n=6 m=5 uniform over all shifts: sigma_m >= -C_m Q   sigma=0 bound=0
+  [ok ] n=6 m=6 uniform over all shifts: sigma_m >= -C_m Q   sigma=0 bound=0
+  [ok ] n=6 m=3 3-mix: sigma_m >= -C_m Q   sigma=1/9 bound=-2
+  [ok ] n=6 m=4 3-mix: sigma_m >= -C_m Q   sigma=1/16 bound=-45/2
+  [ok ] n=6 m=5 3-mix: sigma_m >= -C_m Q   sigma=0 bound=-242
+  [ok ] n=6 m=6 3-mix: sigma_m >= -C_m Q   sigma=-71/23328 bound=-351125/108
+  [ok ] n=6 m=3 skew-mix: sigma_m >= -C_m Q   sigma=52/1125 bound=-87/50
+  [ok ] n=6 m=4 skew-mix: sigma_m >= -C_m Q   sigma=-19/1250 bound=-783/40
+  [ok ] n=6 m=5 skew-mix: sigma_m >= -C_m Q   sigma=-58/5625 bound=-10527/50
+  [ok ] n=6 m=6 skew-mix: sigma_m >= -C_m Q   sigma=7787/5062500 bound=-407305/144
+
+V6  the uniform C_m against the paper's (the honest direction)
+  [ok ] n=8 m=3: uniform C_m >= paper C_m (uniform is weaker)   ratio uniform/paper = 22
+  [ok ] n=8 m=4: uniform C_m >= paper C_m (uniform is weaker)   ratio uniform/paper = 18
+  [ok ] n=8 m=5: uniform C_m >= paper C_m (uniform is weaker)   ratio uniform/paper = 34.3
+  [ok ] n=14 m=3: uniform C_m >= paper C_m (uniform is weaker)   ratio uniform/paper = 51.3
+  [ok ] n=14 m=4: uniform C_m >= paper C_m (uniform is weaker)   ratio uniform/paper = 31.5
+  [ok ] n=14 m=5: uniform C_m >= paper C_m (uniform is weaker)   ratio uniform/paper = 76.9
+  [ok ] n=50 m=3: uniform C_m >= paper C_m (uniform is weaker)   ratio uniform/paper = 350
+  [ok ] n=50 m=4: uniform C_m >= paper C_m (uniform is weaker)   ratio uniform/paper = 112
+  [ok ] n=50 m=5: uniform C_m >= paper C_m (uniform is weaker)   ratio uniform/paper = 505
+  [ok ] n=200 m=3: uniform C_m >= paper C_m (uniform is weaker)   ratio uniform/paper = 2.82e+03
+  [ok ] n=200 m=4: uniform C_m >= paper C_m (uniform is weaker)   ratio uniform/paper = 450
+  [ok ] n=200 m=5: uniform C_m >= paper C_m (uniform is weaker)   ratio uniform/paper = 4.03e+03
+
+V7  the endgame chain (E1)-(E4)
+  [ok ] k=6 n=4608: (E1) W_m <= w^(m-2) for all m
+  [ok ] k=6 n=4608: (E2) C_m <= (m!/4)(n-1)^((m-2)/2)
+  [ok ] k=6 n=4608: (E3) Phi <= sum m! theta^(m-2)
+  [ok ] k=6 n=4608: (E4) k*theta <= 2/5   k*theta = 0.3543
+  [ok ] k=6 n=4608: geometric tail <= 10 theta
+  [ok ] k=6 n=4608: 10 theta <= 4/k < 1
+  [ok ] k=6 n=4608: Phi < 1   Phi = 0.1979
+  [ok ] k=6 n=9216: (E1) W_m <= w^(m-2) for all m
+  [ok ] k=6 n=9216: (E2) C_m <= (m!/4)(n-1)^((m-2)/2)
+  [ok ] k=6 n=9216: (E3) Phi <= sum m! theta^(m-2)
+  [ok ] k=6 n=9216: (E4) k*theta <= 2/5   k*theta = 0.2503
+  [ok ] k=6 n=9216: geometric tail <= 10 theta
+  [ok ] k=6 n=9216: 10 theta <= 4/k < 1
+  [ok ] k=6 n=9216: Phi < 1   Phi = 0.1306
+  [ok ] k=6 n=23040: (E1) W_m <= w^(m-2) for all m
+  [ok ] k=6 n=23040: (E2) C_m <= (m!/4)(n-1)^((m-2)/2)
+  [ok ] k=6 n=23040: (E3) Phi <= sum m! theta^(m-2)
+  [ok ] k=6 n=23040: (E4) k*theta <= 2/5   k*theta = 0.1582
+  [ok ] k=6 n=23040: geometric tail <= 10 theta
+  [ok ] k=6 n=23040: 10 theta <= 4/k < 1
+  [ok ] k=6 n=23040: Phi < 1   Phi = 0.07778
+  [ok ] k=7 n=9800: (E1) W_m <= w^(m-2) for all m
+  [ok ] k=7 n=9800: (E2) C_m <= (m!/4)(n-1)^((m-2)/2)
+  [ok ] k=7 n=9800: (E3) Phi <= sum m! theta^(m-2)
+  [ok ] k=7 n=9800: (E4) k*theta <= 2/5   k*theta = 0.354
+  [ok ] k=7 n=9800: geometric tail <= 10 theta
+  [ok ] k=7 n=9800: 10 theta <= 4/k < 1
+  [ok ] k=7 n=9800: Phi < 1   Phi = 0.1668
+  [ok ] k=7 n=19600: (E1) W_m <= w^(m-2) for all m
+  [ok ] k=7 n=19600: (E2) C_m <= (m!/4)(n-1)^((m-2)/2)
+  [ok ] k=7 n=19600: (E3) Phi <= sum m! theta^(m-2)
+  [ok ] k=7 n=19600: (E4) k*theta <= 2/5   k*theta = 0.2502
+  [ok ] k=7 n=19600: geometric tail <= 10 theta
+  [ok ] k=7 n=19600: 10 theta <= 4/k < 1
+  [ok ] k=7 n=19600: Phi < 1   Phi = 0.1106
+  [ok ] k=7 n=49000: (E1) W_m <= w^(m-2) for all m
+  [ok ] k=7 n=49000: (E2) C_m <= (m!/4)(n-1)^((m-2)/2)
+  [ok ] k=7 n=49000: (E3) Phi <= sum m! theta^(m-2)
+  [ok ] k=7 n=49000: (E4) k*theta <= 2/5   k*theta = 0.1582
+  [ok ] k=7 n=49000: geometric tail <= 10 theta
+  [ok ] k=7 n=49000: 10 theta <= 4/k < 1
+  [ok ] k=7 n=49000: Phi < 1   Phi = 0.06613
+  [ok ] k=8 n=18432: (E1) W_m <= w^(m-2) for all m
+  [ok ] k=8 n=18432: (E2) C_m <= (m!/4)(n-1)^((m-2)/2)
+  [ok ] k=8 n=18432: (E3) Phi <= sum m! theta^(m-2)
+  [ok ] k=8 n=18432: (E4) k*theta <= 2/5   k*theta = 0.3538
+  [ok ] k=8 n=18432: geometric tail <= 10 theta
+  [ok ] k=8 n=18432: 10 theta <= 4/k < 1
+  [ok ] k=8 n=18432: Phi < 1   Phi = 0.1434
+  [ok ] k=8 n=36864: (E1) W_m <= w^(m-2) for all m
+  [ok ] k=8 n=36864: (E2) C_m <= (m!/4)(n-1)^((m-2)/2)
+  [ok ] k=8 n=36864: (E3) Phi <= sum m! theta^(m-2)
+  [ok ] k=8 n=36864: (E4) k*theta <= 2/5   k*theta = 0.2501
+  [ok ] k=8 n=36864: geometric tail <= 10 theta
+  [ok ] k=8 n=36864: 10 theta <= 4/k < 1
+  [ok ] k=8 n=36864: Phi < 1   Phi = 0.09554
+  [ok ] k=8 n=92160: (E1) W_m <= w^(m-2) for all m
+  [ok ] k=8 n=92160: (E2) C_m <= (m!/4)(n-1)^((m-2)/2)
+  [ok ] k=8 n=92160: (E3) Phi <= sum m! theta^(m-2)
+  [ok ] k=8 n=92160: (E4) k*theta <= 2/5   k*theta = 0.1581
+  [ok ] k=8 n=92160: geometric tail <= 10 theta
+  [ok ] k=8 n=92160: 10 theta <= 4/k < 1
+  [ok ] k=8 n=92160: Phi < 1   Phi = 0.0574
+  [ok ] k=10 n=51200: (E1) W_m <= w^(m-2) for all m
+  [ok ] k=10 n=51200: (E2) C_m <= (m!/4)(n-1)^((m-2)/2)
+  [ok ] k=10 n=51200: (E3) Phi <= sum m! theta^(m-2)
+  [ok ] k=10 n=51200: (E4) k*theta <= 2/5   k*theta = 0.3537
+  [ok ] k=10 n=51200: geometric tail <= 10 theta
+  [ok ] k=10 n=51200: 10 theta <= 4/k < 1
+  [ok ] k=10 n=51200: Phi < 1   Phi = 0.1112
+  [ok ] k=10 n=102400: (E1) W_m <= w^(m-2) for all m
+  [ok ] k=10 n=102400: (E2) C_m <= (m!/4)(n-1)^((m-2)/2)
+  [ok ] k=10 n=102400: (E3) Phi <= sum m! theta^(m-2)
+  [ok ] k=10 n=102400: (E4) k*theta <= 2/5   k*theta = 0.25
+  [ok ] k=10 n=102400: geometric tail <= 10 theta
+  [ok ] k=10 n=102400: 10 theta <= 4/k < 1
+  [ok ] k=10 n=102400: Phi < 1   Phi = 0.07478
+  [ok ] k=10 n=256000: (E1) W_m <= w^(m-2) for all m
+  [ok ] k=10 n=256000: (E2) C_m <= (m!/4)(n-1)^((m-2)/2)
+  [ok ] k=10 n=256000: (E3) Phi <= sum m! theta^(m-2)
+  [ok ] k=10 n=256000: (E4) k*theta <= 2/5   k*theta = 0.1581
+  [ok ] k=10 n=256000: geometric tail <= 10 theta
+  [ok ] k=10 n=256000: 10 theta <= 4/k < 1
+  [ok ] k=10 n=256000: Phi < 1   Phi = 0.0453
+  [ok ] k=12 n=115200: (E1) W_m <= w^(m-2) for all m
+  [ok ] k=12 n=115200: (E2) C_m <= (m!/4)(n-1)^((m-2)/2)
+  [ok ] k=12 n=115200: (E3) Phi <= sum m! theta^(m-2)
+  [ok ] k=12 n=115200: (E4) k*theta <= 2/5   k*theta = 0.3536
+  [ok ] k=12 n=115200: geometric tail <= 10 theta
+  [ok ] k=12 n=115200: 10 theta <= 4/k < 1
+  [ok ] k=12 n=115200: Phi < 1   Phi = 0.09047
+  [ok ] k=12 n=230400: (E1) W_m <= w^(m-2) for all m
+  [ok ] k=12 n=230400: (E2) C_m <= (m!/4)(n-1)^((m-2)/2)
+  [ok ] k=12 n=230400: (E3) Phi <= sum m! theta^(m-2)
+  [ok ] k=12 n=230400: (E4) k*theta <= 2/5   k*theta = 0.25
+  [ok ] k=12 n=230400: geometric tail <= 10 theta
+  [ok ] k=12 n=230400: 10 theta <= 4/k < 1
+  [ok ] k=12 n=230400: Phi < 1   Phi = 0.06129
+  [ok ] k=12 n=576000: (E1) W_m <= w^(m-2) for all m
+  [ok ] k=12 n=576000: (E2) C_m <= (m!/4)(n-1)^((m-2)/2)
+  [ok ] k=12 n=576000: (E3) Phi <= sum m! theta^(m-2)
+  [ok ] k=12 n=576000: (E4) k*theta <= 2/5   k*theta = 0.1581
+  [ok ] k=12 n=576000: geometric tail <= 10 theta
+  [ok ] k=12 n=576000: 10 theta <= 4/k < 1
+  [ok ] k=12 n=576000: Phi < 1   Phi = 0.03736
+  [ok ] k=15 n=304200: (E1) W_m <= w^(m-2) for all m
+  [ok ] k=15 n=304200: (E2) C_m <= (m!/4)(n-1)^((m-2)/2)
+  [ok ] k=15 n=304200: (E3) Phi <= sum m! theta^(m-2)
+  [ok ] k=15 n=304200: (E4) k*theta <= 2/5   k*theta = 0.3536
+  [ok ] k=15 n=304200: geometric tail <= 10 theta
+  [ok ] k=15 n=304200: 10 theta <= 4/k < 1
+  [ok ] k=15 n=304200: Phi < 1   Phi = 0.07052
+  [ok ] k=15 n=608400: (E1) W_m <= w^(m-2) for all m
+  [ok ] k=15 n=608400: (E2) C_m <= (m!/4)(n-1)^((m-2)/2)
+  [ok ] k=15 n=608400: (E3) Phi <= sum m! theta^(m-2)
+  [ok ] k=15 n=608400: (E4) k*theta <= 2/5   k*theta = 0.25
+  [ok ] k=15 n=608400: geometric tail <= 10 theta
+  [ok ] k=15 n=608400: 10 theta <= 4/k < 1
+  [ok ] k=15 n=608400: Phi < 1   Phi = 0.04816
+  [ok ] k=15 n=1521000: (E1) W_m <= w^(m-2) for all m
+  [ok ] k=15 n=1521000: (E2) C_m <= (m!/4)(n-1)^((m-2)/2)
+  [ok ] k=15 n=1521000: (E3) Phi <= sum m! theta^(m-2)
+  [ok ] k=15 n=1521000: (E4) k*theta <= 2/5   k*theta = 0.1581
+  [ok ] k=15 n=1521000: geometric tail <= 10 theta
+  [ok ] k=15 n=1521000: 10 theta <= 4/k < 1
+  [ok ] k=15 n=1521000: Phi < 1   Phi = 0.02956
+  [ok ] k=20 n=1036800: (E1) W_m <= w^(m-2) for all m
+  [ok ] k=20 n=1036800: (E2) C_m <= (m!/4)(n-1)^((m-2)/2)
+  [ok ] k=20 n=1036800: (E3) Phi <= sum m! theta^(m-2)
+  [ok ] k=20 n=1036800: (E4) k*theta <= 2/5   k*theta = 0.3536
+  [ok ] k=20 n=1036800: geometric tail <= 10 theta
+  [ok ] k=20 n=1036800: 10 theta <= 4/k < 1
+  [ok ] k=20 n=1036800: Phi < 1   Phi = 0.05145
+  [ok ] k=20 n=2073600: (E1) W_m <= w^(m-2) for all m
+  [ok ] k=20 n=2073600: (E2) C_m <= (m!/4)(n-1)^((m-2)/2)
+  [ok ] k=20 n=2073600: (E3) Phi <= sum m! theta^(m-2)
+  [ok ] k=20 n=2073600: (E4) k*theta <= 2/5   k*theta = 0.25
+  [ok ] k=20 n=2073600: geometric tail <= 10 theta
+  [ok ] k=20 n=2073600: 10 theta <= 4/k < 1
+  [ok ] k=20 n=2073600: Phi < 1   Phi = 0.03544
+  [ok ] k=20 n=5184000: (E1) W_m <= w^(m-2) for all m
+  [ok ] k=20 n=5184000: (E2) C_m <= (m!/4)(n-1)^((m-2)/2)
+  [ok ] k=20 n=5184000: (E3) Phi <= sum m! theta^(m-2)
+  [ok ] k=20 n=5184000: (E4) k*theta <= 2/5   k*theta = 0.1581
+  [ok ] k=20 n=5184000: geometric tail <= 10 theta
+  [ok ] k=20 n=5184000: 10 theta <= 4/k < 1
+  [ok ] k=20 n=5184000: Phi < 1   Phi = 0.02191
+  [ok ] k=30 n=5644800: (E1) W_m <= w^(m-2) for all m
+  [ok ] k=30 n=5644800: (E2) C_m <= (m!/4)(n-1)^((m-2)/2)
+  [ok ] k=30 n=5644800: (E3) Phi <= sum m! theta^(m-2)
+  [ok ] k=30 n=5644800: (E4) k*theta <= 2/5   k*theta = 0.3536
+  [ok ] k=30 n=5644800: geometric tail <= 10 theta
+  [ok ] k=30 n=5644800: 10 theta <= 4/k < 1
+  [ok ] k=30 n=5644800: Phi < 1   Phi = 0.03334
+  [ok ] k=30 n=11289600: (E1) W_m <= w^(m-2) for all m
+  [ok ] k=30 n=11289600: (E2) C_m <= (m!/4)(n-1)^((m-2)/2)
+  [ok ] k=30 n=11289600: (E3) Phi <= sum m! theta^(m-2)
+  [ok ] k=30 n=11289600: (E4) k*theta <= 2/5   k*theta = 0.25
+  [ok ] k=30 n=11289600: geometric tail <= 10 theta
+  [ok ] k=30 n=11289600: 10 theta <= 4/k < 1
+  [ok ] k=30 n=11289600: Phi < 1   Phi = 0.02316
+  [ok ] k=30 n=28224000: (E1) W_m <= w^(m-2) for all m
+  [ok ] k=30 n=28224000: (E2) C_m <= (m!/4)(n-1)^((m-2)/2)
+  [ok ] k=30 n=28224000: (E3) Phi <= sum m! theta^(m-2)
+  [ok ] k=30 n=28224000: (E4) k*theta <= 2/5   k*theta = 0.1581
+  [ok ] k=30 n=28224000: geometric tail <= 10 theta
+  [ok ] k=30 n=28224000: 10 theta <= 4/k < 1
+  [ok ] k=30 n=28224000: Phi < 1   Phi = 0.01442
+  [ok ] k=40 n=18483200: (E1) W_m <= w^(m-2) for all m
+  [ok ] k=40 n=18483200: (E2) C_m <= (m!/4)(n-1)^((m-2)/2)
+  [ok ] k=40 n=18483200: (E3) Phi <= sum m! theta^(m-2)
+  [ok ] k=40 n=18483200: (E4) k*theta <= 2/5   k*theta = 0.3536
+  [ok ] k=40 n=18483200: geometric tail <= 10 theta
+  [ok ] k=40 n=18483200: 10 theta <= 4/k < 1
+  [ok ] k=40 n=18483200: Phi < 1   Phi = 0.02464
+  [ok ] k=40 n=36966400: (E1) W_m <= w^(m-2) for all m
+  [ok ] k=40 n=36966400: (E2) C_m <= (m!/4)(n-1)^((m-2)/2)
+  [ok ] k=40 n=36966400: (E3) Phi <= sum m! theta^(m-2)
+  [ok ] k=40 n=36966400: (E4) k*theta <= 2/5   k*theta = 0.25
+  [ok ] k=40 n=36966400: geometric tail <= 10 theta
+  [ok ] k=40 n=36966400: 10 theta <= 4/k < 1
+  [ok ] k=40 n=36966400: Phi < 1   Phi = 0.0172
+  [ok ] k=40 n=92416000: (E1) W_m <= w^(m-2) for all m
+  [ok ] k=40 n=92416000: (E2) C_m <= (m!/4)(n-1)^((m-2)/2)
+  [ok ] k=40 n=92416000: (E3) Phi <= sum m! theta^(m-2)
+  [ok ] k=40 n=92416000: (E4) k*theta <= 2/5   k*theta = 0.1581
+  [ok ] k=40 n=92416000: geometric tail <= 10 theta
+  [ok ] k=40 n=92416000: 10 theta <= 4/k < 1
+  [ok ] k=40 n=92416000: Phi < 1   Phi = 0.01075
+  [ok ] k=6: 2(k-1)/N <= 1/100
+  [ok ] k=6: (N-k+1)^2 >= (99/100) N^2
+  [ok ] k=6: N >= (250/99)^2 k^2 (k-2)^2
+  [ok ] k=7: 2(k-1)/N <= 1/100
+  [ok ] k=7: (N-k+1)^2 >= (99/100) N^2
+  [ok ] k=7: N >= (250/99)^2 k^2 (k-2)^2
+  [ok ] k=8: 2(k-1)/N <= 1/100
+  [ok ] k=8: (N-k+1)^2 >= (99/100) N^2
+  [ok ] k=8: N >= (250/99)^2 k^2 (k-2)^2
+  [ok ] k=10: 2(k-1)/N <= 1/100
+  [ok ] k=10: (N-k+1)^2 >= (99/100) N^2
+  [ok ] k=10: N >= (250/99)^2 k^2 (k-2)^2
+  [ok ] k=12: 2(k-1)/N <= 1/100
+  [ok ] k=12: (N-k+1)^2 >= (99/100) N^2
+  [ok ] k=12: N >= (250/99)^2 k^2 (k-2)^2
+  [ok ] k=15: 2(k-1)/N <= 1/100
+  [ok ] k=15: (N-k+1)^2 >= (99/100) N^2
+  [ok ] k=15: N >= (250/99)^2 k^2 (k-2)^2
+  [ok ] k=20: 2(k-1)/N <= 1/100
+  [ok ] k=20: (N-k+1)^2 >= (99/100) N^2
+  [ok ] k=20: N >= (250/99)^2 k^2 (k-2)^2
+  [ok ] k=30: 2(k-1)/N <= 1/100
+  [ok ] k=30: (N-k+1)^2 >= (99/100) N^2
+  [ok ] k=30: N >= (250/99)^2 k^2 (k-2)^2
+  [ok ] k=40: 2(k-1)/N <= 1/100
+  [ok ] k=40: (N-k+1)^2 >= (99/100) N^2
+  [ok ] k=40: N >= (250/99)^2 k^2 (k-2)^2
+  [ok ] k=50: 2(k-1)/N <= 1/100
+  [ok ] k=50: (N-k+1)^2 >= (99/100) N^2
+  [ok ] k=50: N >= (250/99)^2 k^2 (k-2)^2
+  [ok ] k=100: 2(k-1)/N <= 1/100
+  [ok ] k=100: (N-k+1)^2 >= (99/100) N^2
+  [ok ] k=100: N >= (250/99)^2 k^2 (k-2)^2
+
+V8  the exact thresholds of UNIFORM-G.md section 7
+  [ok ] uniform C_m k=3: Phi(14,3) < 1   Phi = 0.9506
+  [ok ] uniform C_m k=3: Phi(13,3) >= 1 (threshold is exact)
+  [ok ] uniform C_m k=3: least n = 14
+  [ok ] uniform C_m k=4: Phi(81,4) < 1   Phi = 0.9962
+  [ok ] uniform C_m k=4: Phi(80,4) >= 1 (threshold is exact)
+  [ok ] uniform C_m k=4: least n = 81
+  [ok ] uniform C_m k=5: Phi(236,5) < 1   Phi = 1
+  [ok ] uniform C_m k=5: Phi(235,5) >= 1 (threshold is exact)
+  [ok ] uniform C_m k=5: least n = 236
+  [ok ] uniform C_m k=6: Phi(497,6) < 1   Phi = 0.9983
+  [ok ] uniform C_m k=6: Phi(496,6) >= 1 (threshold is exact)
+  [ok ] uniform C_m k=6: least n = 497
+  [ok ] uniform C_m k=7: Phi(871,7) < 1   Phi = 0.9993
+  [ok ] uniform C_m k=7: Phi(870,7) >= 1 (threshold is exact)
+  [ok ] uniform C_m k=7: least n = 871
+  [ok ] uniform C_m k=8: Phi(1367,8) < 1   Phi = 0.9996
+  [ok ] uniform C_m k=8: Phi(1366,8) >= 1 (threshold is exact)
+  [ok ] uniform C_m k=8: least n = 1367
+  [ok ] uniform C_m k=10: Phi(2748,10) < 1   Phi = 1
+  [ok ] uniform C_m k=10: Phi(2747,10) >= 1 (threshold is exact)
+  [ok ] uniform C_m k=10: least n = 2748
+  [ok ] uniform C_m k=12: Phi(4688,12) < 1   Phi = 0.9998
+  [ok ] uniform C_m k=12: Phi(4687,12) >= 1 (threshold is exact)
+  [ok ] uniform C_m k=12: least n = 4688
+  [ok ] uniform C_m k=15: Phi(8738,15) < 1   Phi = 0.9999
+  [ok ] uniform C_m k=15: Phi(8737,15) >= 1 (threshold is exact)
+  [ok ] uniform C_m k=15: least n = 8738
+  [ok ] uniform C_m k=20: Phi(18964,20) < 1   Phi = 1
+  [ok ] uniform C_m k=20: Phi(18963,20) >= 1 (threshold is exact)
+  [ok ] uniform C_m k=20: least n = 18964
+  [ok ] uniform C_m k=30: Phi(57420,30) < 1   Phi = 1
+  [ok ] uniform C_m k=30: Phi(57419,30) >= 1 (threshold is exact)
+  [ok ] uniform C_m k=30: least n = 57420
+  [ok ] uniform C_m k=50: Phi(289608,50) < 1   Phi = 1
+  [ok ] uniform C_m k=50: Phi(289607,50) >= 1 (threshold is exact)
+  [ok ] uniform C_m k=50: least n = 289608
+  [ok ] mixed C_m k=3: Phi(4,3) < 1   Phi = 0.6667
+  [ok ] mixed C_m k=3: Phi(3,3) >= 1 (threshold is exact)
+  [ok ] mixed C_m k=3: least n = 4
+  [ok ] mixed C_m k=4: Phi(8,4) < 1   Phi = 0.8948
+  [ok ] mixed C_m k=4: Phi(7,4) >= 1 (threshold is exact)
+  [ok ] mixed C_m k=4: least n = 8
+  [ok ] mixed C_m k=5: Phi(14,5) < 1   Phi = 0.8094
+  [ok ] mixed C_m k=5: Phi(13,5) >= 1 (threshold is exact)
+  [ok ] mixed C_m k=5: least n = 14
+  [ok ] mixed C_m k=6: Phi(110,6) < 1   Phi = 0.9929
+  [ok ] mixed C_m k=6: Phi(109,6) >= 1 (threshold is exact)
+  [ok ] mixed C_m k=6: least n = 110
+  [ok ] mixed C_m k=7: Phi(273,7) < 1   Phi = 0.9989
+  [ok ] mixed C_m k=7: Phi(272,7) >= 1 (threshold is exact)
+  [ok ] mixed C_m k=7: least n = 273
+  [ok ] mixed C_m k=8: Phi(523,8) < 1   Phi = 0.9994
+  [ok ] mixed C_m k=8: Phi(522,8) >= 1 (threshold is exact)
+  [ok ] mixed C_m k=8: least n = 523
+  [ok ] mixed C_m k=10: Phi(1325,10) < 1   Phi = 0.9984
+  [ok ] mixed C_m k=10: Phi(1324,10) >= 1 (threshold is exact)
+  [ok ] mixed C_m k=10: least n = 1325
+  [ok ] mixed C_m k=12: Phi(2590,12) < 1   Phi = 0.9989
+  [ok ] mixed C_m k=12: Phi(2589,12) >= 1 (threshold is exact)
+  [ok ] mixed C_m k=12: least n = 2590
+  [ok ] mixed C_m k=15: Phi(5515,15) < 1   Phi = 0.9997
+  [ok ] mixed C_m k=15: Phi(5514,15) >= 1 (threshold is exact)
+  [ok ] mixed C_m k=15: least n = 5515
+  [ok ] mixed C_m k=20: Phi(13817,20) < 1   Phi = 1
+  [ok ] mixed C_m k=20: Phi(13816,20) >= 1 (threshold is exact)
+  [ok ] mixed C_m k=20: least n = 13817
+  [ok ] mixed C_m k=30: Phi(49702,30) < 1   Phi = 0.9999
+  [ok ] mixed C_m k=30: Phi(49701,30) >= 1 (threshold is exact)
+  [ok ] mixed C_m k=30: least n = 49702
+  [ok ] mixed C_m k=50: Phi(280192,50) < 1   Phi = 1
+  [ok ] mixed C_m k=50: Phi(280191,50) >= 1 (threshold is exact)
+  [ok ] mixed C_m k=50: least n = 280192
+  [ok ] mixed k=3 reproduces the paper's threshold
+  [ok ] mixed k=4 reproduces the paper's threshold
+  [ok ] mixed k=5 reproduces the paper's threshold
+  [ok ] k=6: closed form N(k)=4608 exceeds the exact boundary 497
+  [ok ] k=7: closed form N(k)=9800 exceeds the exact boundary 871
+  [ok ] k=8: closed form N(k)=18432 exceeds the exact boundary 1367
+  [ok ] k=10: closed form N(k)=51200 exceeds the exact boundary 2748
+  [ok ] k=12: closed form N(k)=115200 exceeds the exact boundary 4688
+  [ok ] k=15: closed form N(k)=304200 exceeds the exact boundary 8738
+  [ok ] k=20: closed form N(k)=1036800 exceeds the exact boundary 18964
+  [ok ] k=30: closed form N(k)=5644800 exceeds the exact boundary 57420
+  [ok ] k=50: closed form N(k)=46080000 exceeds the exact boundary 289608
+
+V9  Theorem G end to end on the permutation pencil, k = 6 and 7
+  [ok ] n=4 m=2: closed form for sigma_m(P - J/n)
+  [ok ] n=4 m=3: closed form for sigma_m(P - J/n)
+  [ok ] n=4 m=4: closed form for sigma_m(P - J/n)
+  [ok ] n=5 m=2: closed form for sigma_m(P - J/n)
+  [ok ] n=5 m=3: closed form for sigma_m(P - J/n)
+  [ok ] n=5 m=4: closed form for sigma_m(P - J/n)
+  [ok ] n=5 m=5: closed form for sigma_m(P - J/n)
+  [ok ] n=6 m=2: closed form for sigma_m(P - J/n)
+  [ok ] n=6 m=3: closed form for sigma_m(P - J/n)
+  [ok ] n=6 m=4: closed form for sigma_m(P - J/n)
+  [ok ] n=6 m=5: closed form for sigma_m(P - J/n)
+  [ok ] n=6 m=6: closed form for sigma_m(P - J/n)
+  [ok ] k=6 n=110 A = (1-s)J/n + sP s=1/109: F >= c(n,k) Q   F/(cQ) = 2.00091
+  [ok ] k=6 n=110 A = (1-s)J/n + sP s=1/4: F >= c(n,k) Q   F/(cQ) = 2.0285
+  [ok ] k=6 n=110 A = (1-s)J/n + sP s=1/2: F >= c(n,k) Q   F/(cQ) = 2.06482
+  [ok ] k=6 n=110 A = (1-s)J/n + sP s=1: F >= c(n,k) Q   F/(cQ) = 2.16217
+  [ok ] k=6 n=110 A = (1+s)J/n - sP s=1/109: F >= c(n,k) Q   F/(cQ) = 1.9991
+  [ok ] k=6 n=110 A = (1+s)J/n - sP s=1/218: F >= c(n,k) Q   F/(cQ) = 1.99955
+  [ok ] k=6 n=497 A = (1-s)J/n + sP s=1/496: F >= c(n,k) Q   F/(cQ) = 2.00004
+  [ok ] k=6 n=497 A = (1-s)J/n + sP s=1/4: F >= c(n,k) Q   F/(cQ) = 2.00616
+  [ok ] k=6 n=497 A = (1-s)J/n + sP s=1/2: F >= c(n,k) Q   F/(cQ) = 2.01388
+  [ok ] k=6 n=497 A = (1-s)J/n + sP s=1: F >= c(n,k) Q   F/(cQ) = 2.03403
+  [ok ] k=6 n=497 A = (1+s)J/n - sP s=1/496: F >= c(n,k) Q   F/(cQ) = 1.99996
+  [ok ] k=6 n=497 A = (1+s)J/n - sP s=1/992: F >= c(n,k) Q   F/(cQ) = 1.99998
+  [ok ] k=6 n=4608 A = (1-s)J/n + sP s=1/4607: F >= c(n,k) Q   F/(cQ) = 2
+  [ok ] k=6 n=4608 A = (1-s)J/n + sP s=1/4: F >= c(n,k) Q   F/(cQ) = 2.00066
+  [ok ] k=6 n=4608 A = (1-s)J/n + sP s=1/2: F >= c(n,k) Q   F/(cQ) = 2.00148
+  [ok ] k=6 n=4608 A = (1-s)J/n + sP s=1: F >= c(n,k) Q   F/(cQ) = 2.00362
+  [ok ] k=6 n=4608 A = (1+s)J/n - sP s=1/4607: F >= c(n,k) Q   F/(cQ) = 2
+  [ok ] k=6 n=4608 A = (1+s)J/n - sP s=1/9214: F >= c(n,k) Q   F/(cQ) = 2
+  [ok ] k=7 n=273 A = (1-s)J/n + sP s=1/272: F >= c(n,k) Q   F/(cQ) = 2.00018
+  [ok ] k=7 n=273 A = (1-s)J/n + sP s=1/4: F >= c(n,k) Q   F/(cQ) = 2.0147
+  [ok ] k=7 n=273 A = (1-s)J/n + sP s=1/2: F >= c(n,k) Q   F/(cQ) = 2.03428
+  [ok ] k=7 n=273 A = (1-s)J/n + sP s=1: F >= c(n,k) Q   F/(cQ) = 2.08861
+  [ok ] k=7 n=273 A = (1+s)J/n - sP s=1/272: F >= c(n,k) Q   F/(cQ) = 1.99982
+  [ok ] k=7 n=273 A = (1+s)J/n - sP s=1/544: F >= c(n,k) Q   F/(cQ) = 1.99991
+  [ok ] k=7 n=871 A = (1-s)J/n + sP s=1/870: F >= c(n,k) Q   F/(cQ) = 2.00002
+  [ok ] k=7 n=871 A = (1-s)J/n + sP s=1/4: F >= c(n,k) Q   F/(cQ) = 2.00456
+  [ok ] k=7 n=871 A = (1-s)J/n + sP s=1/2: F >= c(n,k) Q   F/(cQ) = 2.01059
+  [ok ] k=7 n=871 A = (1-s)J/n + sP s=1: F >= c(n,k) Q   F/(cQ) = 2.02709
+  [ok ] k=7 n=871 A = (1+s)J/n - sP s=1/870: F >= c(n,k) Q   F/(cQ) = 1.99998
+  [ok ] k=7 n=871 A = (1+s)J/n - sP s=1/1740: F >= c(n,k) Q   F/(cQ) = 1.99999
+  [ok ] k=7 n=9800 A = (1-s)J/n + sP s=1/9799: F >= c(n,k) Q   F/(cQ) = 2
+  [ok ] k=7 n=9800 A = (1-s)J/n + sP s=1/4: F >= c(n,k) Q   F/(cQ) = 2.0004
+  [ok ] k=7 n=9800 A = (1-s)J/n + sP s=1/2: F >= c(n,k) Q   F/(cQ) = 2.00094
+  [ok ] k=7 n=9800 A = (1-s)J/n + sP s=1: F >= c(n,k) Q   F/(cQ) = 2.00238
+  [ok ] k=7 n=9800 A = (1+s)J/n - sP s=1/9799: F >= c(n,k) Q   F/(cQ) = 2
+  [ok ] k=7 n=9800 A = (1+s)J/n - sP s=1/19598: F >= c(n,k) Q   F/(cQ) = 2
+
+V10 mutation controls
+  [ok ] control silent: no fault injected   no check raised anything
+  [ok ] control fires: C_m halved   12 checks caught it
+  [ok ] control fires: D_m^2 replaced by ((m-1)!)^2   12 checks caught it
+  [ok ] control fires: Finner exponent m/2 -> (m-1)/2   12 checks caught it
+  [ok ] control fires: each threshold lowered by one   5 checks caught it
+
+==========================================================================
+TOTAL FAILURES: 0
+VERDICT: ALL CHECKS PASS
+==========================================================================

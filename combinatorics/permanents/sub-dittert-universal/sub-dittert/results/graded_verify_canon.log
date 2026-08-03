@@ -1,0 +1,26 @@
+[guard] MemoryMax=8G  swap=off  CPUQuota=100%  threads=4
+C1  canon agrees with the brute force, matrix by matrix
+    2065 distinct incidence matrices, all identical
+C2  patterns(e) identical (keys, signed sums, masses), e <= 8
+    e=4:    4 classes, Lam=          78, brute    0.00s -> fast   0.00s  (    3x)
+    e=5:    5 classes, Lam=        1896, brute    0.00s -> fast   0.00s  (    5x)
+    e=6:   21 classes, Lam=       68880, brute    0.02s -> fast   0.00s  (   13x)
+    e=7:   37 classes, Lam=     3386160, brute    0.58s -> fast   0.02s  (   25x)
+    e=8:  127 classes, Lam=   217430640, brute   30.55s -> fast   0.47s  (   64x)
+C3  the e = 9 ground truth, reproduced
+    e=9 in 11.8s: 317 classes, Lam_9 exact; historical 5 residues + mass reproduced; 0 with the core lemmas on
+C4  classes_direct(e) == the pair loop class set, e <= 10
+    e=9: 317 classes agree (pair loop 12s)
+    e=10: 1018 classes agree (pair loop 358s)
+    e = 4..10 all agree -- classes_direct is gated where the pair loop can still be run
+C6  the sweep decision: every class at e <= 12 is certified
+    e= 8:   127 classes, 0 uncertified
+    e= 9:   317 classes, 0 uncertified
+    e=10:  1018 classes, 0 uncertified
+    e=11:  2989 classes, 0 uncertified
+    e=12:  9930 classes, 0 uncertified
+    => e_0 = 12
+C5  mutation controls
+    {'no_colsort': 3, 'colsort_by_sum': 3, 'no_rowperm': 3, 'raw_key': 3}
+
+RESULT: 2106 checks, 0 failures; 4 controls fired at 12 positions

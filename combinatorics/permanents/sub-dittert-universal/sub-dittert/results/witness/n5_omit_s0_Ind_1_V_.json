@@ -1,0 +1,236 @@
+{
+ "claim": "sum_b <Y_b, M_b(w)> equals `value` for every w in A, and value <= 0",
+ "deg_basis": 2,
+ "generators": [
+  {
+   "block": "14x14 trivial",
+   "coef": "210767114123/515759379600",
+   "dim": 14,
+   "index": 4,
+   "kind": "diag",
+   "side": "s11"
+  },
+  {
+   "block": "14x14 trivial",
+   "coef": "238487739889/2750716691200",
+   "dim": 14,
+   "index": 10,
+   "kind": "diag",
+   "side": "s11"
+  },
+  {
+   "block": "14x14 trivial",
+   "coef": "48749044277/41260750368",
+   "dim": 14,
+   "index": 11,
+   "kind": "diag",
+   "side": "s11"
+  },
+  {
+   "block": "14x14 trivial",
+   "coef": "5262956338189/99025800883200",
+   "dim": 14,
+   "index": 12,
+   "kind": "diag",
+   "side": "s11"
+  },
+  {
+   "block": "7x7 sign",
+   "coef": "6690339967769/309455627760",
+   "dim": 7,
+   "index": 0,
+   "kind": "diag",
+   "side": "s11"
+  },
+  {
+   "block": "7x7 sign",
+   "coef": "124553773393/154727813880",
+   "dim": 7,
+   "index": 4,
+   "kind": "diag",
+   "side": "s11"
+  },
+  {
+   "block": "7x7 sign",
+   "coef": "3898867134737/33008600294400",
+   "dim": 7,
+   "index": 6,
+   "kind": "diag",
+   "side": "s11"
+  },
+  {
+   "block": "16x16 Ind(V'|1)",
+   "coef": "117980885780093/371346753312000",
+   "dim": 16,
+   "index": 3,
+   "kind": "diag",
+   "side": "s11"
+  },
+  {
+   "block": "16x16 Ind(V'|1)",
+   "coef": "2567009545697/46418344164000",
+   "dim": 16,
+   "index": 5,
+   "kind": "diag",
+   "side": "s11"
+  },
+  {
+   "block": "16x16 Ind(V'|1)",
+   "coef": "18620245872239/742693506624000",
+   "dim": 16,
+   "index": 6,
+   "kind": "diag",
+   "side": "s11"
+  },
+  {
+   "block": "16x16 Ind(V'|1)",
+   "coef": "793807435693/185673376656000",
+   "dim": 16,
+   "index": 12,
+   "kind": "diag",
+   "side": "s11"
+  },
+  {
+   "block": "16x16 Ind(V'|1)",
+   "coef": "1/8640",
+   "dim": 16,
+   "index": 14,
+   "kind": "diag",
+   "side": "s11"
+  },
+  {
+   "block": "16x16 Ind(V'|1)",
+   "coef": "7842342821/464183441640",
+   "dim": 16,
+   "index": 15,
+   "kind": "diag",
+   "side": "s11"
+  },
+  {
+   "block": "10x10 (V'|V')+",
+   "coef": "5623328332849/16297996395360000",
+   "dim": 10,
+   "index": 1,
+   "kind": "diag",
+   "side": "s11"
+  },
+  {
+   "block": "10x10 (V'|V')+",
+   "coef": "4153929539/24446994593040",
+   "dim": 10,
+   "index": 5,
+   "kind": "diag",
+   "side": "s11"
+  },
+  {
+   "block": "10x10 (V'|V')+",
+   "coef": "17756287111/3259599279072000",
+   "dim": 10,
+   "index": 8,
+   "kind": "diag",
+   "side": "s11"
+  },
+  {
+   "block": "Ind(1|(m-2,2))",
+   "coef": "3813743639971/148538701324800",
+   "dim": 4,
+   "index": 1,
+   "kind": "diag",
+   "side": "s11"
+  },
+  {
+   "block": "(1|1) ext +",
+   "coef": "491135152297/967048836750",
+   "dim": 4,
+   "index": 1,
+   "kind": "diag",
+   "side": "s0"
+  },
+  {
+   "block": "(1|1) ext +",
+   "coef": "1225270260659/20630375184000",
+   "dim": 4,
+   "index": 2,
+   "kind": "diag",
+   "side": "s0"
+  },
+  {
+   "block": "(1|1) ext +",
+   "coef": "433129522009/15472781388000",
+   "dim": 4,
+   "index": 3,
+   "kind": "diag",
+   "side": "s0"
+  },
+  {
+   "block": "(1|1) ext -",
+   "coef": "1631698311643/12378225110400",
+   "dim": 1,
+   "index": 0,
+   "kind": "diag",
+   "side": "s0"
+  },
+  {
+   "block": "(V|V) ext +",
+   "coef": "7241409761/2548173684836250",
+   "dim": 5,
+   "index": 1,
+   "kind": "diag",
+   "side": "s0"
+  },
+  {
+   "block": "(V|V) ext +",
+   "coef": "93032110537/20385389478690000",
+   "dim": 5,
+   "index": 2,
+   "kind": "diag",
+   "side": "s0"
+  },
+  {
+   "block": "(V|V) ext +",
+   "coef": "262140846677/101926947393450000",
+   "dim": 5,
+   "index": 4,
+   "kind": "diag",
+   "side": "s0"
+  },
+  {
+   "block": "(V|V) ext -",
+   "coef": "2819718139/679512982623000",
+   "dim": 1,
+   "index": 0,
+   "kind": "diag",
+   "side": "s0"
+  },
+  {
+   "block": "Ind(1|(n-2,2))",
+   "coef": "24557781843/8080230280400",
+   "dim": 2,
+   "index": 0,
+   "kind": "diag",
+   "side": "s0"
+  },
+  {
+   "block": "Ind(1|(n-2,2))",
+   "coef": "108301549297/32320921121600",
+   "dim": 2,
+   "index": 1,
+   "kind": "diag",
+   "side": "s0"
+  },
+  {
+   "block": "Ind(V|(n-2,1,1))",
+   "coef": "3625351893/101647577729500",
+   "dim": 1,
+   "index": 0,
+   "kind": "diag",
+   "side": "s0"
+  }
+ ],
+ "k": 4,
+ "kind": "infeasible",
+ "n": 5,
+ "omit_block": "Ind(1|V)",
+ "omit_side": "s0",
+ "value": "-19306326249517/214899741500"
+}

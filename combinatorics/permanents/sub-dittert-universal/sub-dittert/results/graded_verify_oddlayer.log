@@ -1,0 +1,1014 @@
+[guard] MemoryMax=4G  swap=off  CPUQuota=150%  threads=2
+==========================================================================
+graded_verify_oddlayer.py -- the odd-layer lemma, ODDLAYER.md
+==========================================================================
+
+W1  the cumulant machinery == the connected-(pi,rho) definition
+  [ok ] K_2 log-series == connected sum   n=4 perm   3
+  [ok ] K_3 log-series == connected sum   n=4 perm   6
+  [ok ] K_4 log-series == connected sum   n=4 perm   -15.75
+  [ok ] K_2 log-series == connected sum   n=4 (J-P)/(n-1)   0.333333
+  [ok ] K_3 log-series == connected sum   n=4 (J-P)/(n-1)   -0.222222
+  [ok ] K_4 log-series == connected sum   n=4 (J-P)/(n-1)   -0.194444
+  [ok ] K_2 log-series == connected sum   n=4 half P + half P^2   1
+  [ok ] K_3 log-series == connected sum   n=4 half P + half P^2   0
+  [ok ] K_4 log-series == connected sum   n=4 half P + half P^2   -3.75
+  [ok ] K_2 log-series == connected sum   n=4 3-mix   0.555556
+  [ok ] K_3 log-series == connected sum   n=4 3-mix   0
+  [ok ] K_4 log-series == connected sum   n=4 3-mix   -0.972222
+  [ok ] sigma_2 DP == brute force   n=4
+  [ok ] sigma_3 DP == brute force   n=4
+  [ok ] sigma_4 DP == brute force   n=4
+  [ok ] K_2 log-series == connected sum   n=5 perm   4
+  [ok ] K_3 log-series == connected sum   n=5 perm   9.6
+  [ok ] K_4 log-series == connected sum   n=5 perm   -16.32
+  [ok ] K_5 log-series == connected sum   n=5 perm   -327.168
+  [ok ] K_2 log-series == connected sum   n=5 (J-P)/(n-1)   0.25
+  [ok ] K_3 log-series == connected sum   n=5 (J-P)/(n-1)   -0.15
+  [ok ] K_4 log-series == connected sum   n=5 (J-P)/(n-1)   -0.06375
+  [ok ] K_5 log-series == connected sum   n=5 (J-P)/(n-1)   0.3195
+  [ok ] K_2 log-series == connected sum   n=5 half P + half P^2   1.5
+  [ok ] K_3 log-series == connected sum   n=5 half P + half P^2   0.6
+  [ok ] K_4 log-series == connected sum   n=5 half P + half P^2   -7.17
+  [ok ] K_5 log-series == connected sum   n=5 half P + half P^2   -10.968
+  [ok ] K_2 log-series == connected sum   n=5 3-mix   0.944444
+  [ok ] K_3 log-series == connected sum   n=5 3-mix   0.266667
+  [ok ] K_4 log-series == connected sum   n=5 3-mix   -2.41444
+  [ok ] K_5 log-series == connected sum   n=5 3-mix   -3.03467
+  [ok ] sigma_2 DP == brute force   n=5
+  [ok ] sigma_3 DP == brute force   n=5
+  [ok ] sigma_4 DP == brute force   n=5
+
+W2  calibration of K_2..K_5 against the paper's invariants
+  [ok ] K_2 = Q            n=5 perm
+  [ok ] K_3 = 4 p_3        n=5 perm
+  [ok ] K_4 = 36p4+6Z-18(YR+YC)  n=5 perm
+  [ok ] K_5 = 576p5+120Ga+240Gb-480(Gc+Gc')  n=5 perm
+  [ok ] K_2 = Q            n=5 (J-P)/(n-1)
+  [ok ] K_3 = 4 p_3        n=5 (J-P)/(n-1)
+  [ok ] K_4 = 36p4+6Z-18(YR+YC)  n=5 (J-P)/(n-1)
+  [ok ] K_5 = 576p5+120Ga+240Gb-480(Gc+Gc')  n=5 (J-P)/(n-1)
+  [ok ] K_2 = Q            n=5 half P + half P^2
+  [ok ] K_3 = 4 p_3        n=5 half P + half P^2
+  [ok ] K_4 = 36p4+6Z-18(YR+YC)  n=5 half P + half P^2
+  [ok ] K_5 = 576p5+120Ga+240Gb-480(Gc+Gc')  n=5 half P + half P^2
+  [ok ] K_2 = Q            n=5 3-mix
+  [ok ] K_3 = 4 p_3        n=5 3-mix
+  [ok ] K_4 = 36p4+6Z-18(YR+YC)  n=5 3-mix
+  [ok ] K_5 = 576p5+120Ga+240Gb-480(Gc+Gc')  n=5 3-mix
+  [ok ] K_2 = Q            n=5 saturated A00=0
+  [ok ] K_3 = 4 p_3        n=5 saturated A00=0
+  [ok ] K_4 = 36p4+6Z-18(YR+YC)  n=5 saturated A00=0
+  [ok ] K_5 = 576p5+120Ga+240Gb-480(Gc+Gc')  n=5 saturated A00=0
+  [ok ] K_2 = Q            n=5 uniform shifts
+  [ok ] K_3 = 4 p_3        n=5 uniform shifts
+  [ok ] K_4 = 36p4+6Z-18(YR+YC)  n=5 uniform shifts
+  [ok ] K_5 = 576p5+120Ga+240Gb-480(Gc+Gc')  n=5 uniform shifts
+  [ok ] K_2 = Q            n=6 perm
+  [ok ] K_3 = 4 p_3        n=6 perm
+  [ok ] K_4 = 36p4+6Z-18(YR+YC)  n=6 perm
+  [ok ] K_5 = 576p5+120Ga+240Gb-480(Gc+Gc')  n=6 perm
+  [ok ] K_2 = Q            n=6 (J-P)/(n-1)
+  [ok ] K_3 = 4 p_3        n=6 (J-P)/(n-1)
+  [ok ] K_4 = 36p4+6Z-18(YR+YC)  n=6 (J-P)/(n-1)
+  [ok ] K_5 = 576p5+120Ga+240Gb-480(Gc+Gc')  n=6 (J-P)/(n-1)
+  [ok ] K_2 = Q            n=6 half P + half P^2
+  [ok ] K_3 = 4 p_3        n=6 half P + half P^2
+  [ok ] K_4 = 36p4+6Z-18(YR+YC)  n=6 half P + half P^2
+  [ok ] K_5 = 576p5+120Ga+240Gb-480(Gc+Gc')  n=6 half P + half P^2
+  [ok ] K_2 = Q            n=6 3-mix
+  [ok ] K_3 = 4 p_3        n=6 3-mix
+  [ok ] K_4 = 36p4+6Z-18(YR+YC)  n=6 3-mix
+  [ok ] K_5 = 576p5+120Ga+240Gb-480(Gc+Gc')  n=6 3-mix
+  [ok ] K_2 = Q            n=6 saturated A00=0
+  [ok ] K_3 = 4 p_3        n=6 saturated A00=0
+  [ok ] K_4 = 36p4+6Z-18(YR+YC)  n=6 saturated A00=0
+  [ok ] K_5 = 576p5+120Ga+240Gb-480(Gc+Gc')  n=6 saturated A00=0
+  [ok ] K_2 = Q            n=6 uniform shifts
+  [ok ] K_3 = 4 p_3        n=6 uniform shifts
+  [ok ] K_4 = 36p4+6Z-18(YR+YC)  n=6 uniform shifts
+  [ok ] K_5 = 576p5+120Ga+240Gb-480(Gc+Gc')  n=6 uniform shifts
+  [ok ] K_2 = Q            n=7 perm
+  [ok ] K_3 = 4 p_3        n=7 perm
+  [ok ] K_4 = 36p4+6Z-18(YR+YC)  n=7 perm
+  [ok ] K_5 = 576p5+120Ga+240Gb-480(Gc+Gc')  n=7 perm
+  [ok ] K_2 = Q            n=7 (J-P)/(n-1)
+  [ok ] K_3 = 4 p_3        n=7 (J-P)/(n-1)
+  [ok ] K_4 = 36p4+6Z-18(YR+YC)  n=7 (J-P)/(n-1)
+  [ok ] K_5 = 576p5+120Ga+240Gb-480(Gc+Gc')  n=7 (J-P)/(n-1)
+  [ok ] K_2 = Q            n=7 half P + half P^2
+  [ok ] K_3 = 4 p_3        n=7 half P + half P^2
+  [ok ] K_4 = 36p4+6Z-18(YR+YC)  n=7 half P + half P^2
+  [ok ] K_5 = 576p5+120Ga+240Gb-480(Gc+Gc')  n=7 half P + half P^2
+  [ok ] K_2 = Q            n=7 3-mix
+  [ok ] K_3 = 4 p_3        n=7 3-mix
+  [ok ] K_4 = 36p4+6Z-18(YR+YC)  n=7 3-mix
+  [ok ] K_5 = 576p5+120Ga+240Gb-480(Gc+Gc')  n=7 3-mix
+  [ok ] K_2 = Q            n=7 saturated A00=0
+  [ok ] K_3 = 4 p_3        n=7 saturated A00=0
+  [ok ] K_4 = 36p4+6Z-18(YR+YC)  n=7 saturated A00=0
+  [ok ] K_5 = 576p5+120Ga+240Gb-480(Gc+Gc')  n=7 saturated A00=0
+  [ok ] K_2 = Q            n=7 uniform shifts
+  [ok ] K_3 = 4 p_3        n=7 uniform shifts
+  [ok ] K_4 = 36p4+6Z-18(YR+YC)  n=7 uniform shifts
+  [ok ] K_5 = 576p5+120Ga+240Gb-480(Gc+Gc')  n=7 uniform shifts
+
+W3  the connected coefficient mass and the mass identity
+  [ok ] Lam_2 = 1   got 1
+  [ok ] Lam_3 = 4   got 4
+  [ok ] Lam_4 = 78   got 78
+  [ok ] Lam_5 = 1896   got 1896
+  [ok ] Lam_5 = l^1 mass of K_5's coefficients (576+120+240+480+480)
+  [ok ] Lam_4 = l^1 mass of K_4's coefficients (36+6+18+18)
+  [ok ] sum_lambda prod Lam = D_2^2   1 vs 1
+  [ok ] sum_lambda prod Lam = D_3^2   4 vs 4
+  [ok ] sum_lambda prod Lam = D_4^2   81 vs 81
+  [ok ] sum_lambda prod Lam = D_5^2   1936 vs 1936
+  [ok ] sum_lambda prod Lam = D_6^2   70225 vs 70225
+  [ok ] Lam*_3 closed form   0 vs 0
+  [ok ] Lam*_4 closed form   78 vs 78
+  [ok ] Lam*_5 closed form   1896 vs 1896
+  [ok ] Lam*_6 closed form   70210 vs 70210
+  [ok ] Lam*_3 = 0 (the m = 3 layer is ENTIRELY the K_3 tier)
+
+W4  THE REFUTATION -- the exact permutation-matrix law for K_5
+  [ok ] K_5(P - J/n) closed form   n=5   -327.168
+  [ok ] K_5(P - J/n) closed form   n=6   -480
+  [ok ] K_5(P - J/n) closed form   n=7   -633.936
+  [ok ] K_5(P - J/n) closed form   n=8   -787.5
+  [ok ] K_5(P - J/n) closed form   n=9   -940.247
+  [ok ] K_5(P - J/n) closed form   n=10   -1092.1
+  [ok ] K_5(P - J/n) closed form   n=12   -1393.33
+  [ok ] K_5(P - J/n) closed form   n=16   -1988.44
+  [ok ] K_5(P - J/n) closed form   n=24   -3162.5
+  [ok ] K_5(P - J/n) closed form   n=40   -5486.36
+  [ok ] K_5(P - J/n) closed form   n=80   -11262.6
+  [ok ] K_5(P - J/n) closed form   n=200   -28552.9
+     the ratio the lemma bounds, -n K_5 / Q, at B = P - J/n:
+       n=   5   -n K_5/Q =       408.9600    (-K_5/Q =    81.7920)
+  [ok ] -n K_5/Q >= 100(n-2)   n=5
+       n=   6   -n K_5/Q =       576.0000    (-K_5/Q =    96.0000)
+  [ok ] -n K_5/Q >= 100(n-2)   n=6
+  [ok ] -n K_5/Q strictly increasing at n=6
+       n=   7   -n K_5/Q =       739.5918    (-K_5/Q =   105.6560)
+  [ok ] -n K_5/Q >= 100(n-2)   n=7
+  [ok ] -n K_5/Q strictly increasing at n=7
+       n=   8   -n K_5/Q =       900.0000    (-K_5/Q =   112.5000)
+  [ok ] -n K_5/Q >= 100(n-2)   n=8
+  [ok ] -n K_5/Q strictly increasing at n=8
+       n=   9   -n K_5/Q =      1057.7778    (-K_5/Q =   117.5309)
+  [ok ] -n K_5/Q >= 100(n-2)   n=9
+  [ok ] -n K_5/Q strictly increasing at n=9
+       n=  10   -n K_5/Q =      1213.4400    (-K_5/Q =   121.3440)
+  [ok ] -n K_5/Q >= 100(n-2)   n=10
+  [ok ] -n K_5/Q strictly increasing at n=10
+       n=  12   -n K_5/Q =      1520.0000    (-K_5/Q =   126.6667)
+  [ok ] -n K_5/Q >= 100(n-2)   n=12
+  [ok ] -n K_5/Q strictly increasing at n=12
+       n=  16   -n K_5/Q =      2121.0000    (-K_5/Q =   132.5625)
+  [ok ] -n K_5/Q >= 100(n-2)   n=16
+  [ok ] -n K_5/Q strictly increasing at n=16
+       n=  24   -n K_5/Q =      3300.0000    (-K_5/Q =   137.5000)
+  [ok ] -n K_5/Q >= 100(n-2)   n=24
+  [ok ] -n K_5/Q strictly increasing at n=24
+       n=  40   -n K_5/Q =      5627.0400    (-K_5/Q =   140.6760)
+  [ok ] -n K_5/Q >= 100(n-2)   n=40
+  [ok ] -n K_5/Q strictly increasing at n=40
+       n=  80   -n K_5/Q =     11405.1600    (-K_5/Q =   142.5645)
+  [ok ] -n K_5/Q >= 100(n-2)   n=80
+  [ok ] -n K_5/Q strictly increasing at n=80
+       n= 200   -n K_5/Q =     28696.3776    (-K_5/Q =   143.4819)
+  [ok ] -n K_5/Q >= 100(n-2)   n=200
+  [ok ] -n K_5/Q strictly increasing at n=200
+  [ok ] (OL) at j=2 is FALSE: no n-free c_2 has K_5 >= -c_2 Q/n
+  [ok ] the failure is exactly one power of n: -K_5/Q < 144 for every n
+
+W5  every odd e: |K_e|/Q tends to a nonzero limit
+     K_e / Q at B = P - J/n:
+       n=   10          1.0000        3.2000       -0.1200     -121.3440    -1045.2000     1999.8720   181830.9024  2039306.8954
+       n=   12          1.0000        3.3333        0.7500     -126.6667    -1235.9722      437.5000   206663.5764  2953662.9630
+       n=   16          1.0000        3.5000        1.9219     -132.5625    -1495.2686    -2210.0757   233726.1788  4386088.4546
+       n=   24          1.0000        3.6667        3.1875     -137.5000    -1776.6927    -5732.8906   252706.4752  6142167.9051
+       n=   40          1.0000        3.8000        4.2675     -140.6760    -2016.8344    -9255.0544   258961.8470  7763681.0727
+       n=   80          1.0000        3.9000        5.1169     -142.5645    -2205.1342   -12343.4593   256663.9394  9087675.0289
+       n=  200          1.0000        3.9600        5.6427     -143.4819    -2321.2941   -14390.9841   251816.6296  9917899.1738
+       n= 1000          1.0000        3.9920        5.9281     -143.9025    -2384.1796   -15544.7348   248040.8193 10369487.4037
+  [ok ] |K_3|/Q bounded away from 0   K_3/Q >= 3 at every n >= 24
+  [ok ] (OL) at j=1 FAILS: n|K_3|/Q unbounded
+  [ok ] |K_5|/Q bounded away from 0   K_5/Q <= -14.5 at every n >= 24
+  [ok ] (OL) at j=2 FAILS: n|K_5|/Q unbounded
+  [ok ] |K_7|/Q bounded away from 0   K_7/Q <= -1600.0 at every n >= 24
+  [ok ] (OL) at j=3 FAILS: n|K_7|/Q unbounded
+  [ok ] |K_9|/Q bounded away from 0   K_9/Q >= 1000000 at every n >= 24
+  [ok ] (OL) at j=4 FAILS: n|K_9|/Q unbounded
+  [ok ] j=1 two-sided form already false: K_3/Q -> 4, not 4/n
+
+W6  what survives: the one-sided K_3, the power sums, the Q rate
+  [ok ] K_3 >= -4Q/n   n=5 perm
+  [ok ] p_3 >= -Q/n    n=5 perm
+  [ok ] p_5 >= -Q/n^3  n=5 perm
+  [ok ] |K_3| <= 4 beta Q  n=5 perm
+  [ok ] |K_4| <= Lam_4 Q   n=5 perm   4.08
+  [ok ] |K_5| <= Lam_5 Q   n=5 perm   81.79
+  [ok ] K_3 >= -4Q/n   n=5 (J-P)/(n-1)
+  [ok ] p_3 >= -Q/n    n=5 (J-P)/(n-1)
+  [ok ] p_5 >= -Q/n^3  n=5 (J-P)/(n-1)
+  [ok ] |K_3| <= 4 beta Q  n=5 (J-P)/(n-1)
+  [ok ] |K_4| <= Lam_4 Q   n=5 (J-P)/(n-1)   0.255
+  [ok ] |K_5| <= Lam_5 Q   n=5 (J-P)/(n-1)   1.278
+  [ok ] K_3 >= -4Q/n   n=5 half P + half P^2
+  [ok ] p_3 >= -Q/n    n=5 half P + half P^2
+  [ok ] p_5 >= -Q/n^3  n=5 half P + half P^2
+  [ok ] |K_3| <= 4 beta Q  n=5 half P + half P^2
+  [ok ] |K_4| <= Lam_4 Q   n=5 half P + half P^2   4.78
+  [ok ] |K_5| <= Lam_5 Q   n=5 half P + half P^2   7.312
+  [ok ] K_3 >= -4Q/n   n=5 3-mix
+  [ok ] p_3 >= -Q/n    n=5 3-mix
+  [ok ] p_5 >= -Q/n^3  n=5 3-mix
+  [ok ] |K_3| <= 4 beta Q  n=5 3-mix
+  [ok ] |K_4| <= Lam_4 Q   n=5 3-mix   2.556
+  [ok ] |K_5| <= Lam_5 Q   n=5 3-mix   3.213
+  [ok ] K_3 >= -4Q/n   n=5 saturated A00=0
+  [ok ] p_3 >= -Q/n    n=5 saturated A00=0
+  [ok ] p_5 >= -Q/n^3  n=5 saturated A00=0
+  [ok ] |K_3| <= 4 beta Q  n=5 saturated A00=0
+  [ok ] |K_4| <= Lam_4 Q   n=5 saturated A00=0   0.1369
+  [ok ] |K_5| <= Lam_5 Q   n=5 saturated A00=0   0.2801
+  [ok ] K_3 >= -4Q/n   n=6 perm
+  [ok ] p_3 >= -Q/n    n=6 perm
+  [ok ] p_5 >= -Q/n^3  n=6 perm
+  [ok ] |K_3| <= 4 beta Q  n=6 perm
+  [ok ] |K_4| <= Lam_4 Q   n=6 perm   3
+  [ok ] |K_5| <= Lam_5 Q   n=6 perm   96
+  [ok ] |K_6| <= Lam_6 Q   n=6 perm   436.7
+  [ok ] K_3 >= -4Q/n   n=6 (J-P)/(n-1)
+  [ok ] p_3 >= -Q/n    n=6 (J-P)/(n-1)
+  [ok ] p_5 >= -Q/n^3  n=6 (J-P)/(n-1)
+  [ok ] |K_3| <= 4 beta Q  n=6 (J-P)/(n-1)
+  [ok ] |K_4| <= Lam_4 Q   n=6 (J-P)/(n-1)   0.12
+  [ok ] |K_5| <= Lam_5 Q   n=6 (J-P)/(n-1)   0.768
+  [ok ] |K_6| <= Lam_6 Q   n=6 (J-P)/(n-1)   0.6987
+  [ok ] K_3 >= -4Q/n   n=6 half P + half P^2
+  [ok ] p_3 >= -Q/n    n=6 half P + half P^2
+  [ok ] p_5 >= -Q/n^3  n=6 half P + half P^2
+  [ok ] |K_3| <= 4 beta Q  n=6 half P + half P^2
+  [ok ] |K_4| <= Lam_4 Q   n=6 half P + half P^2   5.25
+  [ok ] |K_5| <= Lam_5 Q   n=6 half P + half P^2   15
+  [ok ] |K_6| <= Lam_6 Q   n=6 half P + half P^2   85.83
+  [ok ] K_3 >= -4Q/n   n=6 3-mix
+  [ok ] p_3 >= -Q/n    n=6 3-mix
+  [ok ] p_5 >= -Q/n^3  n=6 3-mix
+  [ok ] |K_3| <= 4 beta Q  n=6 3-mix
+  [ok ] |K_4| <= Lam_4 Q   n=6 3-mix   2.875
+  [ok ] |K_5| <= Lam_5 Q   n=6 3-mix   6.667
+  [ok ] |K_6| <= Lam_6 Q   n=6 3-mix   25.86
+  [ok ] K_3 >= -4Q/n   n=6 saturated A00=0
+  [ok ] p_3 >= -Q/n    n=6 saturated A00=0
+  [ok ] p_5 >= -Q/n^3  n=6 saturated A00=0
+  [ok ] |K_3| <= 4 beta Q  n=6 saturated A00=0
+  [ok ] |K_4| <= Lam_4 Q   n=6 saturated A00=0   0.0624
+  [ok ] |K_5| <= Lam_5 Q   n=6 saturated A00=0   0.1679
+  [ok ] |K_6| <= Lam_6 Q   n=6 saturated A00=0   0.05935
+  [ok ] K_3 >= -4Q/n   n=7 perm
+  [ok ] p_3 >= -Q/n    n=7 perm
+  [ok ] p_5 >= -Q/n^3  n=7 perm
+  [ok ] |K_3| <= 4 beta Q  n=7 perm
+  [ok ] |K_4| <= Lam_4 Q   n=7 perm   2.082
+  [ok ] |K_5| <= Lam_5 Q   n=7 perm   105.7
+  [ok ] |K_6| <= Lam_6 Q   n=7 perm   625.3
+  [ok ] K_3 >= -4Q/n   n=7 (J-P)/(n-1)
+  [ok ] p_3 >= -Q/n    n=7 (J-P)/(n-1)
+  [ok ] p_5 >= -Q/n^3  n=7 (J-P)/(n-1)
+  [ok ] |K_3| <= 4 beta Q  n=7 (J-P)/(n-1)
+  [ok ] |K_4| <= Lam_4 Q   n=7 (J-P)/(n-1)   0.05782
+  [ok ] |K_5| <= Lam_5 Q   n=7 (J-P)/(n-1)   0.4891
+  [ok ] |K_6| <= Lam_6 Q   n=7 (J-P)/(n-1)   0.4825
+  [ok ] K_3 >= -4Q/n   n=7 half P + half P^2
+  [ok ] p_3 >= -Q/n    n=7 half P + half P^2
+  [ok ] p_5 >= -Q/n^3  n=7 half P + half P^2
+  [ok ] |K_3| <= 4 beta Q  n=7 half P + half P^2
+  [ok ] |K_4| <= Lam_4 Q   n=7 half P + half P^2   5.467
+  [ok ] |K_5| <= Lam_5 Q   n=7 half P + half P^2   21.78
+  [ok ] |K_6| <= Lam_6 Q   n=7 half P + half P^2   87.09
+  [ok ] K_3 >= -4Q/n   n=7 3-mix
+  [ok ] p_3 >= -Q/n    n=7 3-mix
+  [ok ] p_5 >= -Q/n^3  n=7 3-mix
+  [ok ] |K_3| <= 4 beta Q  n=7 3-mix
+  [ok ] |K_4| <= Lam_4 Q   n=7 3-mix   3.089
+  [ok ] |K_5| <= Lam_5 Q   n=7 3-mix   9.606
+  [ok ] |K_6| <= Lam_6 Q   n=7 3-mix   26.71
+  [ok ] K_3 >= -4Q/n   n=7 saturated A00=0
+  [ok ] p_3 >= -Q/n    n=7 saturated A00=0
+  [ok ] p_5 >= -Q/n^3  n=7 saturated A00=0
+  [ok ] |K_3| <= 4 beta Q  n=7 saturated A00=0
+  [ok ] |K_4| <= Lam_4 Q   n=7 saturated A00=0   0.02664
+  [ok ] |K_5| <= Lam_5 Q   n=7 saturated A00=0   0.1066
+  [ok ] |K_6| <= Lam_6 Q   n=7 saturated A00=0   0.04412
+  [ok ] K_3 >= -4Q/n   n=8 perm
+  [ok ] p_3 >= -Q/n    n=8 perm
+  [ok ] p_5 >= -Q/n^3  n=8 perm
+  [ok ] |K_3| <= 4 beta Q  n=8 perm
+  [ok ] |K_4| <= Lam_4 Q   n=8 perm   1.312
+  [ok ] |K_5| <= Lam_5 Q   n=8 perm   112.5
+  [ok ] |K_6| <= Lam_6 Q   n=8 perm   787.7
+  [ok ] K_3 >= -4Q/n   n=8 (J-P)/(n-1)
+  [ok ] p_3 >= -Q/n    n=8 (J-P)/(n-1)
+  [ok ] p_5 >= -Q/n^3  n=8 (J-P)/(n-1)
+  [ok ] |K_3| <= 4 beta Q  n=8 (J-P)/(n-1)
+  [ok ] |K_4| <= Lam_4 Q   n=8 (J-P)/(n-1)   0.02679
+  [ok ] |K_5| <= Lam_5 Q   n=8 (J-P)/(n-1)   0.328
+  [ok ] |K_6| <= Lam_6 Q   n=8 (J-P)/(n-1)   0.3281
+  [ok ] K_3 >= -4Q/n   n=8 half P + half P^2
+  [ok ] p_3 >= -Q/n    n=8 half P + half P^2
+  [ok ] p_5 >= -Q/n^3  n=8 half P + half P^2
+  [ok ] |K_3| <= 4 beta Q  n=8 half P + half P^2
+  [ok ] |K_4| <= Lam_4 Q   n=8 half P + half P^2   5.562
+  [ok ] |K_5| <= Lam_5 Q   n=8 half P + half P^2   27.5
+  [ok ] |K_6| <= Lam_6 Q   n=8 half P + half P^2   80.39
+  [ok ] K_3 >= -4Q/n   n=8 3-mix
+  [ok ] p_3 >= -Q/n    n=8 3-mix
+  [ok ] p_5 >= -Q/n^3  n=8 3-mix
+  [ok ] |K_3| <= 4 beta Q  n=8 3-mix
+  [ok ] |K_4| <= Lam_4 Q   n=8 3-mix   3.22
+  [ok ] |K_5| <= Lam_5 Q   n=8 3-mix   12.24
+  [ok ] |K_6| <= Lam_6 Q   n=8 3-mix   26.05
+  [ok ] K_3 >= -4Q/n   n=8 saturated A00=0
+  [ok ] p_3 >= -Q/n    n=8 saturated A00=0
+  [ok ] p_5 >= -Q/n^3  n=8 saturated A00=0
+  [ok ] |K_3| <= 4 beta Q  n=8 saturated A00=0
+  [ok ] |K_4| <= Lam_4 Q   n=8 saturated A00=0   0.008512
+  [ok ] |K_5| <= Lam_5 Q   n=8 saturated A00=0   0.07114
+  [ok ] |K_6| <= Lam_6 Q   n=8 saturated A00=0   0.03104
+     the two extremal families, and the two different rates:
+  [ok ] (J-P)/(n-1): p_3/Q = -(n-2)/(n(n-1)) exactly   n=5
+  [ok ] (J-P)/(n-1): the paper's p_3 >= -Q/n is sharp to (n-2)/(n-1)  n=5
+  [ok ] P: K_3/Q = 4(n-2)/n  (rate Q, one-sided rate Q/n unused)  n=5
+  [ok ] P: K_4/Q = (6n^2-72n+108)/n^2   n=5
+  [ok ] (J-P)/(n-1): p_3/Q = -(n-2)/(n(n-1)) exactly   n=6
+  [ok ] (J-P)/(n-1): the paper's p_3 >= -Q/n is sharp to (n-2)/(n-1)  n=6
+  [ok ] P: K_3/Q = 4(n-2)/n  (rate Q, one-sided rate Q/n unused)  n=6
+  [ok ] P: K_4/Q = (6n^2-72n+108)/n^2   n=6
+  [ok ] (J-P)/(n-1): p_3/Q = -(n-2)/(n(n-1)) exactly   n=7
+  [ok ] (J-P)/(n-1): the paper's p_3 >= -Q/n is sharp to (n-2)/(n-1)  n=7
+  [ok ] P: K_3/Q = 4(n-2)/n  (rate Q, one-sided rate Q/n unused)  n=7
+  [ok ] P: K_4/Q = (6n^2-72n+108)/n^2   n=7
+  [ok ] (J-P)/(n-1): p_3/Q = -(n-2)/(n(n-1)) exactly   n=8
+  [ok ] (J-P)/(n-1): the paper's p_3 >= -Q/n is sharp to (n-2)/(n-1)  n=8
+  [ok ] P: K_3/Q = 4(n-2)/n  (rate Q, one-sided rate Q/n unused)  n=8
+  [ok ] P: K_4/Q = (6n^2-72n+108)/n^2   n=8
+  [ok ] (J-P)/(n-1): p_3/Q = -(n-2)/(n(n-1)) exactly   n=9
+  [ok ] (J-P)/(n-1): the paper's p_3 >= -Q/n is sharp to (n-2)/(n-1)  n=9
+  [ok ] P: K_3/Q = 4(n-2)/n  (rate Q, one-sided rate Q/n unused)  n=9
+  [ok ] P: K_4/Q = (6n^2-72n+108)/n^2   n=9
+  [ok ] (J-P)/(n-1): p_3/Q = -(n-2)/(n(n-1)) exactly   n=12
+  [ok ] (J-P)/(n-1): the paper's p_3 >= -Q/n is sharp to (n-2)/(n-1)  n=12
+  [ok ] P: K_3/Q = 4(n-2)/n  (rate Q, one-sided rate Q/n unused)  n=12
+  [ok ] P: K_4/Q = (6n^2-72n+108)/n^2   n=12
+  [ok ] (J-P)/(n-1): p_3/Q = -(n-2)/(n(n-1)) exactly   n=20
+  [ok ] (J-P)/(n-1): the paper's p_3 >= -Q/n is sharp to (n-2)/(n-1)  n=20
+  [ok ] P: K_3/Q = 4(n-2)/n  (rate Q, one-sided rate Q/n unused)  n=20
+  [ok ] P: K_4/Q = (6n^2-72n+108)/n^2   n=20
+     the carrier at j=2: Gamma_c against its upper bound beta M Q
+  [ok ] Gamma_c <= beta M Q   n=8   ratio 0.857143
+  [ok ] Gamma_c = (n-1)^2(n-2)/n^2 exactly   n=8
+  [ok ] Gamma_c / (beta M Q) = (n-2)/(n-1) -> 1  (ATTAINED)  n=8
+  [ok ] Gamma_c >= -Y_R/n  (the CHEAP side, unused by K_5)  n=8
+  [ok ] Gamma_c <= beta M Q   n=12   ratio 0.909091
+  [ok ] Gamma_c = (n-1)^2(n-2)/n^2 exactly   n=12
+  [ok ] Gamma_c / (beta M Q) = (n-2)/(n-1) -> 1  (ATTAINED)  n=12
+  [ok ] Gamma_c >= -Y_R/n  (the CHEAP side, unused by K_5)  n=12
+  [ok ] Gamma_c <= beta M Q   n=20   ratio 0.947368
+  [ok ] Gamma_c = (n-1)^2(n-2)/n^2 exactly   n=20
+  [ok ] Gamma_c / (beta M Q) = (n-2)/(n-1) -> 1  (ATTAINED)  n=20
+  [ok ] Gamma_c >= -Y_R/n  (the CHEAP side, unused by K_5)  n=20
+
+W7  the hybrid constant C_m^hyb and its validity
+  [ok ] C_3^hyb on the slice = 2/(3n)  (the paper's constant, reproduced)
+  [ok ] C_4^hyb = 78/24 (all-pairing tier dropped: 81 -> 78)
+  [ok ] C_5^hyb is FREE of n up to the eta term
+  [ok ] sigma_3 >= -C^hyb Q   n=5 perm
+  [ok ] sigma_4 >= -C^hyb Q   n=5 perm
+  [ok ] sigma_5 >= -C^hyb Q   n=5 perm
+  [ok ] sigma_3 >= -C^hyb Q   n=5 (J-P)/(n-1)
+  [ok ] sigma_4 >= -C^hyb Q   n=5 (J-P)/(n-1)
+  [ok ] sigma_5 >= -C^hyb Q   n=5 (J-P)/(n-1)
+  [ok ] sigma_3 >= -C^hyb Q   n=5 half P + half P^2
+  [ok ] sigma_4 >= -C^hyb Q   n=5 half P + half P^2
+  [ok ] sigma_5 >= -C^hyb Q   n=5 half P + half P^2
+  [ok ] sigma_3 >= -C^hyb Q   n=5 3-mix
+  [ok ] sigma_4 >= -C^hyb Q   n=5 3-mix
+  [ok ] sigma_5 >= -C^hyb Q   n=5 3-mix
+  [ok ] sigma_3 >= -C^hyb Q   n=5 saturated A00=0
+  [ok ] sigma_4 >= -C^hyb Q   n=5 saturated A00=0
+  [ok ] sigma_5 >= -C^hyb Q   n=5 saturated A00=0
+  [ok ] sigma_3 >= -C^hyb Q   n=6 perm
+  [ok ] sigma_4 >= -C^hyb Q   n=6 perm
+  [ok ] sigma_5 >= -C^hyb Q   n=6 perm
+  [ok ] sigma_6 >= -C^hyb Q   n=6 perm
+  [ok ] sigma_3 >= -C^hyb Q   n=6 (J-P)/(n-1)
+  [ok ] sigma_4 >= -C^hyb Q   n=6 (J-P)/(n-1)
+  [ok ] sigma_5 >= -C^hyb Q   n=6 (J-P)/(n-1)
+  [ok ] sigma_6 >= -C^hyb Q   n=6 (J-P)/(n-1)
+  [ok ] sigma_3 >= -C^hyb Q   n=6 half P + half P^2
+  [ok ] sigma_4 >= -C^hyb Q   n=6 half P + half P^2
+  [ok ] sigma_5 >= -C^hyb Q   n=6 half P + half P^2
+  [ok ] sigma_6 >= -C^hyb Q   n=6 half P + half P^2
+  [ok ] sigma_3 >= -C^hyb Q   n=6 3-mix
+  [ok ] sigma_4 >= -C^hyb Q   n=6 3-mix
+  [ok ] sigma_5 >= -C^hyb Q   n=6 3-mix
+  [ok ] sigma_6 >= -C^hyb Q   n=6 3-mix
+  [ok ] sigma_3 >= -C^hyb Q   n=6 saturated A00=0
+  [ok ] sigma_4 >= -C^hyb Q   n=6 saturated A00=0
+  [ok ] sigma_5 >= -C^hyb Q   n=6 saturated A00=0
+  [ok ] sigma_6 >= -C^hyb Q   n=6 saturated A00=0
+  [ok ] sigma_3 >= -C^hyb Q   n=7 perm
+  [ok ] sigma_4 >= -C^hyb Q   n=7 perm
+  [ok ] sigma_5 >= -C^hyb Q   n=7 perm
+  [ok ] sigma_6 >= -C^hyb Q   n=7 perm
+  [ok ] sigma_7 >= -C^hyb Q   n=7 perm
+  [ok ] sigma_3 >= -C^hyb Q   n=7 (J-P)/(n-1)
+  [ok ] sigma_4 >= -C^hyb Q   n=7 (J-P)/(n-1)
+  [ok ] sigma_5 >= -C^hyb Q   n=7 (J-P)/(n-1)
+  [ok ] sigma_6 >= -C^hyb Q   n=7 (J-P)/(n-1)
+  [ok ] sigma_7 >= -C^hyb Q   n=7 (J-P)/(n-1)
+  [ok ] sigma_3 >= -C^hyb Q   n=7 half P + half P^2
+  [ok ] sigma_4 >= -C^hyb Q   n=7 half P + half P^2
+  [ok ] sigma_5 >= -C^hyb Q   n=7 half P + half P^2
+  [ok ] sigma_6 >= -C^hyb Q   n=7 half P + half P^2
+  [ok ] sigma_7 >= -C^hyb Q   n=7 half P + half P^2
+  [ok ] sigma_3 >= -C^hyb Q   n=7 3-mix
+  [ok ] sigma_4 >= -C^hyb Q   n=7 3-mix
+  [ok ] sigma_5 >= -C^hyb Q   n=7 3-mix
+  [ok ] sigma_6 >= -C^hyb Q   n=7 3-mix
+  [ok ] sigma_7 >= -C^hyb Q   n=7 3-mix
+  [ok ] sigma_3 >= -C^hyb Q   n=7 saturated A00=0
+  [ok ] sigma_4 >= -C^hyb Q   n=7 saturated A00=0
+  [ok ] sigma_5 >= -C^hyb Q   n=7 saturated A00=0
+  [ok ] sigma_6 >= -C^hyb Q   n=7 saturated A00=0
+  [ok ] sigma_7 >= -C^hyb Q   n=7 saturated A00=0
+  [ok ] sigma_3 >= -C^hyb Q   n=8 perm
+  [ok ] sigma_4 >= -C^hyb Q   n=8 perm
+  [ok ] sigma_5 >= -C^hyb Q   n=8 perm
+  [ok ] sigma_6 >= -C^hyb Q   n=8 perm
+  [ok ] sigma_7 >= -C^hyb Q   n=8 perm
+  [ok ] sigma_3 >= -C^hyb Q   n=8 (J-P)/(n-1)
+  [ok ] sigma_4 >= -C^hyb Q   n=8 (J-P)/(n-1)
+  [ok ] sigma_5 >= -C^hyb Q   n=8 (J-P)/(n-1)
+  [ok ] sigma_6 >= -C^hyb Q   n=8 (J-P)/(n-1)
+  [ok ] sigma_7 >= -C^hyb Q   n=8 (J-P)/(n-1)
+  [ok ] sigma_3 >= -C^hyb Q   n=8 half P + half P^2
+  [ok ] sigma_4 >= -C^hyb Q   n=8 half P + half P^2
+  [ok ] sigma_5 >= -C^hyb Q   n=8 half P + half P^2
+  [ok ] sigma_6 >= -C^hyb Q   n=8 half P + half P^2
+  [ok ] sigma_7 >= -C^hyb Q   n=8 half P + half P^2
+  [ok ] sigma_3 >= -C^hyb Q   n=8 3-mix
+  [ok ] sigma_4 >= -C^hyb Q   n=8 3-mix
+  [ok ] sigma_5 >= -C^hyb Q   n=8 3-mix
+  [ok ] sigma_6 >= -C^hyb Q   n=8 3-mix
+  [ok ] sigma_7 >= -C^hyb Q   n=8 3-mix
+  [ok ] sigma_3 >= -C^hyb Q   n=8 saturated A00=0
+  [ok ] sigma_4 >= -C^hyb Q   n=8 saturated A00=0
+  [ok ] sigma_5 >= -C^hyb Q   n=8 saturated A00=0
+  [ok ] sigma_6 >= -C^hyb Q   n=8 saturated A00=0
+  [ok ] sigma_7 >= -C^hyb Q   n=8 saturated A00=0
+     C_m^hyb vs the ladder rows at (n,k) = (300, 8):
+       m=3  L0=       11.53  L1=      0.6667  hyb=    0.002222  L2=      0.6667
+       m=4  L0=        1009  L1=       3.375  hyb=        3.25  L2=       3.375
+       m=5  L0=   8.341e+04  L1=        4824  hyb=       16.13  L2=       16.13
+       m=6  L0=    8.72e+06  L1=   2.916e+04  hyb=   2.916e+04  L2=       97.53
+       m=7  L0=   1.054e+09  L1=   6.097e+07  hyb=   2.039e+05  L2=         682
+       m=8  L0=   1.459e+11  L1=   4.878e+08  hyb=   4.878e+08  L2=        5457
+  [ok ] C_5^hyb < C_5^L1 at (300,8)
+  [ok ] C_7^hyb < C_7^L1 at (300,8)
+  [ok ] C_3,C_5^hyb are BELOW the assumed L2 shape (pairing tier dropped)
+  [ok ] C_6,C_8^hyb exceed L2 (the even layers keep their n-powers)
+  [ok ] C_3^hyb(collar) = C^hyb(slice) + eta-gap   n=300 k=8
+  [ok ] C_3^hyb(collar) > C^hyb(slice)   n=300 k=8
+  [ok ] C_5^hyb(collar) = C^hyb(slice) + eta-gap   n=300 k=8
+  [ok ] C_5^hyb(collar) > C^hyb(slice)   n=300 k=8
+  [ok ] C_3^hyb(collar) = C^hyb(slice) + eta-gap   n=120 k=6
+  [ok ] C_3^hyb(collar) > C^hyb(slice)   n=120 k=6
+  [ok ] C_5^hyb(collar) = C^hyb(slice) + eta-gap   n=120 k=6
+  [ok ] C_5^hyb(collar) > C^hyb(slice)   n=120 k=6
+  [ok ] C^hyb dominates its own non-K_3 tier at (300,8)
+
+W8  recomposition: Ntilde(k) through collar_budget.Psi
+       k     L0      L1     hyb      L2   floor
+       6      244     47     37     37     34
+       7      449     83     48     45     42
+       8      736    132     74     54     51
+       9     1111    215    108     64     62
+      10     1583    319    170     76     73
+      11     2160    470    241     89     86
+      12     2850    657    351    103    101
+  [ok ] Ntilde ordering L0 >= L1 >= hyb >= L2 >= floor   k=6   [244, 47, 37, 37, 34]
+  [ok ] hyb strictly beats L1   k=6
+  [ok ] Ntilde ordering L0 >= L1 >= hyb >= L2 >= floor   k=7   [449, 83, 48, 45, 42]
+  [ok ] hyb strictly beats L1   k=7
+  [ok ] Ntilde ordering L0 >= L1 >= hyb >= L2 >= floor   k=8   [736, 132, 74, 54, 51]
+  [ok ] hyb strictly beats L1   k=8
+  [ok ] Ntilde ordering L0 >= L1 >= hyb >= L2 >= floor   k=9   [1111, 215, 108, 64, 62]
+  [ok ] hyb strictly beats L1   k=9
+  [ok ] Ntilde ordering L0 >= L1 >= hyb >= L2 >= floor   k=10   [1583, 319, 170, 76, 73]
+  [ok ] hyb strictly beats L1   k=10
+  [ok ] Ntilde ordering L0 >= L1 >= hyb >= L2 >= floor   k=11   [2160, 470, 241, 89, 86]
+  [ok ] hyb strictly beats L1   k=11
+  [ok ] Ntilde ordering L0 >= L1 >= hyb >= L2 >= floor   k=12   [2850, 657, 351, 103, 101]
+  [ok ] hyb strictly beats L1   k=12
+
+BASELINE: 458 checks, 0 failures
+
+W9  mutation controls
+
+W7  the hybrid constant C_m^hyb and its validity
+  [ok ] C_3^hyb on the slice = 2/(3n)  (the paper's constant, reproduced)
+  [ok ] C_4^hyb = 78/24 (all-pairing tier dropped: 81 -> 78)
+  [ok ] C_5^hyb is FREE of n up to the eta term
+  [ok ] sigma_3 >= -C^hyb Q   n=5 perm
+  [ok ] sigma_4 >= -C^hyb Q   n=5 perm
+  [ok ] sigma_5 >= -C^hyb Q   n=5 perm
+  [ok ] sigma_3 >= -C^hyb Q   n=5 (J-P)/(n-1)
+  [ok ] sigma_4 >= -C^hyb Q   n=5 (J-P)/(n-1)
+  [ok ] sigma_5 >= -C^hyb Q   n=5 (J-P)/(n-1)
+  [ok ] sigma_3 >= -C^hyb Q   n=5 half P + half P^2
+  [ok ] sigma_4 >= -C^hyb Q   n=5 half P + half P^2
+  [ok ] sigma_5 >= -C^hyb Q   n=5 half P + half P^2
+  [ok ] sigma_3 >= -C^hyb Q   n=5 3-mix
+  [ok ] sigma_4 >= -C^hyb Q   n=5 3-mix
+  [ok ] sigma_5 >= -C^hyb Q   n=5 3-mix
+  [ok ] sigma_3 >= -C^hyb Q   n=5 saturated A00=0
+  [ok ] sigma_4 >= -C^hyb Q   n=5 saturated A00=0
+  [ok ] sigma_5 >= -C^hyb Q   n=5 saturated A00=0
+  [ok ] sigma_3 >= -C^hyb Q   n=6 perm
+  [ok ] sigma_4 >= -C^hyb Q   n=6 perm
+  [ok ] sigma_5 >= -C^hyb Q   n=6 perm
+  [ok ] sigma_6 >= -C^hyb Q   n=6 perm
+  [ok ] sigma_3 >= -C^hyb Q   n=6 (J-P)/(n-1)
+  [ok ] sigma_4 >= -C^hyb Q   n=6 (J-P)/(n-1)
+  [ok ] sigma_5 >= -C^hyb Q   n=6 (J-P)/(n-1)
+  [ok ] sigma_6 >= -C^hyb Q   n=6 (J-P)/(n-1)
+  [ok ] sigma_3 >= -C^hyb Q   n=6 half P + half P^2
+  [ok ] sigma_4 >= -C^hyb Q   n=6 half P + half P^2
+  [ok ] sigma_5 >= -C^hyb Q   n=6 half P + half P^2
+  [ok ] sigma_6 >= -C^hyb Q   n=6 half P + half P^2
+  [ok ] sigma_3 >= -C^hyb Q   n=6 3-mix
+  [ok ] sigma_4 >= -C^hyb Q   n=6 3-mix
+  [ok ] sigma_5 >= -C^hyb Q   n=6 3-mix
+  [ok ] sigma_6 >= -C^hyb Q   n=6 3-mix
+  [ok ] sigma_3 >= -C^hyb Q   n=6 saturated A00=0
+  [ok ] sigma_4 >= -C^hyb Q   n=6 saturated A00=0
+  [ok ] sigma_5 >= -C^hyb Q   n=6 saturated A00=0
+  [ok ] sigma_6 >= -C^hyb Q   n=6 saturated A00=0
+  [ok ] sigma_3 >= -C^hyb Q   n=7 perm
+  [ok ] sigma_4 >= -C^hyb Q   n=7 perm
+  [ok ] sigma_5 >= -C^hyb Q   n=7 perm
+  [ok ] sigma_6 >= -C^hyb Q   n=7 perm
+  [ok ] sigma_7 >= -C^hyb Q   n=7 perm
+  [ok ] sigma_3 >= -C^hyb Q   n=7 (J-P)/(n-1)
+  [ok ] sigma_4 >= -C^hyb Q   n=7 (J-P)/(n-1)
+  [ok ] sigma_5 >= -C^hyb Q   n=7 (J-P)/(n-1)
+  [ok ] sigma_6 >= -C^hyb Q   n=7 (J-P)/(n-1)
+  [ok ] sigma_7 >= -C^hyb Q   n=7 (J-P)/(n-1)
+  [ok ] sigma_3 >= -C^hyb Q   n=7 half P + half P^2
+  [ok ] sigma_4 >= -C^hyb Q   n=7 half P + half P^2
+  [ok ] sigma_5 >= -C^hyb Q   n=7 half P + half P^2
+  [ok ] sigma_6 >= -C^hyb Q   n=7 half P + half P^2
+  [ok ] sigma_7 >= -C^hyb Q   n=7 half P + half P^2
+  [ok ] sigma_3 >= -C^hyb Q   n=7 3-mix
+  [ok ] sigma_4 >= -C^hyb Q   n=7 3-mix
+  [ok ] sigma_5 >= -C^hyb Q   n=7 3-mix
+  [ok ] sigma_6 >= -C^hyb Q   n=7 3-mix
+  [ok ] sigma_7 >= -C^hyb Q   n=7 3-mix
+  [ok ] sigma_3 >= -C^hyb Q   n=7 saturated A00=0
+  [ok ] sigma_4 >= -C^hyb Q   n=7 saturated A00=0
+  [ok ] sigma_5 >= -C^hyb Q   n=7 saturated A00=0
+  [ok ] sigma_6 >= -C^hyb Q   n=7 saturated A00=0
+  [ok ] sigma_7 >= -C^hyb Q   n=7 saturated A00=0
+  [ok ] sigma_3 >= -C^hyb Q   n=8 perm
+  [ok ] sigma_4 >= -C^hyb Q   n=8 perm
+  [ok ] sigma_5 >= -C^hyb Q   n=8 perm
+  [ok ] sigma_6 >= -C^hyb Q   n=8 perm
+  [ok ] sigma_7 >= -C^hyb Q   n=8 perm
+  [ok ] sigma_3 >= -C^hyb Q   n=8 (J-P)/(n-1)
+  [ok ] sigma_4 >= -C^hyb Q   n=8 (J-P)/(n-1)
+  [ok ] sigma_5 >= -C^hyb Q   n=8 (J-P)/(n-1)
+  [ok ] sigma_6 >= -C^hyb Q   n=8 (J-P)/(n-1)
+  [ok ] sigma_7 >= -C^hyb Q   n=8 (J-P)/(n-1)
+  [ok ] sigma_3 >= -C^hyb Q   n=8 half P + half P^2
+  [ok ] sigma_4 >= -C^hyb Q   n=8 half P + half P^2
+  [ok ] sigma_5 >= -C^hyb Q   n=8 half P + half P^2
+  [ok ] sigma_6 >= -C^hyb Q   n=8 half P + half P^2
+  [ok ] sigma_7 >= -C^hyb Q   n=8 half P + half P^2
+  [ok ] sigma_3 >= -C^hyb Q   n=8 3-mix
+  [ok ] sigma_4 >= -C^hyb Q   n=8 3-mix
+  [ok ] sigma_5 >= -C^hyb Q   n=8 3-mix
+  [ok ] sigma_6 >= -C^hyb Q   n=8 3-mix
+  [ok ] sigma_7 >= -C^hyb Q   n=8 3-mix
+  [ok ] sigma_3 >= -C^hyb Q   n=8 saturated A00=0
+  [ok ] sigma_4 >= -C^hyb Q   n=8 saturated A00=0
+  [ok ] sigma_5 >= -C^hyb Q   n=8 saturated A00=0
+  [ok ] sigma_6 >= -C^hyb Q   n=8 saturated A00=0
+  [ok ] sigma_7 >= -C^hyb Q   n=8 saturated A00=0
+     C_m^hyb vs the ladder rows at (n,k) = (300, 8):
+       m=3  L0=       11.53  L1=      0.6667  hyb=    0.002222  L2=      0.6667
+       m=4  L0=        1009  L1=       3.375  hyb=        3.25  L2=       3.375
+       m=5  L0=   8.341e+04  L1=        4824  hyb=       16.13  L2=       16.13
+       m=6  L0=    8.72e+06  L1=   2.916e+04  hyb=   2.916e+04  L2=       97.53
+       m=7  L0=   1.054e+09  L1=   6.097e+07  hyb=   2.039e+05  L2=         682
+       m=8  L0=   1.459e+11  L1=   4.878e+08  hyb=   4.878e+08  L2=        5457
+  [ok ] C_5^hyb < C_5^L1 at (300,8)
+  [ok ] C_7^hyb < C_7^L1 at (300,8)
+  [ok ] C_3,C_5^hyb are BELOW the assumed L2 shape (pairing tier dropped)
+  [ok ] C_6,C_8^hyb exceed L2 (the even layers keep their n-powers)
+  [FAIL] C_3^hyb(collar) = C^hyb(slice) + eta-gap   n=300 k=8
+  [FAIL] C_3^hyb(collar) > C^hyb(slice)   n=300 k=8
+  [FAIL] C_5^hyb(collar) = C^hyb(slice) + eta-gap   n=300 k=8
+  [FAIL] C_5^hyb(collar) > C^hyb(slice)   n=300 k=8
+  [FAIL] C_3^hyb(collar) = C^hyb(slice) + eta-gap   n=120 k=6
+  [FAIL] C_3^hyb(collar) > C^hyb(slice)   n=120 k=6
+  [FAIL] C_5^hyb(collar) = C^hyb(slice) + eta-gap   n=120 k=6
+  [FAIL] C_5^hyb(collar) > C^hyb(slice)   n=120 k=6
+  [ok ] C^hyb dominates its own non-K_3 tier at (300,8)
+
+W8  recomposition: Ntilde(k) through collar_budget.Psi
+       k     L0      L1     hyb      L2   floor
+       6      244     47     37     37     34
+       8      736    132     74     54     51
+  [ok ] Ntilde ordering L0 >= L1 >= hyb >= L2 >= floor   k=6   [244, 47, 37, 37, 34]
+  [ok ] hyb strictly beats L1   k=6
+  [ok ] Ntilde ordering L0 >= L1 >= hyb >= L2 >= floor   k=8   [736, 132, 74, 54, 51]
+  [ok ] hyb strictly beats L1   k=8
+     fault 'no_eta' (the collar degradation 1/n -> eta ignored in C^hyb): 8 checks caught it
+
+W7  the hybrid constant C_m^hyb and its validity
+  [ok ] C_3^hyb on the slice = 2/(3n)  (the paper's constant, reproduced)
+  [FAIL] C_4^hyb = 78/24 (all-pairing tier dropped: 81 -> 78)
+  [FAIL] C_5^hyb is FREE of n up to the eta term
+  [ok ] sigma_3 >= -C^hyb Q   n=5 perm
+  [ok ] sigma_4 >= -C^hyb Q   n=5 perm
+  [ok ] sigma_5 >= -C^hyb Q   n=5 perm
+  [ok ] sigma_3 >= -C^hyb Q   n=5 (J-P)/(n-1)
+  [ok ] sigma_4 >= -C^hyb Q   n=5 (J-P)/(n-1)
+  [ok ] sigma_5 >= -C^hyb Q   n=5 (J-P)/(n-1)
+  [ok ] sigma_3 >= -C^hyb Q   n=5 half P + half P^2
+  [FAIL] sigma_4 >= -C^hyb Q   n=5 half P + half P^2
+  [ok ] sigma_5 >= -C^hyb Q   n=5 half P + half P^2
+  [ok ] sigma_3 >= -C^hyb Q   n=5 3-mix
+  [ok ] sigma_4 >= -C^hyb Q   n=5 3-mix
+  [ok ] sigma_5 >= -C^hyb Q   n=5 3-mix
+  [ok ] sigma_3 >= -C^hyb Q   n=5 saturated A00=0
+  [ok ] sigma_4 >= -C^hyb Q   n=5 saturated A00=0
+  [ok ] sigma_5 >= -C^hyb Q   n=5 saturated A00=0
+  [ok ] sigma_3 >= -C^hyb Q   n=6 perm
+  [ok ] sigma_4 >= -C^hyb Q   n=6 perm
+  [ok ] sigma_5 >= -C^hyb Q   n=6 perm
+  [ok ] sigma_6 >= -C^hyb Q   n=6 perm
+  [ok ] sigma_3 >= -C^hyb Q   n=6 (J-P)/(n-1)
+  [ok ] sigma_4 >= -C^hyb Q   n=6 (J-P)/(n-1)
+  [ok ] sigma_5 >= -C^hyb Q   n=6 (J-P)/(n-1)
+  [ok ] sigma_6 >= -C^hyb Q   n=6 (J-P)/(n-1)
+  [ok ] sigma_3 >= -C^hyb Q   n=6 half P + half P^2
+  [ok ] sigma_4 >= -C^hyb Q   n=6 half P + half P^2
+  [ok ] sigma_5 >= -C^hyb Q   n=6 half P + half P^2
+  [FAIL] sigma_6 >= -C^hyb Q   n=6 half P + half P^2
+  [ok ] sigma_3 >= -C^hyb Q   n=6 3-mix
+  [ok ] sigma_4 >= -C^hyb Q   n=6 3-mix
+  [ok ] sigma_5 >= -C^hyb Q   n=6 3-mix
+  [FAIL] sigma_6 >= -C^hyb Q   n=6 3-mix
+  [ok ] sigma_3 >= -C^hyb Q   n=6 saturated A00=0
+  [ok ] sigma_4 >= -C^hyb Q   n=6 saturated A00=0
+  [ok ] sigma_5 >= -C^hyb Q   n=6 saturated A00=0
+  [ok ] sigma_6 >= -C^hyb Q   n=6 saturated A00=0
+  [ok ] sigma_3 >= -C^hyb Q   n=7 perm
+  [ok ] sigma_4 >= -C^hyb Q   n=7 perm
+  [ok ] sigma_5 >= -C^hyb Q   n=7 perm
+  [ok ] sigma_6 >= -C^hyb Q   n=7 perm
+  [ok ] sigma_7 >= -C^hyb Q   n=7 perm
+  [ok ] sigma_3 >= -C^hyb Q   n=7 (J-P)/(n-1)
+  [ok ] sigma_4 >= -C^hyb Q   n=7 (J-P)/(n-1)
+  [ok ] sigma_5 >= -C^hyb Q   n=7 (J-P)/(n-1)
+  [ok ] sigma_6 >= -C^hyb Q   n=7 (J-P)/(n-1)
+  [ok ] sigma_7 >= -C^hyb Q   n=7 (J-P)/(n-1)
+  [ok ] sigma_3 >= -C^hyb Q   n=7 half P + half P^2
+  [ok ] sigma_4 >= -C^hyb Q   n=7 half P + half P^2
+  [ok ] sigma_5 >= -C^hyb Q   n=7 half P + half P^2
+  [FAIL] sigma_6 >= -C^hyb Q   n=7 half P + half P^2
+  [ok ] sigma_7 >= -C^hyb Q   n=7 half P + half P^2
+  [ok ] sigma_3 >= -C^hyb Q   n=7 3-mix
+  [ok ] sigma_4 >= -C^hyb Q   n=7 3-mix
+  [ok ] sigma_5 >= -C^hyb Q   n=7 3-mix
+  [FAIL] sigma_6 >= -C^hyb Q   n=7 3-mix
+  [ok ] sigma_7 >= -C^hyb Q   n=7 3-mix
+  [ok ] sigma_3 >= -C^hyb Q   n=7 saturated A00=0
+  [ok ] sigma_4 >= -C^hyb Q   n=7 saturated A00=0
+  [ok ] sigma_5 >= -C^hyb Q   n=7 saturated A00=0
+  [ok ] sigma_6 >= -C^hyb Q   n=7 saturated A00=0
+  [ok ] sigma_7 >= -C^hyb Q   n=7 saturated A00=0
+  [ok ] sigma_3 >= -C^hyb Q   n=8 perm
+  [ok ] sigma_4 >= -C^hyb Q   n=8 perm
+  [ok ] sigma_5 >= -C^hyb Q   n=8 perm
+  [ok ] sigma_6 >= -C^hyb Q   n=8 perm
+  [ok ] sigma_7 >= -C^hyb Q   n=8 perm
+  [ok ] sigma_3 >= -C^hyb Q   n=8 (J-P)/(n-1)
+  [ok ] sigma_4 >= -C^hyb Q   n=8 (J-P)/(n-1)
+  [ok ] sigma_5 >= -C^hyb Q   n=8 (J-P)/(n-1)
+  [ok ] sigma_6 >= -C^hyb Q   n=8 (J-P)/(n-1)
+  [ok ] sigma_7 >= -C^hyb Q   n=8 (J-P)/(n-1)
+  [ok ] sigma_3 >= -C^hyb Q   n=8 half P + half P^2
+  [ok ] sigma_4 >= -C^hyb Q   n=8 half P + half P^2
+  [ok ] sigma_5 >= -C^hyb Q   n=8 half P + half P^2
+  [FAIL] sigma_6 >= -C^hyb Q   n=8 half P + half P^2
+  [ok ] sigma_7 >= -C^hyb Q   n=8 half P + half P^2
+  [ok ] sigma_3 >= -C^hyb Q   n=8 3-mix
+  [ok ] sigma_4 >= -C^hyb Q   n=8 3-mix
+  [ok ] sigma_5 >= -C^hyb Q   n=8 3-mix
+  [ok ] sigma_6 >= -C^hyb Q   n=8 3-mix
+  [ok ] sigma_7 >= -C^hyb Q   n=8 3-mix
+  [ok ] sigma_3 >= -C^hyb Q   n=8 saturated A00=0
+  [ok ] sigma_4 >= -C^hyb Q   n=8 saturated A00=0
+  [ok ] sigma_5 >= -C^hyb Q   n=8 saturated A00=0
+  [ok ] sigma_6 >= -C^hyb Q   n=8 saturated A00=0
+  [ok ] sigma_7 >= -C^hyb Q   n=8 saturated A00=0
+     C_m^hyb vs the ladder rows at (n,k) = (300, 8):
+       m=3  L0=       11.53  L1=      0.6667  hyb=    0.002222  L2=      0.6667
+       m=4  L0=        1009  L1=       3.375  hyb=           0  L2=       3.375
+       m=5  L0=   8.341e+04  L1=        4824  hyb=      0.3322  L2=       16.13
+       m=6  L0=    8.72e+06  L1=   2.916e+04  hyb=           0  L2=       97.53
+       m=7  L0=   1.054e+09  L1=   6.097e+07  hyb=       24.83  L2=         682
+       m=8  L0=   1.459e+11  L1=   4.878e+08  hyb=           0  L2=        5457
+  [ok ] C_5^hyb < C_5^L1 at (300,8)
+  [ok ] C_7^hyb < C_7^L1 at (300,8)
+  [ok ] C_3,C_5^hyb are BELOW the assumed L2 shape (pairing tier dropped)
+  [FAIL] C_6,C_8^hyb exceed L2 (the even layers keep their n-powers)
+  [ok ] C_3^hyb(collar) = C^hyb(slice) + eta-gap   n=300 k=8
+  [ok ] C_3^hyb(collar) > C^hyb(slice)   n=300 k=8
+  [ok ] C_5^hyb(collar) = C^hyb(slice) + eta-gap   n=300 k=8
+  [ok ] C_5^hyb(collar) > C^hyb(slice)   n=300 k=8
+  [ok ] C_3^hyb(collar) = C^hyb(slice) + eta-gap   n=120 k=6
+  [ok ] C_3^hyb(collar) > C^hyb(slice)   n=120 k=6
+  [ok ] C_5^hyb(collar) = C^hyb(slice) + eta-gap   n=120 k=6
+  [ok ] C_5^hyb(collar) > C^hyb(slice)   n=120 k=6
+  [FAIL] C^hyb dominates its own non-K_3 tier at (300,8)
+
+W8  recomposition: Ntilde(k) through collar_budget.Psi
+       k     L0      L1     hyb      L2   floor
+       6      244     47     34     37     34
+       8      736    132     51     54     51
+  [FAIL] Ntilde ordering L0 >= L1 >= hyb >= L2 >= floor   k=6   [244, 47, 34, 37, 34]
+  [ok ] hyb strictly beats L1   k=6
+  [FAIL] Ntilde ordering L0 >= L1 >= hyb >= L2 >= floor   k=8   [736, 132, 51, 54, 51]
+  [ok ] hyb strictly beats L1   k=8
+     fault 'drop_lamstar' (the non-K_3 tier dropped from C^hyb): 12 checks caught it
+
+W4  THE REFUTATION -- the exact permutation-matrix law for K_5
+  [FAIL] K_5(P - J/n) closed form   n=5   -327.168
+  [FAIL] K_5(P - J/n) closed form   n=6   -480
+  [FAIL] K_5(P - J/n) closed form   n=7   -633.936
+  [FAIL] K_5(P - J/n) closed form   n=8   -787.5
+  [FAIL] K_5(P - J/n) closed form   n=9   -940.247
+  [FAIL] K_5(P - J/n) closed form   n=10   -1092.1
+  [FAIL] K_5(P - J/n) closed form   n=12   -1393.33
+  [FAIL] K_5(P - J/n) closed form   n=16   -1988.44
+  [FAIL] K_5(P - J/n) closed form   n=24   -3162.5
+  [FAIL] K_5(P - J/n) closed form   n=40   -5486.36
+  [FAIL] K_5(P - J/n) closed form   n=80   -11262.6
+  [FAIL] K_5(P - J/n) closed form   n=200   -28552.9
+     the ratio the lemma bounds, -n K_5 / Q, at B = P - J/n:
+       n=   5   -n K_5/Q =       409.0800    (-K_5/Q =    81.8160)
+  [ok ] -n K_5/Q >= 100(n-2)   n=5
+       n=   6   -n K_5/Q =       576.1111    (-K_5/Q =    96.0185)
+  [ok ] -n K_5/Q >= 100(n-2)   n=6
+  [ok ] -n K_5/Q strictly increasing at n=6
+       n=   7   -n K_5/Q =       739.6939    (-K_5/Q =   105.6706)
+  [ok ] -n K_5/Q >= 100(n-2)   n=7
+  [ok ] -n K_5/Q strictly increasing at n=7
+       n=   8   -n K_5/Q =       900.0938    (-K_5/Q =   112.5117)
+  [ok ] -n K_5/Q >= 100(n-2)   n=8
+  [ok ] -n K_5/Q strictly increasing at n=8
+       n=   9   -n K_5/Q =      1057.8642    (-K_5/Q =   117.5405)
+  [ok ] -n K_5/Q >= 100(n-2)   n=9
+  [ok ] -n K_5/Q strictly increasing at n=9
+       n=  10   -n K_5/Q =      1213.5200    (-K_5/Q =   121.3520)
+  [ok ] -n K_5/Q >= 100(n-2)   n=10
+  [ok ] -n K_5/Q strictly increasing at n=10
+       n=  12   -n K_5/Q =      1520.0694    (-K_5/Q =   126.6725)
+  [ok ] -n K_5/Q >= 100(n-2)   n=12
+  [ok ] -n K_5/Q strictly increasing at n=12
+       n=  16   -n K_5/Q =      2121.0547    (-K_5/Q =   132.5659)
+  [ok ] -n K_5/Q >= 100(n-2)   n=16
+  [ok ] -n K_5/Q strictly increasing at n=16
+       n=  24   -n K_5/Q =      3300.0382    (-K_5/Q =   137.5016)
+  [ok ] -n K_5/Q >= 100(n-2)   n=24
+  [ok ] -n K_5/Q strictly increasing at n=24
+       n=  40   -n K_5/Q =      5627.0638    (-K_5/Q =   140.6766)
+  [ok ] -n K_5/Q >= 100(n-2)   n=40
+  [ok ] -n K_5/Q strictly increasing at n=40
+       n=  80   -n K_5/Q =     11405.1722    (-K_5/Q =   142.5647)
+  [ok ] -n K_5/Q >= 100(n-2)   n=80
+  [ok ] -n K_5/Q strictly increasing at n=80
+       n= 200   -n K_5/Q =     28696.3825    (-K_5/Q =   143.4819)
+  [ok ] -n K_5/Q >= 100(n-2)   n=200
+  [ok ] -n K_5/Q strictly increasing at n=200
+  [ok ] (OL) at j=2 is FALSE: no n-free c_2 has K_5 >= -c_2 Q/n
+  [ok ] the failure is exactly one power of n: -K_5/Q < 144 for every n
+     fault 'bad_K5_law' (the permutation-matrix K_5 law off by one coefficient): 12 checks caught it
+
+W3  the connected coefficient mass and the mass identity
+  [ok ] Lam_2 = 1   got 1
+  [ok ] Lam_3 = 4   got 4
+  [FAIL] Lam_4 = 78   got 81
+  [FAIL] Lam_5 = 1896   got 1936
+  [FAIL] Lam_5 = l^1 mass of K_5's coefficients (576+120+240+480+480)
+  [FAIL] Lam_4 = l^1 mass of K_4's coefficients (36+6+18+18)
+  [ok ] sum_lambda prod Lam = D_2^2   1 vs 1
+  [ok ] sum_lambda prod Lam = D_3^2   4 vs 4
+  [FAIL] sum_lambda prod Lam = D_4^2   84 vs 81
+  [FAIL] sum_lambda prod Lam = D_5^2   1976 vs 1936
+  [FAIL] sum_lambda prod Lam = D_6^2   71615 vs 70225
+  [ok ] Lam*_3 closed form   0 vs 0
+  [FAIL] Lam*_4 closed form   81 vs 78
+  [FAIL] Lam*_5 closed form   1936 vs 1896
+  [FAIL] Lam*_6 closed form   71600 vs 70210
+  [ok ] Lam*_3 = 0 (the m = 3 layer is ENTIRELY the K_3 tier)
+
+W6  what survives: the one-sided K_3, the power sums, the Q rate
+  [ok ] K_3 >= -4Q/n   n=5 perm
+  [ok ] p_3 >= -Q/n    n=5 perm
+  [ok ] p_5 >= -Q/n^3  n=5 perm
+  [ok ] |K_3| <= 4 beta Q  n=5 perm
+  [ok ] |K_4| <= Lam_4 Q   n=5 perm   4.08
+  [ok ] |K_5| <= Lam_5 Q   n=5 perm   81.79
+  [ok ] K_3 >= -4Q/n   n=5 (J-P)/(n-1)
+  [ok ] p_3 >= -Q/n    n=5 (J-P)/(n-1)
+  [ok ] p_5 >= -Q/n^3  n=5 (J-P)/(n-1)
+  [ok ] |K_3| <= 4 beta Q  n=5 (J-P)/(n-1)
+  [ok ] |K_4| <= Lam_4 Q   n=5 (J-P)/(n-1)   0.255
+  [ok ] |K_5| <= Lam_5 Q   n=5 (J-P)/(n-1)   1.278
+  [ok ] K_3 >= -4Q/n   n=5 half P + half P^2
+  [ok ] p_3 >= -Q/n    n=5 half P + half P^2
+  [ok ] p_5 >= -Q/n^3  n=5 half P + half P^2
+  [ok ] |K_3| <= 4 beta Q  n=5 half P + half P^2
+  [ok ] |K_4| <= Lam_4 Q   n=5 half P + half P^2   4.78
+  [ok ] |K_5| <= Lam_5 Q   n=5 half P + half P^2   7.312
+  [ok ] K_3 >= -4Q/n   n=5 3-mix
+  [ok ] p_3 >= -Q/n    n=5 3-mix
+  [ok ] p_5 >= -Q/n^3  n=5 3-mix
+  [ok ] |K_3| <= 4 beta Q  n=5 3-mix
+  [ok ] |K_4| <= Lam_4 Q   n=5 3-mix   2.556
+  [ok ] |K_5| <= Lam_5 Q   n=5 3-mix   3.213
+  [ok ] K_3 >= -4Q/n   n=5 saturated A00=0
+  [ok ] p_3 >= -Q/n    n=5 saturated A00=0
+  [ok ] p_5 >= -Q/n^3  n=5 saturated A00=0
+  [ok ] |K_3| <= 4 beta Q  n=5 saturated A00=0
+  [ok ] |K_4| <= Lam_4 Q   n=5 saturated A00=0   0.1369
+  [ok ] |K_5| <= Lam_5 Q   n=5 saturated A00=0   0.2801
+  [ok ] K_3 >= -4Q/n   n=6 perm
+  [ok ] p_3 >= -Q/n    n=6 perm
+  [ok ] p_5 >= -Q/n^3  n=6 perm
+  [ok ] |K_3| <= 4 beta Q  n=6 perm
+  [ok ] |K_4| <= Lam_4 Q   n=6 perm   3
+  [ok ] |K_5| <= Lam_5 Q   n=6 perm   96
+  [ok ] |K_6| <= Lam_6 Q   n=6 perm   436.7
+  [ok ] K_3 >= -4Q/n   n=6 (J-P)/(n-1)
+  [ok ] p_3 >= -Q/n    n=6 (J-P)/(n-1)
+  [ok ] p_5 >= -Q/n^3  n=6 (J-P)/(n-1)
+  [ok ] |K_3| <= 4 beta Q  n=6 (J-P)/(n-1)
+  [ok ] |K_4| <= Lam_4 Q   n=6 (J-P)/(n-1)   0.12
+  [ok ] |K_5| <= Lam_5 Q   n=6 (J-P)/(n-1)   0.768
+  [ok ] |K_6| <= Lam_6 Q   n=6 (J-P)/(n-1)   0.6987
+  [ok ] K_3 >= -4Q/n   n=6 half P + half P^2
+  [ok ] p_3 >= -Q/n    n=6 half P + half P^2
+  [ok ] p_5 >= -Q/n^3  n=6 half P + half P^2
+  [ok ] |K_3| <= 4 beta Q  n=6 half P + half P^2
+  [ok ] |K_4| <= Lam_4 Q   n=6 half P + half P^2   5.25
+  [ok ] |K_5| <= Lam_5 Q   n=6 half P + half P^2   15
+  [ok ] |K_6| <= Lam_6 Q   n=6 half P + half P^2   85.83
+  [ok ] K_3 >= -4Q/n   n=6 3-mix
+  [ok ] p_3 >= -Q/n    n=6 3-mix
+  [ok ] p_5 >= -Q/n^3  n=6 3-mix
+  [ok ] |K_3| <= 4 beta Q  n=6 3-mix
+  [ok ] |K_4| <= Lam_4 Q   n=6 3-mix   2.875
+  [ok ] |K_5| <= Lam_5 Q   n=6 3-mix   6.667
+  [ok ] |K_6| <= Lam_6 Q   n=6 3-mix   25.86
+  [ok ] K_3 >= -4Q/n   n=6 saturated A00=0
+  [ok ] p_3 >= -Q/n    n=6 saturated A00=0
+  [ok ] p_5 >= -Q/n^3  n=6 saturated A00=0
+  [ok ] |K_3| <= 4 beta Q  n=6 saturated A00=0
+  [ok ] |K_4| <= Lam_4 Q   n=6 saturated A00=0   0.0624
+  [ok ] |K_5| <= Lam_5 Q   n=6 saturated A00=0   0.1679
+  [ok ] |K_6| <= Lam_6 Q   n=6 saturated A00=0   0.05935
+  [ok ] K_3 >= -4Q/n   n=7 perm
+  [ok ] p_3 >= -Q/n    n=7 perm
+  [ok ] p_5 >= -Q/n^3  n=7 perm
+  [ok ] |K_3| <= 4 beta Q  n=7 perm
+  [ok ] |K_4| <= Lam_4 Q   n=7 perm   2.082
+  [ok ] |K_5| <= Lam_5 Q   n=7 perm   105.7
+  [ok ] |K_6| <= Lam_6 Q   n=7 perm   625.3
+  [ok ] K_3 >= -4Q/n   n=7 (J-P)/(n-1)
+  [ok ] p_3 >= -Q/n    n=7 (J-P)/(n-1)
+  [ok ] p_5 >= -Q/n^3  n=7 (J-P)/(n-1)
+  [ok ] |K_3| <= 4 beta Q  n=7 (J-P)/(n-1)
+  [ok ] |K_4| <= Lam_4 Q   n=7 (J-P)/(n-1)   0.05782
+  [ok ] |K_5| <= Lam_5 Q   n=7 (J-P)/(n-1)   0.4891
+  [ok ] |K_6| <= Lam_6 Q   n=7 (J-P)/(n-1)   0.4825
+  [ok ] K_3 >= -4Q/n   n=7 half P + half P^2
+  [ok ] p_3 >= -Q/n    n=7 half P + half P^2
+  [ok ] p_5 >= -Q/n^3  n=7 half P + half P^2
+  [ok ] |K_3| <= 4 beta Q  n=7 half P + half P^2
+  [ok ] |K_4| <= Lam_4 Q   n=7 half P + half P^2   5.467
+  [ok ] |K_5| <= Lam_5 Q   n=7 half P + half P^2   21.78
+  [ok ] |K_6| <= Lam_6 Q   n=7 half P + half P^2   87.09
+  [ok ] K_3 >= -4Q/n   n=7 3-mix
+  [ok ] p_3 >= -Q/n    n=7 3-mix
+  [ok ] p_5 >= -Q/n^3  n=7 3-mix
+  [ok ] |K_3| <= 4 beta Q  n=7 3-mix
+  [ok ] |K_4| <= Lam_4 Q   n=7 3-mix   3.089
+  [ok ] |K_5| <= Lam_5 Q   n=7 3-mix   9.606
+  [ok ] |K_6| <= Lam_6 Q   n=7 3-mix   26.71
+  [ok ] K_3 >= -4Q/n   n=7 saturated A00=0
+  [ok ] p_3 >= -Q/n    n=7 saturated A00=0
+  [ok ] p_5 >= -Q/n^3  n=7 saturated A00=0
+  [ok ] |K_3| <= 4 beta Q  n=7 saturated A00=0
+  [ok ] |K_4| <= Lam_4 Q   n=7 saturated A00=0   0.02664
+  [ok ] |K_5| <= Lam_5 Q   n=7 saturated A00=0   0.1066
+  [ok ] |K_6| <= Lam_6 Q   n=7 saturated A00=0   0.04412
+  [ok ] K_3 >= -4Q/n   n=8 perm
+  [ok ] p_3 >= -Q/n    n=8 perm
+  [ok ] p_5 >= -Q/n^3  n=8 perm
+  [ok ] |K_3| <= 4 beta Q  n=8 perm
+  [ok ] |K_4| <= Lam_4 Q   n=8 perm   1.312
+  [ok ] |K_5| <= Lam_5 Q   n=8 perm   112.5
+  [ok ] |K_6| <= Lam_6 Q   n=8 perm   787.7
+  [ok ] K_3 >= -4Q/n   n=8 (J-P)/(n-1)
+  [ok ] p_3 >= -Q/n    n=8 (J-P)/(n-1)
+  [ok ] p_5 >= -Q/n^3  n=8 (J-P)/(n-1)
+  [ok ] |K_3| <= 4 beta Q  n=8 (J-P)/(n-1)
+  [ok ] |K_4| <= Lam_4 Q   n=8 (J-P)/(n-1)   0.02679
+  [ok ] |K_5| <= Lam_5 Q   n=8 (J-P)/(n-1)   0.328
+  [ok ] |K_6| <= Lam_6 Q   n=8 (J-P)/(n-1)   0.3281
+  [ok ] K_3 >= -4Q/n   n=8 half P + half P^2
+  [ok ] p_3 >= -Q/n    n=8 half P + half P^2
+  [ok ] p_5 >= -Q/n^3  n=8 half P + half P^2
+  [ok ] |K_3| <= 4 beta Q  n=8 half P + half P^2
+  [ok ] |K_4| <= Lam_4 Q   n=8 half P + half P^2   5.562
+  [ok ] |K_5| <= Lam_5 Q   n=8 half P + half P^2   27.5
+  [ok ] |K_6| <= Lam_6 Q   n=8 half P + half P^2   80.39
+  [ok ] K_3 >= -4Q/n   n=8 3-mix
+  [ok ] p_3 >= -Q/n    n=8 3-mix
+  [ok ] p_5 >= -Q/n^3  n=8 3-mix
+  [ok ] |K_3| <= 4 beta Q  n=8 3-mix
+  [ok ] |K_4| <= Lam_4 Q   n=8 3-mix   3.22
+  [ok ] |K_5| <= Lam_5 Q   n=8 3-mix   12.24
+  [ok ] |K_6| <= Lam_6 Q   n=8 3-mix   26.05
+  [ok ] K_3 >= -4Q/n   n=8 saturated A00=0
+  [ok ] p_3 >= -Q/n    n=8 saturated A00=0
+  [ok ] p_5 >= -Q/n^3  n=8 saturated A00=0
+  [ok ] |K_3| <= 4 beta Q  n=8 saturated A00=0
+  [ok ] |K_4| <= Lam_4 Q   n=8 saturated A00=0   0.008512
+  [ok ] |K_5| <= Lam_5 Q   n=8 saturated A00=0   0.07114
+  [ok ] |K_6| <= Lam_6 Q   n=8 saturated A00=0   0.03104
+     the two extremal families, and the two different rates:
+  [ok ] (J-P)/(n-1): p_3/Q = -(n-2)/(n(n-1)) exactly   n=5
+  [ok ] (J-P)/(n-1): the paper's p_3 >= -Q/n is sharp to (n-2)/(n-1)  n=5
+  [ok ] P: K_3/Q = 4(n-2)/n  (rate Q, one-sided rate Q/n unused)  n=5
+  [ok ] P: K_4/Q = (6n^2-72n+108)/n^2   n=5
+  [ok ] (J-P)/(n-1): p_3/Q = -(n-2)/(n(n-1)) exactly   n=6
+  [ok ] (J-P)/(n-1): the paper's p_3 >= -Q/n is sharp to (n-2)/(n-1)  n=6
+  [ok ] P: K_3/Q = 4(n-2)/n  (rate Q, one-sided rate Q/n unused)  n=6
+  [ok ] P: K_4/Q = (6n^2-72n+108)/n^2   n=6
+  [ok ] (J-P)/(n-1): p_3/Q = -(n-2)/(n(n-1)) exactly   n=7
+  [ok ] (J-P)/(n-1): the paper's p_3 >= -Q/n is sharp to (n-2)/(n-1)  n=7
+  [ok ] P: K_3/Q = 4(n-2)/n  (rate Q, one-sided rate Q/n unused)  n=7
+  [ok ] P: K_4/Q = (6n^2-72n+108)/n^2   n=7
+  [ok ] (J-P)/(n-1): p_3/Q = -(n-2)/(n(n-1)) exactly   n=8
+  [ok ] (J-P)/(n-1): the paper's p_3 >= -Q/n is sharp to (n-2)/(n-1)  n=8
+  [ok ] P: K_3/Q = 4(n-2)/n  (rate Q, one-sided rate Q/n unused)  n=8
+  [ok ] P: K_4/Q = (6n^2-72n+108)/n^2   n=8
+  [ok ] (J-P)/(n-1): p_3/Q = -(n-2)/(n(n-1)) exactly   n=9
+  [ok ] (J-P)/(n-1): the paper's p_3 >= -Q/n is sharp to (n-2)/(n-1)  n=9
+  [ok ] P: K_3/Q = 4(n-2)/n  (rate Q, one-sided rate Q/n unused)  n=9
+  [ok ] P: K_4/Q = (6n^2-72n+108)/n^2   n=9
+  [ok ] (J-P)/(n-1): p_3/Q = -(n-2)/(n(n-1)) exactly   n=12
+  [ok ] (J-P)/(n-1): the paper's p_3 >= -Q/n is sharp to (n-2)/(n-1)  n=12
+  [ok ] P: K_3/Q = 4(n-2)/n  (rate Q, one-sided rate Q/n unused)  n=12
+  [ok ] P: K_4/Q = (6n^2-72n+108)/n^2   n=12
+  [ok ] (J-P)/(n-1): p_3/Q = -(n-2)/(n(n-1)) exactly   n=20
+  [ok ] (J-P)/(n-1): the paper's p_3 >= -Q/n is sharp to (n-2)/(n-1)  n=20
+  [ok ] P: K_3/Q = 4(n-2)/n  (rate Q, one-sided rate Q/n unused)  n=20
+  [ok ] P: K_4/Q = (6n^2-72n+108)/n^2   n=20
+     the carrier at j=2: Gamma_c against its upper bound beta M Q
+  [ok ] Gamma_c <= beta M Q   n=8   ratio 0.857143
+  [ok ] Gamma_c = (n-1)^2(n-2)/n^2 exactly   n=8
+  [ok ] Gamma_c / (beta M Q) = (n-2)/(n-1) -> 1  (ATTAINED)  n=8
+  [ok ] Gamma_c >= -Y_R/n  (the CHEAP side, unused by K_5)  n=8
+  [ok ] Gamma_c <= beta M Q   n=12   ratio 0.909091
+  [ok ] Gamma_c = (n-1)^2(n-2)/n^2 exactly   n=12
+  [ok ] Gamma_c / (beta M Q) = (n-2)/(n-1) -> 1  (ATTAINED)  n=12
+  [ok ] Gamma_c >= -Y_R/n  (the CHEAP side, unused by K_5)  n=12
+  [ok ] Gamma_c <= beta M Q   n=20   ratio 0.947368
+  [ok ] Gamma_c = (n-1)^2(n-2)/n^2 exactly   n=20
+  [ok ] Gamma_c / (beta M Q) = (n-2)/(n-1) -> 1  (ATTAINED)  n=20
+  [ok ] Gamma_c >= -Y_R/n  (the CHEAP side, unused by K_5)  n=20
+     fault 'lam_mass' (the connected mass Lam_5 replaced by D_5^2): 10 checks caught it
+
+TOTAL after controls: 458 checks, 0 failures

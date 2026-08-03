@@ -1,0 +1,33 @@
+[guard] MemoryMax=8G  swap=off  CPUQuota=100%  threads=2
+==========================================================================
+STANDALONE verification of the sub-Dittert certificate
+(standard library only; shares no code with the pipeline)
+==========================================================================
+certificate: (n,k) = (5,4), 25 variables, Gram size 350
+[1] sigma_k: direct subpermanent enumeration vs Ryser on per(A+xJ), 4 matrices: AGREE
+[2] bound M in the file = 1226/625, 2 - 4!/5^4 = 1226/625: MATCH
+[3] identity by FULL coefficient comparison over Q: certificate 7875 monomials, F 7875 monomials -> IDENTICAL
+[4] exact rational LDL^T:
+    all 26 Gram matrices symmetric: True
+    G0 positive definite: True, min pivot 5.827857e-04
+    all 25 multiplier Grams positive definite: True, min pivot 5.874542e-04
+[5] mutation tests (each MUST be rejected)
+    G0[0][0] += 1e-20: REJECTED (good)
+    Gp[0][1][1] += 1e-20: REJECTED (good)
+    one lambda coefficient += 1e-20: REJECTED (good)
+    G0[0][0] := -1 must lose definiteness: REJECTED (good)
+[6] F(0) = 0 (equality is attained at J_n/n): OK
+
+  PASS  sigma_k two algorithms
+  PASS  bound value
+  PASS  polynomial identity
+  PASS  positive definiteness
+  PASS  mutation tests reject
+  PASS  equality at the barycentre
+
+==========================================================================
+VERIFIED.  For every A in K_5:
+    E_4(r) + E_4(c) - P_4(A)  <=  1226/625  = 2 - 4!/5^4
+with equality if and only if A = J_5/5.
+==========================================================================
+WALL_SECONDS 3245

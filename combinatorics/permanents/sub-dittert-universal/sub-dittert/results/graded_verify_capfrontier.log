@@ -1,0 +1,98 @@
+Running as unit: run-p643092-i692622.scope; invocation ID: 431e17b998d44fe2a9890db3debf9194
+==============================================================================
+[1]  rho_ref in closed form; the CAPACITY.md 3 table, digit for digit
+==============================================================================
+  [ok]   CAPACITY.md 3 table reproduced on all 21 rows
+  [ok]   rho_ref(10,5) = 0.92359403 and rho_ref(10,2) = 0.69930664 (the '=away from the corner the loss is large' rows)
+
+==============================================================================
+[2]  THE RATIO IDENTITY (this is the whole frontier, in one line)
+==============================================================================
+  [ok]   rho_ref(n,k)/rho_ref(n,k+1) = (1+1/k)^k/(1+1/(n-1))^(n-1)  (3159 cells, n = 3..80)
+  [ok]   (1+1/x)^x is strictly increasing on x = 1..399 (exact over Q)
+
+==============================================================================
+[3]  consequence: rho_ref = 1 EXACTLY on k in {n-1, n}, and nowhere else
+==============================================================================
+  [ok]   rho_ref strictly increasing in k on 1 <= k <= n-2, flat from n-1 to n
+  [ok]   rho_ref(n,n-1) = rho_ref(n,n) = 1 exactly, n = 3..80
+  [ok]   rho_ref(n,k) < 1 for every k <= n-2, n = 3..80  -- (C0) FAILS there
+  [ok]   product form rho_ref(n,k) = prod_{i=k}^{n-2} (1+1/i)^i/(1+1/(n-1))^(n-1)
+
+  the exact PRICE of opening the line k = n-j  (factor 1/rho_ref):
+    j = 2:  n=10: 1.00600  n=20: 1.00136  n=50: 1.00021  n=100: 1.00005
+    j = 3:  n=10: 1.01970  n=20: 1.00425  n=50: 1.00063  n=100: 1.00015
+    j = 4:  n=10: 1.04378  n=20: 1.00886  n=50: 1.00128  n=100: 1.00031
+    j = 5:  n=10: 1.08273  n=20: 1.01543  n=50: 1.00216  n=100: 1.00052
+  and at a constant fraction k = cn the price tends to 1/sqrt(c e^(1-c)):
+    c = 1/4:  n=200 -> 1.37200, n=400 -> 1.37329, limit 1.37458
+    c = 1/2:  n=200 -> 1.10047, n=400 -> 1.10093, limit 1.10139
+    c = 3/4:  n=200 -> 1.01867, n=400 -> 1.01884, limit 1.01902
+  [ok]   at fixed j >= 2 the price 1/rho_ref(n,n-j) is > 1 and strictly decreasing in n
+
+==============================================================================
+[4]  the witness is k-FREE: general m = n-k, doubly stochastic, exact
+==============================================================================
+  [ok]   W_k(A) doubly stochastic and >= 0 at every k (135 cases, n = 4..9)
+  [ok]   the k-free identity  sum W log(M/W) = log cap_0 - (m/n) sum chi((k/m)R)  EXACT
+  [ok]   the witness is TIGHT on Omega_n at EVERY k (equals log cap_0)
+
+  [4c] float corroboration only -- no displayed constant rests on this.
+       Restricted to points with cap ATTAINED (J_n/n and product form): at
+       m >= 2 a permutation matrix makes M_k(A) partly decomposable, the
+       infimum is not attained, and a descent never converges -- which is
+       CAPACITY.md 5's mechanism, not a defect of the witness.
+  [ok]   float: the k-free witness bound <= true log cap at every tested (k,n)   tightest slack -1.776e-15
+
+==============================================================================
+[5]  the three conditions with k FREE, and Ehat at general k
+==============================================================================
+  [ok]   the k-free conditions collapse to graded_verify_thmb.py's at k = n-1, n = 5..59
+  [ok]   Ehat_k(1+x) = (1 - z/(k-1))^(k-1)(1+z) at every k, matches e_k directly
+  [ok]   Ehat_k is the maximum over the fibre r_1 = u at every k
+  [ok]   1 - Ehat_k is nondecreasing in |u-1| at every k (both branches)
+
+==============================================================================
+[6]  R_chi -- the region where the three conditions hold, k free
+==============================================================================
+  [ok]   R_chi = {3 <= k <= n-1} minus exactly [(4, 3), (5, 3), (5, 4), (6, 5)], exhaustive over Q for n <= 300   4 failing cells found
+  [ok]   every failure is (C2), never (C1) or (C3) -- the legality condition is the binding one at the four cells
+  [ok]   gamma(n,k) is non-increasing in k on 3 <= k <= n-1 (ratio (k+1)/n <= 1)
+  [ok]   hence the uniform cap gamma(n,k) <= 6/n^3 on 3 <= k <= n-1
+  [ok]   Regime I (m >= 3): the two tail inequalities hold for every 3 <= k <= n-3, n >= 5
+  [ok]   Regime I: 2k^2/(k-1)^2 <= 9/2 for k >= 3, so n >= 5 suffices
+  [ok]   Regime II: gamma(n,n-2) = gamma(n,n-1) * n/(n-1), so m = 2 rides on m = 1
+  [ok]   Regime II: m = 2 holds wherever m = 1 does, n = 7..300
+
+==============================================================================
+[7]  THE FRONTIER, assembled
+==============================================================================
+  [ok]   R = {(k,n) : rho_ref >= 1 and (C1)(C2)(C3)} contains ONLY cells with k = n-1, n >= 7 (brute force, n <= 120)   |R| = 114
+  [ok]   and R contains EVERY such cell, n = 7..120
+  [ok]   beyond that: (C0) is settled for EVERY n by block [3] (k in {n-1, n} only), and (C1)(C2)(C3) at k = n-1 for every n >= 7 by graded_verify_thmb.py's ratio tests -- so R needs no scan above n = 120
+  [ok]   k = n is excluded automatically: m = 0 makes (C2)'s right side 0
+
+  what R leaves uncovered, against the collar thresholds Ntilde(k):
+    k = 5: window n = 6..28 (23 cells); capacity closes 0 of them (n = 6); 23 remain
+    k = 6: window n = 7..34 (28 cells); capacity closes 1 of them (n = 7); 27 remain
+    k = 7: window n = 8..42 (35 cells); capacity closes 1 of them (n = 8); 34 remain
+    k = 8: window n = 9..52 (44 cells); capacity closes 1 of them (n = 9); 43 remain
+
+==============================================================================
+[8]  mutation controls -- each must FIRE
+==============================================================================
+  [fired] MF1  C_ref exponent (n-1)(n-k) -> n(n-k): the table row (10,8) breaks
+  [fired] MF2  the ((n-k)!)^2 of (B1) dropped: rho_ref exceeds 1 somewhere (impossible)
+  [fired] MF3  ratio denominator (1+1/(n-1))^(n-1) -> (1+1/n)^n: identity breaks
+  [fired] MF4  border split by (m+1) instead of m: W stops being stochastic at m = 2
+  [fired] MF5  interior weight ((k+1)/n)A_ij: W stops being stochastic
+  [fired] MF6  closed-form prefactor (m/n) -> (1/n): the k-free identity breaks at m = 2
+  [fired] MF7  chi's argument (k/m)R -> kR: the k-free identity breaks at m = 2
+  [fired] MF8  dropping (C2) from R_chi changes the region (so (C2) is load-bearing)
+  [fired] MF9  claiming rho_ref >= 1 at k = n-2 is FALSE at every n = 4..80
+  [fired] MF10 reversing the monotonicity of (1+1/x)^x kills the frontier theorem
+
+==============================================================================
+RESULT: ALL 29 CHECKS PASS, ALL 10 MUTATION CONTROLS FIRE
+==============================================================================
+EXIT=0

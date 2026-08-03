@@ -1,0 +1,39 @@
+[guard] MemoryMax=3G  swap=off  CPUQuota=200%  threads=2
+== random m-regular (non-circulant) supports ==
+  n=8 done 0.1s
+  n=9 done 0.4s
+  n=10 done 1.2s
+  n=11 done 3.3s
+  n=12 done 8.5s
+
+== hill climb from random Birkhoff points ==
+  n=7 k=5 rep=0: p from -3.815e-03 to -1.280e-01 in 1 steps (0 = the bound, attained only at J_n/n)
+  n=7 k=5 rep=1: p from -5.282e-03 to -5.282e-03 in 0 steps (0 = the bound, attained only at J_n/n)
+  n=7 k=5 rep=2: p from -7.296e-03 to -7.817e-02 in 1 steps (0 = the bound, attained only at J_n/n)
+  n=8 k=6 rep=0: p from -2.285e-03 to -2.285e-03 in 0 steps (0 = the bound, attained only at J_n/n)
+  n=8 k=6 rep=1: p from -1.844e-03 to -1.844e-03 in 0 steps (0 = the bound, attained only at J_n/n)
+  n=8 k=6 rep=2: p from -6.650e-03 to -6.650e-03 in 0 steps (0 = the bound, attained only at J_n/n)
+  n=9 k=7 rep=0: p from -9.819e-04 to -9.819e-04 in 0 steps (0 = the bound, attained only at J_n/n)
+  n=9 k=7 rep=1: p from -7.562e-04 to -7.562e-04 in 0 steps (0 = the bound, attained only at J_n/n)
+  n=9 k=7 rep=2: p from -2.020e-03 to -2.020e-03 in 0 steps (0 = the bound, attained only at J_n/n)
+  n=10 k=5 rep=0: p from -4.355e-04 to -2.768e-03 in 1 steps (0 = the bound, attained only at J_n/n)
+  n=10 k=5 rep=1: p from -4.113e-04 to -8.027e-04 in 1 steps (0 = the bound, attained only at J_n/n)
+  n=10 k=5 rep=2: p from -4.133e-04 to -2.104e-03 in 1 steps (0 = the bound, attained only at J_n/n)
+  n=12 k=5 rep=0: p from -1.811e-04 to -3.714e-04 in 1 steps (0 = the bound, attained only at J_n/n)
+  n=12 k=5 rep=1: p from -1.182e-04 to -2.636e-04 in 1 steps (0 = the bound, attained only at J_n/n)
+  n=12 k=5 rep=2: p from -2.382e-04 to -6.855e-04 in 1 steps (0 = the bound, attained only at J_n/n)
+
+TOP-10 random regular supports by Phi_k/M at t=1:
+  0.999973944  n=12 k=8 rand-4-regular#1   exact=144511084071/144514849600
+  0.999973788  n=12 k=8 rand-4-regular#2   exact=289022123151/289029699200
+  0.999973496  n=12 k=8 rand-4-regular#0   exact=289022038803/289029699200
+  0.999973496  n=12 k=9 rand-4-regular#1   exact=1541468941641/1541509798400
+  0.999973251  n=12 k=9 rand-4-regular#2   exact=385367141187/385377449600
+  0.999972818  n=12 k=9 rand-4-regular#0   exact=1541467896741/1541509798400
+  0.999972036  n=12 k=7 rand-4-regular#1   exact=811269729/811292416
+  0.999971936  n=12 k=7 rand-4-regular#2   exact=15414123303/15414555904
+  0.999971740  n=12 k=7 rand-4-regular#0   exact=7707060147/7707277952
+  0.999970688  n=12 k=10 rand-4-regular#1   exact=33632152317/33633138176
+
+hits=0
+VERDICT: no point with Phi_k > 2 - k!/n^k found

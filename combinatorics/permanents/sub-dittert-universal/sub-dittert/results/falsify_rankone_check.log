@@ -1,0 +1,45 @@
+[guard] MemoryMax=2G  swap=off  CPUQuota=100%  threads=1
+--- barycentre must give exactly the bound ---
+n=6 k=5
+  sum of entries = 6  (must be 6): OK
+  negative entries: 0 OK
+  Phi_k   = 643/324   = 1.984567901234568
+  bound   = 643/324 = 1.984567901234568
+  ratio   = 1 = 1.000000000000000
+  VERDICT: within the bound
+
+n=7 k=5
+  sum of entries = 7  (must be 7): OK
+  negative entries: 0 OK
+  Phi_k   = 33494/16807   = 1.992860117808056
+  bound   = 33494/16807 = 1.992860117808056
+  ratio   = 1 = 1.000000000000000
+  VERDICT: within the bound
+
+n=9 k=8
+  sum of entries = 9  (must be 9): OK
+  negative entries: 0 OK
+  Phi_k   = 9561458/4782969   = 1.999063343291583
+  bound   = 9561458/4782969 = 1.999063343291583
+  ratio   = 1 = 1.000000000000000
+  VERDICT: within the bound
+
+--- a two-value point ---
+n=8 k=5
+  sum of entries = 8  (must be 8): OK
+  negative entries: 0 OK
+  Phi_k   = 369717291/204800000   = 1.805260209960937
+  bound   = 8177/4096 = 1.996337890625000
+  ratio   = 369717291/408850000 = 0.904285901920020
+  VERDICT: within the bound
+
+--- a boundary point with zeros ---
+n=7 k=5
+  sum of entries = 7  (must be 7): OK
+  negative entries: 0 OK
+  Phi_k   = 1   = 1.000000000000000
+  bound   = 33494/16807 = 1.992860117808056
+  ratio   = 16807/33494 = 0.501791365617723
+  VERDICT: within the bound
+
+SELFTEST DONE

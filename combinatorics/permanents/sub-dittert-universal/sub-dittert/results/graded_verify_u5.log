@@ -1,0 +1,615 @@
+[guard] MemoryMax=5G  swap=off  CPUQuota=200%  threads=2
+==========================================================================
+graded_verify_u5.py -- U5.md, the connected-graph bound
+==========================================================================
+
+V1  pattern machinery and the connected mass Lam_e
+  [ok ] Lam_2 = sum |mu mu| over connected pairs = 1   got 1
+  [ok ] Lam_3 = sum |mu mu| over connected pairs = 4   got 4
+  [ok ] Lam_4 = sum |mu mu| over connected pairs = 78   got 78
+  [ok ] Lam_5 = sum |mu mu| over connected pairs = 1896   got 1896
+  [ok ] Lam_6 = sum |mu mu| over connected pairs = 68880   got 68880
+  [ok ] Lam_7 = sum |mu mu| over connected pairs = 3386160   got 3386160
+  [ok ] Lam_2 agrees with EVENLAYER's log-EGF table
+  [ok ] Lam_3 agrees with EVENLAYER's log-EGF table
+  [ok ] Lam_4 agrees with EVENLAYER's log-EGF table
+  [ok ] Lam_5 agrees with EVENLAYER's log-EGF table
+  [ok ] Lam_6 agrees with EVENLAYER's log-EGF table
+  [ok ] Lam_7 agrees with EVENLAYER's log-EGF table
+  [ok ] e = 2: 1 connected iso classes   got 1
+  [ok ] e = 3: 1 connected iso classes   got 1
+  [ok ] e = 4: 4 connected iso classes   got 4
+  [ok ] e = 5: 5 connected iso classes   got 5
+  [ok ] e = 6: 21 connected iso classes   got 21
+  [ok ] e = 7: 37 connected iso classes   got 37
+  [ok ] every enumerated pattern: connected, e edges, min degree >= 2
+
+V2  the toolkit, at exact doubly stochastic witnesses
+  [ok ] n=5 perm I: A in Omega_n (exact)
+  [ok ] n=5 perm I: B doubly centred
+  [ok ] n=5 perm I: T1b max|b_ij| <= beta
+  [ok ] n=5 perm I: T1d row and column squares <= beta
+  [ok ] n=5 perm I: T1c row +/- split <= beta
+  [ok ] n=5 perm I: T1e ||B||_op <= 1 (exact PSD test)
+  [ok ] n=5 perm I: T0 B B^T = A A^T - J/n, A A^T in Omega_n
+  [ok ] n=5 perm I: T2 sum|B o B| = Q
+  [ok ] n=5 perm I: T2 max_a sum_b |B o B| <= beta
+  [ok ] n=5 perm I: T3 tr(B B^T) = Q, diag >= 0, diag <= 1
+  [ok ] n=5 perm I: T3 tr((BB^T)^2) <= Q
+  [ok ] n=5 perm I: T4 ||B^T om||_inf <= beta ||om||_inf
+  [ok ] n=5 perm I: T4 (B o B)^T 1 is heavy and non-negative
+  [ok ] n=5 perm I: T6 zero column sums
+  [ok ] n=5 perm shift: A in Omega_n (exact)
+  [ok ] n=5 perm shift: B doubly centred
+  [ok ] n=5 perm shift: T1b max|b_ij| <= beta
+  [ok ] n=5 perm shift: T1d row and column squares <= beta
+  [ok ] n=5 perm shift: T1c row +/- split <= beta
+  [ok ] n=5 perm shift: T1e ||B||_op <= 1 (exact PSD test)
+  [ok ] n=5 perm shift: T0 B B^T = A A^T - J/n, A A^T in Omega_n
+  [ok ] n=5 perm shift: T2 sum|B o B| = Q
+  [ok ] n=5 perm shift: T2 max_a sum_b |B o B| <= beta
+  [ok ] n=5 perm shift: T3 tr(B B^T) = Q, diag >= 0, diag <= 1
+  [ok ] n=5 perm shift: T3 tr((BB^T)^2) <= Q
+  [ok ] n=5 perm shift: T4 ||B^T om||_inf <= beta ||om||_inf
+  [ok ] n=5 perm shift: T4 (B o B)^T 1 is heavy and non-negative
+  [ok ] n=5 perm shift: T6 zero column sums
+  [ok ] n=5 circ (I+C)/2: A in Omega_n (exact)
+  [ok ] n=5 circ (I+C)/2: B doubly centred
+  [ok ] n=5 circ (I+C)/2: T1b max|b_ij| <= beta
+  [ok ] n=5 circ (I+C)/2: T1d row and column squares <= beta
+  [ok ] n=5 circ (I+C)/2: T1c row +/- split <= beta
+  [ok ] n=5 circ (I+C)/2: T1e ||B||_op <= 1 (exact PSD test)
+  [ok ] n=5 circ (I+C)/2: T0 B B^T = A A^T - J/n, A A^T in Omega_n
+  [ok ] n=5 circ (I+C)/2: T2 sum|B o B| = Q
+  [ok ] n=5 circ (I+C)/2: T2 max_a sum_b |B o B| <= beta
+  [ok ] n=5 circ (I+C)/2: T3 tr(B B^T) = Q, diag >= 0, diag <= 1
+  [ok ] n=5 circ (I+C)/2: T3 tr((BB^T)^2) <= Q
+  [ok ] n=5 circ (I+C)/2: T4 ||B^T om||_inf <= beta ||om||_inf
+  [ok ] n=5 circ (I+C)/2: T4 (B o B)^T 1 is heavy and non-negative
+  [ok ] n=5 circ (I+C)/2: T6 zero column sums
+  [ok ] n=5 circ (I+C^2)/2: A in Omega_n (exact)
+  [ok ] n=5 circ (I+C^2)/2: B doubly centred
+  [ok ] n=5 circ (I+C^2)/2: T1b max|b_ij| <= beta
+  [ok ] n=5 circ (I+C^2)/2: T1d row and column squares <= beta
+  [ok ] n=5 circ (I+C^2)/2: T1c row +/- split <= beta
+  [ok ] n=5 circ (I+C^2)/2: T1e ||B||_op <= 1 (exact PSD test)
+  [ok ] n=5 circ (I+C^2)/2: T0 B B^T = A A^T - J/n, A A^T in Omega_n
+  [ok ] n=5 circ (I+C^2)/2: T2 sum|B o B| = Q
+  [ok ] n=5 circ (I+C^2)/2: T2 max_a sum_b |B o B| <= beta
+  [ok ] n=5 circ (I+C^2)/2: T3 tr(B B^T) = Q, diag >= 0, diag <= 1
+  [ok ] n=5 circ (I+C^2)/2: T3 tr((BB^T)^2) <= Q
+  [ok ] n=5 circ (I+C^2)/2: T4 ||B^T om||_inf <= beta ||om||_inf
+  [ok ] n=5 circ (I+C^2)/2: T4 (B o B)^T 1 is heavy and non-negative
+  [ok ] n=5 circ (I+C^2)/2: T6 zero column sums
+  [ok ] n=5 anti-perm: A in Omega_n (exact)
+  [ok ] n=5 anti-perm: B doubly centred
+  [ok ] n=5 anti-perm: T1b max|b_ij| <= beta
+  [ok ] n=5 anti-perm: T1d row and column squares <= beta
+  [ok ] n=5 anti-perm: T1c row +/- split <= beta
+  [ok ] n=5 anti-perm: T1e ||B||_op <= 1 (exact PSD test)
+  [ok ] n=5 anti-perm: T0 B B^T = A A^T - J/n, A A^T in Omega_n
+  [ok ] n=5 anti-perm: T2 sum|B o B| = Q
+  [ok ] n=5 anti-perm: T2 max_a sum_b |B o B| <= beta
+  [ok ] n=5 anti-perm: T3 tr(B B^T) = Q, diag >= 0, diag <= 1
+  [ok ] n=5 anti-perm: T3 tr((BB^T)^2) <= Q
+  [ok ] n=5 anti-perm: T4 ||B^T om||_inf <= beta ||om||_inf
+  [ok ] n=5 anti-perm: T4 (B o B)^T 1 is heavy and non-negative
+  [ok ] n=5 anti-perm: T6 zero column sums
+  [ok ] n=5 mixed: A in Omega_n (exact)
+  [ok ] n=5 mixed: B doubly centred
+  [ok ] n=5 mixed: T1b max|b_ij| <= beta
+  [ok ] n=5 mixed: T1d row and column squares <= beta
+  [ok ] n=5 mixed: T1c row +/- split <= beta
+  [ok ] n=5 mixed: T1e ||B||_op <= 1 (exact PSD test)
+  [ok ] n=5 mixed: T0 B B^T = A A^T - J/n, A A^T in Omega_n
+  [ok ] n=5 mixed: T2 sum|B o B| = Q
+  [ok ] n=5 mixed: T2 max_a sum_b |B o B| <= beta
+  [ok ] n=5 mixed: T3 tr(B B^T) = Q, diag >= 0, diag <= 1
+  [ok ] n=5 mixed: T3 tr((BB^T)^2) <= Q
+  [ok ] n=5 mixed: T4 ||B^T om||_inf <= beta ||om||_inf
+  [ok ] n=5 mixed: T4 (B o B)^T 1 is heavy and non-negative
+  [ok ] n=5 mixed: T6 zero column sums
+  [ok ] n=5 saturated: A in Omega_n (exact)
+  [ok ] n=5 saturated: B doubly centred
+  [ok ] n=5 saturated: T1b max|b_ij| <= beta
+  [ok ] n=5 saturated: T1d row and column squares <= beta
+  [ok ] n=5 saturated: T1c row +/- split <= beta
+  [ok ] n=5 saturated: T1e ||B||_op <= 1 (exact PSD test)
+  [ok ] n=5 saturated: T0 B B^T = A A^T - J/n, A A^T in Omega_n
+  [ok ] n=5 saturated: T2 sum|B o B| = Q
+  [ok ] n=5 saturated: T2 max_a sum_b |B o B| <= beta
+  [ok ] n=5 saturated: T3 tr(B B^T) = Q, diag >= 0, diag <= 1
+  [ok ] n=5 saturated: T3 tr((BB^T)^2) <= Q
+  [ok ] n=5 saturated: T4 ||B^T om||_inf <= beta ||om||_inf
+  [ok ] n=5 saturated: T4 (B o B)^T 1 is heavy and non-negative
+  [ok ] n=5 saturated: T6 zero column sums
+  [ok ] n=5 block I_1+J/4: A in Omega_n (exact)
+  [ok ] n=5 block I_1+J/4: B doubly centred
+  [ok ] n=5 block I_1+J/4: T1b max|b_ij| <= beta
+  [ok ] n=5 block I_1+J/4: T1d row and column squares <= beta
+  [ok ] n=5 block I_1+J/4: T1c row +/- split <= beta
+  [ok ] n=5 block I_1+J/4: T1e ||B||_op <= 1 (exact PSD test)
+  [ok ] n=5 block I_1+J/4: T0 B B^T = A A^T - J/n, A A^T in Omega_n
+  [ok ] n=5 block I_1+J/4: T2 sum|B o B| = Q
+  [ok ] n=5 block I_1+J/4: T2 max_a sum_b |B o B| <= beta
+  [ok ] n=5 block I_1+J/4: T3 tr(B B^T) = Q, diag >= 0, diag <= 1
+  [ok ] n=5 block I_1+J/4: T3 tr((BB^T)^2) <= Q
+  [ok ] n=5 block I_1+J/4: T4 ||B^T om||_inf <= beta ||om||_inf
+  [ok ] n=5 block I_1+J/4: T4 (B o B)^T 1 is heavy and non-negative
+  [ok ] n=5 block I_1+J/4: T6 zero column sums
+  [ok ] n=5 block I_2+J/3: A in Omega_n (exact)
+  [ok ] n=5 block I_2+J/3: B doubly centred
+  [ok ] n=5 block I_2+J/3: T1b max|b_ij| <= beta
+  [ok ] n=5 block I_2+J/3: T1d row and column squares <= beta
+  [ok ] n=5 block I_2+J/3: T1c row +/- split <= beta
+  [ok ] n=5 block I_2+J/3: T1e ||B||_op <= 1 (exact PSD test)
+  [ok ] n=5 block I_2+J/3: T0 B B^T = A A^T - J/n, A A^T in Omega_n
+  [ok ] n=5 block I_2+J/3: T2 sum|B o B| = Q
+  [ok ] n=5 block I_2+J/3: T2 max_a sum_b |B o B| <= beta
+  [ok ] n=5 block I_2+J/3: T3 tr(B B^T) = Q, diag >= 0, diag <= 1
+  [ok ] n=5 block I_2+J/3: T3 tr((BB^T)^2) <= Q
+  [ok ] n=5 block I_2+J/3: T4 ||B^T om||_inf <= beta ||om||_inf
+  [ok ] n=5 block I_2+J/3: T4 (B o B)^T 1 is heavy and non-negative
+  [ok ] n=5 block I_2+J/3: T6 zero column sums
+  [ok ] n=5 block I_3+J/2: A in Omega_n (exact)
+  [ok ] n=5 block I_3+J/2: B doubly centred
+  [ok ] n=5 block I_3+J/2: T1b max|b_ij| <= beta
+  [ok ] n=5 block I_3+J/2: T1d row and column squares <= beta
+  [ok ] n=5 block I_3+J/2: T1c row +/- split <= beta
+  [ok ] n=5 block I_3+J/2: T1e ||B||_op <= 1 (exact PSD test)
+  [ok ] n=5 block I_3+J/2: T0 B B^T = A A^T - J/n, A A^T in Omega_n
+  [ok ] n=5 block I_3+J/2: T2 sum|B o B| = Q
+  [ok ] n=5 block I_3+J/2: T2 max_a sum_b |B o B| <= beta
+  [ok ] n=5 block I_3+J/2: T3 tr(B B^T) = Q, diag >= 0, diag <= 1
+  [ok ] n=5 block I_3+J/2: T3 tr((BB^T)^2) <= Q
+  [ok ] n=5 block I_3+J/2: T4 ||B^T om||_inf <= beta ||om||_inf
+  [ok ] n=5 block I_3+J/2: T4 (B o B)^T 1 is heavy and non-negative
+  [ok ] n=5 block I_3+J/2: T6 zero column sums
+  [ok ] n=6 perm I: A in Omega_n (exact)
+  [ok ] n=6 perm I: B doubly centred
+  [ok ] n=6 perm I: T1b max|b_ij| <= beta
+  [ok ] n=6 perm I: T1d row and column squares <= beta
+  [ok ] n=6 perm I: T1c row +/- split <= beta
+  [ok ] n=6 perm I: T1e ||B||_op <= 1 (exact PSD test)
+  [ok ] n=6 perm I: T0 B B^T = A A^T - J/n, A A^T in Omega_n
+  [ok ] n=6 perm I: T2 sum|B o B| = Q
+  [ok ] n=6 perm I: T2 max_a sum_b |B o B| <= beta
+  [ok ] n=6 perm I: T3 tr(B B^T) = Q, diag >= 0, diag <= 1
+  [ok ] n=6 perm I: T3 tr((BB^T)^2) <= Q
+  [ok ] n=6 perm I: T4 ||B^T om||_inf <= beta ||om||_inf
+  [ok ] n=6 perm I: T4 (B o B)^T 1 is heavy and non-negative
+  [ok ] n=6 perm I: T6 zero column sums
+  [ok ] n=6 perm shift: A in Omega_n (exact)
+  [ok ] n=6 perm shift: B doubly centred
+  [ok ] n=6 perm shift: T1b max|b_ij| <= beta
+  [ok ] n=6 perm shift: T1d row and column squares <= beta
+  [ok ] n=6 perm shift: T1c row +/- split <= beta
+  [ok ] n=6 perm shift: T1e ||B||_op <= 1 (exact PSD test)
+  [ok ] n=6 perm shift: T0 B B^T = A A^T - J/n, A A^T in Omega_n
+  [ok ] n=6 perm shift: T2 sum|B o B| = Q
+  [ok ] n=6 perm shift: T2 max_a sum_b |B o B| <= beta
+  [ok ] n=6 perm shift: T3 tr(B B^T) = Q, diag >= 0, diag <= 1
+  [ok ] n=6 perm shift: T3 tr((BB^T)^2) <= Q
+  [ok ] n=6 perm shift: T4 ||B^T om||_inf <= beta ||om||_inf
+  [ok ] n=6 perm shift: T4 (B o B)^T 1 is heavy and non-negative
+  [ok ] n=6 perm shift: T6 zero column sums
+  [ok ] n=6 circ (I+C)/2: A in Omega_n (exact)
+  [ok ] n=6 circ (I+C)/2: B doubly centred
+  [ok ] n=6 circ (I+C)/2: T1b max|b_ij| <= beta
+  [ok ] n=6 circ (I+C)/2: T1d row and column squares <= beta
+  [ok ] n=6 circ (I+C)/2: T1c row +/- split <= beta
+  [ok ] n=6 circ (I+C)/2: T1e ||B||_op <= 1 (exact PSD test)
+  [ok ] n=6 circ (I+C)/2: T0 B B^T = A A^T - J/n, A A^T in Omega_n
+  [ok ] n=6 circ (I+C)/2: T2 sum|B o B| = Q
+  [ok ] n=6 circ (I+C)/2: T2 max_a sum_b |B o B| <= beta
+  [ok ] n=6 circ (I+C)/2: T3 tr(B B^T) = Q, diag >= 0, diag <= 1
+  [ok ] n=6 circ (I+C)/2: T3 tr((BB^T)^2) <= Q
+  [ok ] n=6 circ (I+C)/2: T4 ||B^T om||_inf <= beta ||om||_inf
+  [ok ] n=6 circ (I+C)/2: T4 (B o B)^T 1 is heavy and non-negative
+  [ok ] n=6 circ (I+C)/2: T6 zero column sums
+  [ok ] n=6 circ (I+C^2)/2: A in Omega_n (exact)
+  [ok ] n=6 circ (I+C^2)/2: B doubly centred
+  [ok ] n=6 circ (I+C^2)/2: T1b max|b_ij| <= beta
+  [ok ] n=6 circ (I+C^2)/2: T1d row and column squares <= beta
+  [ok ] n=6 circ (I+C^2)/2: T1c row +/- split <= beta
+  [ok ] n=6 circ (I+C^2)/2: T1e ||B||_op <= 1 (exact PSD test)
+  [ok ] n=6 circ (I+C^2)/2: T0 B B^T = A A^T - J/n, A A^T in Omega_n
+  [ok ] n=6 circ (I+C^2)/2: T2 sum|B o B| = Q
+  [ok ] n=6 circ (I+C^2)/2: T2 max_a sum_b |B o B| <= beta
+  [ok ] n=6 circ (I+C^2)/2: T3 tr(B B^T) = Q, diag >= 0, diag <= 1
+  [ok ] n=6 circ (I+C^2)/2: T3 tr((BB^T)^2) <= Q
+  [ok ] n=6 circ (I+C^2)/2: T4 ||B^T om||_inf <= beta ||om||_inf
+  [ok ] n=6 circ (I+C^2)/2: T4 (B o B)^T 1 is heavy and non-negative
+  [ok ] n=6 circ (I+C^2)/2: T6 zero column sums
+  [ok ] n=6 anti-perm: A in Omega_n (exact)
+  [ok ] n=6 anti-perm: B doubly centred
+  [ok ] n=6 anti-perm: T1b max|b_ij| <= beta
+  [ok ] n=6 anti-perm: T1d row and column squares <= beta
+  [ok ] n=6 anti-perm: T1c row +/- split <= beta
+  [ok ] n=6 anti-perm: T1e ||B||_op <= 1 (exact PSD test)
+  [ok ] n=6 anti-perm: T0 B B^T = A A^T - J/n, A A^T in Omega_n
+  [ok ] n=6 anti-perm: T2 sum|B o B| = Q
+  [ok ] n=6 anti-perm: T2 max_a sum_b |B o B| <= beta
+  [ok ] n=6 anti-perm: T3 tr(B B^T) = Q, diag >= 0, diag <= 1
+  [ok ] n=6 anti-perm: T3 tr((BB^T)^2) <= Q
+  [ok ] n=6 anti-perm: T4 ||B^T om||_inf <= beta ||om||_inf
+  [ok ] n=6 anti-perm: T4 (B o B)^T 1 is heavy and non-negative
+  [ok ] n=6 anti-perm: T6 zero column sums
+  [ok ] n=6 mixed: A in Omega_n (exact)
+  [ok ] n=6 mixed: B doubly centred
+  [ok ] n=6 mixed: T1b max|b_ij| <= beta
+  [ok ] n=6 mixed: T1d row and column squares <= beta
+  [ok ] n=6 mixed: T1c row +/- split <= beta
+  [ok ] n=6 mixed: T1e ||B||_op <= 1 (exact PSD test)
+  [ok ] n=6 mixed: T0 B B^T = A A^T - J/n, A A^T in Omega_n
+  [ok ] n=6 mixed: T2 sum|B o B| = Q
+  [ok ] n=6 mixed: T2 max_a sum_b |B o B| <= beta
+  [ok ] n=6 mixed: T3 tr(B B^T) = Q, diag >= 0, diag <= 1
+  [ok ] n=6 mixed: T3 tr((BB^T)^2) <= Q
+  [ok ] n=6 mixed: T4 ||B^T om||_inf <= beta ||om||_inf
+  [ok ] n=6 mixed: T4 (B o B)^T 1 is heavy and non-negative
+  [ok ] n=6 mixed: T6 zero column sums
+  [ok ] n=6 saturated: A in Omega_n (exact)
+  [ok ] n=6 saturated: B doubly centred
+  [ok ] n=6 saturated: T1b max|b_ij| <= beta
+  [ok ] n=6 saturated: T1d row and column squares <= beta
+  [ok ] n=6 saturated: T1c row +/- split <= beta
+  [ok ] n=6 saturated: T1e ||B||_op <= 1 (exact PSD test)
+  [ok ] n=6 saturated: T0 B B^T = A A^T - J/n, A A^T in Omega_n
+  [ok ] n=6 saturated: T2 sum|B o B| = Q
+  [ok ] n=6 saturated: T2 max_a sum_b |B o B| <= beta
+  [ok ] n=6 saturated: T3 tr(B B^T) = Q, diag >= 0, diag <= 1
+  [ok ] n=6 saturated: T3 tr((BB^T)^2) <= Q
+  [ok ] n=6 saturated: T4 ||B^T om||_inf <= beta ||om||_inf
+  [ok ] n=6 saturated: T4 (B o B)^T 1 is heavy and non-negative
+  [ok ] n=6 saturated: T6 zero column sums
+  [ok ] n=6 block I_1+J/5: A in Omega_n (exact)
+  [ok ] n=6 block I_1+J/5: B doubly centred
+  [ok ] n=6 block I_1+J/5: T1b max|b_ij| <= beta
+  [ok ] n=6 block I_1+J/5: T1d row and column squares <= beta
+  [ok ] n=6 block I_1+J/5: T1c row +/- split <= beta
+  [ok ] n=6 block I_1+J/5: T1e ||B||_op <= 1 (exact PSD test)
+  [ok ] n=6 block I_1+J/5: T0 B B^T = A A^T - J/n, A A^T in Omega_n
+  [ok ] n=6 block I_1+J/5: T2 sum|B o B| = Q
+  [ok ] n=6 block I_1+J/5: T2 max_a sum_b |B o B| <= beta
+  [ok ] n=6 block I_1+J/5: T3 tr(B B^T) = Q, diag >= 0, diag <= 1
+  [ok ] n=6 block I_1+J/5: T3 tr((BB^T)^2) <= Q
+  [ok ] n=6 block I_1+J/5: T4 ||B^T om||_inf <= beta ||om||_inf
+  [ok ] n=6 block I_1+J/5: T4 (B o B)^T 1 is heavy and non-negative
+  [ok ] n=6 block I_1+J/5: T6 zero column sums
+  [ok ] n=6 block I_2+J/4: A in Omega_n (exact)
+  [ok ] n=6 block I_2+J/4: B doubly centred
+  [ok ] n=6 block I_2+J/4: T1b max|b_ij| <= beta
+  [ok ] n=6 block I_2+J/4: T1d row and column squares <= beta
+  [ok ] n=6 block I_2+J/4: T1c row +/- split <= beta
+  [ok ] n=6 block I_2+J/4: T1e ||B||_op <= 1 (exact PSD test)
+  [ok ] n=6 block I_2+J/4: T0 B B^T = A A^T - J/n, A A^T in Omega_n
+  [ok ] n=6 block I_2+J/4: T2 sum|B o B| = Q
+  [ok ] n=6 block I_2+J/4: T2 max_a sum_b |B o B| <= beta
+  [ok ] n=6 block I_2+J/4: T3 tr(B B^T) = Q, diag >= 0, diag <= 1
+  [ok ] n=6 block I_2+J/4: T3 tr((BB^T)^2) <= Q
+  [ok ] n=6 block I_2+J/4: T4 ||B^T om||_inf <= beta ||om||_inf
+  [ok ] n=6 block I_2+J/4: T4 (B o B)^T 1 is heavy and non-negative
+  [ok ] n=6 block I_2+J/4: T6 zero column sums
+  [ok ] n=6 block I_4+J/2: A in Omega_n (exact)
+  [ok ] n=6 block I_4+J/2: B doubly centred
+  [ok ] n=6 block I_4+J/2: T1b max|b_ij| <= beta
+  [ok ] n=6 block I_4+J/2: T1d row and column squares <= beta
+  [ok ] n=6 block I_4+J/2: T1c row +/- split <= beta
+  [ok ] n=6 block I_4+J/2: T1e ||B||_op <= 1 (exact PSD test)
+  [ok ] n=6 block I_4+J/2: T0 B B^T = A A^T - J/n, A A^T in Omega_n
+  [ok ] n=6 block I_4+J/2: T2 sum|B o B| = Q
+  [ok ] n=6 block I_4+J/2: T2 max_a sum_b |B o B| <= beta
+  [ok ] n=6 block I_4+J/2: T3 tr(B B^T) = Q, diag >= 0, diag <= 1
+  [ok ] n=6 block I_4+J/2: T3 tr((BB^T)^2) <= Q
+  [ok ] n=6 block I_4+J/2: T4 ||B^T om||_inf <= beta ||om||_inf
+  [ok ] n=6 block I_4+J/2: T4 (B o B)^T 1 is heavy and non-negative
+  [ok ] n=6 block I_4+J/2: T6 zero column sums
+
+V3  the certificate calculus
+  [ok ] e = 2: every connected pattern is certified (1 classes)   uncertified: []
+  [ok ] e = 3: every connected pattern is certified (1 classes)   uncertified: []
+  [ok ] e = 4: every connected pattern is certified (4 classes)   uncertified: []
+  [ok ] e = 5: every connected pattern is certified (5 classes)   uncertified: []
+  [ok ] e = 6: every connected pattern is certified (21 classes)   uncertified: []
+  [ok ] e = 7: every connected pattern is certified (37 classes)   uncertified: []
+  [ok ] e = 8: every connected pattern is certified (127 classes)   uncertified: []
+  [ok ] e <= 8: all 196 classes certified, so U5 holds with constant 1   196
+  [ok ] K4-core (e=8): the LOCAL moves alone do not reach it   closed by L-K4 (U5.md 
+  [ok ] K4-core (e=8): without the named lemma it is NOT certified
+  [ok ] K33 (e=9): the LOCAL moves alone do not reach it   closed by L-K33 (U5.md
+  [ok ] K33 (e=9): without the named lemma it is NOT certified
+  [ok ] beyond e=7: spider3 (e=9) (a tree of cycles) is certified
+  [ok ] beyond e=7: dumbbell (e=9) (a tree of cycles) is certified
+
+V4  U5 at the witnesses, exactly:  |S_G(B)| <= Q
+  [ok ] n=5 perm I: |S_G| <= Q for all patterns e <= 6   []
+  [ok ] n=5 perm shift: |S_G| <= Q for all patterns e <= 6   []
+  [ok ] n=5 circ (I+C)/2: |S_G| <= Q for all patterns e <= 6   []
+  [ok ] n=5 circ (I+C^2)/2: |S_G| <= Q for all patterns e <= 6   []
+  [ok ] n=5 anti-perm: |S_G| <= Q for all patterns e <= 6   []
+  [ok ] n=5 mixed: |S_G| <= Q for all patterns e <= 6   []
+  [ok ] n=5 saturated: |S_G| <= Q for all patterns e <= 6   []
+  [ok ] n=5 block I_1+J/4: |S_G| <= Q for all patterns e <= 6   []
+  [ok ] n=5 block I_2+J/3: |S_G| <= Q for all patterns e <= 6   []
+  [ok ] n=5 block I_3+J/2: |S_G| <= Q for all patterns e <= 6   []
+  [ok ] n=6 perm I: |S_G| <= Q for all patterns e <= 6   []
+  [ok ] n=6 perm shift: |S_G| <= Q for all patterns e <= 6   []
+  [ok ] n=6 circ (I+C)/2: |S_G| <= Q for all patterns e <= 6   []
+  [ok ] n=6 circ (I+C^2)/2: |S_G| <= Q for all patterns e <= 6   []
+  [ok ] n=6 anti-perm: |S_G| <= Q for all patterns e <= 6   []
+  [ok ] n=6 mixed: |S_G| <= Q for all patterns e <= 6   []
+  [ok ] n=6 saturated: |S_G| <= Q for all patterns e <= 6   []
+  [ok ] n=6 block I_1+J/5: |S_G| <= Q for all patterns e <= 6   []
+  [ok ] n=6 block I_2+J/4: |S_G| <= Q for all patterns e <= 6   []
+  [ok ] n=6 block I_4+J/2: |S_G| <= Q for all patterns e <= 6   []
+      worst ratio |S_G|/Q over the witness set: 1.00000000 at (5, 'perm I', 2, ((2,),))
+  [ok ] the worst observed ratio is exactly 1 (attained, by a cycle)   1
+  [ok ] permutation matrix, closed form: |S_G| <= Q = n-1 at every pattern e <= 7 and n in {5,8,20,60,200}   []
+  [ok ] the 4-cycle attains it: S = n-1 exactly at P - J/n
+
+V5  THE SEPARATION: U5 fails for doubly centred z with ||z||_op <= 1
+  [ok ] m=2,M=6: the explicit z is doubly centred
+  [ok ] m=2,M=6: closed-form Q matches ||z||_F^2   1769/450 vs 1769/450
+  [ok ] m=2,M=6: closed-form S matches S_SPIDER3(z)   -2132311043/450000000 vs -2132311043/450000000
+  [ok ] m=2,M=6: a11+a22 dominates the spectrum of z z^T (exact PSD)
+  [ok ] m=3,M=10: the explicit z is doubly centred
+  [ok ] m=3,M=10: closed-form Q matches ||z||_F^2   2787/500 vs 2787/500
+  [ok ] m=3,M=10: closed-form S matches S_SPIDER3(z)   -440238156543455419/82012500000000000 vs -440238156543455419/82012500000000000
+  [ok ] m=3,M=10: a11+a22 dominates the spectrum of z z^T (exact PSD)
+      the rate:  S / (Q ||z||_op^7)  along the family
+      m =     64:  Q =       76.187  S =        830.246  tau^2 <= 2.4378   S/(Q tau^7) = 0.4818
+      m =    256:  Q =      275.538  S =       5059.183  tau^2 <= 2.3293   S/(Q tau^7) = 0.9519
+      m =   1024:  Q =     1050.573  S =      35303.976  tau^2 <= 2.2776   S/(Q tau^7) = 1.8847
+      m =   4096:  Q =     4105.930  S =     263904.047  tau^2 <= 2.2523   S/(Q tau^7) = 3.7482
+      m =  16384:  Q =    16237.769  S =    2041208.125  tau^2 <= 2.2399   S/(Q tau^7) = 7.4746
+  [ok ] U5 with constant 1 FAILS for doubly centred z with ||z||_op <= 1, at >= 3 scales of the family   3 of 5
+  [ok ] the separating z is NOT A - J/n for any A in Omega_n (some entry of z is below -1/n)
+
+V6  recomposition on the slice: what e0 = 8 buys
+      e0 = 8: blocks of size <= 8 charged Q, above it Q^(e/2)
+      k    Ntilde(U5-proved)   Ntilde(EVENLAYER, conditional)   floor
+       6           35                  35                  34
+       7           43                  43                  42
+       8           52                  52                  51
+       9          324                  63                  62
+      10          627                  75                  73
+      11         1030                  88                  86
+      12         1544                 102                 101
+  [ok ] k = 6: Ntilde under the PROVED (S4) is 35   got 35
+  [ok ] k = 6 <= 8: the U5-proved threshold EQUALS EVENLAYER's conditional one   35 vs 35
+  [ok ] k = 7: Ntilde under the PROVED (S4) is 43   got 43
+  [ok ] k = 7 <= 8: the U5-proved threshold EQUALS EVENLAYER's conditional one   43 vs 43
+  [ok ] k = 8: Ntilde under the PROVED (S4) is 52   got 52
+  [ok ] k = 8 <= 8: the U5-proved threshold EQUALS EVENLAYER's conditional one   52 vs 52
+  [ok ] k = 9: Ntilde under the PROVED (S4) is 324   got 324
+  [ok ] k = 10: Ntilde under the PROVED (S4) is 627   got 627
+  [ok ] k = 11: Ntilde under the PROVED (S4) is 1030   got 1030
+  [ok ] k = 12: Ntilde under the PROVED (S4) is 1544   got 1544
+  [ok ] k = 6, 7, 8 are UNCONDITIONAL at 35, 43, 52   35, 43, 52
+
+V8  the eta re-pricing: U5 consumes (F1), so the collar degrades it
+      k    eps                kappa       kappa^8    Ntilde slice   Ntilde eta-priced
+       5   9.120782e-02   1.138652   2.8257         28             29
+       6   2.158915e-02   1.051636   1.4960         35             35
+       7   5.786748e-03   1.029734   1.2642         43             43
+       8   1.414274e-03   1.021050   1.1813         52             53
+       9   9.824325e-07   1.003097   1.0250        324            326
+      10   1.231586e-08   1.001597   1.0129        627            630
+      11   1.748233e-10   1.000972   1.0078       1030           1033
+      12   2.493396e-12   1.000648   1.0052       1544           1547
+  [ok ] k = 5: kappa > 1, so the eta re-pricing is a real cost
+  [ok ] k = 5: the eta-priced threshold is finite and >= the slice one   29 vs 28
+  [ok ] k = 6: kappa > 1, so the eta re-pricing is a real cost
+  [ok ] k = 6: the eta-priced threshold is finite and >= the slice one   35 vs 35
+  [ok ] k = 7: kappa > 1, so the eta re-pricing is a real cost
+  [ok ] k = 7: the eta-priced threshold is finite and >= the slice one   43 vs 43
+  [ok ] k = 8: kappa > 1, so the eta re-pricing is a real cost
+  [ok ] k = 8: the eta-priced threshold is finite and >= the slice one   53 vs 52
+  [ok ] k = 9: kappa > 1, so the eta re-pricing is a real cost
+  [ok ] k = 9: the eta-priced threshold is finite and >= the slice one   326 vs 324
+  [ok ] k = 10: kappa > 1, so the eta re-pricing is a real cost
+  [ok ] k = 10: the eta-priced threshold is finite and >= the slice one   630 vs 627
+  [ok ] k = 11: kappa > 1, so the eta re-pricing is a real cost
+  [ok ] k = 11: the eta-priced threshold is finite and >= the slice one   1033 vs 1030
+  [ok ] k = 12: kappa > 1, so the eta re-pricing is a real cost
+  [ok ] k = 12: the eta-priced threshold is finite and >= the slice one   1547 vs 1544
+  [ok ] k = 5: the eta-priced threshold is 29   got 29
+  [ok ] k = 6: the eta-priced threshold is 35   got 35
+  [ok ] k = 7: the eta-priced threshold is 43   got 43
+  [ok ] k = 8: the eta-priced threshold is 53   got 53
+  [ok ] k = 9: the eta-priced threshold is 326   got 326
+  [ok ] k = 10: the eta-priced threshold is 630   got 630
+  [ok ] k = 11: the eta-priced threshold is 1033   got 1033
+  [ok ] k = 12: the eta-priced threshold is 1547   got 1547
+      robustness: the largest constant per-edge inflation kappa* that leaves Ntilde unchanged
+      k = 6: kappa* = 1.0385   actual kappa = 1.051636
+  [ok ] k = 6: a uniform per-edge inflation up to kappa* > 1 leaves Ntilde(k) unchanged   kappa* = 1.038460798561573
+      k = 7: kappa* = 1.0258   actual kappa = 1.029734
+  [ok ] k = 7: a uniform per-edge inflation up to kappa* > 1 leaves Ntilde(k) unchanged   kappa* = 1.0257850252091885
+      k = 8: kappa* = 1.0682   actual kappa = 1.021050
+  [ok ] k = 8: a uniform per-edge inflation up to kappa* > 1 leaves Ntilde(k) unchanged   kappa* = 1.0681891683489084
+
+V9  the k = 5 threshold on the improved chain
+      collar floor      : 27
+      EVENLAYER 'abs'   : 28
+      U5-proved (slice) : 28
+      U5-proved + eta   : 29
+  [ok ] k = 5: every block size is <= 5 <= e0, so the chain is UNCONDITIONAL at k = 5
+  [ok ] k = 5: the U5-proved threshold equals EVENLAYER's tier-graded one   28 vs 28
+  [ok ] k = 5: the eta re-pricing costs exactly one unit   29 vs 28
+  [ok ] k = 5: the threshold is at or above the collar floor   29 vs 27
+      => Ntilde(5) = 29, unconditional
+
+V7  mutation controls
+
+  --- injecting [half_constant] U5 asserted with constant 1/2 instead of 1
+
+V4  U5 at the witnesses, exactly:  |S_G(B)| <= Q
+  [FAIL] n=5 perm I: |S_G| <= Q for all patterns e <= 6   [(2, ((2,),), Fraction(4, 1), Fraction(4, 1)), (3, ((3,),), Fraction(12, 5), Fraction(4, 1))]
+  [FAIL] n=5 perm shift: |S_G| <= Q for all patterns e <= 6   [(2, ((2,),), Fraction(4, 1), Fraction(4, 1)), (3, ((3,),), Fraction(12, 5), Fraction(4, 1))]
+  [FAIL] n=5 circ (I+C)/2: |S_G| <= Q for all patterns e <= 6   [(2, ((2,),), Fraction(3, 2), Fraction(3, 2)), (4, ((1, 1), (1, 1)), Fraction(7, 8), Fraction(3, 2))]
+  [FAIL] n=5 circ (I+C^2)/2: |S_G| <= Q for all patterns e <= 6   [(2, ((2,),), Fraction(3, 2), Fraction(3, 2)), (4, ((1, 1), (1, 1)), Fraction(7, 8), Fraction(3, 2))]
+  [FAIL] n=5 anti-perm: |S_G| <= Q for all patterns e <= 6   [(2, ((2,),), Fraction(1, 4), Fraction(1, 4))]
+  [FAIL] n=5 mixed: |S_G| <= Q for all patterns e <= 6   [(2, ((2,),), Fraction(11, 9), Fraction(11, 9))]
+  [FAIL] n=5 saturated: |S_G| <= Q for all patterns e <= 6   [(2, ((2,),), Fraction(4, 25), Fraction(4, 25))]
+  [FAIL] n=5 block I_1+J/4: |S_G| <= Q for all patterns e <= 6   [(2, ((2,),), Fraction(1, 1), Fraction(1, 1)), (4, ((2, 2),), Fraction(13, 20), Fraction(1, 1))]
+  [FAIL] n=5 block I_2+J/3: |S_G| <= Q for all patterns e <= 6   [(2, ((2,),), Fraction(2, 1), Fraction(2, 1)), (4, ((2, 2),), Fraction(4, 3), Fraction(2, 1))]
+  [FAIL] n=5 block I_3+J/2: |S_G| <= Q for all patterns e <= 6   [(2, ((2,),), Fraction(3, 1), Fraction(3, 1)), (4, ((2, 2),), Fraction(21, 10), Fraction(3, 1))]
+  [FAIL] n=6 perm I: |S_G| <= Q for all patterns e <= 6   [(2, ((2,),), Fraction(5, 1), Fraction(5, 1)), (3, ((3,),), Fraction(10, 3), Fraction(5, 1))]
+  [FAIL] n=6 perm shift: |S_G| <= Q for all patterns e <= 6   [(2, ((2,),), Fraction(5, 1), Fraction(5, 1)), (3, ((3,),), Fraction(10, 3), Fraction(5, 1))]
+  [FAIL] n=6 circ (I+C)/2: |S_G| <= Q for all patterns e <= 6   [(2, ((2,),), Fraction(2, 1), Fraction(2, 1)), (4, ((1, 1), (1, 1)), Fraction(5, 4), Fraction(2, 1))]
+  [FAIL] n=6 circ (I+C^2)/2: |S_G| <= Q for all patterns e <= 6   [(2, ((2,),), Fraction(2, 1), Fraction(2, 1)), (4, ((1, 1), (1, 1)), Fraction(5, 4), Fraction(2, 1))]
+  [FAIL] n=6 anti-perm: |S_G| <= Q for all patterns e <= 6   [(2, ((2,),), Fraction(1, 5), Fraction(1, 5))]
+  [FAIL] n=6 mixed: |S_G| <= Q for all patterns e <= 6   [(2, ((2,),), Fraction(4, 3), Fraction(4, 3))]
+  [FAIL] n=6 saturated: |S_G| <= Q for all patterns e <= 6   [(2, ((2,),), Fraction(1, 9), Fraction(1, 9))]
+  [FAIL] n=6 block I_1+J/5: |S_G| <= Q for all patterns e <= 6   [(2, ((2,),), Fraction(1, 1), Fraction(1, 1)), (3, ((3,),), Fraction(8, 15), Fraction(1, 1))]
+  [FAIL] n=6 block I_2+J/4: |S_G| <= Q for all patterns e <= 6   [(2, ((2,),), Fraction(2, 1), Fraction(2, 1)), (3, ((3,),), Fraction(13, 12), Fraction(2, 1))]
+  [FAIL] n=6 block I_4+J/2: |S_G| <= Q for all patterns e <= 6   [(2, ((2,),), Fraction(4, 1), Fraction(4, 1)), (3, ((3,),), Fraction(7, 3), Fraction(4, 1))]
+      worst ratio |S_G|/Q over the witness set: 1.00000000 at (5, 'perm I', 2, ((2,),))
+  [ok ] the worst observed ratio is exactly 1 (attained, by a cycle)   1
+  [ok ] permutation matrix, closed form: |S_G| <= Q = n-1 at every pattern e <= 7 and n in {5,8,20,60,200}   []
+  [ok ] the 4-cycle attains it: S = n-1 exactly at P - J/n
+
+  --- injecting [no_M1] the series move M1 (degree-2 contraction) removed
+
+V3  the certificate calculus
+  [ok ] e = 2: every connected pattern is certified (1 classes)   uncertified: []
+  [ok ] e = 3: every connected pattern is certified (1 classes)   uncertified: []
+  [FAIL] e = 4: every connected pattern is certified (4 classes)   uncertified: [((1, 1), (1, 1))]
+  [FAIL] e = 5: every connected pattern is certified (5 classes)   uncertified: [((1, 1), (1, 2))]
+  [FAIL] e = 6: every connected pattern is certified (21 classes)   uncertified: [((1, 1), (1, 3)), ((1, 1), (2, 2)), ((0, 1, 1), (2, 1, 1)), ((1, 2), (1, 2))]
+  [FAIL] e = 7: every connected pattern is certified (37 classes)   uncertified: [((1, 1), (1, 4)), ((1, 1), (2, 3)), ((0, 1, 1), (3, 1, 1)), ((0, 1, 1), (2, 1, 2))]
+  [FAIL] e = 8: every connected pattern is certified (127 classes)   uncertified: [((1, 1), (1, 5)), ((1, 1), (2, 4)), ((0, 1, 1), (4, 1, 1)), ((1, 1), (3, 3))]
+  [FAIL] e <= 8: all 94 classes certified, so U5 holds with constant 1   94
+  [ok ] K4-core (e=8): the LOCAL moves alone do not reach it   closed by L-K4 (U5.md 
+  [ok ] K4-core (e=8): without the named lemma it is NOT certified
+  [ok ] K33 (e=9): the LOCAL moves alone do not reach it   closed by L-K33 (U5.md
+  [ok ] K33 (e=9): without the named lemma it is NOT certified
+  [ok ] beyond e=7: spider3 (e=9) (a tree of cycles) is certified
+  [ok ] beyond e=7: dumbbell (e=9) (a tree of cycles) is certified
+
+  --- injecting [no_M4] the leaf move M4 (weight propagation) removed
+
+V3  the certificate calculus
+  [ok ] e = 2: every connected pattern is certified (1 classes)   uncertified: []
+  [ok ] e = 3: every connected pattern is certified (1 classes)   uncertified: []
+  [FAIL] e = 4: every connected pattern is certified (4 classes)   uncertified: [((2, 2),), ((2,), (2,))]
+  [FAIL] e = 5: every connected pattern is certified (5 classes)   uncertified: [((2, 3),), ((2,), (3,)), ((0, 2), (2, 1))]
+  [FAIL] e = 6: every connected pattern is certified (21 classes)   uncertified: [((2, 4),), ((3, 3),), ((2, 2, 2),), ((2,), (4,))]
+  [FAIL] e = 7: every connected pattern is certified (37 classes)   uncertified: [((2, 5),), ((3, 4),), ((2, 2, 3),), ((2,), (5,))]
+  [FAIL] e = 8: every connected pattern is certified (127 classes)   uncertified: [((2, 6),), ((3, 5),), ((4, 4),), ((2, 2, 4),)]
+  [FAIL] e <= 8: all 59 classes certified, so U5 holds with constant 1   59
+  [ok ] K4-core (e=8): the LOCAL moves alone do not reach it   closed by L-K4 (U5.md 
+  [ok ] K4-core (e=8): without the named lemma it is NOT certified
+  [ok ] K33 (e=9): the LOCAL moves alone do not reach it   closed by L-K33 (U5.md
+  [ok ] K33 (e=9): without the named lemma it is NOT certified
+  [ok ] beyond e=7: spider3 (e=9) (a tree of cycles) is certified
+  [ok ] beyond e=7: dumbbell (e=9) (a tree of cycles) is certified
+
+  --- injecting [no_M2] the parallel/Hadamard move M2 removed
+
+V3  the certificate calculus
+  [FAIL] e = 2: every connected pattern is certified (1 classes)   uncertified: [((2,),)]
+  [FAIL] e = 3: every connected pattern is certified (1 classes)   uncertified: [((3,),)]
+  [FAIL] e = 4: every connected pattern is certified (4 classes)   uncertified: [((4,),), ((2, 2),), ((2,), (2,)), ((1, 1), (1, 1))]
+  [FAIL] e = 5: every connected pattern is certified (5 classes)   uncertified: [((5,),), ((2, 3),), ((2,), (3,)), ((1, 1), (1, 2))]
+  [FAIL] e = 6: every connected pattern is certified (21 classes)   uncertified: [((6,),), ((2, 4),), ((3, 3),), ((2, 2, 2),)]
+  [FAIL] e = 7: every connected pattern is certified (37 classes)   uncertified: [((7,),), ((2, 5),), ((3, 4),), ((2, 2, 3),)]
+  [FAIL] e = 8: every connected pattern is certified (127 classes)   uncertified: [((8,),), ((2, 6),), ((3, 5),), ((4, 4),)]
+  [FAIL] e <= 8: all 1 classes certified, so U5 holds with constant 1   1
+  [ok ] K4-core (e=8): the LOCAL moves alone do not reach it   closed by L-K4 (U5.md 
+  [ok ] K4-core (e=8): without the named lemma it is NOT certified
+  [ok ] K33 (e=9): the LOCAL moves alone do not reach it   closed by L-K33 (U5.md
+  [ok ] K33 (e=9): without the named lemma it is NOT certified
+  [ok ] beyond e=7: spider3 (e=9) (a tree of cycles) is certified
+  [ok ] beyond e=7: dumbbell (e=9) (a tree of cycles) is certified
+
+  --- injecting [e0_12] e0 raised to 12 without proof (the tail bound ignored)
+
+V6  recomposition on the slice: what e0 = 8 buys
+      e0 = 12: blocks of size <= 12 charged Q, above it Q^(e/2)
+      k    Ntilde(U5-proved)   Ntilde(EVENLAYER, conditional)   floor
+       6           35                  35                  34
+       7           43                  43                  42
+       8           52                  52                  51
+       9           63                  63                  62
+      10           75                  75                  73
+      11           88                  88                  86
+      12          102                 102                 101
+  [ok ] k = 6: Ntilde under the PROVED (S4) is 35   got 35
+  [ok ] k = 6 <= 8: the U5-proved threshold EQUALS EVENLAYER's conditional one   35 vs 35
+  [ok ] k = 7: Ntilde under the PROVED (S4) is 43   got 43
+  [ok ] k = 7 <= 8: the U5-proved threshold EQUALS EVENLAYER's conditional one   43 vs 43
+  [ok ] k = 8: Ntilde under the PROVED (S4) is 52   got 52
+  [ok ] k = 8 <= 8: the U5-proved threshold EQUALS EVENLAYER's conditional one   52 vs 52
+  [FAIL] k = 9: Ntilde under the PROVED (S4) is 324   got 63
+  [FAIL] k = 10: Ntilde under the PROVED (S4) is 627   got 75
+  [FAIL] k = 11: Ntilde under the PROVED (S4) is 1030   got 88
+  [FAIL] k = 12: Ntilde under the PROVED (S4) is 1544   got 102
+
+  --- injecting [no_kappa] the collar eta re-pricing of the U5 toolkit dropped
+
+V8  the eta re-pricing: U5 consumes (F1), so the collar degrades it
+      k    eps                kappa       kappa^8    Ntilde slice   Ntilde eta-priced
+       5   -4.166667e-02   1.000000   1.0000         28             28
+       6   -2.857143e-02   1.000000   1.0000         35             35
+       7   -2.325581e-02   1.000000   1.0000         43             43
+       8   -1.923077e-02   1.000000   1.0000         52             52
+       9   -3.086420e-03   1.000000   1.0000        324            324
+      10   -1.594896e-03   1.000000   1.0000        627            627
+      11   -9.708738e-04   1.000000   1.0000       1030           1030
+      12   -6.476684e-04   1.000000   1.0000       1544           1544
+  [FAIL] k = 5: kappa > 1, so the eta re-pricing is a real cost
+  [ok ] k = 5: the eta-priced threshold is finite and >= the slice one   28 vs 28
+  [FAIL] k = 6: kappa > 1, so the eta re-pricing is a real cost
+  [ok ] k = 6: the eta-priced threshold is finite and >= the slice one   35 vs 35
+  [FAIL] k = 7: kappa > 1, so the eta re-pricing is a real cost
+  [ok ] k = 7: the eta-priced threshold is finite and >= the slice one   43 vs 43
+  [FAIL] k = 8: kappa > 1, so the eta re-pricing is a real cost
+  [ok ] k = 8: the eta-priced threshold is finite and >= the slice one   52 vs 52
+  [FAIL] k = 9: kappa > 1, so the eta re-pricing is a real cost
+  [ok ] k = 9: the eta-priced threshold is finite and >= the slice one   324 vs 324
+  [FAIL] k = 10: kappa > 1, so the eta re-pricing is a real cost
+  [ok ] k = 10: the eta-priced threshold is finite and >= the slice one   627 vs 627
+  [FAIL] k = 11: kappa > 1, so the eta re-pricing is a real cost
+  [ok ] k = 11: the eta-priced threshold is finite and >= the slice one   1030 vs 1030
+  [FAIL] k = 12: kappa > 1, so the eta re-pricing is a real cost
+  [ok ] k = 12: the eta-priced threshold is finite and >= the slice one   1544 vs 1544
+  [FAIL] k = 5: the eta-priced threshold is 29   got 28
+  [ok ] k = 6: the eta-priced threshold is 35   got 35
+  [ok ] k = 7: the eta-priced threshold is 43   got 43
+  [FAIL] k = 8: the eta-priced threshold is 53   got 52
+  [FAIL] k = 9: the eta-priced threshold is 326   got 324
+  [FAIL] k = 10: the eta-priced threshold is 630   got 627
+  [FAIL] k = 11: the eta-priced threshold is 1033   got 1030
+  [FAIL] k = 12: the eta-priced threshold is 1547   got 1544
+      robustness: the largest constant per-edge inflation kappa* that leaves Ntilde unchanged
+      k = 6: kappa* = 1.0385   actual kappa = 1.000000
+  [ok ] k = 6: a uniform per-edge inflation up to kappa* > 1 leaves Ntilde(k) unchanged   kappa* = 1.038460798561573
+      k = 7: kappa* = 1.0258   actual kappa = 1.000000
+  [ok ] k = 7: a uniform per-edge inflation up to kappa* > 1 leaves Ntilde(k) unchanged   kappa* = 1.0257850252091885
+      k = 8: kappa* = 1.0009   actual kappa = 1.000000
+  [ok ] k = 8: a uniform per-edge inflation up to kappa* > 1 leaves Ntilde(k) unchanged   kappa* = 1.0008996715769172
+
+V9  the k = 5 threshold on the improved chain
+      collar floor      : 27
+      EVENLAYER 'abs'   : 28
+      U5-proved (slice) : 28
+      U5-proved + eta   : 28
+  [ok ] k = 5: every block size is <= 5 <= e0, so the chain is UNCONDITIONAL at k = 5
+  [ok ] k = 5: the U5-proved threshold equals EVENLAYER's tier-graded one   28 vs 28
+  [FAIL] k = 5: the eta re-pricing costs exactly one unit   28 vs 28
+  [ok ] k = 5: the threshold is at or above the collar floor   28 vs 27
+      => Ntilde(5) = 28, unconditional
+
+  [ok ] control [half_constant] fires at >= 2 independent positions   20 positions -- U5 asserted with constant 1/2 instead of 1
+  [ok ] control [no_M1] fires at >= 2 independent positions   6 positions -- the series move M1 (degree-2 contraction) removed
+  [ok ] control [no_M4] fires at >= 2 independent positions   6 positions -- the leaf move M4 (weight propagation) removed
+  [ok ] control [no_M2] fires at >= 2 independent positions   8 positions -- the parallel/Hadamard move M2 removed
+  [ok ] control [e0_12] fires at >= 2 independent positions   4 positions -- e0 raised to 12 without proof (the tail bound ignored)
+  [ok ] control [no_kappa] fires at >= 2 independent positions   15 positions -- the collar eta re-pricing of the U5 toolkit dropped
+
+==========================================================================
+RESULT: 394 checks passed, 0 failed
+==========================================================================

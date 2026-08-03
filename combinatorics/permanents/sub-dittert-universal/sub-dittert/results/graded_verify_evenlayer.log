@@ -1,0 +1,2081 @@
+[guard] MemoryMax=6G  swap=off  CPUQuota=200%  threads=4
+==========================================================================
+graded_verify_evenlayer.py -- uniform even-layer absorption, EVENLAYER.md
+==========================================================================
+
+X1  the coefficient tables: Lam_e, M_{j,c}, and the mass identity
+  [ok ] Lam_2 (log-EGF) == brute-force connected Moebius mass   1
+  [ok ] Lam_3 (log-EGF) == brute-force connected Moebius mass   4
+  [ok ] Lam_4 (log-EGF) == brute-force connected Moebius mass   78
+  [ok ] Lam_5 (log-EGF) == brute-force connected Moebius mass   1896
+  [ok ] Lam_2..Lam_5 == 1, 4, 78, 1896  (ODDLAYER W3)
+  [ok ] Lam_6 = 68880, Lam_7 = 3386160   68880, 3386160
+  [ok ] M_{4,1} = Lam_4/4! = 13/4
+  [ok ] M_{5,1} = Lam_5/5! = 79/5
+  [ok ] M_{6,2} = (2/3)^2/2! = 2/9   (the (3,3) tier)
+  [ok ] M_{9,3} = (2/3)^3/3! = 4/81  (the (3,3,3) tier)
+  [ok ] degree cap: M_(j,c) = 0 for c > floor(j/3)   j=3   cmax=1, floor(j/3)=1
+  [ok ] degree cap: M_(j,c) = 0 for c > floor(j/3)   j=4   cmax=1, floor(j/3)=1
+  [ok ] degree cap: M_(j,c) = 0 for c > floor(j/3)   j=5   cmax=1, floor(j/3)=1
+  [ok ] degree cap: M_(j,c) = 0 for c > floor(j/3)   j=6   cmax=2, floor(j/3)=2
+  [ok ] degree cap: M_(j,c) = 0 for c > floor(j/3)   j=7   cmax=2, floor(j/3)=2
+  [ok ] degree cap: M_(j,c) = 0 for c > floor(j/3)   j=8   cmax=2, floor(j/3)=2
+  [ok ] degree cap: M_(j,c) = 0 for c > floor(j/3)   j=9   cmax=3, floor(j/3)=3
+  [ok ] degree cap: M_(j,c) = 0 for c > floor(j/3)   j=10   cmax=3, floor(j/3)=3
+  [ok ] degree cap: M_(j,c) = 0 for c > floor(j/3)   j=11   cmax=3, floor(j/3)=3
+  [ok ] degree cap: M_(j,c) = 0 for c > floor(j/3)   j=12   cmax=4, floor(j/3)=4
+  [ok ] degree cap: M_(j,c) = 0 for c > floor(j/3)   j=13   cmax=4, floor(j/3)=4
+  [ok ] degree cap: M_(j,c) = 0 for c > floor(j/3)   j=14   cmax=4, floor(j/3)=4
+  [ok ] degree cap: M_(j,c) = 0 for c > floor(j/3)   j=15   cmax=5, floor(j/3)=5
+  [ok ] degree cap: M_(j,c) = 0 for c > floor(j/3)   j=16   cmax=5, floor(j/3)=5
+  [ok ] degree cap: M_(j,c) = 0 for c > floor(j/3)   j=17   cmax=5, floor(j/3)=5
+  [ok ] degree cap: M_(j,c) = 0 for c > floor(j/3)   j=18   cmax=6, floor(j/3)=6
+  [ok ] mass identity  sum_p C(m,2p)(2p-1)!! j! M_j = D_m^2   m=2   1
+  [ok ] mass identity  sum_p C(m,2p)(2p-1)!! j! M_j = D_m^2   m=3   4
+  [ok ] mass identity  sum_p C(m,2p)(2p-1)!! j! M_j = D_m^2   m=4   81
+  [ok ] mass identity  sum_p C(m,2p)(2p-1)!! j! M_j = D_m^2   m=5   1936
+  [ok ] mass identity  sum_p C(m,2p)(2p-1)!! j! M_j = D_m^2   m=6   70225
+  [ok ] mass identity  sum_p C(m,2p)(2p-1)!! j! M_j = D_m^2   m=7   3437316
+  [ok ] mass identity  sum_p C(m,2p)(2p-1)!! j! M_j = D_m^2   m=8   220017889
+  [ok ] mass identity  sum_p C(m,2p)(2p-1)!! j! M_j = D_m^2   m=9   17821182016
+  [ok ] mass identity  sum_p C(m,2p)(2p-1)!! j! M_j = D_m^2   m=10   1782120871521
+  [ok ] mass identity  sum_p C(m,2p)(2p-1)!! j! M_j = D_m^2   m=11   215636596084900
+  [ok ] mass identity  sum_p C(m,2p)(2p-1)!! j! M_j = D_m^2   m=12   31051670188655281
+  [ok ] mass identity  sum_p C(m,2p)(2p-1)!! j! M_j = D_m^2   m=13   5247732257301156624
+  [ok ] mass identity  sum_p C(m,2p)(2p-1)!! j! M_j = D_m^2   m=14   1028555522495168900401
+  [ok ] pairing tier count: (m-1)!! Q^(m/2)/m! == (Q/2)^(m/2)/(m/2)!
+
+X2  the tier decomposition is an identity, and the pairing tier is >= 0
+  [ok ] sigma_2 = sum_p (Q/2)^p/p! r_(m-2p)   n=5 perm
+  [ok ] sigma_3 = sum_p (Q/2)^p/p! r_(m-2p)   n=5 perm
+  [ok ] sigma_4 = sum_p (Q/2)^p/p! r_(m-2p)   n=5 perm
+  [ok ] sigma_5 = sum_p (Q/2)^p/p! r_(m-2p)   n=5 perm
+  [ok ] K_2 = Q exactly   n=5 perm
+  [ok ] r_0,r_1,r_2 = 1,0,0   n=5 perm
+  [ok ] sigma_2 = sum_p (Q/2)^p/p! r_(m-2p)   n=5 (J-P)/(n-1)
+  [ok ] sigma_3 = sum_p (Q/2)^p/p! r_(m-2p)   n=5 (J-P)/(n-1)
+  [ok ] sigma_4 = sum_p (Q/2)^p/p! r_(m-2p)   n=5 (J-P)/(n-1)
+  [ok ] sigma_5 = sum_p (Q/2)^p/p! r_(m-2p)   n=5 (J-P)/(n-1)
+  [ok ] K_2 = Q exactly   n=5 (J-P)/(n-1)
+  [ok ] r_0,r_1,r_2 = 1,0,0   n=5 (J-P)/(n-1)
+  [ok ] sigma_2 = sum_p (Q/2)^p/p! r_(m-2p)   n=5 half P + half P^2
+  [ok ] sigma_3 = sum_p (Q/2)^p/p! r_(m-2p)   n=5 half P + half P^2
+  [ok ] sigma_4 = sum_p (Q/2)^p/p! r_(m-2p)   n=5 half P + half P^2
+  [ok ] sigma_5 = sum_p (Q/2)^p/p! r_(m-2p)   n=5 half P + half P^2
+  [ok ] K_2 = Q exactly   n=5 half P + half P^2
+  [ok ] r_0,r_1,r_2 = 1,0,0   n=5 half P + half P^2
+  [ok ] sigma_2 = sum_p (Q/2)^p/p! r_(m-2p)   n=5 3-mix
+  [ok ] sigma_3 = sum_p (Q/2)^p/p! r_(m-2p)   n=5 3-mix
+  [ok ] sigma_4 = sum_p (Q/2)^p/p! r_(m-2p)   n=5 3-mix
+  [ok ] sigma_5 = sum_p (Q/2)^p/p! r_(m-2p)   n=5 3-mix
+  [ok ] K_2 = Q exactly   n=5 3-mix
+  [ok ] r_0,r_1,r_2 = 1,0,0   n=5 3-mix
+  [ok ] sigma_2 = sum_p (Q/2)^p/p! r_(m-2p)   n=5 saturated A00=0
+  [ok ] sigma_3 = sum_p (Q/2)^p/p! r_(m-2p)   n=5 saturated A00=0
+  [ok ] sigma_4 = sum_p (Q/2)^p/p! r_(m-2p)   n=5 saturated A00=0
+  [ok ] sigma_5 = sum_p (Q/2)^p/p! r_(m-2p)   n=5 saturated A00=0
+  [ok ] K_2 = Q exactly   n=5 saturated A00=0
+  [ok ] r_0,r_1,r_2 = 1,0,0   n=5 saturated A00=0
+  [ok ] sigma_2 = sum_p (Q/2)^p/p! r_(m-2p)   n=5 uniform shifts
+  [ok ] sigma_3 = sum_p (Q/2)^p/p! r_(m-2p)   n=5 uniform shifts
+  [ok ] sigma_4 = sum_p (Q/2)^p/p! r_(m-2p)   n=5 uniform shifts
+  [ok ] sigma_5 = sum_p (Q/2)^p/p! r_(m-2p)   n=5 uniform shifts
+  [ok ] K_2 = Q exactly   n=5 uniform shifts
+  [ok ] r_0,r_1,r_2 = 1,0,0   n=5 uniform shifts
+  [ok ] sigma_2 = sum_p (Q/2)^p/p! r_(m-2p)   n=6 perm
+  [ok ] sigma_3 = sum_p (Q/2)^p/p! r_(m-2p)   n=6 perm
+  [ok ] sigma_4 = sum_p (Q/2)^p/p! r_(m-2p)   n=6 perm
+  [ok ] sigma_5 = sum_p (Q/2)^p/p! r_(m-2p)   n=6 perm
+  [ok ] sigma_6 = sum_p (Q/2)^p/p! r_(m-2p)   n=6 perm
+  [ok ] K_2 = Q exactly   n=6 perm
+  [ok ] r_0,r_1,r_2 = 1,0,0   n=6 perm
+  [ok ] sigma_2 = sum_p (Q/2)^p/p! r_(m-2p)   n=6 (J-P)/(n-1)
+  [ok ] sigma_3 = sum_p (Q/2)^p/p! r_(m-2p)   n=6 (J-P)/(n-1)
+  [ok ] sigma_4 = sum_p (Q/2)^p/p! r_(m-2p)   n=6 (J-P)/(n-1)
+  [ok ] sigma_5 = sum_p (Q/2)^p/p! r_(m-2p)   n=6 (J-P)/(n-1)
+  [ok ] sigma_6 = sum_p (Q/2)^p/p! r_(m-2p)   n=6 (J-P)/(n-1)
+  [ok ] K_2 = Q exactly   n=6 (J-P)/(n-1)
+  [ok ] r_0,r_1,r_2 = 1,0,0   n=6 (J-P)/(n-1)
+  [ok ] sigma_2 = sum_p (Q/2)^p/p! r_(m-2p)   n=6 half P + half P^2
+  [ok ] sigma_3 = sum_p (Q/2)^p/p! r_(m-2p)   n=6 half P + half P^2
+  [ok ] sigma_4 = sum_p (Q/2)^p/p! r_(m-2p)   n=6 half P + half P^2
+  [ok ] sigma_5 = sum_p (Q/2)^p/p! r_(m-2p)   n=6 half P + half P^2
+  [ok ] sigma_6 = sum_p (Q/2)^p/p! r_(m-2p)   n=6 half P + half P^2
+  [ok ] K_2 = Q exactly   n=6 half P + half P^2
+  [ok ] r_0,r_1,r_2 = 1,0,0   n=6 half P + half P^2
+  [ok ] sigma_2 = sum_p (Q/2)^p/p! r_(m-2p)   n=6 3-mix
+  [ok ] sigma_3 = sum_p (Q/2)^p/p! r_(m-2p)   n=6 3-mix
+  [ok ] sigma_4 = sum_p (Q/2)^p/p! r_(m-2p)   n=6 3-mix
+  [ok ] sigma_5 = sum_p (Q/2)^p/p! r_(m-2p)   n=6 3-mix
+  [ok ] sigma_6 = sum_p (Q/2)^p/p! r_(m-2p)   n=6 3-mix
+  [ok ] K_2 = Q exactly   n=6 3-mix
+  [ok ] r_0,r_1,r_2 = 1,0,0   n=6 3-mix
+  [ok ] sigma_2 = sum_p (Q/2)^p/p! r_(m-2p)   n=6 saturated A00=0
+  [ok ] sigma_3 = sum_p (Q/2)^p/p! r_(m-2p)   n=6 saturated A00=0
+  [ok ] sigma_4 = sum_p (Q/2)^p/p! r_(m-2p)   n=6 saturated A00=0
+  [ok ] sigma_5 = sum_p (Q/2)^p/p! r_(m-2p)   n=6 saturated A00=0
+  [ok ] sigma_6 = sum_p (Q/2)^p/p! r_(m-2p)   n=6 saturated A00=0
+  [ok ] K_2 = Q exactly   n=6 saturated A00=0
+  [ok ] r_0,r_1,r_2 = 1,0,0   n=6 saturated A00=0
+  [ok ] sigma_2 = sum_p (Q/2)^p/p! r_(m-2p)   n=6 uniform shifts
+  [ok ] sigma_3 = sum_p (Q/2)^p/p! r_(m-2p)   n=6 uniform shifts
+  [ok ] sigma_4 = sum_p (Q/2)^p/p! r_(m-2p)   n=6 uniform shifts
+  [ok ] sigma_5 = sum_p (Q/2)^p/p! r_(m-2p)   n=6 uniform shifts
+  [ok ] sigma_6 = sum_p (Q/2)^p/p! r_(m-2p)   n=6 uniform shifts
+  [ok ] K_2 = Q exactly   n=6 uniform shifts
+  [ok ] r_0,r_1,r_2 = 1,0,0   n=6 uniform shifts
+  [ok ] sigma_2 = sum_p (Q/2)^p/p! r_(m-2p)   n=7 perm
+  [ok ] sigma_3 = sum_p (Q/2)^p/p! r_(m-2p)   n=7 perm
+  [ok ] sigma_4 = sum_p (Q/2)^p/p! r_(m-2p)   n=7 perm
+  [ok ] sigma_5 = sum_p (Q/2)^p/p! r_(m-2p)   n=7 perm
+  [ok ] sigma_6 = sum_p (Q/2)^p/p! r_(m-2p)   n=7 perm
+  [ok ] sigma_7 = sum_p (Q/2)^p/p! r_(m-2p)   n=7 perm
+  [ok ] K_2 = Q exactly   n=7 perm
+  [ok ] r_0,r_1,r_2 = 1,0,0   n=7 perm
+  [ok ] sigma_2 = sum_p (Q/2)^p/p! r_(m-2p)   n=7 (J-P)/(n-1)
+  [ok ] sigma_3 = sum_p (Q/2)^p/p! r_(m-2p)   n=7 (J-P)/(n-1)
+  [ok ] sigma_4 = sum_p (Q/2)^p/p! r_(m-2p)   n=7 (J-P)/(n-1)
+  [ok ] sigma_5 = sum_p (Q/2)^p/p! r_(m-2p)   n=7 (J-P)/(n-1)
+  [ok ] sigma_6 = sum_p (Q/2)^p/p! r_(m-2p)   n=7 (J-P)/(n-1)
+  [ok ] sigma_7 = sum_p (Q/2)^p/p! r_(m-2p)   n=7 (J-P)/(n-1)
+  [ok ] K_2 = Q exactly   n=7 (J-P)/(n-1)
+  [ok ] r_0,r_1,r_2 = 1,0,0   n=7 (J-P)/(n-1)
+  [ok ] sigma_2 = sum_p (Q/2)^p/p! r_(m-2p)   n=7 half P + half P^2
+  [ok ] sigma_3 = sum_p (Q/2)^p/p! r_(m-2p)   n=7 half P + half P^2
+  [ok ] sigma_4 = sum_p (Q/2)^p/p! r_(m-2p)   n=7 half P + half P^2
+  [ok ] sigma_5 = sum_p (Q/2)^p/p! r_(m-2p)   n=7 half P + half P^2
+  [ok ] sigma_6 = sum_p (Q/2)^p/p! r_(m-2p)   n=7 half P + half P^2
+  [ok ] sigma_7 = sum_p (Q/2)^p/p! r_(m-2p)   n=7 half P + half P^2
+  [ok ] K_2 = Q exactly   n=7 half P + half P^2
+  [ok ] r_0,r_1,r_2 = 1,0,0   n=7 half P + half P^2
+  [ok ] sigma_2 = sum_p (Q/2)^p/p! r_(m-2p)   n=7 3-mix
+  [ok ] sigma_3 = sum_p (Q/2)^p/p! r_(m-2p)   n=7 3-mix
+  [ok ] sigma_4 = sum_p (Q/2)^p/p! r_(m-2p)   n=7 3-mix
+  [ok ] sigma_5 = sum_p (Q/2)^p/p! r_(m-2p)   n=7 3-mix
+  [ok ] sigma_6 = sum_p (Q/2)^p/p! r_(m-2p)   n=7 3-mix
+  [ok ] sigma_7 = sum_p (Q/2)^p/p! r_(m-2p)   n=7 3-mix
+  [ok ] K_2 = Q exactly   n=7 3-mix
+  [ok ] r_0,r_1,r_2 = 1,0,0   n=7 3-mix
+  [ok ] sigma_2 = sum_p (Q/2)^p/p! r_(m-2p)   n=7 saturated A00=0
+  [ok ] sigma_3 = sum_p (Q/2)^p/p! r_(m-2p)   n=7 saturated A00=0
+  [ok ] sigma_4 = sum_p (Q/2)^p/p! r_(m-2p)   n=7 saturated A00=0
+  [ok ] sigma_5 = sum_p (Q/2)^p/p! r_(m-2p)   n=7 saturated A00=0
+  [ok ] sigma_6 = sum_p (Q/2)^p/p! r_(m-2p)   n=7 saturated A00=0
+  [ok ] sigma_7 = sum_p (Q/2)^p/p! r_(m-2p)   n=7 saturated A00=0
+  [ok ] K_2 = Q exactly   n=7 saturated A00=0
+  [ok ] r_0,r_1,r_2 = 1,0,0   n=7 saturated A00=0
+  [ok ] sigma_2 = sum_p (Q/2)^p/p! r_(m-2p)   n=7 uniform shifts
+  [ok ] sigma_3 = sum_p (Q/2)^p/p! r_(m-2p)   n=7 uniform shifts
+  [ok ] sigma_4 = sum_p (Q/2)^p/p! r_(m-2p)   n=7 uniform shifts
+  [ok ] sigma_5 = sum_p (Q/2)^p/p! r_(m-2p)   n=7 uniform shifts
+  [ok ] sigma_6 = sum_p (Q/2)^p/p! r_(m-2p)   n=7 uniform shifts
+  [ok ] sigma_7 = sum_p (Q/2)^p/p! r_(m-2p)   n=7 uniform shifts
+  [ok ] K_2 = Q exactly   n=7 uniform shifts
+  [ok ] r_0,r_1,r_2 = 1,0,0   n=7 uniform shifts
+  [ok ] pairing tier (Q/2)^1/1! >= 0   m=2 n=5 perm
+  [ok ] pairing tier (Q/2)^2/2! >= 0   m=4 n=5 perm
+  [ok ] pairing tier (Q/2)^3/3! >= 0   m=6 n=5 perm
+  [ok ] pairing tier (Q/2)^1/1! >= 0   m=2 n=5 (J-P)/(n-1)
+  [ok ] pairing tier (Q/2)^2/2! >= 0   m=4 n=5 (J-P)/(n-1)
+  [ok ] pairing tier (Q/2)^3/3! >= 0   m=6 n=5 (J-P)/(n-1)
+  [ok ] pairing tier (Q/2)^1/1! >= 0   m=2 n=5 half P + half P^2
+  [ok ] pairing tier (Q/2)^2/2! >= 0   m=4 n=5 half P + half P^2
+  [ok ] pairing tier (Q/2)^3/3! >= 0   m=6 n=5 half P + half P^2
+  [ok ] pairing tier (Q/2)^1/1! >= 0   m=2 n=5 3-mix
+  [ok ] pairing tier (Q/2)^2/2! >= 0   m=4 n=5 3-mix
+  [ok ] pairing tier (Q/2)^3/3! >= 0   m=6 n=5 3-mix
+  [ok ] pairing tier (Q/2)^1/1! >= 0   m=2 n=5 saturated A00=0
+  [ok ] pairing tier (Q/2)^2/2! >= 0   m=4 n=5 saturated A00=0
+  [ok ] pairing tier (Q/2)^3/3! >= 0   m=6 n=5 saturated A00=0
+  [ok ] pairing tier (Q/2)^1/1! >= 0   m=2 n=5 uniform shifts
+  [ok ] pairing tier (Q/2)^2/2! >= 0   m=4 n=5 uniform shifts
+  [ok ] pairing tier (Q/2)^3/3! >= 0   m=6 n=5 uniform shifts
+  [ok ] pairing tier (Q/2)^1/1! >= 0   m=2 n=6 perm
+  [ok ] pairing tier (Q/2)^2/2! >= 0   m=4 n=6 perm
+  [ok ] pairing tier (Q/2)^3/3! >= 0   m=6 n=6 perm
+  [ok ] pairing tier (Q/2)^1/1! >= 0   m=2 n=6 (J-P)/(n-1)
+  [ok ] pairing tier (Q/2)^2/2! >= 0   m=4 n=6 (J-P)/(n-1)
+  [ok ] pairing tier (Q/2)^3/3! >= 0   m=6 n=6 (J-P)/(n-1)
+  [ok ] pairing tier (Q/2)^1/1! >= 0   m=2 n=6 half P + half P^2
+  [ok ] pairing tier (Q/2)^2/2! >= 0   m=4 n=6 half P + half P^2
+  [ok ] pairing tier (Q/2)^3/3! >= 0   m=6 n=6 half P + half P^2
+  [ok ] pairing tier (Q/2)^1/1! >= 0   m=2 n=6 3-mix
+  [ok ] pairing tier (Q/2)^2/2! >= 0   m=4 n=6 3-mix
+  [ok ] pairing tier (Q/2)^3/3! >= 0   m=6 n=6 3-mix
+  [ok ] pairing tier (Q/2)^1/1! >= 0   m=2 n=6 saturated A00=0
+  [ok ] pairing tier (Q/2)^2/2! >= 0   m=4 n=6 saturated A00=0
+  [ok ] pairing tier (Q/2)^3/3! >= 0   m=6 n=6 saturated A00=0
+  [ok ] pairing tier (Q/2)^1/1! >= 0   m=2 n=6 uniform shifts
+  [ok ] pairing tier (Q/2)^2/2! >= 0   m=4 n=6 uniform shifts
+  [ok ] pairing tier (Q/2)^3/3! >= 0   m=6 n=6 uniform shifts
+  [ok ] mu(pi) mu(rho) = +1 on every pairing pair   m=2 n=5
+  [ok ] sec 8.1 pairing tier >= 0   m=2 n=5 perm   4
+  [ok ] diagonal sub-tier = (m-1)!! Q^(m/2)   m=2 n=5 perm   4
+  [ok ] sec 8.1 tier >= diagonal sub-tier   m=2 n=5 perm
+  [ok ] mu(pi) mu(rho) = +1 on every pairing pair   m=4 n=5
+  [ok ] sec 8.1 pairing tier >= 0   m=4 n=5 perm   72
+  [ok ] diagonal sub-tier = (m-1)!! Q^(m/2)   m=4 n=5 perm   48
+  [ok ] sec 8.1 tier >= diagonal sub-tier   m=4 n=5 perm
+  [ok ] mu(pi) mu(rho) = +1 on every pairing pair   m=2 n=5
+  [ok ] sec 8.1 pairing tier >= 0   m=2 n=5 (J-P)/(n-1)   1/4
+  [ok ] diagonal sub-tier = (m-1)!! Q^(m/2)   m=2 n=5 (J-P)/(n-1)   1/4
+  [ok ] sec 8.1 tier >= diagonal sub-tier   m=2 n=5 (J-P)/(n-1)
+  [ok ] mu(pi) mu(rho) = +1 on every pairing pair   m=4 n=5
+  [ok ] sec 8.1 pairing tier >= 0   m=4 n=5 (J-P)/(n-1)   9/32
+  [ok ] diagonal sub-tier = (m-1)!! Q^(m/2)   m=4 n=5 (J-P)/(n-1)   3/16
+  [ok ] sec 8.1 tier >= diagonal sub-tier   m=4 n=5 (J-P)/(n-1)
+  [ok ] mu(pi) mu(rho) = +1 on every pairing pair   m=2 n=5
+  [ok ] sec 8.1 pairing tier >= 0   m=2 n=5 half P + half P^2   3/2
+  [ok ] diagonal sub-tier = (m-1)!! Q^(m/2)   m=2 n=5 half P + half P^2   3/2
+  [ok ] sec 8.1 tier >= diagonal sub-tier   m=2 n=5 half P + half P^2
+  [ok ] mu(pi) mu(rho) = +1 on every pairing pair   m=4 n=5
+  [ok ] sec 8.1 pairing tier >= 0   m=4 n=5 half P + half P^2   12
+  [ok ] diagonal sub-tier = (m-1)!! Q^(m/2)   m=4 n=5 half P + half P^2   27/4
+  [ok ] sec 8.1 tier >= diagonal sub-tier   m=4 n=5 half P + half P^2
+  [ok ] mu(pi) mu(rho) = +1 on every pairing pair   m=2 n=6
+  [ok ] sec 8.1 pairing tier >= 0   m=2 n=6 perm   5
+  [ok ] diagonal sub-tier = (m-1)!! Q^(m/2)   m=2 n=6 perm   5
+  [ok ] sec 8.1 tier >= diagonal sub-tier   m=2 n=6 perm
+  [ok ] mu(pi) mu(rho) = +1 on every pairing pair   m=4 n=6
+  [ok ] sec 8.1 pairing tier >= 0   m=4 n=6 perm   105
+  [ok ] diagonal sub-tier = (m-1)!! Q^(m/2)   m=4 n=6 perm   75
+  [ok ] sec 8.1 tier >= diagonal sub-tier   m=4 n=6 perm
+  [ok ] mu(pi) mu(rho) = +1 on every pairing pair   m=2 n=6
+  [ok ] sec 8.1 pairing tier >= 0   m=2 n=6 (J-P)/(n-1)   1/5
+  [ok ] diagonal sub-tier = (m-1)!! Q^(m/2)   m=2 n=6 (J-P)/(n-1)   1/5
+  [ok ] sec 8.1 tier >= diagonal sub-tier   m=2 n=6 (J-P)/(n-1)
+  [ok ] mu(pi) mu(rho) = +1 on every pairing pair   m=4 n=6
+  [ok ] sec 8.1 pairing tier >= 0   m=4 n=6 (J-P)/(n-1)   21/125
+  [ok ] diagonal sub-tier = (m-1)!! Q^(m/2)   m=4 n=6 (J-P)/(n-1)   3/25
+  [ok ] sec 8.1 tier >= diagonal sub-tier   m=4 n=6 (J-P)/(n-1)
+  [ok ] mu(pi) mu(rho) = +1 on every pairing pair   m=2 n=6
+  [ok ] sec 8.1 pairing tier >= 0   m=2 n=6 half P + half P^2   2
+  [ok ] diagonal sub-tier = (m-1)!! Q^(m/2)   m=2 n=6 half P + half P^2   2
+  [ok ] sec 8.1 tier >= diagonal sub-tier   m=2 n=6 half P + half P^2
+  [ok ] mu(pi) mu(rho) = +1 on every pairing pair   m=4 n=6
+  [ok ] sec 8.1 pairing tier >= 0   m=4 n=6 half P + half P^2   39/2
+  [ok ] diagonal sub-tier = (m-1)!! Q^(m/2)   m=4 n=6 half P + half P^2   12
+  [ok ] sec 8.1 tier >= diagonal sub-tier   m=4 n=6 half P + half P^2
+
+X3  the hypotheses at the test matrices, and the layer bound
+  [ok ] (S4) |K_3| <= Lam_3 Q   n=5 perm
+  [ok ] (S4) |K_4| <= Lam_4 Q   n=5 perm
+  [ok ] (S4) |K_5| <= Lam_5 Q   n=5 perm
+  [ok ] (S1) K_3 >= -4Q/n   n=5 perm
+  [ok ] sigma_3 >= L_3(Q)   n=5 perm   1.6 >= -0.533333
+  [ok ] sigma_4 >= L_4(Q)   n=5 perm   1.32 >= -11
+  [ok ] sigma_5 >= L_5(Q)   n=5 perm   0.4736 >= -64.2667
+  [ok ] (S4) |K_3| <= Lam_3 Q   n=5 (J-P)/(n-1)
+  [ok ] (S4) |K_4| <= Lam_4 Q   n=5 (J-P)/(n-1)
+  [ok ] (S4) |K_5| <= Lam_5 Q   n=5 (J-P)/(n-1)
+  [ok ] (S1) K_3 >= -4Q/n   n=5 (J-P)/(n-1)
+  [ok ] sigma_3 >= L_3(Q)   n=5 (J-P)/(n-1)   -0.025 >= -0.0333333
+  [ok ] sigma_4 >= L_4(Q)   n=5 (J-P)/(n-1)   0.00515625 >= -0.804688
+  [ok ] sigma_5 >= L_5(Q)   n=5 (J-P)/(n-1)   -0.0004625 >= -3.95417
+  [ok ] (S4) |K_3| <= Lam_3 Q   n=5 half P + half P^2
+  [ok ] (S4) |K_4| <= Lam_4 Q   n=5 half P + half P^2
+  [ok ] (S4) |K_5| <= Lam_5 Q   n=5 half P + half P^2
+  [ok ] (S1) K_3 >= -4Q/n   n=5 half P + half P^2
+  [ok ] sigma_3 >= L_3(Q)   n=5 half P + half P^2   0.1 >= -0.2
+  [ok ] sigma_4 >= L_4(Q)   n=5 half P + half P^2   -0.0175 >= -4.59375
+  [ok ] sigma_5 >= L_5(Q)   n=5 half P + half P^2   -0.0164 >= -23.85
+  [ok ] (S4) |K_3| <= Lam_3 Q   n=5 3-mix
+  [ok ] (S4) |K_4| <= Lam_4 Q   n=5 3-mix
+  [ok ] (S4) |K_5| <= Lam_5 Q   n=5 3-mix
+  [ok ] (S1) K_3 >= -4Q/n   n=5 3-mix
+  [ok ] sigma_3 >= L_3(Q)   n=5 3-mix   0.0444444 >= -0.125926
+  [ok ] sigma_4 >= L_4(Q)   n=5 3-mix   0.0108951 >= -2.95795
+  [ok ] sigma_5 >= L_5(Q)   n=5 3-mix   -0.00430123 >= -14.9817
+  [ok ] (S4) |K_3| <= Lam_3 Q   n=5 saturated A00=0
+  [ok ] (S4) |K_4| <= Lam_4 Q   n=5 saturated A00=0
+  [ok ] (S4) |K_5| <= Lam_5 Q   n=5 saturated A00=0
+  [ok ] (S1) K_3 >= -4Q/n   n=5 saturated A00=0
+  [ok ] sigma_3 >= L_3(Q)   n=5 saturated A00=0   -0.0046875 >= -0.00833333
+  [ok ] sigma_4 >= L_4(Q)   n=5 saturated A00=0   0.000131836 >= -0.202637
+  [ok ] sigma_5 >= L_5(Q)   n=5 saturated A00=0   -5.85937e-07 >= -0.98776
+  [ok ] (S4) |K_3| <= Lam_3 Q   n=6 perm
+  [ok ] (S4) |K_4| <= Lam_4 Q   n=6 perm
+  [ok ] (S4) |K_5| <= Lam_5 Q   n=6 perm
+  [ok ] (S4) |K_6| <= Lam_6 Q   n=6 perm
+  [ok ] (S1) K_3 >= -4Q/n   n=6 perm
+  [ok ] sigma_3 >= L_3(Q)   n=6 perm   2.22222 >= -0.555556
+  [ok ] sigma_4 >= L_4(Q)   n=6 perm   2.5 >= -13.125
+  [ok ] sigma_5 >= L_5(Q)   n=6 perm   1.55556 >= -80.3889
+  [ok ] sigma_6 >= L_6(Q)   n=6 perm   0.478395 >= -516.354
+  [ok ] (S4) |K_3| <= Lam_3 Q   n=6 (J-P)/(n-1)
+  [ok ] (S4) |K_4| <= Lam_4 Q   n=6 (J-P)/(n-1)
+  [ok ] (S4) |K_5| <= Lam_5 Q   n=6 (J-P)/(n-1)
+  [ok ] (S4) |K_6| <= Lam_6 Q   n=6 (J-P)/(n-1)
+  [ok ] (S1) K_3 >= -4Q/n   n=6 (J-P)/(n-1)
+  [ok ] sigma_3 >= L_3(Q)   n=6 (J-P)/(n-1)   -0.0177778 >= -0.0222222
+  [ok ] sigma_4 >= L_4(Q)   n=6 (J-P)/(n-1)   0.004 >= -0.645
+  [ok ] sigma_5 >= L_5(Q)   n=6 (J-P)/(n-1)   -0.000497778 >= -3.16222
+  [ok ] sigma_6 >= L_6(Q)   n=6 (J-P)/(n-1)   3.06173e-05 >= -19.1982
+  [ok ] (S4) |K_3| <= Lam_3 Q   n=6 half P + half P^2
+  [ok ] (S4) |K_4| <= Lam_4 Q   n=6 half P + half P^2
+  [ok ] (S4) |K_5| <= Lam_5 Q   n=6 half P + half P^2
+  [ok ] (S4) |K_6| <= Lam_6 Q   n=6 half P + half P^2
+  [ok ] (S1) K_3 >= -4Q/n   n=6 half P + half P^2
+  [ok ] sigma_3 >= L_3(Q)   n=6 half P + half P^2   0.222222 >= -0.222222
+  [ok ] sigma_4 >= L_4(Q)   n=6 half P + half P^2   0.0625 >= -6
+  [ok ] sigma_5 >= L_5(Q)   n=6 half P + half P^2   -0.0277778 >= -31.8222
+  [ok ] sigma_6 >= L_6(Q)   n=6 half P + half P^2   -0.00771605 >= -197.667
+  [ok ] (S4) |K_3| <= Lam_3 Q   n=6 3-mix
+  [ok ] (S4) |K_4| <= Lam_4 Q   n=6 3-mix
+  [ok ] (S4) |K_5| <= Lam_5 Q   n=6 3-mix
+  [ok ] (S4) |K_6| <= Lam_6 Q   n=6 3-mix
+  [ok ] (S1) K_3 >= -4Q/n   n=6 3-mix
+  [ok ] sigma_3 >= L_3(Q)   n=6 3-mix   0.111111 >= -0.148148
+  [ok ] sigma_4 >= L_4(Q)   n=6 3-mix   0.0625 >= -4.11111
+  [ok ] sigma_5 >= L_5(Q)   n=6 3-mix   0 >= -21.1654
+  [ok ] sigma_6 >= L_6(Q)   n=6 3-mix   -0.00304355 >= -130.395
+  [ok ] (S4) |K_3| <= Lam_3 Q   n=6 saturated A00=0
+  [ok ] (S4) |K_4| <= Lam_4 Q   n=6 saturated A00=0
+  [ok ] (S4) |K_5| <= Lam_5 Q   n=6 saturated A00=0
+  [ok ] (S4) |K_6| <= Lam_6 Q   n=6 saturated A00=0
+  [ok ] (S1) K_3 >= -4Q/n   n=6 saturated A00=0
+  [ok ] sigma_3 >= L_3(Q)   n=6 saturated A00=0   -0.00284444 >= -0.00444444
+  [ok ] sigma_4 >= L_4(Q)   n=6 saturated A00=0   9.6e-05 >= -0.1298
+  [ok ] sigma_5 >= L_5(Q)   n=6 saturated A00=0   -9.10222e-07 >= -0.632089
+  [ok ] sigma_6 >= L_6(Q)   n=6 saturated A00=0   1.58025e-09 >= -3.82927
+  [ok ] (S4) |K_3| <= Lam_3 Q   n=7 perm
+  [ok ] (S4) |K_4| <= Lam_4 Q   n=7 perm
+  [ok ] (S4) |K_5| <= Lam_5 Q   n=7 perm
+  [ok ] (S4) |K_6| <= Lam_6 Q   n=7 perm
+  [ok ] (S4) |K_7| <= Lam_7 Q   n=7 perm
+  [ok ] (S1) K_3 >= -4Q/n   n=7 perm
+  [ok ] sigma_3 >= L_3(Q)   n=7 perm   2.85714 >= -0.571429
+  [ok ] sigma_4 >= L_4(Q)   n=7 perm   3.97959 >= -15
+  [ok ] sigma_5 >= L_5(Q)   n=7 perm   3.28863 >= -96.5143
+  [ok ] sigma_6 >= L_6(Q)   n=7 perm   1.80966 >= -628
+  [ok ] sigma_7 >= L_7(Q)   n=7 perm   0.481534 >= -4396.11
+  [ok ] (S4) |K_3| <= Lam_3 Q   n=7 (J-P)/(n-1)
+  [ok ] (S4) |K_4| <= Lam_4 Q   n=7 (J-P)/(n-1)
+  [ok ] (S4) |K_5| <= Lam_5 Q   n=7 (J-P)/(n-1)
+  [ok ] (S4) |K_6| <= Lam_6 Q   n=7 (J-P)/(n-1)
+  [ok ] (S4) |K_7| <= Lam_7 Q   n=7 (J-P)/(n-1)
+  [ok ] (S1) K_3 >= -4Q/n   n=7 (J-P)/(n-1)
+  [ok ] sigma_3 >= L_3(Q)   n=7 (J-P)/(n-1)   -0.0132275 >= -0.015873
+  [ok ] sigma_4 >= L_4(Q)   n=7 (J-P)/(n-1)   0.00307067 >= -0.538194
+  [ok ] sigma_5 >= L_5(Q)   n=7 (J-P)/(n-1)   -0.00042292 >= -2.63466
+  [ok ] sigma_6 >= L_6(Q)   n=7 (J-P)/(n-1)   3.87874e-05 >= -15.9895
+  [ok ] sigma_7 >= L_7(Q)   n=7 (J-P)/(n-1)   -1.72016e-06 >= -112.256
+  [ok ] (S4) |K_3| <= Lam_3 Q   n=7 half P + half P^2
+  [ok ] (S4) |K_4| <= Lam_4 Q   n=7 half P + half P^2
+  [ok ] (S4) |K_5| <= Lam_5 Q   n=7 half P + half P^2
+  [ok ] (S4) |K_6| <= Lam_6 Q   n=7 half P + half P^2
+  [ok ] (S4) |K_7| <= Lam_7 Q   n=7 half P + half P^2
+  [ok ] (S1) K_3 >= -4Q/n   n=7 half P + half P^2
+  [ok ] sigma_3 >= L_3(Q)   n=7 half P + half P^2   0.357143 >= -0.238095
+  [ok ] sigma_4 >= L_4(Q)   n=7 half P + half P^2   0.211735 >= -7.34375
+  [ok ] sigma_5 >= L_5(Q)   n=7 half P + half P^2   -0.00728863 >= -39.7976
+  [ok ] sigma_6 >= L_6(Q)   n=7 half P + half P^2   -0.0201934 >= -248.997
+  [ok ] sigma_7 >= L_7(Q)   n=7 half P + half P^2   -0.00351124 >= -1742.75
+  [ok ] (S4) |K_3| <= Lam_3 Q   n=7 3-mix
+  [ok ] (S4) |K_4| <= Lam_4 Q   n=7 3-mix
+  [ok ] (S4) |K_5| <= Lam_5 Q   n=7 3-mix
+  [ok ] (S4) |K_6| <= Lam_6 Q   n=7 3-mix
+  [ok ] (S4) |K_7| <= Lam_7 Q   n=7 3-mix
+  [ok ] (S1) K_3 >= -4Q/n   n=7 3-mix
+  [ok ] sigma_3 >= L_3(Q)   n=7 3-mix   0.190476 >= -0.164021
+  [ok ] sigma_4 >= L_4(Q)   n=7 3-mix   0.149124 >= -5.22647
+  [ok ] sigma_5 >= L_5(Q)   n=7 3-mix   0.0261581 >= -27.3524
+  [ok ] sigma_6 >= L_6(Q)   n=7 3-mix   -0.00240688 >= -169.473
+  [ok ] sigma_7 >= L_7(Q)   n=7 3-mix   -0.00187953 >= -1187.01
+  [ok ] (S4) |K_3| <= Lam_3 Q   n=7 saturated A00=0
+  [ok ] (S4) |K_4| <= Lam_4 Q   n=7 saturated A00=0
+  [ok ] (S4) |K_5| <= Lam_5 Q   n=7 saturated A00=0
+  [ok ] (S4) |K_6| <= Lam_6 Q   n=7 saturated A00=0
+  [ok ] (S4) |K_7| <= Lam_7 Q   n=7 saturated A00=0
+  [ok ] (S1) K_3 >= -4Q/n   n=7 saturated A00=0
+  [ok ] sigma_3 >= L_3(Q)   n=7 saturated A00=0   -0.00183715 >= -0.0026455
+  [ok ] sigma_4 >= L_4(Q)   n=7 saturated A00=0   6.56127e-05 >= -0.0901813
+  [ok ] sigma_5 >= L_5(Q)   n=7 saturated A00=0   -8.33177e-07 >= -0.438926
+  [ok ] sigma_6 >= L_6(Q)   n=7 saturated A00=0   3.44402e-09 >= -2.65866
+  [ok ] sigma_7 >= L_7(Q)   n=7 saturated A00=0   -2.81144e-12 >= -18.6705
+  [ok ] (S4) |K_3| <= Lam_3 Q   n=8 perm
+  [ok ] (S4) |K_4| <= Lam_4 Q   n=8 perm
+  [ok ] (S4) |K_5| <= Lam_5 Q   n=8 perm
+  [ok ] (S4) |K_6| <= Lam_6 Q   n=8 perm
+  [ok ] (S4) |K_7| <= Lam_7 Q   n=8 perm
+  [ok ] (S4) |K_8| <= Lam_8 Q   n=8 perm
+  [ok ] (S1) K_3 >= -4Q/n   n=8 perm
+  [ok ] sigma_3 >= L_3(Q)   n=8 perm   3.5 >= -0.583333
+  [ok ] sigma_4 >= L_4(Q)   n=8 perm   5.74219 >= -16.625
+  [ok ] sigma_5 >= L_5(Q)   n=8 perm   5.6875 >= -112.642
+  [ok ] sigma_6 >= L_6(Q)   n=8 perm   4.27246 >= -742.146
+  [ok ] sigma_7 >= L_7(Q)   n=8 perm   2.05957 >= -5199.84
+  [ok ] sigma_8 >= L_8(Q)   n=8 perm   0.48391 >= -41000.2
+  [ok ] (S4) |K_3| <= Lam_3 Q   n=8 (J-P)/(n-1)
+  [ok ] (S4) |K_4| <= Lam_4 Q   n=8 (J-P)/(n-1)
+  [ok ] (S4) |K_5| <= Lam_5 Q   n=8 (J-P)/(n-1)
+  [ok ] (S4) |K_6| <= Lam_6 Q   n=8 (J-P)/(n-1)
+  [ok ] (S4) |K_7| <= Lam_7 Q   n=8 (J-P)/(n-1)
+  [ok ] (S4) |K_8| <= Lam_8 Q   n=8 (J-P)/(n-1)
+  [ok ] (S1) K_3 >= -4Q/n   n=8 (J-P)/(n-1)
+  [ok ] sigma_3 >= L_3(Q)   n=8 (J-P)/(n-1)   -0.0102041 >= -0.0119048
+  [ok ] sigma_4 >= L_4(Q)   n=8 (J-P)/(n-1)   0.00239158 >= -0.461735
+  [ok ] sigma_5 >= L_5(Q)   n=8 (J-P)/(n-1)   -0.000338401 >= -2.25799
+  [ok ] sigma_6 >= L_6(Q)   n=8 (J-P)/(n-1)   3.63153e-05 >= -13.6998
+  [ok ] sigma_7 >= L_7(Q)   n=8 (J-P)/(n-1)   -2.50087e-06 >= -96.1851
+  [ok ] sigma_8 >= L_8(Q)   n=8 (J-P)/(n-1)   8.39421e-08 >= -771.675
+  [ok ] (S4) |K_3| <= Lam_3 Q   n=8 half P + half P^2
+  [ok ] (S4) |K_4| <= Lam_4 Q   n=8 half P + half P^2
+  [ok ] (S4) |K_5| <= Lam_5 Q   n=8 half P + half P^2
+  [ok ] (S4) |K_6| <= Lam_6 Q   n=8 half P + half P^2
+  [ok ] (S4) |K_7| <= Lam_7 Q   n=8 half P + half P^2
+  [ok ] (S4) |K_8| <= Lam_8 Q   n=8 half P + half P^2
+  [ok ] (S1) K_3 >= -4Q/n   n=8 half P + half P^2
+  [ok ] sigma_3 >= L_3(Q)   n=8 half P + half P^2   0.5 >= -0.25
+  [ok ] sigma_4 >= L_4(Q)   n=8 half P + half P^2   0.429688 >= -8.625
+  [ok ] sigma_5 >= L_5(Q)   n=8 half P + half P^2   0.0625 >= -47.775
+  [ok ] sigma_6 >= L_6(Q)   n=8 half P + half P^2   -0.0205078 >= -301.062
+  [ok ] sigma_7 >= L_7(Q)   n=8 half P + half P^2   -0.0126953 >= -2106.45
+  [ok ] sigma_8 >= L_8(Q)   n=8 half P + half P^2   -0.00156403 >= -16761.5
+  [ok ] (S4) |K_3| <= Lam_3 Q   n=8 3-mix
+  [ok ] (S4) |K_4| <= Lam_4 Q   n=8 3-mix
+  [ok ] (S4) |K_5| <= Lam_5 Q   n=8 3-mix
+  [ok ] (S4) |K_6| <= Lam_6 Q   n=8 3-mix
+  [ok ] (S4) |K_7| <= Lam_7 Q   n=8 3-mix
+  [ok ] (S4) |K_8| <= Lam_8 Q   n=8 3-mix
+  [ok ] (S1) K_3 >= -4Q/n   n=8 3-mix
+  [ok ] sigma_3 >= L_3(Q)   n=8 3-mix   0.277778 >= -0.175926
+  [ok ] sigma_4 >= L_4(Q)   n=8 3-mix   0.273823 >= -6.30401
+  [ok ] sigma_5 >= L_5(Q)   n=8 3-mix   0.0779321 >= -33.5413
+  [ok ] sigma_6 >= L_6(Q)   n=8 3-mix   0.0119532 >= -209.009
+  [ok ] sigma_7 >= L_7(Q)   n=8 3-mix   -0.00274482 >= -1463.33
+  [ok ] sigma_8 >= L_8(Q)   n=8 3-mix   -0.00105413 >= -11671.9
+  [ok ] (S4) |K_3| <= Lam_3 Q   n=8 saturated A00=0
+  [ok ] (S4) |K_4| <= Lam_4 Q   n=8 saturated A00=0
+  [ok ] (S4) |K_5| <= Lam_5 Q   n=8 saturated A00=0
+  [ok ] (S4) |K_6| <= Lam_6 Q   n=8 saturated A00=0
+  [ok ] (S4) |K_7| <= Lam_7 Q   n=8 saturated A00=0
+  [ok ] (S4) |K_8| <= Lam_8 Q   n=8 saturated A00=0
+  [ok ] (S1) K_3 >= -4Q/n   n=8 saturated A00=0
+  [ok ] sigma_3 >= L_3(Q)   n=8 saturated A00=0   -0.00124948 >= -0.00170068
+  [ok ] sigma_4 >= L_4(Q)   n=8 saturated A00=0   4.48235e-05 >= -0.0662745
+  [ok ] sigma_5 >= L_5(Q)   n=8 saturated A00=0   -6.50499e-07 >= -0.322466
+  [ok ] sigma_6 >= L_6(Q)   n=8 saturated A00=0   3.88931e-09 >= -1.95306
+  [ok ] sigma_7 >= L_7(Q)   n=8 saturated A00=0   -8.16414e-12 >= -13.7156
+  [ok ] sigma_8 >= L_8(Q)   n=8 saturated A00=0   3.54346e-15 >= -110.08
+
+X4  ABSORPTION: the exact threshold Q*_m
+       m      Q*_m   Q*/m^2   13(m/2)(m/2-1)
+       4        26    1.625         26
+       6       118    3.278         78
+       8       274    4.281        156
+      10       493    4.930        260
+      12       776    5.389        390
+      14      1125    5.740        546
+      16      1541    6.020        728
+      18      2029    6.262        936
+      20      2591    6.478       1170
+      22      3231    6.676       1430
+      24      3954    6.865       1716
+  [ok ] Q*_4 = 26 = 13*(2)(1) exactly (the (4,1) tier is the only one)
+  [ok ] Q*_m >= 13(m/2)(m/2-1)   m=6
+  [ok ] Q*_m strictly increasing   m=6
+  [ok ] Q*_m >= 13(m/2)(m/2-1)   m=8
+  [ok ] Q*_m strictly increasing   m=8
+  [ok ] Q*_m >= 13(m/2)(m/2-1)   m=10
+  [ok ] Q*_m strictly increasing   m=10
+  [ok ] Q*_m >= 13(m/2)(m/2-1)   m=12
+  [ok ] Q*_m strictly increasing   m=12
+  [ok ] Q*_m >= 13(m/2)(m/2-1)   m=14
+  [ok ] Q*_m strictly increasing   m=14
+  [ok ] Q*_m >= 13(m/2)(m/2-1)   m=16
+  [ok ] Q*_m strictly increasing   m=16
+  [ok ] Q*_m >= 13(m/2)(m/2-1)   m=18
+  [ok ] Q*_m strictly increasing   m=18
+  [ok ] Q*_m >= 13(m/2)(m/2-1)   m=20
+  [ok ] Q*_m strictly increasing   m=20
+  [ok ] Q*_m >= 13(m/2)(m/2-1)   m=22
+  [ok ] Q*_m strictly increasing   m=22
+  [ok ] Q*_m >= 13(m/2)(m/2-1)   m=24
+  [ok ] Q*_m strictly increasing   m=24
+  [ok ] L_4(Q*_m) >= 0   m=4
+  [ok ] L_4(Q*_m - 1) < 0  (the threshold is exact)   m=4
+  [ok ] L_4(Q) >= 0 for Q = 2 Q*_m   m=4
+  [ok ] L_4(Q) >= 0 for Q = 4 Q*_m   m=4
+  [ok ] L_4(Q) >= 0 for Q = 10 Q*_m   m=4
+  [ok ] L_6(Q*_m) >= 0   m=6
+  [ok ] L_6(Q*_m - 1) < 0  (the threshold is exact)   m=6
+  [ok ] L_6(Q) >= 0 for Q = 2 Q*_m   m=6
+  [ok ] L_6(Q) >= 0 for Q = 4 Q*_m   m=6
+  [ok ] L_6(Q) >= 0 for Q = 10 Q*_m   m=6
+  [ok ] L_8(Q*_m) >= 0   m=8
+  [ok ] L_8(Q*_m - 1) < 0  (the threshold is exact)   m=8
+  [ok ] L_8(Q) >= 0 for Q = 2 Q*_m   m=8
+  [ok ] L_8(Q) >= 0 for Q = 4 Q*_m   m=8
+  [ok ] L_8(Q) >= 0 for Q = 10 Q*_m   m=8
+  [ok ] L_10(Q*_m) >= 0   m=10
+  [ok ] L_10(Q*_m - 1) < 0  (the threshold is exact)   m=10
+  [ok ] L_10(Q) >= 0 for Q = 2 Q*_m   m=10
+  [ok ] L_10(Q) >= 0 for Q = 4 Q*_m   m=10
+  [ok ] L_10(Q) >= 0 for Q = 10 Q*_m   m=10
+  [ok ] L_12(Q*_m) >= 0   m=12
+  [ok ] L_12(Q*_m - 1) < 0  (the threshold is exact)   m=12
+  [ok ] L_12(Q) >= 0 for Q = 2 Q*_m   m=12
+  [ok ] L_12(Q) >= 0 for Q = 4 Q*_m   m=12
+  [ok ] L_12(Q) >= 0 for Q = 10 Q*_m   m=12
+  [ok ] L_14(Q*_m) >= 0   m=14
+  [ok ] L_14(Q*_m - 1) < 0  (the threshold is exact)   m=14
+  [ok ] L_14(Q) >= 0 for Q = 2 Q*_m   m=14
+  [ok ] L_14(Q) >= 0 for Q = 4 Q*_m   m=14
+  [ok ] L_14(Q) >= 0 for Q = 10 Q*_m   m=14
+  [ok ] L_16(Q*_m) >= 0   m=16
+  [ok ] L_16(Q*_m - 1) < 0  (the threshold is exact)   m=16
+  [ok ] L_16(Q) >= 0 for Q = 2 Q*_m   m=16
+  [ok ] L_16(Q) >= 0 for Q = 4 Q*_m   m=16
+  [ok ] L_16(Q) >= 0 for Q = 10 Q*_m   m=16
+  [ok ] L_18(Q*_m) >= 0   m=18
+  [ok ] L_18(Q*_m - 1) < 0  (the threshold is exact)   m=18
+  [ok ] L_18(Q) >= 0 for Q = 2 Q*_m   m=18
+  [ok ] L_18(Q) >= 0 for Q = 4 Q*_m   m=18
+  [ok ] L_18(Q) >= 0 for Q = 10 Q*_m   m=18
+  [ok ] L_20(Q*_m) >= 0   m=20
+  [ok ] L_20(Q*_m - 1) < 0  (the threshold is exact)   m=20
+  [ok ] L_20(Q) >= 0 for Q = 2 Q*_m   m=20
+  [ok ] L_20(Q) >= 0 for Q = 4 Q*_m   m=20
+  [ok ] L_20(Q) >= 0 for Q = 10 Q*_m   m=20
+  [ok ] the negative tiers have degree <= m/2 - 1 (monotone absorption)
+
+X5  the constant C^abs: validity, the eta identity, C^abs <= C^hyb
+  [ok ] sigma_3 >= -C^abs Q   n=5 perm
+  [ok ] sigma_4 >= -C^abs Q   n=5 perm
+  [ok ] sigma_5 >= -C^abs Q   n=5 perm
+  [ok ] sigma_3 >= -C^abs Q   n=5 (J-P)/(n-1)
+  [ok ] sigma_4 >= -C^abs Q   n=5 (J-P)/(n-1)
+  [ok ] sigma_5 >= -C^abs Q   n=5 (J-P)/(n-1)
+  [ok ] sigma_3 >= -C^abs Q   n=5 half P + half P^2
+  [ok ] sigma_4 >= -C^abs Q   n=5 half P + half P^2
+  [ok ] sigma_5 >= -C^abs Q   n=5 half P + half P^2
+  [ok ] sigma_3 >= -C^abs Q   n=5 3-mix
+  [ok ] sigma_4 >= -C^abs Q   n=5 3-mix
+  [ok ] sigma_5 >= -C^abs Q   n=5 3-mix
+  [ok ] sigma_3 >= -C^abs Q   n=5 saturated A00=0
+  [ok ] sigma_4 >= -C^abs Q   n=5 saturated A00=0
+  [ok ] sigma_5 >= -C^abs Q   n=5 saturated A00=0
+  [ok ] sigma_3 >= -C^abs Q   n=6 perm
+  [ok ] sigma_4 >= -C^abs Q   n=6 perm
+  [ok ] sigma_5 >= -C^abs Q   n=6 perm
+  [ok ] sigma_6 >= -C^abs Q   n=6 perm
+  [ok ] sigma_3 >= -C^abs Q   n=6 (J-P)/(n-1)
+  [ok ] sigma_4 >= -C^abs Q   n=6 (J-P)/(n-1)
+  [ok ] sigma_5 >= -C^abs Q   n=6 (J-P)/(n-1)
+  [ok ] sigma_6 >= -C^abs Q   n=6 (J-P)/(n-1)
+  [ok ] sigma_3 >= -C^abs Q   n=6 half P + half P^2
+  [ok ] sigma_4 >= -C^abs Q   n=6 half P + half P^2
+  [ok ] sigma_5 >= -C^abs Q   n=6 half P + half P^2
+  [ok ] sigma_6 >= -C^abs Q   n=6 half P + half P^2
+  [ok ] sigma_3 >= -C^abs Q   n=6 3-mix
+  [ok ] sigma_4 >= -C^abs Q   n=6 3-mix
+  [ok ] sigma_5 >= -C^abs Q   n=6 3-mix
+  [ok ] sigma_6 >= -C^abs Q   n=6 3-mix
+  [ok ] sigma_3 >= -C^abs Q   n=6 saturated A00=0
+  [ok ] sigma_4 >= -C^abs Q   n=6 saturated A00=0
+  [ok ] sigma_5 >= -C^abs Q   n=6 saturated A00=0
+  [ok ] sigma_6 >= -C^abs Q   n=6 saturated A00=0
+  [ok ] sigma_3 >= -C^abs Q   n=7 perm
+  [ok ] sigma_4 >= -C^abs Q   n=7 perm
+  [ok ] sigma_5 >= -C^abs Q   n=7 perm
+  [ok ] sigma_6 >= -C^abs Q   n=7 perm
+  [ok ] sigma_7 >= -C^abs Q   n=7 perm
+  [ok ] sigma_3 >= -C^abs Q   n=7 (J-P)/(n-1)
+  [ok ] sigma_4 >= -C^abs Q   n=7 (J-P)/(n-1)
+  [ok ] sigma_5 >= -C^abs Q   n=7 (J-P)/(n-1)
+  [ok ] sigma_6 >= -C^abs Q   n=7 (J-P)/(n-1)
+  [ok ] sigma_7 >= -C^abs Q   n=7 (J-P)/(n-1)
+  [ok ] sigma_3 >= -C^abs Q   n=7 half P + half P^2
+  [ok ] sigma_4 >= -C^abs Q   n=7 half P + half P^2
+  [ok ] sigma_5 >= -C^abs Q   n=7 half P + half P^2
+  [ok ] sigma_6 >= -C^abs Q   n=7 half P + half P^2
+  [ok ] sigma_7 >= -C^abs Q   n=7 half P + half P^2
+  [ok ] sigma_3 >= -C^abs Q   n=7 3-mix
+  [ok ] sigma_4 >= -C^abs Q   n=7 3-mix
+  [ok ] sigma_5 >= -C^abs Q   n=7 3-mix
+  [ok ] sigma_6 >= -C^abs Q   n=7 3-mix
+  [ok ] sigma_7 >= -C^abs Q   n=7 3-mix
+  [ok ] sigma_3 >= -C^abs Q   n=7 saturated A00=0
+  [ok ] sigma_4 >= -C^abs Q   n=7 saturated A00=0
+  [ok ] sigma_5 >= -C^abs Q   n=7 saturated A00=0
+  [ok ] sigma_6 >= -C^abs Q   n=7 saturated A00=0
+  [ok ] sigma_7 >= -C^abs Q   n=7 saturated A00=0
+  [ok ] sigma_3 >= -C^abs Q   n=8 perm
+  [ok ] sigma_4 >= -C^abs Q   n=8 perm
+  [ok ] sigma_5 >= -C^abs Q   n=8 perm
+  [ok ] sigma_6 >= -C^abs Q   n=8 perm
+  [ok ] sigma_7 >= -C^abs Q   n=8 perm
+  [ok ] sigma_8 >= -C^abs Q   n=8 perm
+  [ok ] sigma_3 >= -C^abs Q   n=8 (J-P)/(n-1)
+  [ok ] sigma_4 >= -C^abs Q   n=8 (J-P)/(n-1)
+  [ok ] sigma_5 >= -C^abs Q   n=8 (J-P)/(n-1)
+  [ok ] sigma_6 >= -C^abs Q   n=8 (J-P)/(n-1)
+  [ok ] sigma_7 >= -C^abs Q   n=8 (J-P)/(n-1)
+  [ok ] sigma_8 >= -C^abs Q   n=8 (J-P)/(n-1)
+  [ok ] sigma_3 >= -C^abs Q   n=8 half P + half P^2
+  [ok ] sigma_4 >= -C^abs Q   n=8 half P + half P^2
+  [ok ] sigma_5 >= -C^abs Q   n=8 half P + half P^2
+  [ok ] sigma_6 >= -C^abs Q   n=8 half P + half P^2
+  [ok ] sigma_7 >= -C^abs Q   n=8 half P + half P^2
+  [ok ] sigma_8 >= -C^abs Q   n=8 half P + half P^2
+  [ok ] sigma_3 >= -C^abs Q   n=8 3-mix
+  [ok ] sigma_4 >= -C^abs Q   n=8 3-mix
+  [ok ] sigma_5 >= -C^abs Q   n=8 3-mix
+  [ok ] sigma_6 >= -C^abs Q   n=8 3-mix
+  [ok ] sigma_7 >= -C^abs Q   n=8 3-mix
+  [ok ] sigma_8 >= -C^abs Q   n=8 3-mix
+  [ok ] sigma_3 >= -C^abs Q   n=8 saturated A00=0
+  [ok ] sigma_4 >= -C^abs Q   n=8 saturated A00=0
+  [ok ] sigma_5 >= -C^abs Q   n=8 saturated A00=0
+  [ok ] sigma_6 >= -C^abs Q   n=8 saturated A00=0
+  [ok ] sigma_7 >= -C^abs Q   n=8 saturated A00=0
+  [ok ] sigma_8 >= -C^abs Q   n=8 saturated A00=0
+  [ok ] C_3^abs on the slice = 2/(3n) (the paper's constant, reproduced)
+  [ok ] C_4^abs = 78/24 (pairing tier kept, nothing else at m = 4)
+  [ok ] C_5^abs == C_5^hyb (grading has nothing to do below m = 6)
+     C_m at (n,k) = (300, 8):
+       m=3  L0=      11.53  L1=     0.6667  hyb=   0.002222  abs=   0.002222  L2=     0.6667
+       m=4  L0=       1009  L1=      3.375  hyb=       3.25  abs=       3.25  L2=      3.375
+       m=5  L0=  8.341e+04  L1=       4824  hyb=      16.13  abs=      16.13  L2=      16.13
+       m=6  L0=   8.72e+06  L1=  2.916e+04  hyb=  2.916e+04  abs=      287.4  L2=      97.53
+       m=7  L0=  1.054e+09  L1=  6.097e+07  hyb=  2.039e+05  abs=       3707  L2=        682
+       m=8  L0=  1.459e+11  L1=  4.878e+08  hyb=  4.878e+08  abs=  5.333e+04  L2=       5457
+  [ok ] C_3^abs <= C_3^hyb   n=300 k=8   0.00222225 <= 0.00222225
+  [ok ] C_4^abs <= C_4^hyb   n=300 k=8   3.25 <= 3.25
+  [ok ] C_5^abs <= C_5^hyb   n=300 k=8   16.1322 <= 16.1322
+  [ok ] C_6^abs <= C_6^hyb   n=300 k=8   287.417 <= 29156.7
+  [ok ] C_7^abs <= C_7^hyb   n=300 k=8   3706.62 <= 203920
+  [ok ] C_8^abs <= C_8^hyb   n=300 k=8   53331.8 <= 4.87843e+08
+  [ok ] C_6^abs STRICTLY beats C_6^hyb   n=300 k=8
+  [ok ] C_7^abs STRICTLY beats C_7^hyb   n=300 k=8
+  [ok ] C_8^abs STRICTLY beats C_8^hyb   n=300 k=8
+  [ok ] C_3^abs <= C_3^hyb   n=40 k=8   0.0167397 <= 0.0167397
+  [ok ] C_4^abs <= C_4^hyb   n=40 k=8   3.25 <= 3.25
+  [ok ] C_5^abs <= C_5^hyb   n=40 k=8   16.1264 <= 16.1264
+  [ok ] C_6^abs <= C_6^hyb   n=40 k=8   159.042 <= 3803.04
+  [ok ] C_7^abs <= C_7^hyb   n=40 k=8   1067.64 <= 26598.2
+  [ok ] C_8^abs <= C_8^hyb   n=40 k=8   8492.8 <= 8.29978e+06
+  [ok ] C_6^abs STRICTLY beats C_6^hyb   n=40 k=8
+  [ok ] C_7^abs STRICTLY beats C_7^hyb   n=40 k=8
+  [ok ] C_8^abs STRICTLY beats C_8^hyb   n=40 k=8
+  [ok ] C_3^abs <= C_3^hyb   n=120 k=12   0.00555556 <= 0.00555556
+  [ok ] C_4^abs <= C_4^hyb   n=120 k=12   3.25 <= 3.25
+  [ok ] C_5^abs <= C_5^hyb   n=120 k=12   16.1306 <= 16.1306
+  [ok ] C_6^abs <= C_6^hyb   n=120 k=12   287.417 <= 11604.2
+  [ok ] C_7^abs <= C_7^hyb   n=120 k=12   1879.62 <= 81158.8
+  [ok ] C_8^abs <= C_8^hyb   n=120 k=12   18719.6 <= 7.72736e+07
+  [ok ] C_9^abs <= C_9^hyb   n=120 k=12   145836 <= 6.95452e+08
+  [ok ] C_10^abs <= C_10^hyb   n=120 k=12   1.31916e+06 <= 8.2759e+11
+  [ok ] C_11^abs <= C_11^hyb   n=120 k=12   1.2251e+07 <= 9.10348e+12
+  [ok ] C_12^abs <= C_12^hyb   n=120 k=12   1.2694e+08 <= 1.29998e+16
+  [ok ] C_6^abs STRICTLY beats C_6^hyb   n=120 k=12
+  [ok ] C_7^abs STRICTLY beats C_7^hyb   n=120 k=12
+  [ok ] C_8^abs STRICTLY beats C_8^hyb   n=120 k=12
+  [ok ] C_9^abs STRICTLY beats C_9^hyb   n=120 k=12
+  [ok ] C_10^abs STRICTLY beats C_10^hyb   n=120 k=12
+  [ok ] C_11^abs STRICTLY beats C_11^hyb   n=120 k=12
+  [ok ] C_12^abs STRICTLY beats C_12^hyb   n=120 k=12
+  [ok ] C_3^abs <= C_3^hyb   n=60 k=6   0.0112273 <= 0.0112273
+  [ok ] C_4^abs <= C_4^hyb   n=60 k=6   3.25 <= 3.25
+  [ok ] C_5^abs <= C_5^hyb   n=60 k=6   16.1312 <= 16.1312
+  [ok ] C_6^abs <= C_6^hyb   n=60 k=6   191.542 <= 5753.32
+  [ok ] C_6^abs STRICTLY beats C_6^hyb   n=60 k=6
+  [ok ] C_3^abs(collar) = C^abs(slice) + eta-gap   n=300 k=8
+  [ok ] C_3^abs(collar) > C^abs(slice)   n=300 k=8
+  [ok ] C_5^abs(collar) = C^abs(slice) + eta-gap   n=300 k=8
+  [ok ] C_5^abs(collar) > C^abs(slice)   n=300 k=8
+  [ok ] C_3^abs(collar) = C^abs(slice) + eta-gap   n=120 k=6
+  [ok ] C_3^abs(collar) > C^abs(slice)   n=120 k=6
+  [ok ] C_5^abs(collar) = C^abs(slice) + eta-gap   n=120 k=6
+  [ok ] C_5^abs(collar) > C^abs(slice)   n=120 k=6
+
+X6  recomposition: Ntilde(k) through collar_budget.Psi
+       k     L0      L1     hyb   grade     abs      L2   floor
+       6      244     47     37     35     35     37     34
+       7      449     83     48     43     43     45     42
+       8      736    132     74     52     52     54     51
+       9     1111    215    108     63     63     64     62
+      10     1583    319    170     75     75     76     73
+      11     2160    470    241     88     88     89     86
+      12     2850    657    351    102    102    103    101
+  [ok ] Ntilde ordering L0 >= L1 >= hyb >= abs >= floor   k=6   [244, 47, 37, 35, 35, 37, 34]
+  [ok ] abs strictly beats hyb   k=6
+  [ok ] abs BEATS the assumed L2 shape   k=6
+  [ok ] abs is within 2 of the collar floor   k=6   abs=35 floor=34
+  [ok ] grade == abs (absorption inert at the threshold)   k=6   grade=35 abs=35
+  [ok ] Ntilde ordering L0 >= L1 >= hyb >= abs >= floor   k=7   [449, 83, 48, 43, 43, 45, 42]
+  [ok ] abs strictly beats hyb   k=7
+  [ok ] abs BEATS the assumed L2 shape   k=7
+  [ok ] abs is within 2 of the collar floor   k=7   abs=43 floor=42
+  [ok ] grade == abs (absorption inert at the threshold)   k=7   grade=43 abs=43
+  [ok ] Ntilde ordering L0 >= L1 >= hyb >= abs >= floor   k=8   [736, 132, 74, 52, 52, 54, 51]
+  [ok ] abs strictly beats hyb   k=8
+  [ok ] abs BEATS the assumed L2 shape   k=8
+  [ok ] abs is within 2 of the collar floor   k=8   abs=52 floor=51
+  [ok ] grade == abs (absorption inert at the threshold)   k=8   grade=52 abs=52
+  [ok ] Ntilde ordering L0 >= L1 >= hyb >= abs >= floor   k=9   [1111, 215, 108, 63, 63, 64, 62]
+  [ok ] abs strictly beats hyb   k=9
+  [ok ] abs BEATS the assumed L2 shape   k=9
+  [ok ] abs is within 2 of the collar floor   k=9   abs=63 floor=62
+  [ok ] grade == abs (absorption inert at the threshold)   k=9   grade=63 abs=63
+  [ok ] Ntilde ordering L0 >= L1 >= hyb >= abs >= floor   k=10   [1583, 319, 170, 75, 75, 76, 73]
+  [ok ] abs strictly beats hyb   k=10
+  [ok ] abs BEATS the assumed L2 shape   k=10
+  [ok ] abs is within 2 of the collar floor   k=10   abs=75 floor=73
+  [ok ] grade == abs (absorption inert at the threshold)   k=10   grade=75 abs=75
+  [ok ] Ntilde ordering L0 >= L1 >= hyb >= abs >= floor   k=11   [2160, 470, 241, 88, 88, 89, 86]
+  [ok ] abs strictly beats hyb   k=11
+  [ok ] abs BEATS the assumed L2 shape   k=11
+  [ok ] abs is within 2 of the collar floor   k=11   abs=88 floor=86
+  [ok ] grade == abs (absorption inert at the threshold)   k=11   grade=88 abs=88
+  [ok ] Ntilde ordering L0 >= L1 >= hyb >= abs >= floor   k=12   [2850, 657, 351, 102, 102, 103, 101]
+  [ok ] abs strictly beats hyb   k=12
+  [ok ] abs BEATS the assumed L2 shape   k=12
+  [ok ] abs is within 2 of the collar floor   k=12   abs=102 floor=101
+  [ok ] grade == abs (absorption inert at the threshold)   k=12   grade=102 abs=102
+  [ok ] WITNESS  Psi(35, 6) < 1   0.95312929
+  [ok ] WITNESS  Psi(34, 6) >= 1  (threshold is exact)   1.08529953
+  [ok ] WITNESS  Psi(43, 7) < 1   0.96418726
+  [ok ] WITNESS  Psi(42, 7) >= 1  (threshold is exact)   1.09500802
+  [ok ] WITNESS  Psi(52, 8) < 1   0.99874839
+  [ok ] WITNESS  Psi(51, 8) >= 1  (threshold is exact)   1.12969907
+  [ok ] WITNESS  Psi(63, 9) < 1   0.94311783
+  [ok ] WITNESS  Psi(62, 9) >= 1  (threshold is exact)   1.05876624
+  [ok ] WITNESS  Psi(75, 10) < 1   0.92015191
+  [ok ] WITNESS  Psi(74, 10) >= 1  (threshold is exact)   1.02642241
+  [ok ] WITNESS  Psi(88, 11) < 1   0.92616643
+  [ok ] WITNESS  Psi(87, 11) >= 1  (threshold is exact)   1.02769554
+  [ok ] WITNESS  Psi(102, 12) < 1   0.96112668
+  [ok ] WITNESS  Psi(101, 12) >= 1  (threshold is exact)   1.06184560
+
+X7  the order: is absorption ever active, and what binds instead
+       k   Ntilde   Q_c(Ntilde)   top even m   Q*_m   even m where it fires
+       6       35         34.00            6      118   [4]
+  [ok ] absorption INACTIVE at the TOP even layer m=6   k=6   Q*=118 vs Q_c=34.00
+  [ok ] absorption fires ONLY at m = 4, where C_4 has Q-degree 0   k=6   [4]
+  [ok ] the optimistic 1.5 m^2 threshold also exceeds Q_c   k=6   36 > 34.00
+       7       43         42.00            6      118   [4]
+  [ok ] absorption INACTIVE at the TOP even layer m=6   k=7   Q*=118 vs Q_c=42.00
+  [ok ] absorption fires ONLY at m = 4, where C_4 has Q-degree 0   k=7   [4]
+       8       52         51.00            8      274   [4]
+  [ok ] absorption INACTIVE at the TOP even layer m=8   k=8   Q*=274 vs Q_c=51.00
+  [ok ] absorption fires ONLY at m = 4, where C_4 has Q-degree 0   k=8   [4]
+  [ok ] the optimistic 1.5 m^2 threshold also exceeds Q_c   k=8   72 > 51.00
+       9       63         62.00            8      274   [4]
+  [ok ] absorption INACTIVE at the TOP even layer m=8   k=9   Q*=274 vs Q_c=62.00
+  [ok ] absorption fires ONLY at m = 4, where C_4 has Q-degree 0   k=9   [4]
+  [ok ] the optimistic 1.5 m^2 threshold also exceeds Q_c   k=9   72 > 62.00
+      10       75         74.00           10      493   [4]
+  [ok ] absorption INACTIVE at the TOP even layer m=10   k=10   Q*=493 vs Q_c=74.00
+  [ok ] absorption fires ONLY at m = 4, where C_4 has Q-degree 0   k=10   [4]
+  [ok ] the optimistic 1.5 m^2 threshold also exceeds Q_c   k=10   120 > 74.00
+      11       88         87.00           10      493   [4]
+  [ok ] absorption INACTIVE at the TOP even layer m=10   k=11   Q*=493 vs Q_c=87.00
+  [ok ] absorption fires ONLY at m = 4, where C_4 has Q-degree 0   k=11   [4]
+  [ok ] the optimistic 1.5 m^2 threshold also exceeds Q_c   k=11   120 > 87.00
+      12      102        101.00           12      776   [4]
+  [ok ] absorption INACTIVE at the TOP even layer m=12   k=12   Q*=776 vs Q_c=101.00
+  [ok ] absorption fires ONLY at m = 4, where C_4 has Q-degree 0   k=12   [4]
+  [ok ] the optimistic 1.5 m^2 threshold also exceeds Q_c   k=12   180 > 101.00
+  [ok ] k = 7 is the one exception: optimistic Q* = 36 < Q_c = 42
+  [ok ] C_4^abs is free of Qhat (degree 0), so absorption at m = 4 is vacuous
+     Ntilde against the collar floor at larger k, and where the
+     pairing tier starts to bite:
+       k     abs   grade   floor   abs/k^2   absorption fires at m =
+      14     135     135     134    0.6888   [4, 6]
+  [ok ] abs is within 3 of the collar floor   k=14   abs=135 floor=134
+  [ok ] abs/k^2 <= 1   k=14   0.6888
+  [ok ] the pairing tier is worth at most 1 unit of Ntilde   k=14   grade=135 abs=135
+      16     173     173     172    0.6758   [4, 6]
+  [ok ] abs is within 3 of the collar floor   k=16   abs=173 floor=172
+  [ok ] abs/k^2 <= 1   k=16   0.6758
+  [ok ] the pairing tier is worth at most 1 unit of Ntilde   k=16   grade=173 abs=173
+      18     218     218     217    0.6728   [4, 6]
+  [ok ] abs is within 3 of the collar floor   k=18   abs=218 floor=217
+  [ok ] abs/k^2 <= 1   k=18   0.6728
+  [ok ] the pairing tier is worth at most 1 unit of Ntilde   k=18   grade=218 abs=218
+      20     268     269     268    0.6700   [4, 6]
+  [ok ] abs is within 3 of the collar floor   k=20   abs=268 floor=268
+  [ok ] abs/k^2 <= 1   k=20   0.6700
+  [ok ] the pairing tier is worth at most 1 unit of Ntilde   k=20   grade=269 abs=268
+      24     390     390     389    0.6771   [4, 6, 8]
+  [ok ] abs is within 3 of the collar floor   k=24   abs=390 floor=389
+  [ok ] abs/k^2 <= 1   k=24   0.6771
+  [ok ] the pairing tier is worth at most 1 unit of Ntilde   k=24   grade=390 abs=390
+  [ok ] the pairing tier is worth EXACTLY 1 unit, and only at k = 20
+     the threshold the INTERFACE alone imposes (collar blocks zeroed):
+       k      L1     hyb     abs   collar floor   interface binds?
+       6      42      27      19             34   False
+  [ok ] the INTERFACE no longer binds under C^abs   k=6   interface-only=19 < collar floor=34
+  [ok ] C^abs cuts the interface-only threshold vs C^hyb   k=6   19 < 27
+       7      83      41      26             42   False
+  [ok ] the INTERFACE no longer binds under C^abs   k=7   interface-only=26 < collar floor=42
+  [ok ] C^abs cuts the interface-only threshold vs C^hyb   k=7   26 < 41
+       8     131      73      32             51   False
+  [ok ] the INTERFACE no longer binds under C^abs   k=8   interface-only=32 < collar floor=51
+  [ok ] the interface DID bind under C^hyb   k=8   interface-only=73 vs collar floor=51
+  [ok ] C^abs cuts the interface-only threshold vs C^hyb   k=8   32 < 73
+       9     215     108      39             62   False
+  [ok ] the INTERFACE no longer binds under C^abs   k=9   interface-only=39 < collar floor=62
+  [ok ] the interface DID bind under C^hyb   k=9   interface-only=108 vs collar floor=62
+  [ok ] C^abs cuts the interface-only threshold vs C^hyb   k=9   39 < 108
+      10     319     170      47             73   False
+  [ok ] the INTERFACE no longer binds under C^abs   k=10   interface-only=47 < collar floor=73
+  [ok ] the interface DID bind under C^hyb   k=10   interface-only=170 vs collar floor=73
+  [ok ] C^abs cuts the interface-only threshold vs C^hyb   k=10   47 < 170
+      11     470     241      55             86   False
+  [ok ] the INTERFACE no longer binds under C^abs   k=11   interface-only=55 < collar floor=86
+  [ok ] the interface DID bind under C^hyb   k=11   interface-only=241 vs collar floor=86
+  [ok ] C^abs cuts the interface-only threshold vs C^hyb   k=11   55 < 241
+      12     657     351      63            101   False
+  [ok ] the INTERFACE no longer binds under C^abs   k=12   interface-only=63 < collar floor=101
+  [ok ] the interface DID bind under C^hyb   k=12   interface-only=351 vs collar floor=101
+  [ok ] C^abs cuts the interface-only threshold vs C^hyb   k=12   63 < 351
+      16    2048    1148      98            172   False
+  [ok ] the INTERFACE no longer binds under C^abs   k=16   interface-only=98 < collar floor=172
+  [ok ] the interface DID bind under C^hyb   k=16   interface-only=1148 vs collar floor=172
+  [ok ] C^abs cuts the interface-only threshold vs C^hyb   k=16   98 < 1148
+      20    4934    2921     138            268   False
+  [ok ] the INTERFACE no longer binds under C^abs   k=20   interface-only=138 < collar floor=268
+  [ok ] the interface DID bind under C^hyb   k=20   interface-only=2921 vs collar floor=268
+  [ok ] C^abs cuts the interface-only threshold vs C^hyb   k=20   138 < 2921
+
+BASELINE: 770 checks, 0 failures
+
+X8  mutation controls
+
+X1  the coefficient tables: Lam_e, M_{j,c}, and the mass identity
+  [ok ] Lam_2 (log-EGF) == brute-force connected Moebius mass   1
+  [ok ] Lam_3 (log-EGF) == brute-force connected Moebius mass   4
+  [FAIL] Lam_4 (log-EGF) == brute-force connected Moebius mass   81
+  [FAIL] Lam_5 (log-EGF) == brute-force connected Moebius mass   1936
+  [FAIL] Lam_2..Lam_5 == 1, 4, 78, 1896  (ODDLAYER W3)
+  [FAIL] Lam_6 = 68880, Lam_7 = 3386160   70225, 3437316
+  [FAIL] M_{4,1} = Lam_4/4! = 13/4
+  [FAIL] M_{5,1} = Lam_5/5! = 79/5
+  [ok ] M_{6,2} = (2/3)^2/2! = 2/9   (the (3,3) tier)
+  [ok ] M_{9,3} = (2/3)^3/3! = 4/81  (the (3,3,3) tier)
+  [ok ] degree cap: M_(j,c) = 0 for c > floor(j/3)   j=3   cmax=1, floor(j/3)=1
+  [ok ] degree cap: M_(j,c) = 0 for c > floor(j/3)   j=4   cmax=1, floor(j/3)=1
+  [ok ] degree cap: M_(j,c) = 0 for c > floor(j/3)   j=5   cmax=1, floor(j/3)=1
+  [ok ] degree cap: M_(j,c) = 0 for c > floor(j/3)   j=6   cmax=2, floor(j/3)=2
+  [ok ] degree cap: M_(j,c) = 0 for c > floor(j/3)   j=7   cmax=2, floor(j/3)=2
+  [ok ] degree cap: M_(j,c) = 0 for c > floor(j/3)   j=8   cmax=2, floor(j/3)=2
+  [ok ] degree cap: M_(j,c) = 0 for c > floor(j/3)   j=9   cmax=3, floor(j/3)=3
+  [ok ] degree cap: M_(j,c) = 0 for c > floor(j/3)   j=10   cmax=3, floor(j/3)=3
+  [ok ] degree cap: M_(j,c) = 0 for c > floor(j/3)   j=11   cmax=3, floor(j/3)=3
+  [ok ] degree cap: M_(j,c) = 0 for c > floor(j/3)   j=12   cmax=4, floor(j/3)=4
+  [ok ] degree cap: M_(j,c) = 0 for c > floor(j/3)   j=13   cmax=4, floor(j/3)=4
+  [ok ] degree cap: M_(j,c) = 0 for c > floor(j/3)   j=14   cmax=4, floor(j/3)=4
+  [ok ] degree cap: M_(j,c) = 0 for c > floor(j/3)   j=15   cmax=5, floor(j/3)=5
+  [ok ] degree cap: M_(j,c) = 0 for c > floor(j/3)   j=16   cmax=5, floor(j/3)=5
+  [ok ] degree cap: M_(j,c) = 0 for c > floor(j/3)   j=17   cmax=5, floor(j/3)=5
+  [ok ] degree cap: M_(j,c) = 0 for c > floor(j/3)   j=18   cmax=6, floor(j/3)=6
+  [ok ] mass identity  sum_p C(m,2p)(2p-1)!! j! M_j = D_m^2   m=2   1
+  [ok ] mass identity  sum_p C(m,2p)(2p-1)!! j! M_j = D_m^2   m=3   4
+  [FAIL] mass identity  sum_p C(m,2p)(2p-1)!! j! M_j = D_m^2   m=4   84
+  [FAIL] mass identity  sum_p C(m,2p)(2p-1)!! j! M_j = D_m^2   m=5   1976
+  [FAIL] mass identity  sum_p C(m,2p)(2p-1)!! j! M_j = D_m^2   m=6   71615
+  [FAIL] mass identity  sum_p C(m,2p)(2p-1)!! j! M_j = D_m^2   m=7   3489732
+  [FAIL] mass identity  sum_p C(m,2p)(2p-1)!! j! M_j = D_m^2   m=8   222669083
+  [FAIL] mass identity  sum_p C(m,2p)(2p-1)!! j! M_j = D_m^2   m=9   17989442816
+  [FAIL] mass identity  sum_p C(m,2p)(2p-1)!! j! M_j = D_m^2   m=10   1795415544252
+  [FAIL] mass identity  sum_p C(m,2p)(2p-1)!! j! M_j = D_m^2   m=11   216922771648320
+  [FAIL] mass identity  sum_p C(m,2p)(2p-1)!! j! M_j = D_m^2   m=12   31201921893786765
+  [FAIL] mass identity  sum_p C(m,2p)(2p-1)!! j! M_j = D_m^2   m=13   5268650440644506280
+  [FAIL] mass identity  sum_p C(m,2p)(2p-1)!! j! M_j = D_m^2   m=14   1031984142654446448805
+  [ok ] pairing tier count: (m-1)!! Q^(m/2)/m! == (Q/2)^(m/2)/(m/2)!
+
+X4  ABSORPTION: the exact threshold Q*_m
+       m      Q*_m   Q*/m^2   13(m/2)(m/2-1)
+       4        27    1.688         26
+       6       121    3.361         78
+       8       279    4.359        156
+      10       503    5.030        260
+      12       791    5.493        390
+      14      1146    5.847        546
+      16      1571    6.137        728
+      18      2069    6.386        936
+      20      2642    6.605       1170
+      22      3297    6.812       1430
+      24      4035    7.005       1716
+  [FAIL] Q*_4 = 26 = 13*(2)(1) exactly (the (4,1) tier is the only one)
+  [ok ] Q*_m >= 13(m/2)(m/2-1)   m=6
+  [ok ] Q*_m strictly increasing   m=6
+  [ok ] Q*_m >= 13(m/2)(m/2-1)   m=8
+  [ok ] Q*_m strictly increasing   m=8
+  [ok ] Q*_m >= 13(m/2)(m/2-1)   m=10
+  [ok ] Q*_m strictly increasing   m=10
+  [ok ] Q*_m >= 13(m/2)(m/2-1)   m=12
+  [ok ] Q*_m strictly increasing   m=12
+  [ok ] Q*_m >= 13(m/2)(m/2-1)   m=14
+  [ok ] Q*_m strictly increasing   m=14
+  [ok ] Q*_m >= 13(m/2)(m/2-1)   m=16
+  [ok ] Q*_m strictly increasing   m=16
+  [ok ] Q*_m >= 13(m/2)(m/2-1)   m=18
+  [ok ] Q*_m strictly increasing   m=18
+  [ok ] Q*_m >= 13(m/2)(m/2-1)   m=20
+  [ok ] Q*_m strictly increasing   m=20
+  [ok ] Q*_m >= 13(m/2)(m/2-1)   m=22
+  [ok ] Q*_m strictly increasing   m=22
+  [ok ] Q*_m >= 13(m/2)(m/2-1)   m=24
+  [ok ] Q*_m strictly increasing   m=24
+  [ok ] L_4(Q*_m) >= 0   m=4
+  [ok ] L_4(Q*_m - 1) < 0  (the threshold is exact)   m=4
+  [ok ] L_4(Q) >= 0 for Q = 2 Q*_m   m=4
+  [ok ] L_4(Q) >= 0 for Q = 4 Q*_m   m=4
+  [ok ] L_4(Q) >= 0 for Q = 10 Q*_m   m=4
+  [ok ] L_6(Q*_m) >= 0   m=6
+  [ok ] L_6(Q*_m - 1) < 0  (the threshold is exact)   m=6
+  [ok ] L_6(Q) >= 0 for Q = 2 Q*_m   m=6
+  [ok ] L_6(Q) >= 0 for Q = 4 Q*_m   m=6
+  [ok ] L_6(Q) >= 0 for Q = 10 Q*_m   m=6
+  [ok ] L_8(Q*_m) >= 0   m=8
+  [ok ] L_8(Q*_m - 1) < 0  (the threshold is exact)   m=8
+  [ok ] L_8(Q) >= 0 for Q = 2 Q*_m   m=8
+  [ok ] L_8(Q) >= 0 for Q = 4 Q*_m   m=8
+  [ok ] L_8(Q) >= 0 for Q = 10 Q*_m   m=8
+  [ok ] L_10(Q*_m) >= 0   m=10
+  [ok ] L_10(Q*_m - 1) < 0  (the threshold is exact)   m=10
+  [ok ] L_10(Q) >= 0 for Q = 2 Q*_m   m=10
+  [ok ] L_10(Q) >= 0 for Q = 4 Q*_m   m=10
+  [ok ] L_10(Q) >= 0 for Q = 10 Q*_m   m=10
+  [ok ] L_12(Q*_m) >= 0   m=12
+  [ok ] L_12(Q*_m - 1) < 0  (the threshold is exact)   m=12
+  [ok ] L_12(Q) >= 0 for Q = 2 Q*_m   m=12
+  [ok ] L_12(Q) >= 0 for Q = 4 Q*_m   m=12
+  [ok ] L_12(Q) >= 0 for Q = 10 Q*_m   m=12
+  [ok ] L_14(Q*_m) >= 0   m=14
+  [ok ] L_14(Q*_m - 1) < 0  (the threshold is exact)   m=14
+  [ok ] L_14(Q) >= 0 for Q = 2 Q*_m   m=14
+  [ok ] L_14(Q) >= 0 for Q = 4 Q*_m   m=14
+  [ok ] L_14(Q) >= 0 for Q = 10 Q*_m   m=14
+  [ok ] L_16(Q*_m) >= 0   m=16
+  [ok ] L_16(Q*_m - 1) < 0  (the threshold is exact)   m=16
+  [ok ] L_16(Q) >= 0 for Q = 2 Q*_m   m=16
+  [ok ] L_16(Q) >= 0 for Q = 4 Q*_m   m=16
+  [ok ] L_16(Q) >= 0 for Q = 10 Q*_m   m=16
+  [ok ] L_18(Q*_m) >= 0   m=18
+  [ok ] L_18(Q*_m - 1) < 0  (the threshold is exact)   m=18
+  [ok ] L_18(Q) >= 0 for Q = 2 Q*_m   m=18
+  [ok ] L_18(Q) >= 0 for Q = 4 Q*_m   m=18
+  [ok ] L_18(Q) >= 0 for Q = 10 Q*_m   m=18
+  [ok ] L_20(Q*_m) >= 0   m=20
+  [ok ] L_20(Q*_m - 1) < 0  (the threshold is exact)   m=20
+  [ok ] L_20(Q) >= 0 for Q = 2 Q*_m   m=20
+  [ok ] L_20(Q) >= 0 for Q = 4 Q*_m   m=20
+  [ok ] L_20(Q) >= 0 for Q = 10 Q*_m   m=20
+  [ok ] the negative tiers have degree <= m/2 - 1 (monotone absorption)
+     fault 'bad_lam' (the connected mass Lam_e replaced by the full mass D_e^2): 18 checks caught it
+
+X3  the hypotheses at the test matrices, and the layer bound
+  [ok ] (S4) |K_3| <= Lam_3 Q   n=5 perm
+  [ok ] (S4) |K_4| <= Lam_4 Q   n=5 perm
+  [ok ] (S4) |K_5| <= Lam_5 Q   n=5 perm
+  [ok ] (S1) K_3 >= -4Q/n   n=5 perm
+  [ok ] sigma_3 >= L_3(Q)   n=5 perm   1.6 >= 0
+  [FAIL] sigma_4 >= L_4(Q)   n=5 perm   1.32 >= 2
+  [ok ] sigma_5 >= L_5(Q)   n=5 perm   0.4736 >= -1.06667
+  [ok ] (S4) |K_3| <= Lam_3 Q   n=5 (J-P)/(n-1)
+  [ok ] (S4) |K_4| <= Lam_4 Q   n=5 (J-P)/(n-1)
+  [ok ] (S4) |K_5| <= Lam_5 Q   n=5 (J-P)/(n-1)
+  [ok ] (S1) K_3 >= -4Q/n   n=5 (J-P)/(n-1)
+  [FAIL] sigma_3 >= L_3(Q)   n=5 (J-P)/(n-1)   -0.025 >= 0
+  [FAIL] sigma_4 >= L_4(Q)   n=5 (J-P)/(n-1)   0.00515625 >= 0.0078125
+  [ok ] sigma_5 >= L_5(Q)   n=5 (J-P)/(n-1)   -0.0004625 >= -0.00416667
+  [ok ] (S4) |K_3| <= Lam_3 Q   n=5 half P + half P^2
+  [ok ] (S4) |K_4| <= Lam_4 Q   n=5 half P + half P^2
+  [ok ] (S4) |K_5| <= Lam_5 Q   n=5 half P + half P^2
+  [ok ] (S1) K_3 >= -4Q/n   n=5 half P + half P^2
+  [ok ] sigma_3 >= L_3(Q)   n=5 half P + half P^2   0.1 >= 0
+  [FAIL] sigma_4 >= L_4(Q)   n=5 half P + half P^2   -0.0175 >= 0.28125
+  [ok ] sigma_5 >= L_5(Q)   n=5 half P + half P^2   -0.0164 >= -0.15
+  [ok ] (S4) |K_3| <= Lam_3 Q   n=5 3-mix
+  [ok ] (S4) |K_4| <= Lam_4 Q   n=5 3-mix
+  [ok ] (S4) |K_5| <= Lam_5 Q   n=5 3-mix
+  [ok ] (S1) K_3 >= -4Q/n   n=5 3-mix
+  [ok ] sigma_3 >= L_3(Q)   n=5 3-mix   0.0444444 >= 0
+  [FAIL] sigma_4 >= L_4(Q)   n=5 3-mix   0.0108951 >= 0.111497
+  [ok ] sigma_5 >= L_5(Q)   n=5 3-mix   -0.00430123 >= -0.059465
+  [ok ] (S4) |K_3| <= Lam_3 Q   n=5 saturated A00=0
+  [ok ] (S4) |K_4| <= Lam_4 Q   n=5 saturated A00=0
+  [ok ] (S4) |K_5| <= Lam_5 Q   n=5 saturated A00=0
+  [ok ] (S1) K_3 >= -4Q/n   n=5 saturated A00=0
+  [FAIL] sigma_3 >= L_3(Q)   n=5 saturated A00=0   -0.0046875 >= 0
+  [FAIL] sigma_4 >= L_4(Q)   n=5 saturated A00=0   0.000131836 >= 0.000488281
+  [ok ] sigma_5 >= L_5(Q)   n=5 saturated A00=0   -5.85937e-07 >= -0.000260417
+  [ok ] (S4) |K_3| <= Lam_3 Q   n=6 perm
+  [ok ] (S4) |K_4| <= Lam_4 Q   n=6 perm
+  [ok ] (S4) |K_5| <= Lam_5 Q   n=6 perm
+  [ok ] (S4) |K_6| <= Lam_6 Q   n=6 perm
+  [ok ] (S1) K_3 >= -4Q/n   n=6 perm
+  [ok ] sigma_3 >= L_3(Q)   n=6 perm   2.22222 >= 0
+  [FAIL] sigma_4 >= L_4(Q)   n=6 perm   2.5 >= 3.125
+  [ok ] sigma_5 >= L_5(Q)   n=6 perm   1.55556 >= -1.38889
+  [ok ] sigma_6 >= L_6(Q)   n=6 perm   0.478395 >= -38.0208
+  [ok ] (S4) |K_3| <= Lam_3 Q   n=6 (J-P)/(n-1)
+  [ok ] (S4) |K_4| <= Lam_4 Q   n=6 (J-P)/(n-1)
+  [ok ] (S4) |K_5| <= Lam_5 Q   n=6 (J-P)/(n-1)
+  [ok ] (S4) |K_6| <= Lam_6 Q   n=6 (J-P)/(n-1)
+  [ok ] (S1) K_3 >= -4Q/n   n=6 (J-P)/(n-1)
+  [FAIL] sigma_3 >= L_3(Q)   n=6 (J-P)/(n-1)   -0.0177778 >= 0
+  [FAIL] sigma_4 >= L_4(Q)   n=6 (J-P)/(n-1)   0.004 >= 0.005
+  [ok ] sigma_5 >= L_5(Q)   n=6 (J-P)/(n-1)   -0.000497778 >= -0.00222222
+  [ok ] sigma_6 >= L_6(Q)   n=6 (J-P)/(n-1)   3.06173e-05 >= -0.0648333
+  [ok ] (S4) |K_3| <= Lam_3 Q   n=6 half P + half P^2
+  [ok ] (S4) |K_4| <= Lam_4 Q   n=6 half P + half P^2
+  [ok ] (S4) |K_5| <= Lam_5 Q   n=6 half P + half P^2
+  [ok ] (S4) |K_6| <= Lam_6 Q   n=6 half P + half P^2
+  [ok ] (S1) K_3 >= -4Q/n   n=6 half P + half P^2
+  [ok ] sigma_3 >= L_3(Q)   n=6 half P + half P^2   0.222222 >= 0
+  [FAIL] sigma_4 >= L_4(Q)   n=6 half P + half P^2   0.0625 >= 0.5
+  [ok ] sigma_5 >= L_5(Q)   n=6 half P + half P^2   -0.0277778 >= -0.222222
+  [ok ] sigma_6 >= L_6(Q)   n=6 half P + half P^2   -0.00771605 >= -6.33333
+  [ok ] (S4) |K_3| <= Lam_3 Q   n=6 3-mix
+  [ok ] (S4) |K_4| <= Lam_4 Q   n=6 3-mix
+  [ok ] (S4) |K_5| <= Lam_5 Q   n=6 3-mix
+  [ok ] (S4) |K_6| <= Lam_6 Q   n=6 3-mix
+  [ok ] (S1) K_3 >= -4Q/n   n=6 3-mix
+  [ok ] sigma_3 >= L_3(Q)   n=6 3-mix   0.111111 >= 0
+  [FAIL] sigma_4 >= L_4(Q)   n=6 3-mix   0.0625 >= 0.222222
+  [ok ] sigma_5 >= L_5(Q)   n=6 3-mix   0 >= -0.0987654
+  [ok ] sigma_6 >= L_6(Q)   n=6 3-mix   -0.00304355 >= -2.83951
+  [ok ] (S4) |K_3| <= Lam_3 Q   n=6 saturated A00=0
+  [ok ] (S4) |K_4| <= Lam_4 Q   n=6 saturated A00=0
+  [ok ] (S4) |K_5| <= Lam_5 Q   n=6 saturated A00=0
+  [ok ] (S4) |K_6| <= Lam_6 Q   n=6 saturated A00=0
+  [ok ] (S1) K_3 >= -4Q/n   n=6 saturated A00=0
+  [FAIL] sigma_3 >= L_3(Q)   n=6 saturated A00=0   -0.00284444 >= 0
+  [FAIL] sigma_4 >= L_4(Q)   n=6 saturated A00=0   9.6e-05 >= 0.0002
+  [ok ] sigma_5 >= L_5(Q)   n=6 saturated A00=0   -9.10222e-07 >= -8.88889e-05
+  [ok ] sigma_6 >= L_6(Q)   n=6 saturated A00=0   1.58025e-09 >= -0.00259867
+  [ok ] (S4) |K_3| <= Lam_3 Q   n=7 perm
+  [ok ] (S4) |K_4| <= Lam_4 Q   n=7 perm
+  [ok ] (S4) |K_5| <= Lam_5 Q   n=7 perm
+  [ok ] (S4) |K_6| <= Lam_6 Q   n=7 perm
+  [ok ] (S4) |K_7| <= Lam_7 Q   n=7 perm
+  [ok ] (S1) K_3 >= -4Q/n   n=7 perm
+  [ok ] sigma_3 >= L_3(Q)   n=7 perm   2.85714 >= 0
+  [FAIL] sigma_4 >= L_4(Q)   n=7 perm   3.97959 >= 4.5
+  [ok ] sigma_5 >= L_5(Q)   n=7 perm   3.28863 >= -1.71429
+  [ok ] sigma_6 >= L_6(Q)   n=7 perm   1.80966 >= -54
+  [ok ] sigma_7 >= L_7(Q)   n=7 perm   0.481534 >= -286.971
+  [ok ] (S4) |K_3| <= Lam_3 Q   n=7 (J-P)/(n-1)
+  [ok ] (S4) |K_4| <= Lam_4 Q   n=7 (J-P)/(n-1)
+  [ok ] (S4) |K_5| <= Lam_5 Q   n=7 (J-P)/(n-1)
+  [ok ] (S4) |K_6| <= Lam_6 Q   n=7 (J-P)/(n-1)
+  [ok ] (S4) |K_7| <= Lam_7 Q   n=7 (J-P)/(n-1)
+  [ok ] (S1) K_3 >= -4Q/n   n=7 (J-P)/(n-1)
+  [FAIL] sigma_3 >= L_3(Q)   n=7 (J-P)/(n-1)   -0.0132275 >= 0
+  [FAIL] sigma_4 >= L_4(Q)   n=7 (J-P)/(n-1)   0.00307067 >= 0.00347222
+  [ok ] sigma_5 >= L_5(Q)   n=7 (J-P)/(n-1)   -0.00042292 >= -0.00132275
+  [ok ] sigma_6 >= L_6(Q)   n=7 (J-P)/(n-1)   3.87874e-05 >= -0.0450424
+  [ok ] sigma_7 >= L_7(Q)   n=7 (J-P)/(n-1)   -1.72016e-06 >= -0.2195
+  [ok ] (S4) |K_3| <= Lam_3 Q   n=7 half P + half P^2
+  [ok ] (S4) |K_4| <= Lam_4 Q   n=7 half P + half P^2
+  [ok ] (S4) |K_5| <= Lam_5 Q   n=7 half P + half P^2
+  [ok ] (S4) |K_6| <= Lam_6 Q   n=7 half P + half P^2
+  [ok ] (S4) |K_7| <= Lam_7 Q   n=7 half P + half P^2
+  [ok ] (S1) K_3 >= -4Q/n   n=7 half P + half P^2
+  [ok ] sigma_3 >= L_3(Q)   n=7 half P + half P^2   0.357143 >= 0
+  [FAIL] sigma_4 >= L_4(Q)   n=7 half P + half P^2   0.211735 >= 0.78125
+  [ok ] sigma_5 >= L_5(Q)   n=7 half P + half P^2   -0.00728863 >= -0.297619
+  [ok ] sigma_6 >= L_6(Q)   n=7 half P + half P^2   -0.0201934 >= -9.83073
+  [ok ] sigma_7 >= L_7(Q)   n=7 half P + half P^2   -0.00351124 >= -49.561
+  [ok ] (S4) |K_3| <= Lam_3 Q   n=7 3-mix
+  [ok ] (S4) |K_4| <= Lam_4 Q   n=7 3-mix
+  [ok ] (S4) |K_5| <= Lam_5 Q   n=7 3-mix
+  [ok ] (S4) |K_6| <= Lam_6 Q   n=7 3-mix
+  [ok ] (S4) |K_7| <= Lam_7 Q   n=7 3-mix
+  [ok ] (S1) K_3 >= -4Q/n   n=7 3-mix
+  [ok ] sigma_3 >= L_3(Q)   n=7 3-mix   0.190476 >= 0
+  [FAIL] sigma_4 >= L_4(Q)   n=7 3-mix   0.149124 >= 0.370756
+  [ok ] sigma_5 >= L_5(Q)   n=7 3-mix   0.0261581 >= -0.14124
+  [ok ] sigma_6 >= L_6(Q)   n=7 3-mix   -0.00240688 >= -4.71341
+  [ok ] sigma_7 >= L_7(Q)   n=7 3-mix   -0.00187953 >= -23.4926
+  [ok ] (S4) |K_3| <= Lam_3 Q   n=7 saturated A00=0
+  [ok ] (S4) |K_4| <= Lam_4 Q   n=7 saturated A00=0
+  [ok ] (S4) |K_5| <= Lam_5 Q   n=7 saturated A00=0
+  [ok ] (S4) |K_6| <= Lam_6 Q   n=7 saturated A00=0
+  [ok ] (S4) |K_7| <= Lam_7 Q   n=7 saturated A00=0
+  [ok ] (S1) K_3 >= -4Q/n   n=7 saturated A00=0
+  [FAIL] sigma_3 >= L_3(Q)   n=7 saturated A00=0   -0.00183715 >= 0
+  [FAIL] sigma_4 >= L_4(Q)   n=7 saturated A00=0   6.56127e-05 >= 9.64506e-05
+  [ok ] sigma_5 >= L_5(Q)   n=7 saturated A00=0   -8.33177e-07 >= -3.67431e-05
+  [ok ] sigma_6 >= L_6(Q)   n=7 saturated A00=0   3.44402e-09 >= -0.00125341
+  [ok ] sigma_7 >= L_7(Q)   n=7 saturated A00=0   -2.81144e-12 >= -0.00609593
+  [ok ] (S4) |K_3| <= Lam_3 Q   n=8 perm
+  [ok ] (S4) |K_4| <= Lam_4 Q   n=8 perm
+  [ok ] (S4) |K_5| <= Lam_5 Q   n=8 perm
+  [ok ] (S4) |K_6| <= Lam_6 Q   n=8 perm
+  [ok ] (S4) |K_7| <= Lam_7 Q   n=8 perm
+  [ok ] (S4) |K_8| <= Lam_8 Q   n=8 perm
+  [ok ] (S1) K_3 >= -4Q/n   n=8 perm
+  [ok ] sigma_3 >= L_3(Q)   n=8 perm   3.5 >= 0
+  [FAIL] sigma_4 >= L_4(Q)   n=8 perm   5.74219 >= 6.125
+  [ok ] sigma_5 >= L_5(Q)   n=8 perm   5.6875 >= -2.04167
+  [ok ] sigma_6 >= L_6(Q)   n=8 perm   4.27246 >= -72.4792
+  [ok ] sigma_7 >= L_7(Q)   n=8 perm   2.05957 >= -390.673
+  [ok ] sigma_8 >= L_8(Q)   n=8 perm   0.48391 >= -2476.92
+  [ok ] (S4) |K_3| <= Lam_3 Q   n=8 (J-P)/(n-1)
+  [ok ] (S4) |K_4| <= Lam_4 Q   n=8 (J-P)/(n-1)
+  [ok ] (S4) |K_5| <= Lam_5 Q   n=8 (J-P)/(n-1)
+  [ok ] (S4) |K_6| <= Lam_6 Q   n=8 (J-P)/(n-1)
+  [ok ] (S4) |K_7| <= Lam_7 Q   n=8 (J-P)/(n-1)
+  [ok ] (S4) |K_8| <= Lam_8 Q   n=8 (J-P)/(n-1)
+  [ok ] (S1) K_3 >= -4Q/n   n=8 (J-P)/(n-1)
+  [FAIL] sigma_3 >= L_3(Q)   n=8 (J-P)/(n-1)   -0.0102041 >= 0
+  [FAIL] sigma_4 >= L_4(Q)   n=8 (J-P)/(n-1)   0.00239158 >= 0.00255102
+  [ok ] sigma_5 >= L_5(Q)   n=8 (J-P)/(n-1)   -0.000338401 >= -0.00085034
+  [ok ] sigma_6 >= L_6(Q)   n=8 (J-P)/(n-1)   3.63153e-05 >= -0.0331025
+  [ok ] sigma_7 >= L_7(Q)   n=8 (J-P)/(n-1)   -2.50087e-06 >= -0.161255
+  [ok ] sigma_8 >= L_8(Q)   n=8 (J-P)/(n-1)   8.39421e-08 >= -0.977374
+  [ok ] (S4) |K_3| <= Lam_3 Q   n=8 half P + half P^2
+  [ok ] (S4) |K_4| <= Lam_4 Q   n=8 half P + half P^2
+  [ok ] (S4) |K_5| <= Lam_5 Q   n=8 half P + half P^2
+  [ok ] (S4) |K_6| <= Lam_6 Q   n=8 half P + half P^2
+  [ok ] (S4) |K_7| <= Lam_7 Q   n=8 half P + half P^2
+  [ok ] (S4) |K_8| <= Lam_8 Q   n=8 half P + half P^2
+  [ok ] (S1) K_3 >= -4Q/n   n=8 half P + half P^2
+  [ok ] sigma_3 >= L_3(Q)   n=8 half P + half P^2   0.5 >= 0
+  [FAIL] sigma_4 >= L_4(Q)   n=8 half P + half P^2   0.429688 >= 1.125
+  [ok ] sigma_5 >= L_5(Q)   n=8 half P + half P^2   0.0625 >= -0.375
+  [ok ] sigma_6 >= L_6(Q)   n=8 half P + half P^2   -0.0205078 >= -14.0625
+  [ok ] sigma_7 >= L_7(Q)   n=8 half P + half P^2   -0.0126953 >= -71.3812
+  [ok ] sigma_8 >= L_8(Q)   n=8 half P + half P^2   -0.00156403 >= -441.258
+  [ok ] (S4) |K_3| <= Lam_3 Q   n=8 3-mix
+  [ok ] (S4) |K_4| <= Lam_4 Q   n=8 3-mix
+  [ok ] (S4) |K_5| <= Lam_5 Q   n=8 3-mix
+  [ok ] (S4) |K_6| <= Lam_6 Q   n=8 3-mix
+  [ok ] (S4) |K_7| <= Lam_7 Q   n=8 3-mix
+  [ok ] (S4) |K_8| <= Lam_8 Q   n=8 3-mix
+  [ok ] (S1) K_3 >= -4Q/n   n=8 3-mix
+  [ok ] sigma_3 >= L_3(Q)   n=8 3-mix   0.277778 >= 0
+  [FAIL] sigma_4 >= L_4(Q)   n=8 3-mix   0.273823 >= 0.557099
+  [ok ] sigma_5 >= L_5(Q)   n=8 3-mix   0.0779321 >= -0.1857
+  [ok ] sigma_6 >= L_6(Q)   n=8 3-mix   0.0119532 >= -7.04627
+  [ok ] sigma_7 >= L_7(Q)   n=8 3-mix   -0.00274482 >= -35.3067
+  [ok ] sigma_8 >= L_8(Q)   n=8 3-mix   -0.00105413 >= -216.954
+  [ok ] (S4) |K_3| <= Lam_3 Q   n=8 saturated A00=0
+  [ok ] (S4) |K_4| <= Lam_4 Q   n=8 saturated A00=0
+  [ok ] (S4) |K_5| <= Lam_5 Q   n=8 saturated A00=0
+  [ok ] (S4) |K_6| <= Lam_6 Q   n=8 saturated A00=0
+  [ok ] (S4) |K_7| <= Lam_7 Q   n=8 saturated A00=0
+  [ok ] (S4) |K_8| <= Lam_8 Q   n=8 saturated A00=0
+  [ok ] (S1) K_3 >= -4Q/n   n=8 saturated A00=0
+  [FAIL] sigma_3 >= L_3(Q)   n=8 saturated A00=0   -0.00124948 >= 0
+  [FAIL] sigma_4 >= L_4(Q)   n=8 saturated A00=0   4.48235e-05 >= 5.20616e-05
+  [ok ] sigma_5 >= L_5(Q)   n=8 saturated A00=0   -6.50499e-07 >= -1.73539e-05
+  [ok ] sigma_6 >= L_6(Q)   n=8 saturated A00=0   3.88931e-09 >= -0.000676624
+  [ok ] sigma_7 >= L_7(Q)   n=8 saturated A00=0   -8.16414e-12 >= -0.00329038
+  [ok ] sigma_8 >= L_8(Q)   n=8 saturated A00=0   3.54346e-15 >= -0.0199257
+
+X5  the constant C^abs: validity, the eta identity, C^abs <= C^hyb
+  [ok ] sigma_3 >= -C^abs Q   n=5 perm
+  [ok ] sigma_4 >= -C^abs Q   n=5 perm
+  [ok ] sigma_5 >= -C^abs Q   n=5 perm
+  [FAIL] sigma_3 >= -C^abs Q   n=5 (J-P)/(n-1)
+  [ok ] sigma_4 >= -C^abs Q   n=5 (J-P)/(n-1)
+  [ok ] sigma_5 >= -C^abs Q   n=5 (J-P)/(n-1)
+  [ok ] sigma_3 >= -C^abs Q   n=5 half P + half P^2
+  [FAIL] sigma_4 >= -C^abs Q   n=5 half P + half P^2
+  [ok ] sigma_5 >= -C^abs Q   n=5 half P + half P^2
+  [ok ] sigma_3 >= -C^abs Q   n=5 3-mix
+  [ok ] sigma_4 >= -C^abs Q   n=5 3-mix
+  [ok ] sigma_5 >= -C^abs Q   n=5 3-mix
+  [FAIL] sigma_3 >= -C^abs Q   n=5 saturated A00=0
+  [ok ] sigma_4 >= -C^abs Q   n=5 saturated A00=0
+  [ok ] sigma_5 >= -C^abs Q   n=5 saturated A00=0
+  [ok ] sigma_3 >= -C^abs Q   n=6 perm
+  [ok ] sigma_4 >= -C^abs Q   n=6 perm
+  [ok ] sigma_5 >= -C^abs Q   n=6 perm
+  [ok ] sigma_6 >= -C^abs Q   n=6 perm
+  [FAIL] sigma_3 >= -C^abs Q   n=6 (J-P)/(n-1)
+  [ok ] sigma_4 >= -C^abs Q   n=6 (J-P)/(n-1)
+  [ok ] sigma_5 >= -C^abs Q   n=6 (J-P)/(n-1)
+  [ok ] sigma_6 >= -C^abs Q   n=6 (J-P)/(n-1)
+  [ok ] sigma_3 >= -C^abs Q   n=6 half P + half P^2
+  [ok ] sigma_4 >= -C^abs Q   n=6 half P + half P^2
+  [ok ] sigma_5 >= -C^abs Q   n=6 half P + half P^2
+  [ok ] sigma_6 >= -C^abs Q   n=6 half P + half P^2
+  [ok ] sigma_3 >= -C^abs Q   n=6 3-mix
+  [ok ] sigma_4 >= -C^abs Q   n=6 3-mix
+  [ok ] sigma_5 >= -C^abs Q   n=6 3-mix
+  [ok ] sigma_6 >= -C^abs Q   n=6 3-mix
+  [FAIL] sigma_3 >= -C^abs Q   n=6 saturated A00=0
+  [ok ] sigma_4 >= -C^abs Q   n=6 saturated A00=0
+  [ok ] sigma_5 >= -C^abs Q   n=6 saturated A00=0
+  [ok ] sigma_6 >= -C^abs Q   n=6 saturated A00=0
+  [ok ] sigma_3 >= -C^abs Q   n=7 perm
+  [ok ] sigma_4 >= -C^abs Q   n=7 perm
+  [ok ] sigma_5 >= -C^abs Q   n=7 perm
+  [ok ] sigma_6 >= -C^abs Q   n=7 perm
+  [ok ] sigma_7 >= -C^abs Q   n=7 perm
+  [FAIL] sigma_3 >= -C^abs Q   n=7 (J-P)/(n-1)
+  [ok ] sigma_4 >= -C^abs Q   n=7 (J-P)/(n-1)
+  [ok ] sigma_5 >= -C^abs Q   n=7 (J-P)/(n-1)
+  [ok ] sigma_6 >= -C^abs Q   n=7 (J-P)/(n-1)
+  [ok ] sigma_7 >= -C^abs Q   n=7 (J-P)/(n-1)
+  [ok ] sigma_3 >= -C^abs Q   n=7 half P + half P^2
+  [ok ] sigma_4 >= -C^abs Q   n=7 half P + half P^2
+  [ok ] sigma_5 >= -C^abs Q   n=7 half P + half P^2
+  [ok ] sigma_6 >= -C^abs Q   n=7 half P + half P^2
+  [ok ] sigma_7 >= -C^abs Q   n=7 half P + half P^2
+  [ok ] sigma_3 >= -C^abs Q   n=7 3-mix
+  [ok ] sigma_4 >= -C^abs Q   n=7 3-mix
+  [ok ] sigma_5 >= -C^abs Q   n=7 3-mix
+  [ok ] sigma_6 >= -C^abs Q   n=7 3-mix
+  [ok ] sigma_7 >= -C^abs Q   n=7 3-mix
+  [FAIL] sigma_3 >= -C^abs Q   n=7 saturated A00=0
+  [ok ] sigma_4 >= -C^abs Q   n=7 saturated A00=0
+  [ok ] sigma_5 >= -C^abs Q   n=7 saturated A00=0
+  [ok ] sigma_6 >= -C^abs Q   n=7 saturated A00=0
+  [ok ] sigma_7 >= -C^abs Q   n=7 saturated A00=0
+  [ok ] sigma_3 >= -C^abs Q   n=8 perm
+  [ok ] sigma_4 >= -C^abs Q   n=8 perm
+  [ok ] sigma_5 >= -C^abs Q   n=8 perm
+  [ok ] sigma_6 >= -C^abs Q   n=8 perm
+  [ok ] sigma_7 >= -C^abs Q   n=8 perm
+  [ok ] sigma_8 >= -C^abs Q   n=8 perm
+  [FAIL] sigma_3 >= -C^abs Q   n=8 (J-P)/(n-1)
+  [ok ] sigma_4 >= -C^abs Q   n=8 (J-P)/(n-1)
+  [ok ] sigma_5 >= -C^abs Q   n=8 (J-P)/(n-1)
+  [ok ] sigma_6 >= -C^abs Q   n=8 (J-P)/(n-1)
+  [ok ] sigma_7 >= -C^abs Q   n=8 (J-P)/(n-1)
+  [ok ] sigma_8 >= -C^abs Q   n=8 (J-P)/(n-1)
+  [ok ] sigma_3 >= -C^abs Q   n=8 half P + half P^2
+  [ok ] sigma_4 >= -C^abs Q   n=8 half P + half P^2
+  [ok ] sigma_5 >= -C^abs Q   n=8 half P + half P^2
+  [ok ] sigma_6 >= -C^abs Q   n=8 half P + half P^2
+  [ok ] sigma_7 >= -C^abs Q   n=8 half P + half P^2
+  [ok ] sigma_8 >= -C^abs Q   n=8 half P + half P^2
+  [ok ] sigma_3 >= -C^abs Q   n=8 3-mix
+  [ok ] sigma_4 >= -C^abs Q   n=8 3-mix
+  [ok ] sigma_5 >= -C^abs Q   n=8 3-mix
+  [ok ] sigma_6 >= -C^abs Q   n=8 3-mix
+  [ok ] sigma_7 >= -C^abs Q   n=8 3-mix
+  [ok ] sigma_8 >= -C^abs Q   n=8 3-mix
+  [FAIL] sigma_3 >= -C^abs Q   n=8 saturated A00=0
+  [ok ] sigma_4 >= -C^abs Q   n=8 saturated A00=0
+  [ok ] sigma_5 >= -C^abs Q   n=8 saturated A00=0
+  [ok ] sigma_6 >= -C^abs Q   n=8 saturated A00=0
+  [ok ] sigma_7 >= -C^abs Q   n=8 saturated A00=0
+  [ok ] sigma_8 >= -C^abs Q   n=8 saturated A00=0
+  [FAIL] C_3^abs on the slice = 2/(3n) (the paper's constant, reproduced)
+  [FAIL] C_4^abs = 78/24 (pairing tier kept, nothing else at m = 4)
+  [FAIL] C_5^abs == C_5^hyb (grading has nothing to do below m = 6)
+     C_m at (n,k) = (300, 8):
+       m=3  L0=      11.53  L1=     0.6667  hyb=   0.002222  abs=          0  L2=     0.6667
+       m=4  L0=       1009  L1=      3.375  hyb=       3.25  abs=          0  L2=      3.375
+       m=5  L0=  8.341e+04  L1=       4824  hyb=      16.13  abs=     0.3322  L2=      16.13
+       m=6  L0=   8.72e+06  L1=  2.916e+04  hyb=  2.916e+04  abs=      126.8  L2=      97.53
+       m=7  L0=  1.054e+09  L1=  6.097e+07  hyb=  2.039e+05  abs=       2387  L2=        682
+       m=8  L0=  1.459e+11  L1=  4.878e+08  hyb=  4.878e+08  abs=  3.368e+04  L2=       5457
+  [ok ] C_3^abs <= C_3^hyb   n=300 k=8   0 <= 0.00222225
+  [ok ] C_4^abs <= C_4^hyb   n=300 k=8   0 <= 3.25
+  [ok ] C_5^abs <= C_5^hyb   n=300 k=8   0.332226 <= 16.1322
+  [ok ] C_6^abs <= C_6^hyb   n=300 k=8   126.75 <= 29156.7
+  [ok ] C_7^abs <= C_7^hyb   n=300 k=8   2386.93 <= 203920
+  [ok ] C_8^abs <= C_8^hyb   n=300 k=8   33676 <= 4.87843e+08
+  [ok ] C_6^abs STRICTLY beats C_6^hyb   n=300 k=8
+  [ok ] C_7^abs STRICTLY beats C_7^hyb   n=300 k=8
+  [ok ] C_8^abs STRICTLY beats C_8^hyb   n=300 k=8
+  [ok ] C_3^abs <= C_3^hyb   n=40 k=8   0 <= 0.0167397
+  [ok ] C_4^abs <= C_4^hyb   n=40 k=8   0 <= 3.25
+  [ok ] C_5^abs <= C_5^hyb   n=40 k=8   0.326424 <= 16.1264
+  [ok ] C_6^abs <= C_6^hyb   n=40 k=8   63.375 <= 3803.04
+  [ok ] C_7^abs <= C_7^hyb   n=40 k=8   311.283 <= 26598.2
+  [ok ] C_8^abs <= C_8^hyb   n=40 k=8   2483.41 <= 8.29978e+06
+  [ok ] C_6^abs STRICTLY beats C_6^hyb   n=40 k=8
+  [ok ] C_7^abs STRICTLY beats C_7^hyb   n=40 k=8
+  [ok ] C_8^abs STRICTLY beats C_8^hyb   n=40 k=8
+  [ok ] C_3^abs <= C_3^hyb   n=120 k=12   0 <= 0.00555556
+  [ok ] C_4^abs <= C_4^hyb   n=120 k=12   0 <= 3.25
+  [ok ] C_5^abs <= C_5^hyb   n=120 k=12   0.330556 <= 16.1306
+  [ok ] C_6^abs <= C_6^hyb   n=120 k=12   126.75 <= 11604.2
+  [ok ] C_7^abs <= C_7^hyb   n=120 k=12   949.934 <= 81158.8
+  [ok ] C_8^abs <= C_8^hyb   n=120 k=12   11445.1 <= 7.72736e+07
+  [ok ] C_9^abs <= C_9^hyb   n=120 k=12   83479.6 <= 6.95452e+08
+  [ok ] C_10^abs <= C_10^hyb   n=120 k=12   716278 <= 8.2759e+11
+  [ok ] C_11^abs <= C_11^hyb   n=120 k=12   5.91348e+06 <= 9.10348e+12
+  [ok ] C_12^abs <= C_12^hyb   n=120 k=12   5.38044e+07 <= 1.29998e+16
+  [ok ] C_6^abs STRICTLY beats C_6^hyb   n=120 k=12
+  [ok ] C_7^abs STRICTLY beats C_7^hyb   n=120 k=12
+  [ok ] C_8^abs STRICTLY beats C_8^hyb   n=120 k=12
+  [ok ] C_9^abs STRICTLY beats C_9^hyb   n=120 k=12
+  [ok ] C_10^abs STRICTLY beats C_10^hyb   n=120 k=12
+  [ok ] C_11^abs STRICTLY beats C_11^hyb   n=120 k=12
+  [ok ] C_12^abs STRICTLY beats C_12^hyb   n=120 k=12
+  [ok ] C_3^abs <= C_3^hyb   n=60 k=6   0 <= 0.0112273
+  [ok ] C_4^abs <= C_4^hyb   n=60 k=6   0 <= 3.25
+  [ok ] C_5^abs <= C_5^hyb   n=60 k=6   0.331204 <= 16.1312
+  [ok ] C_6^abs <= C_6^hyb   n=60 k=6   95.8751 <= 5753.32
+  [ok ] C_6^abs STRICTLY beats C_6^hyb   n=60 k=6
+  [FAIL] C_3^abs(collar) = C^abs(slice) + eta-gap   n=300 k=8
+  [FAIL] C_3^abs(collar) > C^abs(slice)   n=300 k=8
+  [ok ] C_5^abs(collar) = C^abs(slice) + eta-gap   n=300 k=8
+  [ok ] C_5^abs(collar) > C^abs(slice)   n=300 k=8
+  [FAIL] C_3^abs(collar) = C^abs(slice) + eta-gap   n=120 k=6
+  [FAIL] C_3^abs(collar) > C^abs(slice)   n=120 k=6
+  [ok ] C_5^abs(collar) = C^abs(slice) + eta-gap   n=120 k=6
+  [ok ] C_5^abs(collar) > C^abs(slice)   n=120 k=6
+     fault 'drop_top_tier' (the j = m tier (the whole connected mass) dropped): 44 checks caught it
+
+X5  the constant C^abs: validity, the eta identity, C^abs <= C^hyb
+  [ok ] sigma_3 >= -C^abs Q   n=5 perm
+  [ok ] sigma_4 >= -C^abs Q   n=5 perm
+  [ok ] sigma_5 >= -C^abs Q   n=5 perm
+  [ok ] sigma_3 >= -C^abs Q   n=5 (J-P)/(n-1)
+  [ok ] sigma_4 >= -C^abs Q   n=5 (J-P)/(n-1)
+  [ok ] sigma_5 >= -C^abs Q   n=5 (J-P)/(n-1)
+  [ok ] sigma_3 >= -C^abs Q   n=5 half P + half P^2
+  [ok ] sigma_4 >= -C^abs Q   n=5 half P + half P^2
+  [ok ] sigma_5 >= -C^abs Q   n=5 half P + half P^2
+  [ok ] sigma_3 >= -C^abs Q   n=5 3-mix
+  [ok ] sigma_4 >= -C^abs Q   n=5 3-mix
+  [ok ] sigma_5 >= -C^abs Q   n=5 3-mix
+  [ok ] sigma_3 >= -C^abs Q   n=5 saturated A00=0
+  [ok ] sigma_4 >= -C^abs Q   n=5 saturated A00=0
+  [ok ] sigma_5 >= -C^abs Q   n=5 saturated A00=0
+  [ok ] sigma_3 >= -C^abs Q   n=6 perm
+  [ok ] sigma_4 >= -C^abs Q   n=6 perm
+  [ok ] sigma_5 >= -C^abs Q   n=6 perm
+  [ok ] sigma_6 >= -C^abs Q   n=6 perm
+  [ok ] sigma_3 >= -C^abs Q   n=6 (J-P)/(n-1)
+  [ok ] sigma_4 >= -C^abs Q   n=6 (J-P)/(n-1)
+  [ok ] sigma_5 >= -C^abs Q   n=6 (J-P)/(n-1)
+  [ok ] sigma_6 >= -C^abs Q   n=6 (J-P)/(n-1)
+  [ok ] sigma_3 >= -C^abs Q   n=6 half P + half P^2
+  [ok ] sigma_4 >= -C^abs Q   n=6 half P + half P^2
+  [ok ] sigma_5 >= -C^abs Q   n=6 half P + half P^2
+  [ok ] sigma_6 >= -C^abs Q   n=6 half P + half P^2
+  [ok ] sigma_3 >= -C^abs Q   n=6 3-mix
+  [ok ] sigma_4 >= -C^abs Q   n=6 3-mix
+  [ok ] sigma_5 >= -C^abs Q   n=6 3-mix
+  [ok ] sigma_6 >= -C^abs Q   n=6 3-mix
+  [ok ] sigma_3 >= -C^abs Q   n=6 saturated A00=0
+  [ok ] sigma_4 >= -C^abs Q   n=6 saturated A00=0
+  [ok ] sigma_5 >= -C^abs Q   n=6 saturated A00=0
+  [ok ] sigma_6 >= -C^abs Q   n=6 saturated A00=0
+  [ok ] sigma_3 >= -C^abs Q   n=7 perm
+  [ok ] sigma_4 >= -C^abs Q   n=7 perm
+  [ok ] sigma_5 >= -C^abs Q   n=7 perm
+  [ok ] sigma_6 >= -C^abs Q   n=7 perm
+  [ok ] sigma_7 >= -C^abs Q   n=7 perm
+  [ok ] sigma_3 >= -C^abs Q   n=7 (J-P)/(n-1)
+  [ok ] sigma_4 >= -C^abs Q   n=7 (J-P)/(n-1)
+  [ok ] sigma_5 >= -C^abs Q   n=7 (J-P)/(n-1)
+  [ok ] sigma_6 >= -C^abs Q   n=7 (J-P)/(n-1)
+  [ok ] sigma_7 >= -C^abs Q   n=7 (J-P)/(n-1)
+  [ok ] sigma_3 >= -C^abs Q   n=7 half P + half P^2
+  [ok ] sigma_4 >= -C^abs Q   n=7 half P + half P^2
+  [ok ] sigma_5 >= -C^abs Q   n=7 half P + half P^2
+  [ok ] sigma_6 >= -C^abs Q   n=7 half P + half P^2
+  [ok ] sigma_7 >= -C^abs Q   n=7 half P + half P^2
+  [ok ] sigma_3 >= -C^abs Q   n=7 3-mix
+  [ok ] sigma_4 >= -C^abs Q   n=7 3-mix
+  [ok ] sigma_5 >= -C^abs Q   n=7 3-mix
+  [ok ] sigma_6 >= -C^abs Q   n=7 3-mix
+  [ok ] sigma_7 >= -C^abs Q   n=7 3-mix
+  [ok ] sigma_3 >= -C^abs Q   n=7 saturated A00=0
+  [ok ] sigma_4 >= -C^abs Q   n=7 saturated A00=0
+  [ok ] sigma_5 >= -C^abs Q   n=7 saturated A00=0
+  [ok ] sigma_6 >= -C^abs Q   n=7 saturated A00=0
+  [ok ] sigma_7 >= -C^abs Q   n=7 saturated A00=0
+  [ok ] sigma_3 >= -C^abs Q   n=8 perm
+  [ok ] sigma_4 >= -C^abs Q   n=8 perm
+  [ok ] sigma_5 >= -C^abs Q   n=8 perm
+  [ok ] sigma_6 >= -C^abs Q   n=8 perm
+  [ok ] sigma_7 >= -C^abs Q   n=8 perm
+  [ok ] sigma_8 >= -C^abs Q   n=8 perm
+  [ok ] sigma_3 >= -C^abs Q   n=8 (J-P)/(n-1)
+  [ok ] sigma_4 >= -C^abs Q   n=8 (J-P)/(n-1)
+  [ok ] sigma_5 >= -C^abs Q   n=8 (J-P)/(n-1)
+  [ok ] sigma_6 >= -C^abs Q   n=8 (J-P)/(n-1)
+  [ok ] sigma_7 >= -C^abs Q   n=8 (J-P)/(n-1)
+  [ok ] sigma_8 >= -C^abs Q   n=8 (J-P)/(n-1)
+  [ok ] sigma_3 >= -C^abs Q   n=8 half P + half P^2
+  [ok ] sigma_4 >= -C^abs Q   n=8 half P + half P^2
+  [ok ] sigma_5 >= -C^abs Q   n=8 half P + half P^2
+  [ok ] sigma_6 >= -C^abs Q   n=8 half P + half P^2
+  [ok ] sigma_7 >= -C^abs Q   n=8 half P + half P^2
+  [ok ] sigma_8 >= -C^abs Q   n=8 half P + half P^2
+  [ok ] sigma_3 >= -C^abs Q   n=8 3-mix
+  [ok ] sigma_4 >= -C^abs Q   n=8 3-mix
+  [ok ] sigma_5 >= -C^abs Q   n=8 3-mix
+  [ok ] sigma_6 >= -C^abs Q   n=8 3-mix
+  [ok ] sigma_7 >= -C^abs Q   n=8 3-mix
+  [ok ] sigma_8 >= -C^abs Q   n=8 3-mix
+  [ok ] sigma_3 >= -C^abs Q   n=8 saturated A00=0
+  [ok ] sigma_4 >= -C^abs Q   n=8 saturated A00=0
+  [ok ] sigma_5 >= -C^abs Q   n=8 saturated A00=0
+  [ok ] sigma_6 >= -C^abs Q   n=8 saturated A00=0
+  [ok ] sigma_7 >= -C^abs Q   n=8 saturated A00=0
+  [ok ] sigma_8 >= -C^abs Q   n=8 saturated A00=0
+  [ok ] C_3^abs on the slice = 2/(3n) (the paper's constant, reproduced)
+  [ok ] C_4^abs = 78/24 (pairing tier kept, nothing else at m = 4)
+  [ok ] C_5^abs == C_5^hyb (grading has nothing to do below m = 6)
+     C_m at (n,k) = (300, 8):
+       m=3  L0=      11.53  L1=     0.6667  hyb=   0.002222  abs=   0.002222  L2=     0.6667
+       m=4  L0=       1009  L1=      3.375  hyb=       3.25  abs=       3.25  L2=      3.375
+       m=5  L0=  8.341e+04  L1=       4824  hyb=      16.13  abs=      16.13  L2=      16.13
+       m=6  L0=   8.72e+06  L1=  2.916e+04  hyb=  2.916e+04  abs=      287.4  L2=      97.53
+       m=7  L0=  1.054e+09  L1=  6.097e+07  hyb=  2.039e+05  abs=       3707  L2=        682
+       m=8  L0=  1.459e+11  L1=  4.878e+08  hyb=  4.878e+08  abs=  5.333e+04  L2=       5457
+  [ok ] C_3^abs <= C_3^hyb   n=300 k=8   0.00222222 <= 0.00222225
+  [ok ] C_4^abs <= C_4^hyb   n=300 k=8   3.25 <= 3.25
+  [ok ] C_5^abs <= C_5^hyb   n=300 k=8   16.1322 <= 16.1322
+  [ok ] C_6^abs <= C_6^hyb   n=300 k=8   287.417 <= 29156.7
+  [ok ] C_7^abs <= C_7^hyb   n=300 k=8   3706.62 <= 203920
+  [ok ] C_8^abs <= C_8^hyb   n=300 k=8   53331.8 <= 4.87843e+08
+  [ok ] C_6^abs STRICTLY beats C_6^hyb   n=300 k=8
+  [ok ] C_7^abs STRICTLY beats C_7^hyb   n=300 k=8
+  [ok ] C_8^abs STRICTLY beats C_8^hyb   n=300 k=8
+  [ok ] C_3^abs <= C_3^hyb   n=40 k=8   0.0166667 <= 0.0167397
+  [ok ] C_4^abs <= C_4^hyb   n=40 k=8   3.25 <= 3.25
+  [ok ] C_5^abs <= C_5^hyb   n=40 k=8   16.125 <= 16.1264
+  [ok ] C_6^abs <= C_6^hyb   n=40 k=8   159.042 <= 3803.04
+  [ok ] C_7^abs <= C_7^hyb   n=40 k=8   1067.63 <= 26598.2
+  [ok ] C_8^abs <= C_8^hyb   n=40 k=8   8492.8 <= 8.29978e+06
+  [ok ] C_6^abs STRICTLY beats C_6^hyb   n=40 k=8
+  [ok ] C_7^abs STRICTLY beats C_7^hyb   n=40 k=8
+  [ok ] C_8^abs STRICTLY beats C_8^hyb   n=40 k=8
+  [ok ] C_3^abs <= C_3^hyb   n=120 k=12   0.00555556 <= 0.00555556
+  [ok ] C_4^abs <= C_4^hyb   n=120 k=12   3.25 <= 3.25
+  [ok ] C_5^abs <= C_5^hyb   n=120 k=12   16.1306 <= 16.1306
+  [ok ] C_6^abs <= C_6^hyb   n=120 k=12   287.417 <= 11604.2
+  [ok ] C_7^abs <= C_7^hyb   n=120 k=12   1879.62 <= 81158.8
+  [ok ] C_8^abs <= C_8^hyb   n=120 k=12   18719.6 <= 7.72736e+07
+  [ok ] C_9^abs <= C_9^hyb   n=120 k=12   145836 <= 6.95452e+08
+  [ok ] C_10^abs <= C_10^hyb   n=120 k=12   1.31916e+06 <= 8.2759e+11
+  [ok ] C_11^abs <= C_11^hyb   n=120 k=12   1.2251e+07 <= 9.10348e+12
+  [ok ] C_12^abs <= C_12^hyb   n=120 k=12   1.2694e+08 <= 1.29998e+16
+  [ok ] C_6^abs STRICTLY beats C_6^hyb   n=120 k=12
+  [ok ] C_7^abs STRICTLY beats C_7^hyb   n=120 k=12
+  [ok ] C_8^abs STRICTLY beats C_8^hyb   n=120 k=12
+  [ok ] C_9^abs STRICTLY beats C_9^hyb   n=120 k=12
+  [ok ] C_10^abs STRICTLY beats C_10^hyb   n=120 k=12
+  [ok ] C_11^abs STRICTLY beats C_11^hyb   n=120 k=12
+  [ok ] C_12^abs STRICTLY beats C_12^hyb   n=120 k=12
+  [ok ] C_3^abs <= C_3^hyb   n=60 k=6   0.0111111 <= 0.0112273
+  [ok ] C_4^abs <= C_4^hyb   n=60 k=6   3.25 <= 3.25
+  [ok ] C_5^abs <= C_5^hyb   n=60 k=6   16.1278 <= 16.1312
+  [ok ] C_6^abs <= C_6^hyb   n=60 k=6   191.542 <= 5753.32
+  [ok ] C_6^abs STRICTLY beats C_6^hyb   n=60 k=6
+  [FAIL] C_3^abs(collar) = C^abs(slice) + eta-gap   n=300 k=8
+  [FAIL] C_3^abs(collar) > C^abs(slice)   n=300 k=8
+  [FAIL] C_5^abs(collar) = C^abs(slice) + eta-gap   n=300 k=8
+  [FAIL] C_5^abs(collar) > C^abs(slice)   n=300 k=8
+  [FAIL] C_3^abs(collar) = C^abs(slice) + eta-gap   n=120 k=6
+  [FAIL] C_3^abs(collar) > C^abs(slice)   n=120 k=6
+  [FAIL] C_5^abs(collar) = C^abs(slice) + eta-gap   n=120 k=6
+  [FAIL] C_5^abs(collar) > C^abs(slice)   n=120 k=6
+
+X6  recomposition: Ntilde(k) through collar_budget.Psi
+       k     L0      L1     hyb   grade     abs      L2   floor
+       6      244     47     37     35     35     37     34
+       8      736    132     74     52     52     54     51
+  [ok ] Ntilde ordering L0 >= L1 >= hyb >= abs >= floor   k=6   [244, 47, 37, 35, 35, 37, 34]
+  [ok ] abs strictly beats hyb   k=6
+  [ok ] abs BEATS the assumed L2 shape   k=6
+  [ok ] abs is within 2 of the collar floor   k=6   abs=35 floor=34
+  [ok ] grade == abs (absorption inert at the threshold)   k=6   grade=35 abs=35
+  [ok ] Ntilde ordering L0 >= L1 >= hyb >= abs >= floor   k=8   [736, 132, 74, 52, 52, 54, 51]
+  [ok ] abs strictly beats hyb   k=8
+  [ok ] abs BEATS the assumed L2 shape   k=8
+  [ok ] abs is within 2 of the collar floor   k=8   abs=52 floor=51
+  [ok ] grade == abs (absorption inert at the threshold)   k=8   grade=52 abs=52
+  [ok ] WITNESS  Psi(35, 6) < 1   0.95296077
+  [ok ] WITNESS  Psi(34, 6) >= 1  (threshold is exact)   1.08510881
+  [ok ] WITNESS  Psi(52, 8) < 1   0.99874032
+  [ok ] WITNESS  Psi(51, 8) >= 1  (threshold is exact)   1.12969012
+     fault 'no_eta' (the collar degradation 1/n -> eta ignored in C^abs): 8 checks caught it
+
+X4  ABSORPTION: the exact threshold Q*_m
+       m      Q*_m   Q*/m^2   13(m/2)(m/2-1)
+       4        13    0.812         26
+       6        59    1.639         78
+       8       137    2.141        156
+      10       246    2.460        260
+      12       388    2.694        390
+      14       562    2.867        546
+      16       770    3.008        728
+      18      1014    3.130        936
+      20      1295    3.237       1170
+      22      1615    3.337       1430
+      24      1977    3.432       1716
+  [FAIL] Q*_4 = 26 = 13*(2)(1) exactly (the (4,1) tier is the only one)
+  [FAIL] Q*_m >= 13(m/2)(m/2-1)   m=6
+  [ok ] Q*_m strictly increasing   m=6
+  [FAIL] Q*_m >= 13(m/2)(m/2-1)   m=8
+  [ok ] Q*_m strictly increasing   m=8
+  [FAIL] Q*_m >= 13(m/2)(m/2-1)   m=10
+  [ok ] Q*_m strictly increasing   m=10
+  [FAIL] Q*_m >= 13(m/2)(m/2-1)   m=12
+  [ok ] Q*_m strictly increasing   m=12
+  [ok ] Q*_m >= 13(m/2)(m/2-1)   m=14
+  [ok ] Q*_m strictly increasing   m=14
+  [ok ] Q*_m >= 13(m/2)(m/2-1)   m=16
+  [ok ] Q*_m strictly increasing   m=16
+  [ok ] Q*_m >= 13(m/2)(m/2-1)   m=18
+  [ok ] Q*_m strictly increasing   m=18
+  [ok ] Q*_m >= 13(m/2)(m/2-1)   m=20
+  [ok ] Q*_m strictly increasing   m=20
+  [ok ] Q*_m >= 13(m/2)(m/2-1)   m=22
+  [ok ] Q*_m strictly increasing   m=22
+  [ok ] Q*_m >= 13(m/2)(m/2-1)   m=24
+  [ok ] Q*_m strictly increasing   m=24
+  [FAIL] L_4(Q*_m) >= 0   m=4
+  [ok ] L_4(Q*_m - 1) < 0  (the threshold is exact)   m=4
+  [ok ] L_4(Q) >= 0 for Q = 2 Q*_m   m=4
+  [ok ] L_4(Q) >= 0 for Q = 4 Q*_m   m=4
+  [ok ] L_4(Q) >= 0 for Q = 10 Q*_m   m=4
+  [FAIL] L_6(Q*_m) >= 0   m=6
+  [ok ] L_6(Q*_m - 1) < 0  (the threshold is exact)   m=6
+  [ok ] L_6(Q) >= 0 for Q = 2 Q*_m   m=6
+  [ok ] L_6(Q) >= 0 for Q = 4 Q*_m   m=6
+  [ok ] L_6(Q) >= 0 for Q = 10 Q*_m   m=6
+  [FAIL] L_8(Q*_m) >= 0   m=8
+  [ok ] L_8(Q*_m - 1) < 0  (the threshold is exact)   m=8
+  [ok ] L_8(Q) >= 0 for Q = 2 Q*_m   m=8
+  [ok ] L_8(Q) >= 0 for Q = 4 Q*_m   m=8
+  [ok ] L_8(Q) >= 0 for Q = 10 Q*_m   m=8
+  [FAIL] L_10(Q*_m) >= 0   m=10
+  [ok ] L_10(Q*_m - 1) < 0  (the threshold is exact)   m=10
+  [FAIL] L_10(Q) >= 0 for Q = 2 Q*_m   m=10
+  [ok ] L_10(Q) >= 0 for Q = 4 Q*_m   m=10
+  [ok ] L_10(Q) >= 0 for Q = 10 Q*_m   m=10
+  [FAIL] L_12(Q*_m) >= 0   m=12
+  [ok ] L_12(Q*_m - 1) < 0  (the threshold is exact)   m=12
+  [ok ] L_12(Q) >= 0 for Q = 2 Q*_m   m=12
+  [ok ] L_12(Q) >= 0 for Q = 4 Q*_m   m=12
+  [ok ] L_12(Q) >= 0 for Q = 10 Q*_m   m=12
+  [FAIL] L_14(Q*_m) >= 0   m=14
+  [ok ] L_14(Q*_m - 1) < 0  (the threshold is exact)   m=14
+  [FAIL] L_14(Q) >= 0 for Q = 2 Q*_m   m=14
+  [ok ] L_14(Q) >= 0 for Q = 4 Q*_m   m=14
+  [ok ] L_14(Q) >= 0 for Q = 10 Q*_m   m=14
+  [FAIL] L_16(Q*_m) >= 0   m=16
+  [ok ] L_16(Q*_m - 1) < 0  (the threshold is exact)   m=16
+  [FAIL] L_16(Q) >= 0 for Q = 2 Q*_m   m=16
+  [ok ] L_16(Q) >= 0 for Q = 4 Q*_m   m=16
+  [ok ] L_16(Q) >= 0 for Q = 10 Q*_m   m=16
+  [FAIL] L_18(Q*_m) >= 0   m=18
+  [ok ] L_18(Q*_m - 1) < 0  (the threshold is exact)   m=18
+  [FAIL] L_18(Q) >= 0 for Q = 2 Q*_m   m=18
+  [ok ] L_18(Q) >= 0 for Q = 4 Q*_m   m=18
+  [ok ] L_18(Q) >= 0 for Q = 10 Q*_m   m=18
+  [FAIL] L_20(Q*_m) >= 0   m=20
+  [ok ] L_20(Q*_m - 1) < 0  (the threshold is exact)   m=20
+  [FAIL] L_20(Q) >= 0 for Q = 2 Q*_m   m=20
+  [ok ] L_20(Q) >= 0 for Q = 4 Q*_m   m=20
+  [ok ] L_20(Q) >= 0 for Q = 10 Q*_m   m=20
+  [ok ] the negative tiers have degree <= m/2 - 1 (monotone absorption)
+
+X5  the constant C^abs: validity, the eta identity, C^abs <= C^hyb
+  [ok ] sigma_3 >= -C^abs Q   n=5 perm
+  [ok ] sigma_4 >= -C^abs Q   n=5 perm
+  [ok ] sigma_5 >= -C^abs Q   n=5 perm
+  [ok ] sigma_3 >= -C^abs Q   n=5 (J-P)/(n-1)
+  [ok ] sigma_4 >= -C^abs Q   n=5 (J-P)/(n-1)
+  [ok ] sigma_5 >= -C^abs Q   n=5 (J-P)/(n-1)
+  [ok ] sigma_3 >= -C^abs Q   n=5 half P + half P^2
+  [ok ] sigma_4 >= -C^abs Q   n=5 half P + half P^2
+  [ok ] sigma_5 >= -C^abs Q   n=5 half P + half P^2
+  [ok ] sigma_3 >= -C^abs Q   n=5 3-mix
+  [ok ] sigma_4 >= -C^abs Q   n=5 3-mix
+  [ok ] sigma_5 >= -C^abs Q   n=5 3-mix
+  [ok ] sigma_3 >= -C^abs Q   n=5 saturated A00=0
+  [ok ] sigma_4 >= -C^abs Q   n=5 saturated A00=0
+  [ok ] sigma_5 >= -C^abs Q   n=5 saturated A00=0
+  [ok ] sigma_3 >= -C^abs Q   n=6 perm
+  [ok ] sigma_4 >= -C^abs Q   n=6 perm
+  [ok ] sigma_5 >= -C^abs Q   n=6 perm
+  [ok ] sigma_6 >= -C^abs Q   n=6 perm
+  [ok ] sigma_3 >= -C^abs Q   n=6 (J-P)/(n-1)
+  [ok ] sigma_4 >= -C^abs Q   n=6 (J-P)/(n-1)
+  [ok ] sigma_5 >= -C^abs Q   n=6 (J-P)/(n-1)
+  [ok ] sigma_6 >= -C^abs Q   n=6 (J-P)/(n-1)
+  [ok ] sigma_3 >= -C^abs Q   n=6 half P + half P^2
+  [ok ] sigma_4 >= -C^abs Q   n=6 half P + half P^2
+  [ok ] sigma_5 >= -C^abs Q   n=6 half P + half P^2
+  [ok ] sigma_6 >= -C^abs Q   n=6 half P + half P^2
+  [ok ] sigma_3 >= -C^abs Q   n=6 3-mix
+  [ok ] sigma_4 >= -C^abs Q   n=6 3-mix
+  [ok ] sigma_5 >= -C^abs Q   n=6 3-mix
+  [ok ] sigma_6 >= -C^abs Q   n=6 3-mix
+  [ok ] sigma_3 >= -C^abs Q   n=6 saturated A00=0
+  [ok ] sigma_4 >= -C^abs Q   n=6 saturated A00=0
+  [ok ] sigma_5 >= -C^abs Q   n=6 saturated A00=0
+  [ok ] sigma_6 >= -C^abs Q   n=6 saturated A00=0
+  [ok ] sigma_3 >= -C^abs Q   n=7 perm
+  [ok ] sigma_4 >= -C^abs Q   n=7 perm
+  [ok ] sigma_5 >= -C^abs Q   n=7 perm
+  [ok ] sigma_6 >= -C^abs Q   n=7 perm
+  [ok ] sigma_7 >= -C^abs Q   n=7 perm
+  [ok ] sigma_3 >= -C^abs Q   n=7 (J-P)/(n-1)
+  [ok ] sigma_4 >= -C^abs Q   n=7 (J-P)/(n-1)
+  [ok ] sigma_5 >= -C^abs Q   n=7 (J-P)/(n-1)
+  [ok ] sigma_6 >= -C^abs Q   n=7 (J-P)/(n-1)
+  [ok ] sigma_7 >= -C^abs Q   n=7 (J-P)/(n-1)
+  [ok ] sigma_3 >= -C^abs Q   n=7 half P + half P^2
+  [ok ] sigma_4 >= -C^abs Q   n=7 half P + half P^2
+  [ok ] sigma_5 >= -C^abs Q   n=7 half P + half P^2
+  [ok ] sigma_6 >= -C^abs Q   n=7 half P + half P^2
+  [ok ] sigma_7 >= -C^abs Q   n=7 half P + half P^2
+  [ok ] sigma_3 >= -C^abs Q   n=7 3-mix
+  [ok ] sigma_4 >= -C^abs Q   n=7 3-mix
+  [ok ] sigma_5 >= -C^abs Q   n=7 3-mix
+  [ok ] sigma_6 >= -C^abs Q   n=7 3-mix
+  [ok ] sigma_7 >= -C^abs Q   n=7 3-mix
+  [ok ] sigma_3 >= -C^abs Q   n=7 saturated A00=0
+  [ok ] sigma_4 >= -C^abs Q   n=7 saturated A00=0
+  [ok ] sigma_5 >= -C^abs Q   n=7 saturated A00=0
+  [ok ] sigma_6 >= -C^abs Q   n=7 saturated A00=0
+  [ok ] sigma_7 >= -C^abs Q   n=7 saturated A00=0
+  [ok ] sigma_3 >= -C^abs Q   n=8 perm
+  [ok ] sigma_4 >= -C^abs Q   n=8 perm
+  [ok ] sigma_5 >= -C^abs Q   n=8 perm
+  [ok ] sigma_6 >= -C^abs Q   n=8 perm
+  [ok ] sigma_7 >= -C^abs Q   n=8 perm
+  [ok ] sigma_8 >= -C^abs Q   n=8 perm
+  [ok ] sigma_3 >= -C^abs Q   n=8 (J-P)/(n-1)
+  [ok ] sigma_4 >= -C^abs Q   n=8 (J-P)/(n-1)
+  [ok ] sigma_5 >= -C^abs Q   n=8 (J-P)/(n-1)
+  [ok ] sigma_6 >= -C^abs Q   n=8 (J-P)/(n-1)
+  [ok ] sigma_7 >= -C^abs Q   n=8 (J-P)/(n-1)
+  [ok ] sigma_8 >= -C^abs Q   n=8 (J-P)/(n-1)
+  [ok ] sigma_3 >= -C^abs Q   n=8 half P + half P^2
+  [ok ] sigma_4 >= -C^abs Q   n=8 half P + half P^2
+  [ok ] sigma_5 >= -C^abs Q   n=8 half P + half P^2
+  [ok ] sigma_6 >= -C^abs Q   n=8 half P + half P^2
+  [ok ] sigma_7 >= -C^abs Q   n=8 half P + half P^2
+  [ok ] sigma_8 >= -C^abs Q   n=8 half P + half P^2
+  [ok ] sigma_3 >= -C^abs Q   n=8 3-mix
+  [ok ] sigma_4 >= -C^abs Q   n=8 3-mix
+  [ok ] sigma_5 >= -C^abs Q   n=8 3-mix
+  [ok ] sigma_6 >= -C^abs Q   n=8 3-mix
+  [ok ] sigma_7 >= -C^abs Q   n=8 3-mix
+  [ok ] sigma_8 >= -C^abs Q   n=8 3-mix
+  [ok ] sigma_3 >= -C^abs Q   n=8 saturated A00=0
+  [ok ] sigma_4 >= -C^abs Q   n=8 saturated A00=0
+  [ok ] sigma_5 >= -C^abs Q   n=8 saturated A00=0
+  [ok ] sigma_6 >= -C^abs Q   n=8 saturated A00=0
+  [ok ] sigma_7 >= -C^abs Q   n=8 saturated A00=0
+  [ok ] sigma_8 >= -C^abs Q   n=8 saturated A00=0
+  [ok ] C_3^abs on the slice = 2/(3n) (the paper's constant, reproduced)
+  [ok ] C_4^abs = 78/24 (pairing tier kept, nothing else at m = 4)
+  [ok ] C_5^abs == C_5^hyb (grading has nothing to do below m = 6)
+     C_m at (n,k) = (300, 8):
+       m=3  L0=      11.53  L1=     0.6667  hyb=   0.002222  abs=   0.002222  L2=     0.6667
+       m=4  L0=       1009  L1=      3.375  hyb=       3.25  abs=       3.25  L2=      3.375
+       m=5  L0=  8.341e+04  L1=       4824  hyb=      16.13  abs=      16.13  L2=      16.13
+       m=6  L0=   8.72e+06  L1=  2.916e+04  hyb=  2.916e+04  abs=      191.5  L2=      97.53
+       m=7  L0=  1.054e+09  L1=  6.097e+07  hyb=  2.039e+05  abs=       3707  L2=        682
+       m=8  L0=  1.459e+11  L1=  4.878e+08  hyb=  4.878e+08  abs=  2.174e+04  L2=       5457
+  [ok ] C_3^abs <= C_3^hyb   n=300 k=8   0.00222225 <= 0.00222225
+  [ok ] C_4^abs <= C_4^hyb   n=300 k=8   3.25 <= 3.25
+  [ok ] C_5^abs <= C_5^hyb   n=300 k=8   16.1322 <= 16.1322
+  [ok ] C_6^abs <= C_6^hyb   n=300 k=8   191.542 <= 29156.7
+  [ok ] C_7^abs <= C_7^hyb   n=300 k=8   3706.62 <= 203920
+  [ok ] C_8^abs <= C_8^hyb   n=300 k=8   21737.3 <= 4.87843e+08
+  [ok ] C_6^abs STRICTLY beats C_6^hyb   n=300 k=8
+  [ok ] C_7^abs STRICTLY beats C_7^hyb   n=300 k=8
+  [ok ] C_8^abs STRICTLY beats C_8^hyb   n=300 k=8
+  [ok ] C_3^abs <= C_3^hyb   n=40 k=8   0.0167397 <= 0.0167397
+  [ok ] C_4^abs <= C_4^hyb   n=40 k=8   3.25 <= 3.25
+  [ok ] C_5^abs <= C_5^hyb   n=40 k=8   16.1264 <= 16.1264
+  [ok ] C_6^abs <= C_6^hyb   n=40 k=8   159.042 <= 3803.04
+  [ok ] C_7^abs <= C_7^hyb   n=40 k=8   1067.64 <= 26598.2
+  [ok ] C_8^abs <= C_8^hyb   n=40 k=8   8492.8 <= 8.29978e+06
+  [ok ] C_6^abs STRICTLY beats C_6^hyb   n=40 k=8
+  [ok ] C_7^abs STRICTLY beats C_7^hyb   n=40 k=8
+  [ok ] C_8^abs STRICTLY beats C_8^hyb   n=40 k=8
+  [ok ] C_3^abs <= C_3^hyb   n=120 k=12   0.00555556 <= 0.00555556
+  [ok ] C_4^abs <= C_4^hyb   n=120 k=12   3.25 <= 3.25
+  [ok ] C_5^abs <= C_5^hyb   n=120 k=12   16.1306 <= 16.1306
+  [ok ] C_6^abs <= C_6^hyb   n=120 k=12   191.542 <= 11604.2
+  [ok ] C_7^abs <= C_7^hyb   n=120 k=12   1879.62 <= 81158.8
+  [ok ] C_8^abs <= C_8^hyb   n=120 k=12   18719.6 <= 7.72736e+07
+  [ok ] C_9^abs <= C_9^hyb   n=120 k=12   145836 <= 6.95452e+08
+  [ok ] C_10^abs <= C_10^hyb   n=120 k=12   1.31916e+06 <= 8.2759e+11
+  [ok ] C_11^abs <= C_11^hyb   n=120 k=12   1.2251e+07 <= 9.10348e+12
+  [ok ] C_12^abs <= C_12^hyb   n=120 k=12   1.2694e+08 <= 1.29998e+16
+  [ok ] C_6^abs STRICTLY beats C_6^hyb   n=120 k=12
+  [ok ] C_7^abs STRICTLY beats C_7^hyb   n=120 k=12
+  [ok ] C_8^abs STRICTLY beats C_8^hyb   n=120 k=12
+  [ok ] C_9^abs STRICTLY beats C_9^hyb   n=120 k=12
+  [ok ] C_10^abs STRICTLY beats C_10^hyb   n=120 k=12
+  [ok ] C_11^abs STRICTLY beats C_11^hyb   n=120 k=12
+  [ok ] C_12^abs STRICTLY beats C_12^hyb   n=120 k=12
+  [ok ] C_3^abs <= C_3^hyb   n=60 k=6   0.0112273 <= 0.0112273
+  [ok ] C_4^abs <= C_4^hyb   n=60 k=6   3.25 <= 3.25
+  [ok ] C_5^abs <= C_5^hyb   n=60 k=6   16.1312 <= 16.1312
+  [ok ] C_6^abs <= C_6^hyb   n=60 k=6   191.542 <= 5753.32
+  [ok ] C_6^abs STRICTLY beats C_6^hyb   n=60 k=6
+  [ok ] C_3^abs(collar) = C^abs(slice) + eta-gap   n=300 k=8
+  [ok ] C_3^abs(collar) > C^abs(slice)   n=300 k=8
+  [ok ] C_5^abs(collar) = C^abs(slice) + eta-gap   n=300 k=8
+  [ok ] C_5^abs(collar) > C^abs(slice)   n=300 k=8
+  [ok ] C_3^abs(collar) = C^abs(slice) + eta-gap   n=120 k=6
+  [ok ] C_3^abs(collar) > C^abs(slice)   n=120 k=6
+  [ok ] C_5^abs(collar) = C^abs(slice) + eta-gap   n=120 k=6
+  [ok ] C_5^abs(collar) > C^abs(slice)   n=120 k=6
+     fault 'over_absorb' (the absorption threshold Q*_m halved): 19 checks caught it
+
+X3  the hypotheses at the test matrices, and the layer bound
+  [ok ] (S4) |K_3| <= Lam_3 Q   n=5 perm
+  [ok ] (S4) |K_4| <= Lam_4 Q   n=5 perm
+  [ok ] (S4) |K_5| <= Lam_5 Q   n=5 perm
+  [ok ] (S1) K_3 >= -4Q/n   n=5 perm
+  [ok ] sigma_3 >= L_3(Q)   n=5 perm   1.6 >= -0.133333
+  [ok ] sigma_4 >= L_4(Q)   n=5 perm   1.32 >= -1.25
+  [ok ] sigma_5 >= L_5(Q)   n=5 perm   0.4736 >= -16.0667
+  [ok ] (S4) |K_3| <= Lam_3 Q   n=5 (J-P)/(n-1)
+  [ok ] (S4) |K_4| <= Lam_4 Q   n=5 (J-P)/(n-1)
+  [ok ] (S4) |K_5| <= Lam_5 Q   n=5 (J-P)/(n-1)
+  [ok ] (S1) K_3 >= -4Q/n   n=5 (J-P)/(n-1)
+  [ok ] sigma_3 >= L_3(Q)   n=5 (J-P)/(n-1)   -0.025 >= -0.133333
+  [ok ] sigma_4 >= L_4(Q)   n=5 (J-P)/(n-1)   0.00515625 >= -3.24219
+  [ok ] sigma_5 >= L_5(Q)   n=5 (J-P)/(n-1)   -0.0004625 >= -15.8167
+  [ok ] (S4) |K_3| <= Lam_3 Q   n=5 half P + half P^2
+  [ok ] (S4) |K_4| <= Lam_4 Q   n=5 half P + half P^2
+  [ok ] (S4) |K_5| <= Lam_5 Q   n=5 half P + half P^2
+  [ok ] (S1) K_3 >= -4Q/n   n=5 half P + half P^2
+  [ok ] sigma_3 >= L_3(Q)   n=5 half P + half P^2   0.1 >= -0.133333
+  [ok ] sigma_4 >= L_4(Q)   n=5 half P + half P^2   -0.0175 >= -2.96875
+  [ok ] sigma_5 >= L_5(Q)   n=5 half P + half P^2   -0.0164 >= -15.9
+  [ok ] (S4) |K_3| <= Lam_3 Q   n=5 3-mix
+  [ok ] (S4) |K_4| <= Lam_4 Q   n=5 3-mix
+  [ok ] (S4) |K_5| <= Lam_5 Q   n=5 3-mix
+  [ok ] (S1) K_3 >= -4Q/n   n=5 3-mix
+  [ok ] sigma_3 >= L_3(Q)   n=5 3-mix   0.0444444 >= -0.133333
+  [ok ] sigma_4 >= L_4(Q)   n=5 3-mix   0.0108951 >= -3.1385
+  [ok ] sigma_5 >= L_5(Q)   n=5 3-mix   -0.00430123 >= -15.863
+  [ok ] (S4) |K_3| <= Lam_3 Q   n=5 saturated A00=0
+  [ok ] (S4) |K_4| <= Lam_4 Q   n=5 saturated A00=0
+  [ok ] (S4) |K_5| <= Lam_5 Q   n=5 saturated A00=0
+  [ok ] (S1) K_3 >= -4Q/n   n=5 saturated A00=0
+  [ok ] sigma_3 >= L_3(Q)   n=5 saturated A00=0   -0.0046875 >= -0.133333
+  [ok ] sigma_4 >= L_4(Q)   n=5 saturated A00=0   0.000131836 >= -3.24951
+  [ok ] sigma_5 >= L_5(Q)   n=5 saturated A00=0   -5.85937e-07 >= -15.8042
+  [ok ] (S4) |K_3| <= Lam_3 Q   n=6 perm
+  [ok ] (S4) |K_4| <= Lam_4 Q   n=6 perm
+  [ok ] (S4) |K_5| <= Lam_5 Q   n=6 perm
+  [ok ] (S4) |K_6| <= Lam_6 Q   n=6 perm
+  [ok ] (S1) K_3 >= -4Q/n   n=6 perm
+  [ok ] sigma_3 >= L_3(Q)   n=6 perm   2.22222 >= -0.111111
+  [ok ] sigma_4 >= L_4(Q)   n=6 perm   2.5 >= -0.125
+  [ok ] sigma_5 >= L_5(Q)   n=6 perm   1.55556 >= -16.0778
+  [ok ] sigma_6 >= L_6(Q)   n=6 perm   0.478395 >= -101.188
+  [ok ] (S4) |K_3| <= Lam_3 Q   n=6 (J-P)/(n-1)
+  [ok ] (S4) |K_4| <= Lam_4 Q   n=6 (J-P)/(n-1)
+  [ok ] (S4) |K_5| <= Lam_5 Q   n=6 (J-P)/(n-1)
+  [ok ] (S4) |K_6| <= Lam_6 Q   n=6 (J-P)/(n-1)
+  [ok ] (S1) K_3 >= -4Q/n   n=6 (J-P)/(n-1)
+  [ok ] sigma_3 >= L_3(Q)   n=6 (J-P)/(n-1)   -0.0177778 >= -0.111111
+  [ok ] sigma_4 >= L_4(Q)   n=6 (J-P)/(n-1)   0.004 >= -3.245
+  [ok ] sigma_5 >= L_5(Q)   n=6 (J-P)/(n-1)   -0.000497778 >= -15.8111
+  [ok ] sigma_6 >= L_6(Q)   n=6 (J-P)/(n-1)   3.06173e-05 >= -95.9915
+  [ok ] (S4) |K_3| <= Lam_3 Q   n=6 half P + half P^2
+  [ok ] (S4) |K_4| <= Lam_4 Q   n=6 half P + half P^2
+  [ok ] (S4) |K_5| <= Lam_5 Q   n=6 half P + half P^2
+  [ok ] (S4) |K_6| <= Lam_6 Q   n=6 half P + half P^2
+  [ok ] (S1) K_3 >= -4Q/n   n=6 half P + half P^2
+  [ok ] sigma_3 >= L_3(Q)   n=6 half P + half P^2   0.222222 >= -0.111111
+  [ok ] sigma_4 >= L_4(Q)   n=6 half P + half P^2   0.0625 >= -2.75
+  [ok ] sigma_5 >= L_5(Q)   n=6 half P + half P^2   -0.0277778 >= -15.9111
+  [ok ] sigma_6 >= L_6(Q)   n=6 half P + half P^2   -0.00771605 >= -98.75
+  [ok ] (S4) |K_3| <= Lam_3 Q   n=6 3-mix
+  [ok ] (S4) |K_4| <= Lam_4 Q   n=6 3-mix
+  [ok ] (S4) |K_5| <= Lam_5 Q   n=6 3-mix
+  [ok ] (S4) |K_6| <= Lam_6 Q   n=6 3-mix
+  [ok ] (S1) K_3 >= -4Q/n   n=6 3-mix
+  [ok ] sigma_3 >= L_3(Q)   n=6 3-mix   0.111111 >= -0.111111
+  [ok ] sigma_4 >= L_4(Q)   n=6 3-mix   0.0625 >= -3.02778
+  [ok ] sigma_5 >= L_5(Q)   n=6 3-mix   0 >= -15.8741
+  [ok ] sigma_6 >= L_6(Q)   n=6 3-mix   -0.00304355 >= -97.784
+  [ok ] (S4) |K_3| <= Lam_3 Q   n=6 saturated A00=0
+  [ok ] (S4) |K_4| <= Lam_4 Q   n=6 saturated A00=0
+  [ok ] (S4) |K_5| <= Lam_5 Q   n=6 saturated A00=0
+  [ok ] (S4) |K_6| <= Lam_6 Q   n=6 saturated A00=0
+  [ok ] (S1) K_3 >= -4Q/n   n=6 saturated A00=0
+  [ok ] sigma_3 >= L_3(Q)   n=6 saturated A00=0   -0.00284444 >= -0.111111
+  [ok ] sigma_4 >= L_4(Q)   n=6 saturated A00=0   9.6e-05 >= -3.2498
+  [ok ] sigma_5 >= L_5(Q)   n=6 saturated A00=0   -9.10222e-07 >= -15.8022
+  [ok ] sigma_6 >= L_6(Q)   n=6 saturated A00=0   1.58025e-09 >= -95.7317
+  [ok ] (S4) |K_3| <= Lam_3 Q   n=7 perm
+  [ok ] (S4) |K_4| <= Lam_4 Q   n=7 perm
+  [ok ] (S4) |K_5| <= Lam_5 Q   n=7 perm
+  [ok ] (S4) |K_6| <= Lam_6 Q   n=7 perm
+  [ok ] (S4) |K_7| <= Lam_7 Q   n=7 perm
+  [ok ] (S1) K_3 >= -4Q/n   n=7 perm
+  [ok ] sigma_3 >= L_3(Q)   n=7 perm   2.85714 >= -0.0952381
+  [ok ] sigma_4 >= L_4(Q)   n=7 perm   3.97959 >= 1.25
+  [ok ] sigma_5 >= L_5(Q)   n=7 perm   3.28863 >= -16.0857
+  [ok ] sigma_6 >= L_6(Q)   n=7 perm   1.80966 >= -100.917
+  [ok ] sigma_7 >= L_7(Q)   n=7 perm   0.481534 >= -732.686
+  [ok ] (S4) |K_3| <= Lam_3 Q   n=7 (J-P)/(n-1)
+  [ok ] (S4) |K_4| <= Lam_4 Q   n=7 (J-P)/(n-1)
+  [ok ] (S4) |K_5| <= Lam_5 Q   n=7 (J-P)/(n-1)
+  [ok ] (S4) |K_6| <= Lam_6 Q   n=7 (J-P)/(n-1)
+  [ok ] (S4) |K_7| <= Lam_7 Q   n=7 (J-P)/(n-1)
+  [ok ] (S1) K_3 >= -4Q/n   n=7 (J-P)/(n-1)
+  [ok ] sigma_3 >= L_3(Q)   n=7 (J-P)/(n-1)   -0.0132275 >= -0.0952381
+  [ok ] sigma_4 >= L_4(Q)   n=7 (J-P)/(n-1)   0.00307067 >= -3.24653
+  [ok ] sigma_5 >= L_5(Q)   n=7 (J-P)/(n-1)   -0.00042292 >= -15.8079
+  [ok ] sigma_6 >= L_6(Q)   n=7 (J-P)/(n-1)   3.87874e-05 >= -95.9374
+  [ok ] sigma_7 >= L_7(Q)   n=7 (J-P)/(n-1)   -1.72016e-06 >= -673.535
+  [ok ] (S4) |K_3| <= Lam_3 Q   n=7 half P + half P^2
+  [ok ] (S4) |K_4| <= Lam_4 Q   n=7 half P + half P^2
+  [ok ] (S4) |K_5| <= Lam_5 Q   n=7 half P + half P^2
+  [ok ] (S4) |K_6| <= Lam_6 Q   n=7 half P + half P^2
+  [ok ] (S4) |K_7| <= Lam_7 Q   n=7 half P + half P^2
+  [ok ] (S1) K_3 >= -4Q/n   n=7 half P + half P^2
+  [ok ] sigma_3 >= L_3(Q)   n=7 half P + half P^2   0.357143 >= -0.0952381
+  [ok ] sigma_4 >= L_4(Q)   n=7 half P + half P^2   0.211735 >= -2.46875
+  [ok ] sigma_5 >= L_5(Q)   n=7 half P + half P^2   -0.00728863 >= -15.919
+  [ok ] sigma_6 >= L_6(Q)   n=7 half P + half P^2   -0.0201934 >= -99.4036
+  [ok ] sigma_7 >= L_7(Q)   n=7 half P + half P^2   -0.00351124 >= -697.098
+  [ok ] (S4) |K_3| <= Lam_3 Q   n=7 3-mix
+  [ok ] (S4) |K_4| <= Lam_4 Q   n=7 3-mix
+  [ok ] (S4) |K_5| <= Lam_5 Q   n=7 3-mix
+  [ok ] (S4) |K_6| <= Lam_6 Q   n=7 3-mix
+  [ok ] (S4) |K_7| <= Lam_7 Q   n=7 3-mix
+  [ok ] (S1) K_3 >= -4Q/n   n=7 3-mix
+  [ok ] sigma_3 >= L_3(Q)   n=7 3-mix   0.190476 >= -0.0952381
+  [ok ] sigma_4 >= L_4(Q)   n=7 3-mix   0.149124 >= -2.87924
+  [ok ] sigma_5 >= L_5(Q)   n=7 3-mix   0.0261581 >= -15.882
+  [ok ] sigma_6 >= L_6(Q)   n=7 3-mix   -0.00240688 >= -98.3589
+  [ok ] sigma_7 >= L_7(Q)   n=7 3-mix   -0.00187953 >= -689.229
+  [ok ] (S4) |K_3| <= Lam_3 Q   n=7 saturated A00=0
+  [ok ] (S4) |K_4| <= Lam_4 Q   n=7 saturated A00=0
+  [ok ] (S4) |K_5| <= Lam_5 Q   n=7 saturated A00=0
+  [ok ] (S4) |K_6| <= Lam_6 Q   n=7 saturated A00=0
+  [ok ] (S4) |K_7| <= Lam_7 Q   n=7 saturated A00=0
+  [ok ] (S1) K_3 >= -4Q/n   n=7 saturated A00=0
+  [ok ] sigma_3 >= L_3(Q)   n=7 saturated A00=0   -0.00183715 >= -0.0952381
+  [ok ] sigma_4 >= L_4(Q)   n=7 saturated A00=0   6.56127e-05 >= -3.2499
+  [ok ] sigma_5 >= L_5(Q)   n=7 saturated A00=0   -8.33177e-07 >= -15.8013
+  [ok ] sigma_6 >= L_6(Q)   n=7 saturated A00=0   3.44402e-09 >= -95.7118
+  [ok ] sigma_7 >= L_7(Q)   n=7 saturated A00=0   -2.81144e-12 >= -672.137
+  [ok ] (S4) |K_3| <= Lam_3 Q   n=8 perm
+  [ok ] (S4) |K_4| <= Lam_4 Q   n=8 perm
+  [ok ] (S4) |K_5| <= Lam_5 Q   n=8 perm
+  [ok ] (S4) |K_6| <= Lam_6 Q   n=8 perm
+  [ok ] (S4) |K_7| <= Lam_7 Q   n=8 perm
+  [ok ] (S4) |K_8| <= Lam_8 Q   n=8 perm
+  [ok ] (S1) K_3 >= -4Q/n   n=8 perm
+  [ok ] sigma_3 >= L_3(Q)   n=8 perm   3.5 >= -0.0833333
+  [ok ] sigma_4 >= L_4(Q)   n=8 perm   5.74219 >= 2.875
+  [ok ] sigma_5 >= L_5(Q)   n=8 perm   5.6875 >= -16.0917
+  [ok ] sigma_6 >= L_6(Q)   n=8 perm   4.27246 >= -99.8958
+  [ok ] sigma_7 >= L_7(Q)   n=8 perm   2.05957 >= -742.834
+  [ok ] sigma_8 >= L_8(Q)   n=8 perm   0.48391 >= -5851.81
+  [ok ] (S4) |K_3| <= Lam_3 Q   n=8 (J-P)/(n-1)
+  [ok ] (S4) |K_4| <= Lam_4 Q   n=8 (J-P)/(n-1)
+  [ok ] (S4) |K_5| <= Lam_5 Q   n=8 (J-P)/(n-1)
+  [ok ] (S4) |K_6| <= Lam_6 Q   n=8 (J-P)/(n-1)
+  [ok ] (S4) |K_7| <= Lam_7 Q   n=8 (J-P)/(n-1)
+  [ok ] (S4) |K_8| <= Lam_8 Q   n=8 (J-P)/(n-1)
+  [ok ] (S1) K_3 >= -4Q/n   n=8 (J-P)/(n-1)
+  [ok ] sigma_3 >= L_3(Q)   n=8 (J-P)/(n-1)   -0.0102041 >= -0.0833333
+  [ok ] sigma_4 >= L_4(Q)   n=8 (J-P)/(n-1)   0.00239158 >= -3.24745
+  [ok ] sigma_5 >= L_5(Q)   n=8 (J-P)/(n-1)   -0.000338401 >= -15.806
+  [ok ] sigma_6 >= L_6(Q)   n=8 (J-P)/(n-1)   3.63153e-05 >= -95.8987
+  [ok ] sigma_7 >= L_7(Q)   n=8 (J-P)/(n-1)   -2.50087e-06 >= -673.295
+  [ok ] sigma_8 >= L_8(Q)   n=8 (J-P)/(n-1)   8.39421e-08 >= -5401.73
+  [ok ] (S4) |K_3| <= Lam_3 Q   n=8 half P + half P^2
+  [ok ] (S4) |K_4| <= Lam_4 Q   n=8 half P + half P^2
+  [ok ] (S4) |K_5| <= Lam_5 Q   n=8 half P + half P^2
+  [ok ] (S4) |K_6| <= Lam_6 Q   n=8 half P + half P^2
+  [ok ] (S4) |K_7| <= Lam_7 Q   n=8 half P + half P^2
+  [ok ] (S4) |K_8| <= Lam_8 Q   n=8 half P + half P^2
+  [ok ] (S1) K_3 >= -4Q/n   n=8 half P + half P^2
+  [ok ] sigma_3 >= L_3(Q)   n=8 half P + half P^2   0.5 >= -0.0833333
+  [ok ] sigma_4 >= L_4(Q)   n=8 half P + half P^2   0.429688 >= -2.125
+  [ok ] sigma_5 >= L_5(Q)   n=8 half P + half P^2   0.0625 >= -15.925
+  [ok ] sigma_6 >= L_6(Q)   n=8 half P + half P^2   -0.0205078 >= -99.9792
+  [ok ] sigma_7 >= L_7(Q)   n=8 half P + half P^2   -0.0126953 >= -702.151
+  [ok ] sigma_8 >= L_8(Q)   n=8 half P + half P^2   -0.00156403 >= -5587.01
+  [ok ] (S4) |K_3| <= Lam_3 Q   n=8 3-mix
+  [ok ] (S4) |K_4| <= Lam_4 Q   n=8 3-mix
+  [ok ] (S4) |K_5| <= Lam_5 Q   n=8 3-mix
+  [ok ] (S4) |K_6| <= Lam_6 Q   n=8 3-mix
+  [ok ] (S4) |K_7| <= Lam_7 Q   n=8 3-mix
+  [ok ] (S4) |K_8| <= Lam_8 Q   n=8 3-mix
+  [ok ] (S1) K_3 >= -4Q/n   n=8 3-mix
+  [ok ] sigma_3 >= L_3(Q)   n=8 3-mix   0.277778 >= -0.0833333
+  [ok ] sigma_4 >= L_4(Q)   n=8 3-mix   0.273823 >= -2.6929
+  [ok ] sigma_5 >= L_5(Q)   n=8 3-mix   0.0779321 >= -15.888
+  [ok ] sigma_6 >= L_6(Q)   n=8 3-mix   0.0119532 >= -98.9012
+  [ok ] sigma_7 >= L_7(Q)   n=8 3-mix   -0.00274482 >= -693.155
+  [ok ] sigma_8 >= L_8(Q)   n=8 3-mix   -0.00105413 >= -5528.75
+  [ok ] (S4) |K_3| <= Lam_3 Q   n=8 saturated A00=0
+  [ok ] (S4) |K_4| <= Lam_4 Q   n=8 saturated A00=0
+  [ok ] (S4) |K_5| <= Lam_5 Q   n=8 saturated A00=0
+  [ok ] (S4) |K_6| <= Lam_6 Q   n=8 saturated A00=0
+  [ok ] (S4) |K_7| <= Lam_7 Q   n=8 saturated A00=0
+  [ok ] (S4) |K_8| <= Lam_8 Q   n=8 saturated A00=0
+  [ok ] (S1) K_3 >= -4Q/n   n=8 saturated A00=0
+  [ok ] sigma_3 >= L_3(Q)   n=8 saturated A00=0   -0.00124948 >= -0.0833333
+  [ok ] sigma_4 >= L_4(Q)   n=8 saturated A00=0   4.48235e-05 >= -3.24995
+  [ok ] sigma_5 >= L_5(Q)   n=8 saturated A00=0   -6.50499e-07 >= -15.8009
+  [ok ] sigma_6 >= L_6(Q)   n=8 saturated A00=0   3.88931e-09 >= -95.6998
+  [ok ] sigma_7 >= L_7(Q)   n=8 saturated A00=0   -8.16414e-12 >= -672.063
+  [ok ] sigma_8 >= L_8(Q)   n=8 saturated A00=0   3.54346e-15 >= -5393.92
+
+X5  the constant C^abs: validity, the eta identity, C^abs <= C^hyb
+  [ok ] sigma_3 >= -C^abs Q   n=5 perm
+  [ok ] sigma_4 >= -C^abs Q   n=5 perm
+  [ok ] sigma_5 >= -C^abs Q   n=5 perm
+  [FAIL] sigma_3 >= -C^abs Q   n=5 (J-P)/(n-1)
+  [ok ] sigma_4 >= -C^abs Q   n=5 (J-P)/(n-1)
+  [ok ] sigma_5 >= -C^abs Q   n=5 (J-P)/(n-1)
+  [ok ] sigma_3 >= -C^abs Q   n=5 half P + half P^2
+  [ok ] sigma_4 >= -C^abs Q   n=5 half P + half P^2
+  [ok ] sigma_5 >= -C^abs Q   n=5 half P + half P^2
+  [ok ] sigma_3 >= -C^abs Q   n=5 3-mix
+  [ok ] sigma_4 >= -C^abs Q   n=5 3-mix
+  [ok ] sigma_5 >= -C^abs Q   n=5 3-mix
+  [FAIL] sigma_3 >= -C^abs Q   n=5 saturated A00=0
+  [ok ] sigma_4 >= -C^abs Q   n=5 saturated A00=0
+  [ok ] sigma_5 >= -C^abs Q   n=5 saturated A00=0
+  [ok ] sigma_3 >= -C^abs Q   n=6 perm
+  [ok ] sigma_4 >= -C^abs Q   n=6 perm
+  [ok ] sigma_5 >= -C^abs Q   n=6 perm
+  [ok ] sigma_6 >= -C^abs Q   n=6 perm
+  [FAIL] sigma_3 >= -C^abs Q   n=6 (J-P)/(n-1)
+  [ok ] sigma_4 >= -C^abs Q   n=6 (J-P)/(n-1)
+  [ok ] sigma_5 >= -C^abs Q   n=6 (J-P)/(n-1)
+  [ok ] sigma_6 >= -C^abs Q   n=6 (J-P)/(n-1)
+  [ok ] sigma_3 >= -C^abs Q   n=6 half P + half P^2
+  [ok ] sigma_4 >= -C^abs Q   n=6 half P + half P^2
+  [ok ] sigma_5 >= -C^abs Q   n=6 half P + half P^2
+  [ok ] sigma_6 >= -C^abs Q   n=6 half P + half P^2
+  [ok ] sigma_3 >= -C^abs Q   n=6 3-mix
+  [ok ] sigma_4 >= -C^abs Q   n=6 3-mix
+  [ok ] sigma_5 >= -C^abs Q   n=6 3-mix
+  [ok ] sigma_6 >= -C^abs Q   n=6 3-mix
+  [FAIL] sigma_3 >= -C^abs Q   n=6 saturated A00=0
+  [ok ] sigma_4 >= -C^abs Q   n=6 saturated A00=0
+  [ok ] sigma_5 >= -C^abs Q   n=6 saturated A00=0
+  [ok ] sigma_6 >= -C^abs Q   n=6 saturated A00=0
+  [ok ] sigma_3 >= -C^abs Q   n=7 perm
+  [ok ] sigma_4 >= -C^abs Q   n=7 perm
+  [ok ] sigma_5 >= -C^abs Q   n=7 perm
+  [ok ] sigma_6 >= -C^abs Q   n=7 perm
+  [ok ] sigma_7 >= -C^abs Q   n=7 perm
+  [FAIL] sigma_3 >= -C^abs Q   n=7 (J-P)/(n-1)
+  [ok ] sigma_4 >= -C^abs Q   n=7 (J-P)/(n-1)
+  [ok ] sigma_5 >= -C^abs Q   n=7 (J-P)/(n-1)
+  [ok ] sigma_6 >= -C^abs Q   n=7 (J-P)/(n-1)
+  [ok ] sigma_7 >= -C^abs Q   n=7 (J-P)/(n-1)
+  [ok ] sigma_3 >= -C^abs Q   n=7 half P + half P^2
+  [ok ] sigma_4 >= -C^abs Q   n=7 half P + half P^2
+  [ok ] sigma_5 >= -C^abs Q   n=7 half P + half P^2
+  [ok ] sigma_6 >= -C^abs Q   n=7 half P + half P^2
+  [ok ] sigma_7 >= -C^abs Q   n=7 half P + half P^2
+  [ok ] sigma_3 >= -C^abs Q   n=7 3-mix
+  [ok ] sigma_4 >= -C^abs Q   n=7 3-mix
+  [ok ] sigma_5 >= -C^abs Q   n=7 3-mix
+  [ok ] sigma_6 >= -C^abs Q   n=7 3-mix
+  [ok ] sigma_7 >= -C^abs Q   n=7 3-mix
+  [FAIL] sigma_3 >= -C^abs Q   n=7 saturated A00=0
+  [ok ] sigma_4 >= -C^abs Q   n=7 saturated A00=0
+  [ok ] sigma_5 >= -C^abs Q   n=7 saturated A00=0
+  [ok ] sigma_6 >= -C^abs Q   n=7 saturated A00=0
+  [ok ] sigma_7 >= -C^abs Q   n=7 saturated A00=0
+  [ok ] sigma_3 >= -C^abs Q   n=8 perm
+  [ok ] sigma_4 >= -C^abs Q   n=8 perm
+  [ok ] sigma_5 >= -C^abs Q   n=8 perm
+  [ok ] sigma_6 >= -C^abs Q   n=8 perm
+  [ok ] sigma_7 >= -C^abs Q   n=8 perm
+  [ok ] sigma_8 >= -C^abs Q   n=8 perm
+  [FAIL] sigma_3 >= -C^abs Q   n=8 (J-P)/(n-1)
+  [ok ] sigma_4 >= -C^abs Q   n=8 (J-P)/(n-1)
+  [ok ] sigma_5 >= -C^abs Q   n=8 (J-P)/(n-1)
+  [ok ] sigma_6 >= -C^abs Q   n=8 (J-P)/(n-1)
+  [ok ] sigma_7 >= -C^abs Q   n=8 (J-P)/(n-1)
+  [ok ] sigma_8 >= -C^abs Q   n=8 (J-P)/(n-1)
+  [ok ] sigma_3 >= -C^abs Q   n=8 half P + half P^2
+  [ok ] sigma_4 >= -C^abs Q   n=8 half P + half P^2
+  [ok ] sigma_5 >= -C^abs Q   n=8 half P + half P^2
+  [ok ] sigma_6 >= -C^abs Q   n=8 half P + half P^2
+  [ok ] sigma_7 >= -C^abs Q   n=8 half P + half P^2
+  [ok ] sigma_8 >= -C^abs Q   n=8 half P + half P^2
+  [ok ] sigma_3 >= -C^abs Q   n=8 3-mix
+  [ok ] sigma_4 >= -C^abs Q   n=8 3-mix
+  [ok ] sigma_5 >= -C^abs Q   n=8 3-mix
+  [ok ] sigma_6 >= -C^abs Q   n=8 3-mix
+  [ok ] sigma_7 >= -C^abs Q   n=8 3-mix
+  [ok ] sigma_8 >= -C^abs Q   n=8 3-mix
+  [FAIL] sigma_3 >= -C^abs Q   n=8 saturated A00=0
+  [ok ] sigma_4 >= -C^abs Q   n=8 saturated A00=0
+  [ok ] sigma_5 >= -C^abs Q   n=8 saturated A00=0
+  [ok ] sigma_6 >= -C^abs Q   n=8 saturated A00=0
+  [ok ] sigma_7 >= -C^abs Q   n=8 saturated A00=0
+  [ok ] sigma_8 >= -C^abs Q   n=8 saturated A00=0
+  [FAIL] C_3^abs on the slice = 2/(3n) (the paper's constant, reproduced)
+  [FAIL] C_4^abs = 78/24 (pairing tier kept, nothing else at m = 4)
+  [FAIL] C_5^abs == C_5^hyb (grading has nothing to do below m = 6)
+     C_m at (n,k) = (300, 8):
+       m=3  L0=      11.53  L1=     0.6667  hyb=   0.002222  abs=  7.432e-06  L2=     0.6667
+       m=4  L0=       1009  L1=      3.375  hyb=       3.25  abs=     0.5417  L2=      3.375
+       m=5  L0=  8.341e+04  L1=       4824  hyb=      16.13  abs=    0.05395  L2=      16.13
+       m=6  L0=   8.72e+06  L1=  2.916e+04  hyb=  2.916e+04  abs=       6.66  L2=      97.53
+       m=7  L0=  1.054e+09  L1=  6.097e+07  hyb=  2.039e+05  abs=       12.4  L2=        682
+       m=8  L0=  1.459e+11  L1=  4.878e+08  hyb=  4.878e+08  abs=      206.5  L2=       5457
+  [ok ] C_3^abs <= C_3^hyb   n=300 k=8   7.43226e-06 <= 0.00222225
+  [ok ] C_4^abs <= C_4^hyb   n=300 k=8   0.541667 <= 3.25
+  [ok ] C_5^abs <= C_5^hyb   n=300 k=8   0.0539539 <= 16.1322
+  [ok ] C_6^abs <= C_6^hyb   n=300 k=8   6.66009 <= 29156.7
+  [ok ] C_7^abs <= C_7^hyb   n=300 k=8   12.3967 <= 203920
+  [ok ] C_8^abs <= C_8^hyb   n=300 k=8   206.527 <= 4.87843e+08
+  [ok ] C_6^abs STRICTLY beats C_6^hyb   n=300 k=8
+  [ok ] C_7^abs STRICTLY beats C_7^hyb   n=300 k=8
+  [ok ] C_8^abs STRICTLY beats C_8^hyb   n=300 k=8
+  [ok ] C_3^abs <= C_3^hyb   n=40 k=8   0.000429223 <= 0.0167397
+  [ok ] C_4^abs <= C_4^hyb   n=40 k=8   0.541667 <= 3.25
+  [ok ] C_5^abs <= C_5^hyb   n=40 k=8   0.413498 <= 16.1264
+  [ok ] C_6^abs <= C_6^hyb   n=40 k=8   6.66009 <= 3803.04
+  [ok ] C_7^abs <= C_7^hyb   n=40 k=8   27.3754 <= 26598.2
+  [ok ] C_8^abs <= C_8^hyb   n=40 k=8   217.764 <= 8.29978e+06
+  [ok ] C_6^abs STRICTLY beats C_6^hyb   n=40 k=8
+  [ok ] C_7^abs STRICTLY beats C_7^hyb   n=40 k=8
+  [ok ] C_8^abs STRICTLY beats C_8^hyb   n=40 k=8
+  [ok ] C_3^abs <= C_3^hyb   n=120 k=12   4.66854e-05 <= 0.00555556
+  [ok ] C_4^abs <= C_4^hyb   n=120 k=12   0.541667 <= 3.25
+  [ok ] C_5^abs <= C_5^hyb   n=120 k=12   0.135551 <= 16.1306
+  [ok ] C_6^abs <= C_6^hyb   n=120 k=12   6.66009 <= 11604.2
+  [ok ] C_7^abs <= C_7^hyb   n=120 k=12   15.7952 <= 81158.8
+  [ok ] C_8^abs <= C_8^hyb   n=120 k=12   206.527 <= 7.72736e+07
+  [ok ] C_9^abs <= C_9^hyb   n=120 k=12   1225.51 <= 6.95452e+08
+  [ok ] C_10^abs <= C_10^hyb   n=120 k=12   11668.6 <= 8.2759e+11
+  [ok ] C_11^abs <= C_11^hyb   n=120 k=12   102949 <= 9.10348e+12
+  [ok ] C_12^abs <= C_12^hyb   n=120 k=12   1.06673e+06 <= 1.29998e+16
+  [ok ] C_6^abs STRICTLY beats C_6^hyb   n=120 k=12
+  [ok ] C_7^abs STRICTLY beats C_7^hyb   n=120 k=12
+  [ok ] C_8^abs STRICTLY beats C_8^hyb   n=120 k=12
+  [ok ] C_9^abs STRICTLY beats C_9^hyb   n=120 k=12
+  [ok ] C_10^abs STRICTLY beats C_10^hyb   n=120 k=12
+  [ok ] C_11^abs STRICTLY beats C_11^hyb   n=120 k=12
+  [ok ] C_12^abs STRICTLY beats C_12^hyb   n=120 k=12
+  [ok ] C_3^abs <= C_3^hyb   n=60 k=6   0.000190292 <= 0.0112273
+  [ok ] C_4^abs <= C_4^hyb   n=60 k=6   0.541667 <= 3.25
+  [ok ] C_5^abs <= C_5^hyb   n=60 k=6   0.27341 <= 16.1312
+  [ok ] C_6^abs <= C_6^hyb   n=60 k=6   6.66009 <= 5753.32
+  [ok ] C_6^abs STRICTLY beats C_6^hyb   n=60 k=6
+  [FAIL] C_3^abs(collar) = C^abs(slice) + eta-gap   n=300 k=8
+  [ok ] C_3^abs(collar) > C^abs(slice)   n=300 k=8
+  [FAIL] C_5^abs(collar) = C^abs(slice) + eta-gap   n=300 k=8
+  [ok ] C_5^abs(collar) > C^abs(slice)   n=300 k=8
+  [FAIL] C_3^abs(collar) = C^abs(slice) + eta-gap   n=120 k=6
+  [ok ] C_3^abs(collar) > C^abs(slice)   n=120 k=6
+  [FAIL] C_5^abs(collar) = C^abs(slice) + eta-gap   n=120 k=6
+  [ok ] C_5^abs(collar) > C^abs(slice)   n=120 k=6
+     fault 'deg_shift' (every tier degree lowered by one): 15 checks caught it
+  [ok ] every mutation control fires at >= 2 positions
+
+TOTAL after controls: 771 checks, 0 failures

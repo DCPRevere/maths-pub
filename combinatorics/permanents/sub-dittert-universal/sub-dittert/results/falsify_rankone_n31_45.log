@@ -1,0 +1,203 @@
+[guard] MemoryMax=2G  swap=off  CPUQuota=100%  threads=1
+rank-one slice scan for Cheon-Hwang counterexamples
+range: 31 <= n <= 45, 5 <= k < n; grid=16; full pair product for n <= 0
+
+  n=31 k= 5  points=  679 pairs=      679  max ratio=1.000000000000  best off-centre ratio=1.000000000000  
+  n=31 k= 9  points=  679 pairs=      679  max ratio=1.000000000000  best off-centre ratio=1.000000000000  
+  n=31 k=12  points=  679 pairs=      679  max ratio=1.000000000000  best off-centre ratio=1.000000000000  
+  n=31 k=16  points=  679 pairs=      679  max ratio=1.000000000000  best off-centre ratio=1.000000000000  
+  n=31 k=19  points=  679 pairs=      679  max ratio=1.000000000000  best off-centre ratio=1.000000000000  
+  n=31 k=23  points=  679 pairs=      679  max ratio=1.000000000000  best off-centre ratio=1.000000000000  
+  n=31 k=26  points=  679 pairs=      679  max ratio=1.000000000000  best off-centre ratio=1.000000000000  
+  n=31 k=30  points=  679 pairs=      679  max ratio=1.000000000000  best off-centre ratio=1.000000000000  
+  [n=31 done, 3.6s]
+  n=32 k= 5  points=  697 pairs=      697  max ratio=1.000000000000  best off-centre ratio=0.999824252960  
+  n=32 k= 9  points=  697 pairs=      697  max ratio=1.000000000000  best off-centre ratio=0.999357284590  
+  n=32 k=12  points=  697 pairs=      697  max ratio=1.000000000000  best off-centre ratio=0.998807689399  
+  n=32 k=16  points=  697 pairs=      697  max ratio=1.000000000000  best off-centre ratio=0.997797695938  
+  n=32 k=20  points=  697 pairs=      697  max ratio=1.000000000000  best off-centre ratio=0.996457471388  
+  n=32 k=24  points=  697 pairs=      697  max ratio=1.000000000000  best off-centre ratio=0.994771878105  
+  n=32 k=27  points=  697 pairs=      697  max ratio=1.000000000000  best off-centre ratio=0.993271628395  
+  n=32 k=31  points=  697 pairs=      697  max ratio=1.000000000000  best off-centre ratio=0.990943601416  
+  [n=32 done, 6.7s]
+  n=33 k= 5  points=  715 pairs=      715  max ratio=1.000000000000  best off-centre ratio=1.000000000000  
+  n=33 k= 9  points=  715 pairs=      715  max ratio=1.000000000000  best off-centre ratio=1.000000000000  
+  n=33 k=13  points=  715 pairs=      715  max ratio=1.000000000000  best off-centre ratio=1.000000000000  
+  n=33 k=17  points=  715 pairs=      715  max ratio=1.000000000000  best off-centre ratio=1.000000000000  
+  n=33 k=20  points=  715 pairs=      715  max ratio=1.000000000000  best off-centre ratio=1.000000000000  
+  n=33 k=24  points=  715 pairs=      715  max ratio=1.000000000000  best off-centre ratio=1.000000000000  
+  n=33 k=28  points=  715 pairs=      715  max ratio=1.000000000000  best off-centre ratio=1.000000000000  
+  n=33 k=32  points=  715 pairs=      715  max ratio=1.000000000000  best off-centre ratio=1.000000000000  
+  [n=33 done, 10.9s]
+  n=34 k= 5  points=  733 pairs=      733  max ratio=1.000000000000  best off-centre ratio=1.000000000000  
+  n=34 k= 9  points=  733 pairs=      733  max ratio=1.000000000000  best off-centre ratio=1.000000000000  
+  n=34 k=13  points=  733 pairs=      733  max ratio=1.000000000000  best off-centre ratio=1.000000000000  
+  n=34 k=17  points=  733 pairs=      733  max ratio=1.000000000000  best off-centre ratio=1.000000000000  
+  n=34 k=21  points=  733 pairs=      733  max ratio=1.000000000000  best off-centre ratio=1.000000000000  
+  n=34 k=25  points=  733 pairs=      733  max ratio=1.000000000000  best off-centre ratio=1.000000000000  
+  n=34 k=29  points=  733 pairs=      733  max ratio=1.000000000000  best off-centre ratio=1.000000000000  
+  n=34 k=33  points=  733 pairs=      733  max ratio=1.000000000000  best off-centre ratio=1.000000000000  
+  [n=34 done, 15.4s]
+  n=35 k= 5  points=  751 pairs=      751  max ratio=1.000000000000  best off-centre ratio=1.000000000000  
+  n=35 k= 9  points=  751 pairs=      751  max ratio=1.000000000000  best off-centre ratio=1.000000000000  
+  n=35 k=13  points=  751 pairs=      751  max ratio=1.000000000000  best off-centre ratio=0.999999999999  
+  n=35 k=17  points=  751 pairs=      751  max ratio=1.000000000000  best off-centre ratio=0.999999999998  
+  n=35 k=22  points=  751 pairs=      751  max ratio=1.000000000000  best off-centre ratio=0.999999999997  
+  n=35 k=26  points=  751 pairs=      751  max ratio=1.000000000000  best off-centre ratio=0.999999999996  
+  n=35 k=30  points=  751 pairs=      751  max ratio=1.000000000000  best off-centre ratio=0.999999999994  
+  n=35 k=34  points=  751 pairs=      751  max ratio=1.000000000000  best off-centre ratio=0.999999999993  
+  [n=35 done, 20.3s]
+  n=36 k= 5  points=  769 pairs=      769  max ratio=1.000000000000  best off-centre ratio=1.000000000000  
+  n=36 k= 9  points=  769 pairs=      769  max ratio=1.000000000000  best off-centre ratio=1.000000000000  
+  n=36 k=14  points=  769 pairs=      769  max ratio=1.000000000000  best off-centre ratio=1.000000000000  
+  n=36 k=18  points=  769 pairs=      769  max ratio=1.000000000000  best off-centre ratio=1.000000000000  
+  n=36 k=22  points=  769 pairs=      769  max ratio=1.000000000000  best off-centre ratio=0.999999999999  
+  n=36 k=26  points=  769 pairs=      769  max ratio=1.000000000000  best off-centre ratio=0.999999999999  
+  n=36 k=31  points=  769 pairs=      769  max ratio=1.000000000000  best off-centre ratio=0.999999999999  
+  n=36 k=35  points=  769 pairs=      769  max ratio=1.000000000000  best off-centre ratio=0.999999999998  
+  [n=36 done, 25.3s]
+  n=37 k= 5  points=  787 pairs=      787  max ratio=1.000000000000  best off-centre ratio=1.000000000000  
+  n=37 k= 9  points=  787 pairs=      787  max ratio=1.000000000000  best off-centre ratio=1.000000000000  
+  n=37 k=14  points=  787 pairs=      787  max ratio=1.000000000000  best off-centre ratio=1.000000000000  
+  n=37 k=18  points=  787 pairs=      787  max ratio=1.000000000000  best off-centre ratio=0.999999999999  
+  n=37 k=23  points=  787 pairs=      787  max ratio=1.000000000000  best off-centre ratio=0.999999999999  
+  n=37 k=27  points=  787 pairs=      787  max ratio=1.000000000000  best off-centre ratio=0.999999999998  
+  n=37 k=32  points=  787 pairs=      787  max ratio=1.000000000000  best off-centre ratio=0.999999999998  
+  n=37 k=36  points=  787 pairs=      787  max ratio=1.000000000000  best off-centre ratio=0.999999999997  
+  [n=37 done, 31.1s]
+  n=38 k= 5  points=  805 pairs=      805  max ratio=1.000000000000  best off-centre ratio=1.000000000000  
+  n=38 k=10  points=  805 pairs=      805  max ratio=1.000000000000  best off-centre ratio=1.000000000000  
+  n=38 k=14  points=  805 pairs=      805  max ratio=1.000000000000  best off-centre ratio=1.000000000000  
+  n=38 k=19  points=  805 pairs=      805  max ratio=1.000000000000  best off-centre ratio=0.999999999999  
+  n=38 k=23  points=  805 pairs=      805  max ratio=1.000000000000  best off-centre ratio=0.999999999999  
+  n=38 k=28  points=  805 pairs=      805  max ratio=1.000000000000  best off-centre ratio=0.999999999999  
+  n=38 k=32  points=  805 pairs=      805  max ratio=1.000000000000  best off-centre ratio=0.999999999998  
+  n=38 k=37  points=  805 pairs=      805  max ratio=1.000000000000  best off-centre ratio=0.999999999997  
+  [n=38 done, 37.1s]
+  n=39 k= 5  points=  823 pairs=      823  max ratio=1.000000000000  best off-centre ratio=1.000000000000  
+  n=39 k=10  points=  823 pairs=      823  max ratio=1.000000000000  best off-centre ratio=1.000000000000  
+  n=39 k=14  points=  823 pairs=      823  max ratio=1.000000000000  best off-centre ratio=0.999999999999  
+  n=39 k=19  points=  823 pairs=      823  max ratio=1.000000000000  best off-centre ratio=0.999999999999  
+  n=39 k=24  points=  823 pairs=      823  max ratio=1.000000000000  best off-centre ratio=0.999999999998  
+  n=39 k=29  points=  823 pairs=      823  max ratio=1.000000000000  best off-centre ratio=0.999999999997  
+  n=39 k=33  points=  823 pairs=      823  max ratio=1.000000000000  best off-centre ratio=0.999999999996  
+  n=39 k=38  points=  823 pairs=      823  max ratio=1.000000000000  best off-centre ratio=0.999999999994  
+  [n=39 done, 43.7s]
+  n=40 k= 5  points=  841 pairs=      841  max ratio=1.000000000000  best off-centre ratio=1.000000000000  
+  n=40 k=10  points=  841 pairs=      841  max ratio=1.000000000000  best off-centre ratio=1.000000000000  
+  n=40 k=15  points=  841 pairs=      841  max ratio=1.000000000000  best off-centre ratio=1.000000000000  
+  n=40 k=20  points=  841 pairs=      841  max ratio=1.000000000000  best off-centre ratio=1.000000000000  
+  n=40 k=24  points=  841 pairs=      841  max ratio=1.000000000000  best off-centre ratio=0.999999999999  
+  n=40 k=29  points=  841 pairs=      841  max ratio=1.000000000000  best off-centre ratio=0.999999999999  
+  n=40 k=34  points=  841 pairs=      841  max ratio=1.000000000000  best off-centre ratio=0.999999999999  
+  n=40 k=39  points=  841 pairs=      841  max ratio=1.000000000000  best off-centre ratio=0.999999999999  
+  [n=40 done, 50.4s]
+  n=41 k= 5  points=  859 pairs=      859  max ratio=1.000000000000  best off-centre ratio=1.000000000000  
+  n=41 k=10  points=  859 pairs=      859  max ratio=1.000000000000  best off-centre ratio=1.000000000000  
+  n=41 k=15  points=  859 pairs=      859  max ratio=1.000000000000  best off-centre ratio=0.999999999999  
+  n=41 k=20  points=  859 pairs=      859  max ratio=1.000000000000  best off-centre ratio=0.999999999998  
+  n=41 k=25  points=  859 pairs=      859  max ratio=1.000000000000  best off-centre ratio=0.999999999997  
+  n=41 k=30  points=  859 pairs=      859  max ratio=1.000000000000  best off-centre ratio=0.999999999996  
+  n=41 k=35  points=  859 pairs=      859  max ratio=1.000000000000  best off-centre ratio=0.999999999995  
+  n=41 k=40  points=  859 pairs=      859  max ratio=1.000000000000  best off-centre ratio=0.999999999993  
+  [n=41 done, 58.2s]
+  n=42 k= 5  points=  877 pairs=      877  max ratio=1.000000000000  best off-centre ratio=1.000000000000  
+  n=42 k=10  points=  877 pairs=      877  max ratio=1.000000000000  best off-centre ratio=1.000000000000  
+  n=42 k=15  points=  877 pairs=      877  max ratio=1.000000000000  best off-centre ratio=1.000000000000  
+  n=42 k=20  points=  877 pairs=      877  max ratio=1.000000000000  best off-centre ratio=0.999999999999  
+  n=42 k=26  points=  877 pairs=      877  max ratio=1.000000000000  best off-centre ratio=0.999999999999  
+  n=42 k=31  points=  877 pairs=      877  max ratio=1.000000000000  best off-centre ratio=0.999999999999  
+  n=42 k=36  points=  877 pairs=      877  max ratio=1.000000000000  best off-centre ratio=0.999999999998  
+  n=42 k=41  points=  877 pairs=      877  max ratio=1.000000000000  best off-centre ratio=0.999999999998  
+  [n=42 done, 66.0s]
+  n=43 k= 5  points=  895 pairs=      895  max ratio=1.000000000000  best off-centre ratio=1.000000000000  
+  n=43 k=10  points=  895 pairs=      895  max ratio=1.000000000000  best off-centre ratio=1.000000000000  
+  n=43 k=16  points=  895 pairs=      895  max ratio=1.000000000000  best off-centre ratio=1.000000000000  
+  n=43 k=21  points=  895 pairs=      895  max ratio=1.000000000000  best off-centre ratio=1.000000000000  
+  n=43 k=26  points=  895 pairs=      895  max ratio=1.000000000000  best off-centre ratio=1.000000000000  
+  n=43 k=31  points=  895 pairs=      895  max ratio=1.000000000000  best off-centre ratio=1.000000000000  
+  n=43 k=37  points=  895 pairs=      895  max ratio=1.000000000000  best off-centre ratio=1.000000000000  
+  n=43 k=42  points=  895 pairs=      895  max ratio=1.000000000000  best off-centre ratio=0.999999999999  
+  [n=43 done, 75.1s]
+  n=44 k= 5  points=  913 pairs=      913  max ratio=1.000000000000  best off-centre ratio=1.000000000000  
+  n=44 k=10  points=  913 pairs=      913  max ratio=1.000000000000  best off-centre ratio=1.000000000000  
+  n=44 k=16  points=  913 pairs=      913  max ratio=1.000000000000  best off-centre ratio=1.000000000000  
+  n=44 k=21  points=  913 pairs=      913  max ratio=1.000000000000  best off-centre ratio=1.000000000000  
+  n=44 k=27  points=  913 pairs=      913  max ratio=1.000000000000  best off-centre ratio=0.999999999999  
+  n=44 k=32  points=  913 pairs=      913  max ratio=1.000000000000  best off-centre ratio=0.999999999999  
+  n=44 k=38  points=  913 pairs=      913  max ratio=1.000000000000  best off-centre ratio=0.999999999999  
+  n=44 k=43  points=  913 pairs=      913  max ratio=1.000000000000  best off-centre ratio=0.999999999999  
+  [n=44 done, 84.1s]
+  n=45 k= 5  points=  931 pairs=      931  max ratio=1.000000000000  best off-centre ratio=1.000000000000  
+  n=45 k=11  points=  931 pairs=      931  max ratio=1.000000000000  best off-centre ratio=1.000000000000  
+  n=45 k=16  points=  931 pairs=      931  max ratio=1.000000000000  best off-centre ratio=0.999999999999  
+  n=45 k=22  points=  931 pairs=      931  max ratio=1.000000000000  best off-centre ratio=0.999999999999  
+  n=45 k=27  points=  931 pairs=      931  max ratio=1.000000000000  best off-centre ratio=0.999999999998  
+  n=45 k=33  points=  931 pairs=      931  max ratio=1.000000000000  best off-centre ratio=0.999999999997  
+  n=45 k=38  points=  931 pairs=      931  max ratio=1.000000000000  best off-centre ratio=0.999999999996  
+  n=45 k=44  points=  931 pairs=      931  max ratio=1.000000000000  best off-centre ratio=0.999999999994  
+  [n=45 done, 94.0s]
+
+==========================================================================
+cells scanned: 120   hits (ratio > 1): 0
+total family points evaluated: 96600
+Maclaurin (a <= 1) violations: 0
+
+TOP 10 by max ratio Phi_k/(2 - k!/n^k)  [exact]
+  n=31 k= 5  ratio = 1  (= 1.000000000000000)  Phi=57258182/28629151  bound=57258182/28629151  at ('centre', 'centre')
+  n=31 k= 9  ratio = 1  (= 1.000000000000000)  Phi=52879243958462/26439622160671  bound=52879243958462/26439622160671  at ('centre', 'centre')
+  n=31 k=12  ratio = 1  (= 1.000000000000000)  Phi=1575325567098097922/787662783788549761  bound=1575325567098097922/787662783788549761  at ('centre', 'centre')
+  n=31 k=16  ratio = 1  (= 1.000000000000000)  Phi=1454846243473447737768962/727423121747185263828481  bound=1454846243473447737768962/727423121747185263828481  at ('centre', 'centre')
+  n=31 k=19  ratio = 1  (= 1.000000000000000)  Phi=43341324439819147289019722942/21670662219970396194714277471  bound=43341324439819147289019722942/21670662219970396194714277471  at ('centre', 'centre')
+  n=31 k=23  ratio = 1  (= 1.000000000000000)  Phi=40026623288072708511538563511950782/20013311644049280264138724244295391  bound=40026623288072708511538563511950782/20013311644049280264138724244295391  at ('centre', 'centre')
+  n=31 k=26  ratio = 1  (= 1.000000000000000)  Phi=1192433134375340925236786862288023986562/596216567187872108348956733961803993281  bound=1192433134375340925236786862288023986562/596216567187872108348956733961803993281  at ('centre', 'centre')
+  n=31 k=30  ratio = 1  (= 1.000000000000000)  Phi=1101237040691556421889261552751642062877724802/550618520345910837374536871905139185678862401  bound=1101237040691556421889261552751642062877724802/550618520345910837374536871905139185678862401  at ('centre', 'centre')
+  n=32 k= 5  ratio = 1  (= 1.000000000000000)  Phi=8388593/4194304  bound=8388593/4194304  at ('centre', 'centre')
+  n=32 k= 9  ratio = 1  (= 1.000000000000000)  Phi=549755811053/274877906944  bound=549755811053/274877906944  at ('centre', 'centre')
+
+TOP 10 by best STRICTLY OFF-CENTRE ratio  [exact]
+  n=34 k= 5  ratio = 30369572753221465802435364148543324226036236547957/30369572753221524539126667303687368984651366400000
+       (= 0.999999999999998)  Phi=363616009784622619490132591187166391997656117/181808244980193284566674837393246466867200000  at u=2val p=15 a=7864319/7864320 (refined), v=centre
+  n=43 k= 5  ratio = 35772747341756625560017434345363636824703990223067/35772747341756846887298471787094559696722329600000
+       (= 0.999999999999994)  Phi=10463536000415533270294888279652321625243467/5231770135501539446746497058079558860800000  at u=2val p=8 a=2097153/2097152 (refined), v=centre
+  n=34 k= 9  ratio = 52634077660533101016007095127391876190818524794410250700912281546046865401020224990251/52634077660533467488082186357044933333455614434171452135693804209445954335539200000000
+       (= 0.999999999999993)  Phi=7545284953742287240747982184232009937344741570754144388678476922123081802411/3772642488144920807731047091460187227865212117604513507603876780441600000000  at u=2val p=15 a=7864319/7864320 (refined), v=centre
+  n=33 k= 5  ratio = 946860086889776714896200652038096805848477519/946860086889785395974442856278171120956342272
+       (= 0.999999999999991)  Phi=72583409617716887235260470135416563149/36291760449174613998088742068893515776  at u=2val p=2 a=1048575/1048576 (refined), v=centre
+  n=31 k= 5  ratio = 279144054745162192404614439502704812798634257/279144054745165110560043107630810967199186944
+       (= 0.999999999999990)  Phi=302260646747786127662082875757784406417/151130640108345012200375770515297533952  at u=2val p=2 a=1048575/1048576 (refined), v=centre
+  n=44 k= 5  ratio = 30549479252119651435202866558436579811646158139/30549479252120086738285020519726055424000000000
+       (= 0.999999999999986)  Phi=2086570538359377872768449324392908941441579/1043285648749023343218322950848512000000000  at u=2val p=19 a=2490367/2490368 (refined), v=centre
+  n=34 k=13  ratio = 70227090705476236191475645497308471658556895151693952598225996905872563157089855886051463465312083047143805432264067168811708613/70227090705477295617536239083856044150651211634556286079904780615265534154441758259658412965309485444375262485544960000000000000
+       (= 0.999999999999985)  Phi=120536234661056561044917049698992668902657487396847274190873305682809565626143183543169807765593136544002800886533/60268117332841850963924889794257541896697121378164070997221232616789143258631773086488636054757703680000000000000  at u=2val p=15 a=7864319/7864320 (refined), v=centre
+  n=40 k= 5  ratio = 103467967924660870566999992063557723382550625/103467967924662820393757278492636322822356992
+       (= 0.999999999999981)  Phi=165548748679457392907199987301692357412081/82774422840368639343505438129326712160256  at u=2val p=18 a=2359295/2359296 (refined), v=centre
+  n=36 k= 5  ratio = 238892214017371165625046070112658413068617597/238892214017377373367506882358792106803200000
+       (= 0.999999999999974)  Phi=36410945590210511450243266287556533008477/18205490860237739372535052754327961600000  at u=2val p=16 a=2097153/2097152 (refined), v=centre
+  n=34 k=17  ratio = 131556575919877836633195874521093410623992180850556741866803057577895548457235083709276117794810489401380031929264520811794438341070746072791690441215240710862841/131556575919881297005621291533412341083417812621626112024085143202779684136782399887477329351122099335179480854669504864367294631753396396522209280000000000000000
+       (= 0.999999999999974)  Phi=2703521447974704861086678069862981990722286273064564445114864755282058958556072160019023126324363474461736713179476353655476677835341236045561/1351760723989605144878124156208779180832118245490493847276289145475562427874301536122196702827617726595124144647818303703613440000000000000000  at u=2val p=15 a=7864319/7864320 (refined), v=centre
+
+TOP 10 by ratio at FIXED separation ||u - 1||_inf >= 1/10  [exact]
+  n=45 k= 5  ratio = 19184581638681148125/19186275177649774658
+       (= 0.999911731748193)  Phi=378954699035677/189494137443357  at u=spike s=-3/16, v=centre
+  n=44 k= 5  ratio = 6978357413379824897920/6979002002367773772541
+       (= 0.999907638801690)  Phi=3723681257566415/1862013283938511  at u=spike s=-3/16, v=centre
+  n=43 k= 5  ratio = 44338697970121706640719/44342987957594518943750
+       (= 0.999903254433893)  Phi=12969078331883519/6485169223909375  at u=spike s=-3/16, v=centre
+  n=42 k= 5  ratio = 6005445921246984996/6006055233700276333
+       (= 0.999898550308050)  Phi=208435579662883/104228411617827  at u=spike s=-3/16, v=centre
+  n=41 k= 5  ratio = 27508613631461536994309/27511543760600178471026
+       (= 0.999893494557625)  Phi=9734939944128869/4867990960378213  at u=spike s=-3/16, v=centre
+  n=40 k= 5  ratio = 536930712952209920000/536990828406771959129
+       (= 0.999888051245232)  Phi=209738559746957/104881082626957  at u=spike s=-3/16, v=centre
+  n=39 k= 5  ratio = 22857674441980662115/22860367856870428782
+       (= 0.999882179722276)  Phi=800310718881715/400202777550771  at u=spike s=-3/16, v=centre
+  n=38 k= 5  ratio = 1605390202265376061468/1605589562111009303125
+       (= 0.999875833867921)  Phi=3079684399032727/1540034585684375  at u=spike s=-3/16, v=centre
+  n=36 k= 5  ratio = 14650375406034789/14652285963163648
+       (= 0.999869606890443)  Phi=744316181783/372206993408  at u=2val p=34 a=135/136, v=centre
+  n=37 k= 5  ratio = 9830096947348075336097/9831385240462277550506
+       (= 0.999868961180679)  Phi=5245065363833777/2622878649992113  at u=spike s=-3/16, v=centre
+
+NO COUNTEREXAMPLE FOUND on the rank-one slice in the scanned range.
+elapsed 94.0s

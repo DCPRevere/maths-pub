@@ -1,0 +1,32 @@
+[guard] MemoryMax=8G  swap=off  CPUQuota=200%  threads=2
+==========================================================================
+STANDALONE verification of the sub-Dittert certificate
+(standard library only; shares no code with the pipeline)
+==========================================================================
+certificate: (n,k) = (6,3), 36 variables, Gram size 36
+[1] sigma_k: direct subpermanent enumeration vs Ryser on per(A+xJ), 4 matrices: AGREE
+[2] bound M in the file = 71/36, 2 - 3!/6^3 = 71/36: MATCH
+[3] identity by FULL coefficient comparison over Q: certificate 6906 monomials, F 6906 monomials -> IDENTICAL
+[4] exact rational LDL^T:
+    all 37 Gram matrices symmetric: True
+    G0 positive definite: True, min pivot 1.278084e-03
+    all 36 multiplier Grams positive definite: True, min pivot 2.278424e-04
+[5] mutation tests (each MUST be rejected)
+    G0[0][0] += 1e-20: REJECTED (good)
+    Gp[0][1][1] += 1e-20: REJECTED (good)
+    one lambda coefficient += 1e-20: REJECTED (good)
+    G0[0][0] := -1 must lose definiteness: REJECTED (good)
+[6] F(0) = 0 (equality is attained at J_n/n): OK
+
+  PASS  sigma_k two algorithms
+  PASS  bound value
+  PASS  polynomial identity
+  PASS  positive definiteness
+  PASS  mutation tests reject
+  PASS  equality at the barycentre
+
+==========================================================================
+VERIFIED.  For every A in K_6:
+    E_3(r) + E_3(c) - P_3(A)  <=  71/36  = 2 - 3!/6^3
+with equality if and only if A = J_6/6.
+==========================================================================

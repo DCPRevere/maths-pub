@@ -1,0 +1,521 @@
+==========================================================================
+VERIFIER for the COMPOSED theorem  (UNIVERSAL.md)
+exact rational arithmetic; no float in any decision
+==========================================================================
+
+V1  INTERFACE, SHAPE.
+    (a) the coefficient mass D_m^2/m! against the paper's own
+        expansions (quoted from UNIFORM-G sec 4, re-checked here so
+        this file is self-contained on the constant it plugs in):
+  [ok ] D_3^2/3! is the paper's coefficient mass   2/3 vs 2/3
+  [ok ] D_4^2/4! is the paper's coefficient mass   27/8 vs 27/8
+  [ok ] D_5^2/5! is the paper's coefficient mass   242/15 vs 242/15
+  [ok ] D_6^2/6! is the paper's coefficient mass   14045/144 vs 14045/144
+
+    (b) the delivered C_m against the collar's named instantiation
+        C_m <= c* lam^(m-2) at (c*, lam) = (12, 3).  A match would
+        mean UNIFORM-COLLAR's measured Ntilde table applies verbatim.
+
+        (n,k)     least m with C_m^+ > 12*3^(m-2)   C_k^+/(12*3^(k-2))
+        (110,5)          4                       5.6666e+01
+  [ok ] shape mismatch is real at (n,k)=(110,5)   least m = 4
+  [ok ] C_k^+ exceeds the ansatz at (n,k)=(110,5)
+        (244,6)          4                       5.9252e+03
+  [ok ] shape mismatch is real at (n,k)=(244,6)   least m = 4
+  [ok ] C_k^+ exceeds the ansatz at (n,k)=(244,6)
+        (449,7)          4                       9.9357e+05
+  [ok ] shape mismatch is real at (n,k)=(449,7)   least m = 4
+  [ok ] C_k^+ exceeds the ansatz at (n,k)=(449,7)
+        (736,8)          4                       2.4768e+08
+  [ok ] shape mismatch is real at (n,k)=(736,8)   least m = 4
+  [ok ] C_k^+ exceeds the ansatz at (n,k)=(736,8)
+        (1583,10)          4                       3.9070e+13
+  [ok ] shape mismatch is real at (n,k)=(1583,10)   least m = 4
+  [ok ] C_k^+ exceeds the ansatz at (n,k)=(1583,10)
+        (2850,12)          4                       1.7172e+19
+  [ok ] shape mismatch is real at (n,k)=(2850,12)   least m = 4
+  [ok ] C_k^+ exceeds the ansatz at (n,k)=(2850,12)
+
+    VERDICT: the delivered C_m is n-dependent and factorial in m
+    (D_m^2/m! ~ m!/e^2); the ansatz is n-free and geometric.  The
+    interface nevertheless HOLDS, because collar_budget.Psi consumes
+    C as a callable C(m,n,k) and never assumes its shape.
+
+V2  INTERFACE, TRANSLATION: (F3) Q <= n-1  |->  (K3) Q <= Q_c.
+    Three things must hold: dominance (safe direction), STRICTNESS
+    (the substitution is real, not cosmetic), and the exact value of
+    the slack, (1 + k!/n^(k-1))^((m-2)/2).
+
+    Everything is compared against the EXACT delivered constant
+    (D_m^2/m!)(n-1)^((m-2)/2), squared, so that the two rational
+    sqrt majorants never meet: comparing the two majorants directly
+    is an artefact and reverses the sign of a 1e-14 quantity.
+
+        k      n     m    slack (1+k!/n^(k-1))^((m-2)/2) - 1
+  [ok ] dominance C^+ >= delivered (exact), (m,n,k)=(3,110,5)
+  [ok ] strictness C^+ > delivered (exact), (m,n,k)=(3,110,5)
+  [ok ] slack <= (1+k!/n^(k-1))^((m-2)/2) up to the sqrt majorant, (m,n,k)=(3,110,5)
+        5    110   3         4.098080e-07
+  [ok ] dominance C^+ >= delivered (exact), (m,n,k)=(5,110,5)
+  [ok ] strictness C^+ > delivered (exact), (m,n,k)=(5,110,5)
+  [ok ] slack <= (1+k!/n^(k-1))^((m-2)/2) up to the sqrt majorant, (m,n,k)=(5,110,5)
+        5    110   5         1.229424e-06
+  [ok ] dominance C^+ >= delivered (exact), (m,n,k)=(3,244,6)
+  [ok ] strictness C^+ > delivered (exact), (m,n,k)=(3,244,6)
+  [ok ] slack <= (1+k!/n^(k-1))^((m-2)/2) up to the sqrt majorant, (m,n,k)=(3,244,6)
+        6    244   3         4.162490e-10
+  [ok ] dominance C^+ >= delivered (exact), (m,n,k)=(6,244,6)
+  [ok ] strictness C^+ > delivered (exact), (m,n,k)=(6,244,6)
+  [ok ] slack is EXACTLY (1+k!/n^(k-1))^((m-2)/2), (m,n,k)=(6,244,6)
+        6    244   6         1.664997e-09
+  [ok ] dominance C^+ >= delivered (exact), (m,n,k)=(3,449,7)
+  [ok ] strictness C^+ > delivered (exact), (m,n,k)=(3,449,7)
+  [ok ] slack <= (1+k!/n^(k-1))^((m-2)/2) up to the sqrt majorant, (m,n,k)=(3,449,7)
+        7    449   3         3.075318e-13
+  [ok ] dominance C^+ >= delivered (exact), (m,n,k)=(7,449,7)
+  [ok ] strictness C^+ > delivered (exact), (m,n,k)=(7,449,7)
+  [ok ] slack <= (1+k!/n^(k-1))^((m-2)/2) up to the sqrt majorant, (m,n,k)=(7,449,7)
+        7    449   7         1.537659e-12
+  [ok ] dominance C^+ >= delivered (exact), (m,n,k)=(3,736,8)
+  [ok ] strictness C^+ > delivered (exact), (m,n,k)=(3,736,8)
+  [ok ] slack <= (1+k!/n^(k-1))^((m-2)/2) up to the sqrt majorant, (m,n,k)=(3,736,8)
+        8    736   3         2.220446e-16
+  [ok ] dominance C^+ >= delivered (exact), (m,n,k)=(8,736,8)
+  [ok ] strictness C^+ > delivered (exact), (m,n,k)=(8,736,8)
+  [ok ] slack is EXACTLY (1+k!/n^(k-1))^((m-2)/2), (m,n,k)=(8,736,8)
+        8    736   8         1.033944e-15
+  [ok ] dominance C^+ >= delivered (exact), (m,n,k)=(3,1583,10)
+  [ok ] strictness C^+ > delivered (exact), (m,n,k)=(3,1583,10)
+  [ok ] slack <= (1+k!/n^(k-1))^((m-2)/2) up to the sqrt majorant, (m,n,k)=(3,1583,10)
+       10   1583   3         0.000000e+00
+  [ok ] dominance C^+ >= delivered (exact), (m,n,k)=(10,1583,10)
+  [ok ] strictness C^+ > delivered (exact), (m,n,k)=(10,1583,10)
+  [ok ] slack is EXACTLY (1+k!/n^(k-1))^((m-2)/2), (m,n,k)=(10,1583,10)
+       10   1583  10         2.325385e-22
+  [ok ] dominance C^+ >= delivered (exact), (m,n,k)=(3,2850,12)
+  [ok ] strictness C^+ > delivered (exact), (m,n,k)=(3,2850,12)
+  [ok ] slack <= (1+k!/n^(k-1))^((m-2)/2) up to the sqrt majorant, (m,n,k)=(3,2850,12)
+       12   2850   3         0.000000e+00
+  [ok ] dominance C^+ >= delivered (exact), (m,n,k)=(12,2850,12)
+  [ok ] strictness C^+ > delivered (exact), (m,n,k)=(12,2850,12)
+  [ok ] slack is EXACTLY (1+k!/n^(k-1))^((m-2)/2), (m,n,k)=(12,2850,12)
+       12   2850  12         2.376914e-29
+  [ok ] m = 3 anchor: C_3^+ is the Q^(3/2) constant, C_3^+^2 >= (4/9) Q_c
+  [ok ] PR1: slack below 2e-9 at every k >= 6 threshold (PREDICTED 1e-9; the prediction is optimistic by 1.67)   worst (k>=6) = 1.665e-09
+
+    The k = 3, 4, 5 rows, where the slack is not negligible:
+       k=3  n=  19   (1+k!/n^(k-1))^((k-2)/2) - 1 = 8.276003e-03
+       k=4  n=  43   (1+k!/n^(k-1))^((k-2)/2) - 1 = 3.018602e-04
+       k=5  n= 110   (1+k!/n^(k-1))^((k-2)/2) - 1 = 1.229424e-06
+
+V3  INTERFACE, VALIDITY ON THE COLLAR: sigma_m(z) >= -C_m^+ Q.
+    (S) is the ONLY thing the budget consumes from Pillar 1, so this
+    is the check that matters.  Brute-force sigma_m over QQ.
+
+  [ok ] sigma_3(z) >= -C_3^+ Q  n=6 k=4 [sample0]   sigma/Q = +0.008896  vs  -C = -1.5713
+  [ok ] sigma_4(z) >= -C_4^+ Q  n=6 k=4 [sample0]   sigma/Q = +0.004340  vs  -C = -18.7500
+  [ok ] sigma_3(z) >= -C_3^+ Q  n=6 k=4 [sample1]   sigma/Q = -0.017919  vs  -C = -1.5713
+  [ok ] sigma_4(z) >= -C_4^+ Q  n=6 k=4 [sample1]   sigma/Q = +0.000899  vs  -C = -18.7500
+  [ok ] sigma_3(z) >= -C_3^+ Q  n=6 k=4 [saturated]   sigma/Q = -0.139538  vs  -C = -1.5713
+  [ok ] sigma_4(z) >= -C_4^+ Q  n=6 k=4 [saturated]   sigma/Q = +0.009241  vs  -C = -18.7500
+  [ok ] sigma_3(z) >= -C_3^+ Q  n=6 k=4 [permutation]   sigma/Q = +0.444444  vs  -C = -1.5713
+  [ok ] sigma_4(z) >= -C_4^+ Q  n=6 k=4 [permutation]   sigma/Q = +0.500000  vs  -C = -18.7500
+  [ok ] sigma_3(z) >= -C_3^+ Q  n=7 k=5 [sample0]   sigma/Q = +0.002277  vs  -C = -1.6733
+  [ok ] sigma_4(z) >= -C_4^+ Q  n=7 k=5 [sample0]   sigma/Q = +0.001196  vs  -C = -21.2621
+  [ok ] sigma_5(z) >= -C_5^+ Q  n=7 k=5 [sample0]   sigma/Q = +0.000005  vs  -C = -255.1068
+  [ok ] sigma_3(z) >= -C_3^+ Q  n=7 k=5 [sample1]   sigma/Q = -0.007960  vs  -C = -1.6733
+  [ok ] sigma_4(z) >= -C_4^+ Q  n=7 k=5 [sample1]   sigma/Q = +0.001320  vs  -C = -21.2621
+  [ok ] sigma_5(z) >= -C_5^+ Q  n=7 k=5 [sample1]   sigma/Q = -0.000012  vs  -C = -255.1068
+  [ok ] sigma_3(z) >= -C_3^+ Q  n=7 k=5 [saturated]   sigma/Q = -0.113557  vs  -C = -1.6733
+  [ok ] sigma_4(z) >= -C_4^+ Q  n=7 k=5 [saturated]   sigma/Q = +0.006963  vs  -C = -21.2621
+  [ok ] sigma_5(z) >= -C_5^+ Q  n=7 k=5 [saturated]   sigma/Q = -0.000152  vs  -C = -255.1068
+  [ok ] sigma_3(z) >= -C_3^+ Q  n=7 k=5 [permutation]   sigma/Q = +0.476190  vs  -C = -1.6733
+  [ok ] sigma_4(z) >= -C_4^+ Q  n=7 k=5 [permutation]   sigma/Q = +0.663265  vs  -C = -21.2621
+  [ok ] sigma_5(z) >= -C_5^+ Q  n=7 k=5 [permutation]   sigma/Q = +0.548105  vs  -C = -255.1068
+  [ok ] sigma_3(z) >= -C_3^+ Q  n=8 k=5 [sample0]   sigma/Q = -0.003064  vs  -C = -1.7895
+  [ok ] sigma_4(z) >= -C_4^+ Q  n=8 k=5 [sample0]   sigma/Q = +0.001595  vs  -C = -24.3171
+  [ok ] sigma_5(z) >= -C_5^+ Q  n=8 k=5 [sample0]   sigma/Q = -0.000031  vs  -C = -312.0198
+  [ok ] sigma_3(z) >= -C_3^+ Q  n=8 k=5 [sample1]   sigma/Q = +0.017751  vs  -C = -1.7895
+  [ok ] sigma_4(z) >= -C_4^+ Q  n=8 k=5 [sample1]   sigma/Q = +0.009056  vs  -C = -24.3171
+  [ok ] sigma_5(z) >= -C_5^+ Q  n=8 k=5 [sample1]   sigma/Q = +0.000670  vs  -C = -312.0198
+  [ok ] sigma_3(z) >= -C_3^+ Q  n=8 k=5 [saturated]   sigma/Q = -0.097902  vs  -C = -1.7895
+  [ok ] sigma_4(z) >= -C_4^+ Q  n=8 k=5 [saturated]   sigma/Q = +0.005616  vs  -C = -24.3171
+  [ok ] sigma_5(z) >= -C_5^+ Q  n=8 k=5 [saturated]   sigma/Q = -0.000130  vs  -C = -312.0198
+  [ok ] sigma_3(z) >= -C_3^+ Q  n=8 k=5 [permutation]   sigma/Q = +0.500000  vs  -C = -1.7895
+  [ok ] sigma_4(z) >= -C_4^+ Q  n=8 k=5 [permutation]   sigma/Q = +0.820312  vs  -C = -24.3171
+  [ok ] sigma_5(z) >= -C_5^+ Q  n=8 k=5 [permutation]   sigma/Q = +0.812500  vs  -C = -312.0198
+  [ok ] sigma_3(z) >= -C_3^+ Q  n=8 k=6 [sample0]   sigma/Q = -0.003183  vs  -C = -1.7831
+  [ok ] sigma_4(z) >= -C_4^+ Q  n=8 k=6 [sample0]   sigma/Q = +0.001774  vs  -C = -24.1441
+  [ok ] sigma_5(z) >= -C_5^+ Q  n=8 k=6 [sample0]   sigma/Q = +0.000013  vs  -C = -308.6953
+  [ok ] sigma_6(z) >= -C_6^+ Q  n=8 k=6 [sample0]   sigma/Q = +0.000000  vs  -C = -4991.5323
+  [ok ] sigma_3(z) >= -C_3^+ Q  n=8 k=6 [sample1]   sigma/Q = -0.003047  vs  -C = -1.7831
+  [ok ] sigma_4(z) >= -C_4^+ Q  n=8 k=6 [sample1]   sigma/Q = +0.001671  vs  -C = -24.1441
+  [ok ] sigma_5(z) >= -C_5^+ Q  n=8 k=6 [sample1]   sigma/Q = +0.000022  vs  -C = -308.6953
+  [ok ] sigma_6(z) >= -C_6^+ Q  n=8 k=6 [sample1]   sigma/Q = +0.000000  vs  -C = -4991.5323
+  [ok ] sigma_3(z) >= -C_3^+ Q  n=8 k=6 [saturated]   sigma/Q = -0.092988  vs  -C = -1.7831
+  [ok ] sigma_4(z) >= -C_4^+ Q  n=8 k=6 [saturated]   sigma/Q = +0.005067  vs  -C = -24.1441
+  [ok ] sigma_5(z) >= -C_5^+ Q  n=8 k=6 [saturated]   sigma/Q = -0.000112  vs  -C = -308.6953
+  [ok ] sigma_6(z) >= -C_6^+ Q  n=8 k=6 [saturated]   sigma/Q = +0.000001  vs  -C = -4991.5323
+  [ok ] sigma_3(z) >= -C_3^+ Q  n=8 k=6 [permutation]   sigma/Q = +0.500000  vs  -C = -1.7831
+  [ok ] sigma_4(z) >= -C_4^+ Q  n=8 k=6 [permutation]   sigma/Q = +0.820312  vs  -C = -24.1441
+  [ok ] sigma_5(z) >= -C_5^+ Q  n=8 k=6 [permutation]   sigma/Q = +0.812500  vs  -C = -308.6953
+  [ok ] sigma_6(z) >= -C_6^+ Q  n=8 k=6 [permutation]   sigma/Q = +0.610352  vs  -C = -4991.5323
+
+    Largest Q/Q_c reached by any witness: 0.9785
+    (the permutation points reach Q = n-1, i.e. Q/Q_c = 1/(1+k!/n^(k-1)),
+     so (K3) is exercised at its cap).  The Finner bound is loose off
+     the pairing tier, so these are VALIDITY witnesses, not
+     separating ones -- the constants are separated algebraically in
+     V1 and V2, which is where V10 catches their mutations.
+
+    PR2's separating witness.  On the saturated collar point the
+    PAPER's slice constant C_3 = 2/(3n) is FALSE while the uniform
+    C_3^+ holds.  That is why the composition needs no Lemma-M
+    degradation, no eta and no merge coefficient: the historically
+    real error M2 of UNIFORM-COLLAR sec 9 is UNREACHABLE here.
+
+  [ok ] paper slice C_3 = 2/(3n) FAILS on the saturated point, n=6 k=4   sigma_3/Q = -0.139538 < -0.111111
+  [ok ] uniform C_3^+ HOLDS on the same point, n=6 k=4   -C_3^+ = -1.571348
+  [ok ] paper slice C_3 = 2/(3n) FAILS on the saturated point, n=8 k=5   sigma_3/Q = -0.097902 < -0.083333
+  [ok ] uniform C_3^+ HOLDS on the same point, n=8 k=5   -C_3^+ = -1.789485
+  [ok ] paper slice C_3 = 2/(3n) FAILS on the saturated point, n=10 k=5   sigma_3/Q = -0.075900 < -0.066667
+  [ok ] uniform C_3^+ HOLDS on the same point, n=10 k=5   -C_3^+ = -2.011964
+  [ok ] paper slice C_3 = 2/(3n) FAILS on the saturated point, n=12 k=6   sigma_3/Q = -0.057005 < -0.055556
+  [ok ] uniform C_3^+ HOLDS on the same point, n=12 k=6   -C_3^+ = -2.214280
+
+V4  INTERFACE, THE COMPOSITION IDENTITY:
+        (2/t_2) sum_{m=3}^k t_m C_m  =  Phi(n,k)/2,
+    Phi being Pillar 1's endgame functional.  So Pillar 1's Phi < 1
+    endgame IS the core half of Pillar 2's budget: the two pillars
+    meet in exactly one scalar and nowhere else.
+
+  [ok ] core = Phi/2 exactly at (n,k)=(110,5)
+  [ok ] core = Phi/2 exactly at (n,k)=(244,6)
+  [ok ] core = Phi/2 exactly at (n,k)=(449,7)
+  [ok ] core = Phi/2 exactly at (n,k)=(736,8)
+  [ok ] core = Phi/2 exactly at (n,k)=(1583,10)
+  [ok ] core = Phi/2 exactly at (n,k)=(2850,12)
+  [ok ] core = Phi/2 exactly at (n,k)=(50,6)
+  [ok ] core = Phi/2 exactly at (n,k)=(200,5)
+
+V5  THE BUDGET.  From the three inputs
+      (L) F_line >= (1/2) lam_line P                    [pincer_line]
+      (S) sigma_m(z) >= -C_m Q                          [PILLAR 1]
+      (C) |X_{d,j}| <= V_{j,m} n^m P^(m/2) Q^(j/2)      [Lemma CB]
+    and the exact identity F = F_line + sum t_m sigma_m(z) + sum t_d X_d
+    (verified end to end over QQ by graded_verify_collar.py, quoted):
+
+      F >= (1/2)lam P + (1/2)t_2 Q - [sum t_m C_m + G_2] Q - g_1 sqrt(PQ)
+    and AM-GM at alpha = lam/2,
+      g_1 sqrt(P) sqrt(Q) <= (lam/4) P + (g_1^2/lam) Q,
+    gives the STABILITY form
+      F >= (1/4) lam_line P + (1/2) t_2 (1 - Psi*) Q,
+      Psi* = (2/t_2)[ sum t_m C_m + G_2 + g_1^2/lam_line ].
+    Since ||A - J_n/n||_F^2 = n P + Q, Psi* < 1 gives F > 0 unless
+    P = Q = 0.  That is the equality case.
+
+  [ok ] AM-GM step exact over QQ at every sampled (P,Q)
+  [ok ] Psi* <= 2 Psi at (n,k)=(244,6)
+  [ok ] Psi* <= 2 Psi at (n,k)=(449,7)
+  [ok ] Psi* <= 2 Psi at (n,k)=(736,8)
+    Psi* <= 2 Psi, so UNIFORM-COLLAR's own stated stability condition
+    Psi < 1/2 implies Psi* < 1.  Psi* < 1 is the sharp form; both are
+    tabulated in V6.
+
+V6  THE COMPOSED THRESHOLD  Ntilde(k) = least N with Psi* < 1 for
+    every n >= N.  Crossover exact: Psi*(N) < 1 <= Psi*(N-1).  Tail
+    checked on a grid to 40N and at 100000, not assumed.
+
+      k | Ntilde |  Psi*(N)   | Psi*(N-1)  | collar floor | Psi<1/2 | Phi<1 | Ntilde/k^3
+  [ok ] Psi*(Ntilde) < 1 at k=3   N=19
+  [ok ] Psi*(Ntilde - 1) >= 1 at k=3
+  [ok ] tail Psi* < 1 to 100000 at k=3
+  [ok ] PR4: Nhalf - Nphi in [0,3] at k=3   33 - 14 = 19   [outside the pre-registered range]
+      3 |     19 | 0.95037972 | 1.02138398 |           14 |      33 |    14 | 0.7037
+  [ok ] Psi*(Ntilde) < 1 at k=4   N=43
+  [ok ] Psi*(Ntilde - 1) >= 1 at k=4
+  [ok ] tail Psi* < 1 to 100000 at k=4
+  [ok ] PR4: Nhalf - Nphi in [0,3] at k=4   88 - 81 = 7   [outside the pre-registered range]
+      4 |     43 | 0.99723215 | 1.02431694 |           21 |      88 |    81 | 0.6719
+  [ok ] Psi*(Ntilde) < 1 at k=5   N=110
+  [ok ] Psi*(Ntilde - 1) >= 1 at k=5
+  [ok ] tail Psi* < 1 to 100000 at k=5
+  [ok ] PR4: Nhalf - Nphi in [0,3] at k=5   237 - 236 = 1
+      5 |    110 | 0.99951459 | 1.00867494 |           27 |     237 |   236 | 0.8800
+  [ok ] Psi*(Ntilde) < 1 at k=6   N=244
+  [ok ] Psi*(Ntilde - 1) >= 1 at k=6
+  [ok ] tail Psi* < 1 to 100000 at k=6
+  [ok ] PR4: Nhalf - Nphi in [0,3] at k=6   497 - 497 = 0
+  [ok ] Ntilde/k^3 in [1, 5/3] at k=6   1.1296
+      6 |    244 | 0.99628714 | 1.00066282 |           34 |     497 |   497 | 1.1296
+  [ok ] Psi*(Ntilde) < 1 at k=7   N=449
+  [ok ] Psi*(Ntilde - 1) >= 1 at k=7
+  [ok ] tail Psi* < 1 to 100000 at k=7
+  [ok ] PR4: Nhalf - Nphi in [0,3] at k=7   871 - 871 = 0
+  [ok ] Ntilde/k^3 in [1, 5/3] at k=7   1.3090
+      7 |    449 | 0.99974391 | 1.00233365 |           42 |     871 |   871 | 1.3090
+  [ok ] Psi*(Ntilde) < 1 at k=8   N=736
+  [ok ] Psi*(Ntilde - 1) >= 1 at k=8
+  [ok ] tail Psi* < 1 to 100000 at k=8
+  [ok ] PR4: Nhalf - Nphi in [0,3] at k=8   1367 - 1367 = 0
+  [ok ] Ntilde/k^3 in [1, 5/3] at k=8   1.4375
+      8 |    736 | 0.99891922 | 1.00062222 |           51 |    1367 |  1367 | 1.4375
+  [ok ] Psi*(Ntilde) < 1 at k=9   N=1111
+  [ok ] Psi*(Ntilde - 1) >= 1 at k=9
+  [ok ] tail Psi* < 1 to 100000 at k=9
+  [ok ] PR4: Nhalf - Nphi in [0,3] at k=9   1991 - 1991 = 0
+  [ok ] Ntilde/k^3 in [1, 5/3] at k=9   1.5240
+      9 |   1111 | 0.99969580 | 1.00090785 |           62 |    1991 |  1991 | 1.5240
+  [ok ] Psi*(Ntilde) < 1 at k=10   N=1583
+  [ok ] Psi*(Ntilde - 1) >= 1 at k=10
+  [ok ] tail Psi* < 1 to 100000 at k=10
+  [ok ] PR4: Nhalf - Nphi in [0,3] at k=10   2748 - 2748 = 0
+  [ok ] Ntilde/k^3 in [1, 5/3] at k=10   1.5830
+     10 |   1583 | 0.99997622 | 1.00088562 |           73 |    2748 |  2748 | 1.5830
+  [ok ] Psi*(Ntilde) < 1 at k=11   N=2160
+  [ok ] Psi*(Ntilde - 1) >= 1 at k=11
+  [ok ] tail Psi* < 1 to 100000 at k=11
+  [ok ] PR4: Nhalf - Nphi in [0,3] at k=11   3646 - 3646 = 0
+  [ok ] Ntilde/k^3 in [1, 5/3] at k=11   1.6228
+     11 |   2160 | 0.99993745 | 1.00064742 |           86 |    3646 |  3646 | 1.6228
+  [ok ] Psi*(Ntilde) < 1 at k=12   N=2850
+  [ok ] Psi*(Ntilde - 1) >= 1 at k=12
+  [ok ] tail Psi* < 1 to 100000 at k=12
+  [ok ] PR4: Nhalf - Nphi in [0,3] at k=12   4688 - 4688 = 0
+  [ok ] Ntilde/k^3 in [1, 5/3] at k=12   1.6493
+     12 |   2850 | 0.99976555 | 1.00033739 |          101 |    4688 |  4688 | 1.6493
+
+    Ntilde/k^3 rises through the table: the composed threshold is
+    ~1.1 k^3 at k = 6 and ~1.65 k^3 at k = 12, on its way to the
+    asymptotic k^4 that V9 pins between (3/2)^3 and (3/2)^4.
+
+V7  THE CLOSED FORM  Ntilde(k) = 8 k^2 (k-2)^2  for k >= 6.
+    CORE:    Phi <= 4/k for n >= N(k) is Pillar 1's (E3)+(E4),
+             QUOTED; with V4 that is core = Phi/2 <= 2/k <= 1/3.
+    RESIDUE: the chain (E5)-(E9) below gives resid* <= 1/2.
+    Hence Psi* <= 5/6 < 1 for every k >= 6 and every n >= N(k).
+
+      k |    N(k) |    core     |   resid*    |    Psi*
+  [ok ] core = Phi/2 at n=N(k), k=6
+  [ok ] core <= 2/k at n=N(k), k=6
+  [ok ] resid* <= 1/2 at n=N(k), k=6
+  [ok ] Psi* < 1 at n=N(k), k=6
+  [ok ] N(k) >= Ntilde(k) at k=6   4608 >= 244
+      6 |    4608 | 9.89459e-02 | 2.16632e-08 | 9.89460e-02
+  [ok ] core = Phi/2 at n=N(k), k=7
+  [ok ] core <= 2/k at n=N(k), k=7
+  [ok ] resid* <= 1/2 at n=N(k), k=7
+  [ok ] Psi* < 1 at n=N(k), k=7
+  [ok ] N(k) >= Ntilde(k) at k=7   9800 >= 449
+      7 |    9800 | 8.34163e-02 | 7.41087e-11 | 8.34163e-02
+  [ok ] core = Phi/2 at n=N(k), k=8
+  [ok ] core <= 2/k at n=N(k), k=8
+  [ok ] resid* <= 1/2 at n=N(k), k=8
+  [ok ] Psi* < 1 at n=N(k), k=8
+  [ok ] N(k) >= Ntilde(k) at k=8   18432 >= 736
+      8 |   18432 | 7.17067e-02 | 1.99755e-13 | 7.17067e-02
+  [ok ] core = Phi/2 at n=N(k), k=9
+  [ok ] core <= 2/k at n=N(k), k=9
+  [ok ] resid* <= 1/2 at n=N(k), k=9
+  [ok ] Psi* < 1 at n=N(k), k=9
+  [ok ] N(k) >= Ntilde(k) at k=9   31752 >= 1111
+      9 |   31752 | 6.26970e-02 | 4.38798e-16 | 6.26970e-02
+  [ok ] core = Phi/2 at n=N(k), k=10
+  [ok ] core <= 2/k at n=N(k), k=10
+  [ok ] resid* <= 1/2 at n=N(k), k=10
+  [ok ] Psi* < 1 at n=N(k), k=10
+  [ok ] N(k) >= Ntilde(k) at k=10   51200 >= 1583
+     10 |   51200 | 5.56062e-02 | 8.05355e-19 | 5.56062e-02
+  [ok ] core = Phi/2 at n=N(k), k=11
+  [ok ] core <= 2/k at n=N(k), k=11
+  [ok ] resid* <= 1/2 at n=N(k), k=11
+  [ok ] Psi* < 1 at n=N(k), k=11
+  [ok ] N(k) >= Ntilde(k) at k=11   78408 >= 2160
+     11 |   78408 | 4.99063e-02 | 1.25907e-21 | 4.99063e-02
+  [ok ] core = Phi/2 at n=N(k), k=12
+  [ok ] core <= 2/k at n=N(k), k=12
+  [ok ] resid* <= 1/2 at n=N(k), k=12
+  [ok ] Psi* < 1 at n=N(k), k=12
+  [ok ] N(k) >= Ntilde(k) at k=12   115200 >= 2850
+     12 |  115200 | 4.52375e-02 | 1.70284e-24 | 4.52375e-02
+
+    THE CHAIN, each step exact, over k = 6..40 and n in {N, 2N, 10N}:
+      (E5a) (n-k+1)^2 >= (99/100) n^2                  [Pillar 1 (E4)]
+      (E5b) w := n(k-2)/(n-k+1)^2 <= (100/99)(k-2)/n
+      (E5c) k!/n^(k-1) <= 1, hence Q_c <= 2n
+      (E5d) u_max <= k!/n^k
+      (E5e) a := w sqrt(Q_c) <= 13/(25 k)
+      (E5f) b := w n sqrt(u_max) <= (100/99)(k-2) k^(-3k/2)
+      (E6)  V_{j,m} <= (m+1)^3 j! 4^(m+j-1)            [k-free, n-free]
+      (E7)  (2/t_2) G_2 = 2 sum_{j>=2,m>=1} V_{j,m} a^(j-2) b^m
+                        <= M_G(k), a and b decreasing in n
+      (E8)  M_G(k) <= 1/4, decreasing in k
+      (E9)  the g_1 term <= 1/4
+
+  [ok ] (E6) V_{j,m} <= (m+1)^3 j! 4^(m+j-1) for all j,m <= 14
+  [ok ] (E8) M_G(6) <= 1/4   M_G = 1.7833e-06
+  [ok ] (E8) M_G(7) <= 1/4   M_G = 6.2430e-09
+  [ok ] (E8) M_G(8) <= 1/4   M_G = 1.6193e-11
+  [ok ] (E8) M_G(9) <= 1/4   M_G = 3.3007e-14
+  [ok ] (E8) M_G(10) <= 1/4   M_G = 5.5212e-17
+  [ok ] (E8) M_G(11) <= 1/4   M_G = 7.8302e-20
+  [ok ] (E8) M_G(12) <= 1/4   M_G = 9.6487e-23
+  [ok ] (E8) M_G(13) <= 1/4   M_G = 1.0519e-25
+  [ok ] (E8) M_G(14) <= 1/4   M_G = 1.0280e-28
+  [ok ] (E8) M_G(15) <= 1/4   M_G = 9.0891e-32
+  [ok ] (E8) M_G(16) <= 1/4   M_G = 7.3195e-35
+  [ok ] (E8) M_G(17) <= 1/4   M_G = 5.3960e-38
+  [ok ] (E8) M_G(18) <= 1/4   M_G = 3.6566e-41
+  [ok ] (E8) M_G(19) <= 1/4   M_G = 2.2858e-44
+  [ok ] (E8) M_G(20) <= 1/4   M_G = 1.3226e-47
+  [ok ] (E8) M_G(25) <= 1/4   M_G = 2.9823e-64
+  [ok ] (E8) M_G(30) <= 1/4   M_G = 1.4601e-81
+  [ok ] (E8) M_G(40) <= 1/4   M_G = 9.1261e-118
+  [ok ] (E5a) at every k in 6..40 and n in {N, 2N, 10N}
+  [ok ] (E5b) at every k in 6..40 and n in {N, 2N, 10N}
+  [ok ] (E5c) at every k in 6..40 and n in {N, 2N, 10N}
+  [ok ] (E5d) at every k in 6..40 and n in {N, 2N, 10N}
+  [ok ] (E5e) at every k in 6..40 and n in {N, 2N, 10N}
+  [ok ] (E5f) at every k in 6..40 and n in {N, 2N, 10N}
+  [ok ] (E7) G_2 majorant, and a,b decreasing in n at every k in 6..40 and n in {N, 2N, 10N}
+  [ok ] (E8) M_G decreasing in k at every k in 6..40 and n in {N, 2N, 10N}
+  [ok ] (E9) g_1 term <= 1/4 at every k in 6..40 and n in {N, 2N, 10N}
+
+      k | M_G(k) closed majorant | exact (2/t_2) G_2 at n = N(k)
+      6 |     1.783257e-06       |     2.166317e-08
+      8 |     1.619272e-11       |     1.997554e-13
+     10 |     5.521214e-17       |     8.053549e-19
+     12 |     9.648737e-23       |     1.702838e-24
+     20 |     1.322572e-47       |     3.386585e-49
+     30 |     1.460094e-81       |     4.086568e-83
+     40 |     9.126121e-118       |     2.639042e-119
+
+V8  END TO END at k = 6 and k = 7, at the threshold and one below.
+    The composed stability constant on the collar is
+      c_U(n,k) = min( lam_line/(4n), (t_2/2)(1 - Psi*) ),
+    for which  F >= c_U ||A - J_n/n||_F^2.
+
+  [ok ] verdict at k=6, n=243 is fail as claimed
+      k=6  n=  243   Psi* = 1.00066282   c_U =       (none)   t_2/2 = 8.956852e-16
+  [ok ] verdict at k=6, n=244 is PASS as claimed
+  [ok ] c_U > 0 at k=6, n=244
+  [ok ] c_U <= t_2/2 (the ceiling of Prop S5) at k=6, n=244
+      k=6  n=  244   Psi* = 0.99628714   c_U = 3.217957e-18   t_2/2 = 8.667069e-16
+  [ok ] verdict at k=6, n=488 is PASS as claimed
+  [ok ] c_U > 0 at k=6, n=488
+  [ok ] c_U <= t_2/2 (the ceiling of Prop S5) at k=6, n=488
+      k=6  n=  488   Psi* = 0.50733584   c_U = 1.661108e-18   t_2/2 = 3.371684e-18
+
+  [ok ] verdict at k=7, n=448 is fail as claimed
+      k=7  n=  448   Psi* = 1.00233365   c_U =       (none)   t_2/2 = 1.462476e-19
+  [ok ] verdict at k=7, n=449 is PASS as claimed
+  [ok ] c_U > 0 at k=7, n=449
+  [ok ] c_U <= t_2/2 (the ceiling of Prop S5) at k=7, n=449
+      k=7  n=  449   Psi* = 0.99974391   c_U = 3.670815e-23   t_2/2 = 1.433407e-19
+  [ok ] verdict at k=7, n=898 is PASS as claimed
+  [ok ] c_U > 0 at k=7, n=898
+  [ok ] c_U <= t_2/2 (the ceiling of Prop S5) at k=7, n=898
+      k=7  n=  898   Psi* = 0.48541651   c_U = 1.437429e-22   t_2/2 = 2.793384e-22
+
+V9  THE SHARPENING LADDER, priced THROUGH the composed budget.
+      L0     present         C_m = (D_m^2/m!) Q_c^((m-2)/2)
+      L1     Lemma U5        C_m = (D_m^2/m!) Q_c^(floor((m-1)/2)-1)
+      L2     odd-layer bound C_m = D_m^2/m!         [ASSUMED SHAPE]
+      floor  C_m = 0: the collar's own threshold, which no sibling
+             improvement can go below
+
+      k |     L0 |     L1 |    L2 | floor | L0/L1 | L0/L2 | L2/floor
+  [ok ] L1 strictly improves on L0 at k=6
+  [ok ] L2 improves on or matches L1 at k=6
+  [ok ] L2 within 10 percent of the collar floor at k=6   L2=37, floor=34
+      6 |    244 |     47 |    37 |    34 |  5.19 |  6.59 |  1.0882
+  [ok ] L1 strictly improves on L0 at k=7
+  [ok ] L2 improves on or matches L1 at k=7
+  [ok ] L2 within 10 percent of the collar floor at k=7   L2=45, floor=42
+      7 |    449 |     83 |    45 |    42 |  5.41 |  9.98 |  1.0714
+  [ok ] L1 strictly improves on L0 at k=8
+  [ok ] L2 improves on or matches L1 at k=8
+  [ok ] L2 within 10 percent of the collar floor at k=8   L2=54, floor=51
+      8 |    736 |    132 |    54 |    51 |  5.58 | 13.63 |  1.0588
+  [ok ] L1 strictly improves on L0 at k=9
+  [ok ] L2 improves on or matches L1 at k=9
+  [ok ] L2 within 10 percent of the collar floor at k=9   L2=64, floor=62
+      9 |   1111 |    215 |    64 |    62 |  5.17 | 17.36 |  1.0323
+  [ok ] L1 strictly improves on L0 at k=10
+  [ok ] L2 improves on or matches L1 at k=10
+  [ok ] L2 within 10 percent of the collar floor at k=10   L2=76, floor=73
+     10 |   1583 |    319 |    76 |    73 |  4.96 | 20.83 |  1.0411
+  [ok ] L1 strictly improves on L0 at k=11
+  [ok ] L2 improves on or matches L1 at k=11
+  [ok ] L2 within 10 percent of the collar floor at k=11   L2=89, floor=86
+     11 |   2160 |    470 |    89 |    86 |  4.60 | 24.27 |  1.0349
+  [ok ] L1 strictly improves on L0 at k=12
+  [ok ] L2 improves on or matches L1 at k=12
+  [ok ] L2 within 10 percent of the collar floor at k=12   L2=103, floor=101
+     12 |   2850 |    657 |   103 |   101 |  4.34 | 27.67 |  1.0198
+  [ok ] L1 strictly improves on L0 at k=15
+  [ok ] L2 improves on or matches L1 at k=15
+  [ok ] L2 within 10 percent of the collar floor at k=15   L2=154, floor=152
+     15 |   5681 |   1590 |   154 |   152 |  3.57 | 36.89 |  1.0132
+  [ok ] L1 strictly improves on L0 at k=20
+  [ok ] L2 improves on or matches L1 at k=20
+  [ok ] L2 within 10 percent of the collar floor at k=20   L2=270, floor=268
+     20 |  13552 |   4934 |   270 |   268 |  2.75 | 50.19 |  1.0075
+  [ok ] L1 strictly improves on L0 at k=30
+  [ok ] L2 improves on or matches L1 at k=30
+  [ok ] L2 within 10 percent of the collar floor at k=30   L2=625, floor=624
+     30 |  47707 |  24331 |   625 |   624 |  1.96 | 76.33 |  1.0016
+
+    Order of each branch, from exact thresholds at k = 20, 30, 40:
+  [ok ] L0: thresholds increase in k
+  [ok ] L0: order pinned in (3, 4) by N(30)/N(20)   (27/8 , 3.5203 , 81/16)
+  [ok ] L0: order pinned in (3, 4) by N(40)/N(30)   (64/27 , 2.6070 , 256/81)
+      L0     N(20,30,40) = [13552, 47707, 124373]
+              N(30)/N(20) = 4337/1232 = 3.5203   N(40)/N(30) = 124373/47707 = 2.6070
+  [ok ] L1: thresholds increase in k
+  [ok ] L1: order pinned in (3, 4) by N(30)/N(20)   (27/8 , 4.9313 , 81/16)
+  [ok ] L1: order pinned in (3, 4) by N(40)/N(30)   (64/27 , 3.1031 , 256/81)
+      L1     N(20,30,40) = [4934, 24331, 75502]
+              N(30)/N(20) = 24331/4934 = 4.9313   N(40)/N(30) = 75502/24331 = 3.1031
+  [ok ] L2: thresholds increase in k
+  [ok ] L2: order pinned in (2, 3) by N(30)/N(20)   (9/4 , 2.3148 , 27/8)
+  [ok ] L2: order pinned in (2, 3) by N(40)/N(30)   (16/9 , 1.8736 , 64/27)
+      L2     N(20,30,40) = [270, 625, 1171]
+              N(30)/N(20) = 125/54 = 2.3148   N(40)/N(30) = 1171/625 = 1.8736
+  [ok ] floor: thresholds increase in k
+  [ok ] floor: order pinned in (2, 3) by N(30)/N(20)   (9/4 , 2.3284 , 27/8)
+  [ok ] floor: order pinned in (2, 3) by N(40)/N(30)   (16/9 , 1.8734 , 64/27)
+      floor  N(20,30,40) = [268, 624, 1169]
+              N(30)/N(20) = 156/67 = 2.3284   N(40)/N(30) = 1169/624 = 1.8734
+      benchmarks:  (3/2)^2 = 2.2500  (3/2)^3 = 3.3750  (3/2)^4 = 5.0625
+                   (4/3)^2 = 1.7778  (4/3)^3 = 2.3704  (4/3)^4 = 3.1605
+
+    READ-OFF.  L1 keeps the k^4 order and buys a factor that PEAKS
+    near k = 8 and decays back towards 1.  L2 changes the order to
+    ~k^2 and lands the composed threshold on the collar floor: after
+    L2 the sibling is no longer the bottleneck, Claim C' of
+    UNIFORM-COLLAR sec 7.5 is.
+
+V10 MUTATION CONTROLS.  Five injected faults; each must be caught in
+    at least TWO independent positions (two witnesses, two positions)
+    and nothing may fire when no fault is injected.
+
+  [ok ] fault CAUGHT: halve_C          the plug-in constant halved   5 checks fire, 5 distinct positions
+  [ok ] caught in >= 2 positions: halve_C   positions = 5
+  [ok ] fault CAUGHT: finner_exponent  the Finner exponent lowered one step   29 checks fire, 4 distinct positions
+  [ok ] caught in >= 2 positions: finner_exponent   positions = 4
+  [ok ] fault CAUGHT: no_Qc            (K3) ignored: Q_c replaced by n-1   9 checks fire, 3 distinct positions
+  [ok ] caught in >= 2 positions: no_Qc   positions = 3
+  [ok ] fault CAUGHT: threshold_down   Ntilde lowered by one   22 checks fire, 3 distinct positions
+  [ok ] caught in >= 2 positions: threshold_down   positions = 3
+  [ok ] fault CAUGHT: drop_t2          t_2 dropped from the composition identity   15 checks fire, 2 distinct positions
+  [ok ] caught in >= 2 positions: drop_t2   positions = 2
+  [ok ] fault CAUGHT: drop_t           a t_d factor dropped from a cross layer (M1)   24 checks fire, 3 distinct positions
+  [ok ] caught in >= 2 positions: drop_t   positions = 3
+  [ok ] no fault injected: nothing fires   0 fired
+
+==========================================================================
+TOTAL CHECKS: 301
+TOTAL FAILURES: 0
+VERDICT: ALL CHECKS PASS
+==========================================================================

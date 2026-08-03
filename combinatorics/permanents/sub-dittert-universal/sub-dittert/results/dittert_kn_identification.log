@@ -1,0 +1,8 @@
+=== IDENTIFICATION: the k = n cell IS Dittert verbatim ===
+Checked through results/verify_subdittert.py, loaded by path, unmodified.
+phi(A) = prod_i r_i + prod_j c_j - per(A) <= 2 - n!/n^n   is the k = n case of
+E_k(r) + E_k(c) - P_k(A) <= 2 - k!/n^k  because C(n,n) = 1 makes
+E_n(r) = e_n(r) = prod r_i  and  P_n(A) = sigma_n(A) = per(A).
+  n = 4: sigma_n direct == per: True;  sigma_n Ryser == per: True;  C(n,n) = 1;  bound M = 61/32;  |supp F| = 1040
+  n = 5: sigma_n direct == per: True;  sigma_n Ryser == per: True;  C(n,n) = 1;  bound M = 1226/625;  |supp F| = 14005
+Closed form 2*sum C(n,t)n^t - sum C(n,t)^2 t! - 1 predicts 1040 and 14005.

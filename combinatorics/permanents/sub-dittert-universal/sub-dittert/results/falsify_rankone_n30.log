@@ -1,0 +1,418 @@
+[guard] MemoryMax=2G  swap=off  CPUQuota=200%  threads=2
+rank-one slice scan for Cheon-Hwang counterexamples
+range: 6 <= n <= 30, 5 <= k < n; grid=40; full pair product for n <= 11
+
+  n= 6 k= 5  points=  653 pairs=    67600  max ratio=1.000000000000  best off-centre ratio=0.999912418098  
+  [n=6 done, 0.2s]
+  n= 7 k= 5  points=  835 pairs=    67600  max ratio=1.000000000000  best off-centre ratio=1.000000000000  
+  n= 7 k= 6  points=  835 pairs=    67600  max ratio=1.000000000000  best off-centre ratio=1.000000000000  
+  [n=7 done, 0.5s]
+  n= 8 k= 5  points= 1045 pairs=    67600  max ratio=1.000000000000  best off-centre ratio=0.999950647183  
+  n= 8 k= 6  points= 1045 pairs=    67600  max ratio=1.000000000000  best off-centre ratio=0.999925781812  
+  n= 8 k= 7  points= 1045 pairs=    67600  max ratio=1.000000000000  best off-centre ratio=0.999895859218  
+  [n=8 done, 1.1s]
+  n= 9 k= 5  points= 1283 pairs=    67600  max ratio=1.000000000000  best off-centre ratio=1.000000000000  
+  n= 9 k= 6  points= 1283 pairs=    67600  max ratio=1.000000000000  best off-centre ratio=1.000000000000  
+  n= 9 k= 7  points= 1283 pairs=    67600  max ratio=1.000000000000  best off-centre ratio=1.000000000000  
+  n= 9 k= 8  points= 1283 pairs=    67600  max ratio=1.000000000000  best off-centre ratio=1.000000000000  
+  [n=9 done, 2.0s]
+  n=10 k= 5  points= 1549 pairs=    67600  max ratio=1.000000000000  best off-centre ratio=0.999968454388  
+  n=10 k= 6  points= 1549 pairs=    67600  max ratio=1.000000000000  best off-centre ratio=0.999952591078  
+  n=10 k= 7  points= 1549 pairs=    67600  max ratio=1.000000000000  best off-centre ratio=0.999933509332  
+  n=10 k= 8  points= 1549 pairs=    67600  max ratio=1.000000000000  best off-centre ratio=0.999911193015  
+  n=10 k= 9  points= 1549 pairs=    67600  max ratio=1.000000000000  best off-centre ratio=0.999885626268  
+  [n=10 done, 3.3s]
+  n=11 k= 5  points= 1843 pairs=    67600  max ratio=1.000000000000  best off-centre ratio=1.000000000000  
+  n=11 k= 6  points= 1843 pairs=    67600  max ratio=1.000000000000  best off-centre ratio=1.000000000000  
+  n=11 k= 7  points= 1843 pairs=    67600  max ratio=1.000000000000  best off-centre ratio=1.000000000000  
+  n=11 k= 8  points= 1843 pairs=    67600  max ratio=1.000000000000  best off-centre ratio=1.000000000000  
+  n=11 k= 9  points= 1843 pairs=    67600  max ratio=1.000000000000  best off-centre ratio=1.000000000000  
+  n=11 k=10  points= 1843 pairs=    67600  max ratio=1.000000000000  best off-centre ratio=1.000000000000  
+  [n=11 done, 5.3s]
+  n=12 k= 5  points= 2165 pairs=     2165  max ratio=1.000000000000  best off-centre ratio=0.999978122051  
+  n=12 k= 6  points= 2165 pairs=     2165  max ratio=1.000000000000  best off-centre ratio=0.999967133414  
+  n=12 k= 7  points= 2165 pairs=     2165  max ratio=1.000000000000  best off-centre ratio=0.999953920379  
+  n=12 k= 8  points= 2165 pairs=     2165  max ratio=1.000000000000  best off-centre ratio=0.999938473477  
+  n=12 k= 9  points= 2165 pairs=     2165  max ratio=1.000000000000  best off-centre ratio=0.999920783329  
+  n=12 k=10  points= 2165 pairs=     2165  max ratio=1.000000000000  best off-centre ratio=0.999900840597  
+  n=12 k=11  points= 2165 pairs=     2165  max ratio=1.000000000000  best off-centre ratio=0.999878635965  
+  [n=12 done, 6.8s]
+  n=13 k= 5  points= 2515 pairs=     2515  max ratio=1.000000000000  best off-centre ratio=0.999981368927  
+  n=13 k= 6  points= 2515 pairs=     2515  max ratio=1.000000000000  best off-centre ratio=0.999972015039  
+  n=13 k= 7  points= 2515 pairs=     2515  max ratio=1.000000000000  best off-centre ratio=0.999960769346  
+  n=13 k= 8  points= 2515 pairs=     2515  max ratio=1.000000000000  best off-centre ratio=0.999947624408  
+  n=13 k= 9  points= 2515 pairs=     2515  max ratio=1.000000000000  best off-centre ratio=0.999932572858  
+  n=13 k=10  points= 2515 pairs=     2515  max ratio=1.000000000000  best off-centre ratio=0.999915607353  
+  n=13 k=11  points= 2515 pairs=     2515  max ratio=1.000000000000  best off-centre ratio=0.999896720559  
+  n=13 k=12  points= 2515 pairs=     2515  max ratio=1.000000000000  best off-centre ratio=0.999875905137  
+  [n=13 done, 9.1s]
+  n=14 k= 5  points= 2893 pairs=     2893  max ratio=1.000000000000  best off-centre ratio=0.999983943493  
+  n=14 k= 6  points= 2893 pairs=     2893  max ratio=1.000000000000  best off-centre ratio=0.999975884966  
+  n=14 k= 7  points= 2893 pairs=     2893  max ratio=1.000000000000  best off-centre ratio=0.999966197857  
+  n=14 k= 8  points= 2893 pairs=     2893  max ratio=1.000000000000  best off-centre ratio=0.999954876223  
+  n=14 k= 9  points= 2893 pairs=     2893  max ratio=1.000000000000  best off-centre ratio=0.999941914180  
+  n=14 k=10  points= 2893 pairs=     2893  max ratio=1.000000000000  best off-centre ratio=0.999927305860  
+  n=14 k=11  points= 2893 pairs=     2893  max ratio=1.000000000000  best off-centre ratio=0.999911045400  
+  n=14 k=12  points= 2893 pairs=     2893  max ratio=1.000000000000  best off-centre ratio=0.999893126929  
+  n=14 k=13  points= 2893 pairs=     2893  max ratio=1.000000000000  best off-centre ratio=0.999873544568  
+  [n=14 done, 12.3s]
+  n=15 k= 5  points=  751 pairs=      751  max ratio=1.000000000000  best off-centre ratio=0.999986019217  
+  n=15 k= 6  points=  751 pairs=      751  max ratio=1.000000000000  best off-centre ratio=0.999979004480  
+  n=15 k= 7  points=  751 pairs=      751  max ratio=1.000000000000  best off-centre ratio=0.999970573043  
+  n=15 k= 8  points=  751 pairs=      751  max ratio=1.000000000000  best off-centre ratio=0.999960720089  
+  n=15 k= 9  points=  751 pairs=      751  max ratio=1.000000000000  best off-centre ratio=0.999949440843  
+  n=15 k=10  points=  751 pairs=      751  max ratio=1.000000000000  best off-centre ratio=0.999936730548  
+  n=15 k=11  points=  751 pairs=      751  max ratio=1.000000000000  best off-centre ratio=0.999922584444  
+  n=15 k=12  points=  751 pairs=      751  max ratio=1.000000000000  best off-centre ratio=0.999906997768  
+  n=15 k=13  points=  751 pairs=      751  max ratio=1.000000000000  best off-centre ratio=0.999889965746  
+  n=15 k=14  points=  751 pairs=      751  max ratio=1.000000000000  best off-centre ratio=0.999871483597  
+  [n=15 done, 13.5s]
+  n=16 k= 5  points=  793 pairs=      793  max ratio=1.000000000000  best off-centre ratio=0.999987717064  
+  n=16 k= 6  points=  793 pairs=      793  max ratio=1.000000000000  best off-centre ratio=0.999981555706  
+  n=16 k= 7  points=  793 pairs=      793  max ratio=1.000000000000  best off-centre ratio=0.999974150723  
+  n=16 k= 8  points=  793 pairs=      793  max ratio=1.000000000000  best off-centre ratio=0.999965498154  
+  n=16 k= 9  points=  793 pairs=      793  max ratio=1.000000000000  best off-centre ratio=0.999955594076  
+  n=16 k=10  points=  793 pairs=      793  max ratio=1.000000000000  best off-centre ratio=0.999944434576  
+  n=16 k=11  points=  793 pairs=      793  max ratio=1.000000000000  best off-centre ratio=0.999932015742  
+  n=16 k=12  points=  793 pairs=      793  max ratio=1.000000000000  best off-centre ratio=0.999918333654  
+  n=16 k=13  points=  793 pairs=      793  max ratio=1.000000000000  best off-centre ratio=0.999903384387  
+  n=16 k=14  points=  793 pairs=      793  max ratio=1.000000000000  best off-centre ratio=0.999887164009  
+  n=16 k=15  points=  793 pairs=      793  max ratio=1.000000000000  best off-centre ratio=0.999869668576  
+  [n=16 done, 14.9s]
+  n=17 k= 5  points=  835 pairs=      835  max ratio=1.000000000000  best off-centre ratio=1.000000000000  
+  n=17 k= 6  points=  835 pairs=      835  max ratio=1.000000000000  best off-centre ratio=1.000000000000  
+  n=17 k= 7  points=  835 pairs=      835  max ratio=1.000000000000  best off-centre ratio=1.000000000000  
+  n=17 k= 8  points=  835 pairs=      835  max ratio=1.000000000000  best off-centre ratio=1.000000000000  
+  n=17 k= 9  points=  835 pairs=      835  max ratio=1.000000000000  best off-centre ratio=1.000000000000  
+  n=17 k=10  points=  835 pairs=      835  max ratio=1.000000000000  best off-centre ratio=1.000000000000  
+  n=17 k=11  points=  835 pairs=      835  max ratio=1.000000000000  best off-centre ratio=1.000000000000  
+  n=17 k=12  points=  835 pairs=      835  max ratio=1.000000000000  best off-centre ratio=1.000000000000  
+  n=17 k=13  points=  835 pairs=      835  max ratio=1.000000000000  best off-centre ratio=1.000000000000  
+  n=17 k=14  points=  835 pairs=      835  max ratio=1.000000000000  best off-centre ratio=1.000000000000  
+  n=17 k=15  points=  835 pairs=      835  max ratio=1.000000000000  best off-centre ratio=1.000000000000  
+  n=17 k=16  points=  835 pairs=      835  max ratio=1.000000000000  best off-centre ratio=1.000000000000  
+  [n=17 done, 17.0s]
+  n=18 k= 5  points=  877 pairs=      877  max ratio=1.000000000000  best off-centre ratio=0.999990301467  
+  n=18 k= 6  points=  877 pairs=      877  max ratio=1.000000000000  best off-centre ratio=0.999985438398  
+  n=18 k= 7  points=  877 pairs=      877  max ratio=1.000000000000  best off-centre ratio=0.999979594714  
+  n=18 k= 8  points=  877 pairs=      877  max ratio=1.000000000000  best off-centre ratio=0.999972767649  
+  n=18 k= 9  points=  877 pairs=      877  max ratio=1.000000000000  best off-centre ratio=0.999964954458  
+  n=18 k=10  points=  877 pairs=      877  max ratio=1.000000000000  best off-centre ratio=0.999956152403  
+  n=18 k=11  points=  877 pairs=      877  max ratio=1.000000000000  best off-centre ratio=0.999946358745  
+  n=18 k=12  points=  877 pairs=      877  max ratio=1.000000000000  best off-centre ratio=0.999935570741  
+  n=18 k=13  points=  877 pairs=      877  max ratio=1.000000000000  best off-centre ratio=0.999923785643  
+  n=18 k=14  points=  877 pairs=      877  max ratio=1.000000000000  best off-centre ratio=0.999911000697  
+  n=18 k=15  points=  877 pairs=      877  max ratio=1.000000000000  best off-centre ratio=0.999897213146  
+  n=18 k=16  points=  877 pairs=      877  max ratio=1.000000000000  best off-centre ratio=0.999882420224  
+  n=18 k=17  points=  877 pairs=      877  max ratio=1.000000000000  best off-centre ratio=0.999866619162  
+  [n=18 done, 19.4s]
+  n=19 k= 5  points=  919 pairs=      919  max ratio=1.000000000000  best off-centre ratio=1.000000000000  
+  n=19 k= 6  points=  919 pairs=      919  max ratio=1.000000000000  best off-centre ratio=1.000000000000  
+  n=19 k= 7  points=  919 pairs=      919  max ratio=1.000000000000  best off-centre ratio=1.000000000000  
+  n=19 k= 8  points=  919 pairs=      919  max ratio=1.000000000000  best off-centre ratio=1.000000000000  
+  n=19 k= 9  points=  919 pairs=      919  max ratio=1.000000000000  best off-centre ratio=1.000000000000  
+  n=19 k=10  points=  919 pairs=      919  max ratio=1.000000000000  best off-centre ratio=1.000000000000  
+  n=19 k=11  points=  919 pairs=      919  max ratio=1.000000000000  best off-centre ratio=1.000000000000  
+  n=19 k=12  points=  919 pairs=      919  max ratio=1.000000000000  best off-centre ratio=1.000000000000  
+  n=19 k=13  points=  919 pairs=      919  max ratio=1.000000000000  best off-centre ratio=1.000000000000  
+  n=19 k=14  points=  919 pairs=      919  max ratio=1.000000000000  best off-centre ratio=1.000000000000  
+  n=19 k=15  points=  919 pairs=      919  max ratio=1.000000000000  best off-centre ratio=1.000000000000  
+  n=19 k=16  points=  919 pairs=      919  max ratio=1.000000000000  best off-centre ratio=1.000000000000  
+  n=19 k=17  points=  919 pairs=      919  max ratio=1.000000000000  best off-centre ratio=1.000000000000  
+  n=19 k=18  points=  919 pairs=      919  max ratio=1.000000000000  best off-centre ratio=1.000000000000  
+  [n=19 done, 22.7s]
+  n=20 k= 5  points=  961 pairs=      961  max ratio=1.000000000000  best off-centre ratio=0.999992148456  
+  n=20 k= 6  points=  961 pairs=      961  max ratio=1.000000000000  best off-centre ratio=0.999988212700  
+  n=20 k= 7  points=  961 pairs=      961  max ratio=1.000000000000  best off-centre ratio=0.999983483945  
+  n=20 k= 8  points=  961 pairs=      961  max ratio=1.000000000000  best off-centre ratio=0.999977960183  
+  n=20 k= 9  points=  961 pairs=      961  max ratio=1.000000000000  best off-centre ratio=0.999971639422  
+  n=20 k=10  points=  961 pairs=      961  max ratio=1.000000000000  best off-centre ratio=0.999964519670  
+  n=20 k=11  points=  961 pairs=      961  max ratio=1.000000000000  best off-centre ratio=0.999956598936  
+  n=20 k=12  points=  961 pairs=      961  max ratio=1.000000000000  best off-centre ratio=0.999947875225  
+  n=20 k=13  points=  961 pairs=      961  max ratio=1.000000000000  best off-centre ratio=0.999938346539  
+  n=20 k=14  points=  961 pairs=      961  max ratio=1.000000000000  best off-centre ratio=0.999928010877  
+  n=20 k=15  points=  961 pairs=      961  max ratio=1.000000000000  best off-centre ratio=0.999916866233  
+  n=20 k=16  points=  961 pairs=      961  max ratio=1.000000000000  best off-centre ratio=0.999904910599  
+  n=20 k=17  points=  961 pairs=      961  max ratio=1.000000000000  best off-centre ratio=0.999892141962  
+  n=20 k=18  points=  961 pairs=      961  max ratio=1.000000000000  best off-centre ratio=0.999878558306  
+  n=20 k=19  points=  961 pairs=      961  max ratio=1.000000000000  best off-centre ratio=0.999864157610  
+  [n=20 done, 26.2s]
+  n=21 k= 5  points= 1003 pairs=     1003  max ratio=1.000000000000  best off-centre ratio=1.000000000000  
+  n=21 k= 6  points= 1003 pairs=     1003  max ratio=1.000000000000  best off-centre ratio=1.000000000000  
+  n=21 k= 7  points= 1003 pairs=     1003  max ratio=1.000000000000  best off-centre ratio=1.000000000000  
+  n=21 k= 8  points= 1003 pairs=     1003  max ratio=1.000000000000  best off-centre ratio=1.000000000000  
+  n=21 k= 9  points= 1003 pairs=     1003  max ratio=1.000000000000  best off-centre ratio=1.000000000000  
+  n=21 k=10  points= 1003 pairs=     1003  max ratio=1.000000000000  best off-centre ratio=1.000000000000  
+  n=21 k=11  points= 1003 pairs=     1003  max ratio=1.000000000000  best off-centre ratio=1.000000000000  
+  n=21 k=12  points= 1003 pairs=     1003  max ratio=1.000000000000  best off-centre ratio=1.000000000000  
+  n=21 k=13  points= 1003 pairs=     1003  max ratio=1.000000000000  best off-centre ratio=1.000000000000  
+  n=21 k=14  points= 1003 pairs=     1003  max ratio=1.000000000000  best off-centre ratio=1.000000000000  
+  n=21 k=15  points= 1003 pairs=     1003  max ratio=1.000000000000  best off-centre ratio=1.000000000000  
+  n=21 k=16  points= 1003 pairs=     1003  max ratio=1.000000000000  best off-centre ratio=1.000000000000  
+  n=21 k=17  points= 1003 pairs=     1003  max ratio=1.000000000000  best off-centre ratio=1.000000000000  
+  n=21 k=18  points= 1003 pairs=     1003  max ratio=1.000000000000  best off-centre ratio=1.000000000000  
+  n=21 k=19  points= 1003 pairs=     1003  max ratio=1.000000000000  best off-centre ratio=1.000000000000  
+  n=21 k=20  points= 1003 pairs=     1003  max ratio=1.000000000000  best off-centre ratio=1.000000000000  
+  [n=21 done, 30.9s]
+  n=22 k= 5  points= 1045 pairs=     1045  max ratio=1.000000000000  best off-centre ratio=1.000000000000  
+  n=22 k= 6  points= 1045 pairs=     1045  max ratio=1.000000000000  best off-centre ratio=1.000000000000  
+  n=22 k= 7  points= 1045 pairs=     1045  max ratio=1.000000000000  best off-centre ratio=1.000000000000  
+  n=22 k= 8  points= 1045 pairs=     1045  max ratio=1.000000000000  best off-centre ratio=1.000000000000  
+  n=22 k= 9  points= 1045 pairs=     1045  max ratio=1.000000000000  best off-centre ratio=1.000000000000  
+  n=22 k=10  points= 1045 pairs=     1045  max ratio=1.000000000000  best off-centre ratio=1.000000000000  
+  n=22 k=11  points= 1045 pairs=     1045  max ratio=1.000000000000  best off-centre ratio=1.000000000000  
+  n=22 k=12  points= 1045 pairs=     1045  max ratio=1.000000000000  best off-centre ratio=1.000000000000  
+  n=22 k=13  points= 1045 pairs=     1045  max ratio=1.000000000000  best off-centre ratio=1.000000000000  
+  n=22 k=14  points= 1045 pairs=     1045  max ratio=1.000000000000  best off-centre ratio=1.000000000000  
+  n=22 k=15  points= 1045 pairs=     1045  max ratio=1.000000000000  best off-centre ratio=1.000000000000  
+  n=22 k=16  points= 1045 pairs=     1045  max ratio=1.000000000000  best off-centre ratio=1.000000000000  
+  n=22 k=17  points= 1045 pairs=     1045  max ratio=1.000000000000  best off-centre ratio=1.000000000000  
+  n=22 k=18  points= 1045 pairs=     1045  max ratio=1.000000000000  best off-centre ratio=1.000000000000  
+  n=22 k=19  points= 1045 pairs=     1045  max ratio=1.000000000000  best off-centre ratio=1.000000000000  
+  n=22 k=20  points= 1045 pairs=     1045  max ratio=1.000000000000  best off-centre ratio=1.000000000000  
+  n=22 k=21  points= 1045 pairs=     1045  max ratio=1.000000000000  best off-centre ratio=1.000000000000  
+  [n=22 done, 36.6s]
+  n=23 k= 5  points= 1087 pairs=     1087  max ratio=1.000000000000  best off-centre ratio=1.000000000000  
+  n=23 k= 6  points= 1087 pairs=     1087  max ratio=1.000000000000  best off-centre ratio=1.000000000000  
+  n=23 k= 7  points= 1087 pairs=     1087  max ratio=1.000000000000  best off-centre ratio=1.000000000000  
+  n=23 k= 8  points= 1087 pairs=     1087  max ratio=1.000000000000  best off-centre ratio=1.000000000000  
+  n=23 k= 9  points= 1087 pairs=     1087  max ratio=1.000000000000  best off-centre ratio=1.000000000000  
+  n=23 k=10  points= 1087 pairs=     1087  max ratio=1.000000000000  best off-centre ratio=1.000000000000  
+  n=23 k=11  points= 1087 pairs=     1087  max ratio=1.000000000000  best off-centre ratio=1.000000000000  
+  n=23 k=12  points= 1087 pairs=     1087  max ratio=1.000000000000  best off-centre ratio=1.000000000000  
+  n=23 k=13  points= 1087 pairs=     1087  max ratio=1.000000000000  best off-centre ratio=1.000000000000  
+  n=23 k=14  points= 1087 pairs=     1087  max ratio=1.000000000000  best off-centre ratio=1.000000000000  
+  n=23 k=15  points= 1087 pairs=     1087  max ratio=1.000000000000  best off-centre ratio=1.000000000000  
+  n=23 k=16  points= 1087 pairs=     1087  max ratio=1.000000000000  best off-centre ratio=1.000000000000  
+  n=23 k=17  points= 1087 pairs=     1087  max ratio=1.000000000000  best off-centre ratio=1.000000000000  
+  n=23 k=18  points= 1087 pairs=     1087  max ratio=1.000000000000  best off-centre ratio=0.999999999999  
+  n=23 k=19  points= 1087 pairs=     1087  max ratio=1.000000000000  best off-centre ratio=0.999999999999  
+  n=23 k=20  points= 1087 pairs=     1087  max ratio=1.000000000000  best off-centre ratio=0.999999999999  
+  n=23 k=21  points= 1087 pairs=     1087  max ratio=1.000000000000  best off-centre ratio=0.999999999999  
+  n=23 k=22  points= 1087 pairs=     1087  max ratio=1.000000000000  best off-centre ratio=0.999999999999  
+  [n=23 done, 43.6s]
+  n=24 k= 5  points= 1129 pairs=     1129  max ratio=1.000000000000  best off-centre ratio=0.999994552026  
+  n=24 k= 6  points= 1129 pairs=     1129  max ratio=1.000000000000  best off-centre ratio=0.999991822311  
+  n=24 k= 7  points= 1129 pairs=     1129  max ratio=1.000000000000  best off-centre ratio=0.999988543258  
+  n=24 k= 8  points= 1129 pairs=     1129  max ratio=1.000000000000  best off-centre ratio=0.999984713715  
+  n=24 k= 9  points= 1129 pairs=     1129  max ratio=1.000000000000  best off-centre ratio=0.999980332533  
+  n=24 k=10  points= 1129 pairs=     1129  max ratio=1.000000000000  best off-centre ratio=0.999975398565  
+  n=24 k=11  points= 1129 pairs=     1129  max ratio=1.000000000000  best off-centre ratio=0.999969910661  
+  n=24 k=12  points= 1129 pairs=     1129  max ratio=1.000000000000  best off-centre ratio=0.999963867673  
+  n=24 k=13  points= 1129 pairs=     1129  max ratio=1.000000000000  best off-centre ratio=0.999957268448  
+  n=24 k=14  points= 1129 pairs=     1129  max ratio=1.000000000000  best off-centre ratio=0.999950111833  
+  n=24 k=15  points= 1129 pairs=     1129  max ratio=1.000000000000  best off-centre ratio=0.999942396673  
+  n=24 k=16  points= 1129 pairs=     1129  max ratio=1.000000000000  best off-centre ratio=0.999934121810  
+  n=24 k=17  points= 1129 pairs=     1129  max ratio=1.000000000000  best off-centre ratio=0.999925286085  
+  n=24 k=18  points= 1129 pairs=     1129  max ratio=1.000000000000  best off-centre ratio=0.999915888339  
+  n=24 k=19  points= 1129 pairs=     1129  max ratio=1.000000000000  best off-centre ratio=0.999905927408  
+  n=24 k=20  points= 1129 pairs=     1129  max ratio=1.000000000000  best off-centre ratio=0.999895402128  
+  n=24 k=21  points= 1129 pairs=     1129  max ratio=1.000000000000  best off-centre ratio=0.999884311333  
+  n=24 k=22  points= 1129 pairs=     1129  max ratio=1.000000000000  best off-centre ratio=0.999872653855  
+  n=24 k=23  points= 1129 pairs=     1129  max ratio=1.000000000000  best off-centre ratio=0.999860428524  
+  [n=24 done, 50.8s]
+  n=25 k= 5  points= 1171 pairs=     1171  max ratio=1.000000000000  best off-centre ratio=0.999994979978  
+  n=25 k= 6  points= 1171 pairs=     1171  max ratio=1.000000000000  best off-centre ratio=0.999992464906  
+  n=25 k= 7  points= 1171 pairs=     1171  max ratio=1.000000000000  best off-centre ratio=0.999989443815  
+  n=25 k= 8  points= 1171 pairs=     1171  max ratio=1.000000000000  best off-centre ratio=0.999985915686  
+  n=25 k= 9  points= 1171 pairs=     1171  max ratio=1.000000000000  best off-centre ratio=0.999981879504  
+  n=25 k=10  points= 1171 pairs=     1171  max ratio=1.000000000000  best off-centre ratio=0.999977334255  
+  n=25 k=11  points= 1171 pairs=     1171  max ratio=1.000000000000  best off-centre ratio=0.999972278924  
+  n=25 k=12  points= 1171 pairs=     1171  max ratio=1.000000000000  best off-centre ratio=0.999966712493  
+  n=25 k=13  points= 1171 pairs=     1171  max ratio=1.000000000000  best off-centre ratio=0.999960633944  
+  n=25 k=14  points= 1171 pairs=     1171  max ratio=1.000000000000  best off-centre ratio=0.999954042258  
+  n=25 k=15  points= 1171 pairs=     1171  max ratio=1.000000000000  best off-centre ratio=0.999946936413  
+  n=25 k=16  points= 1171 pairs=     1171  max ratio=1.000000000000  best off-centre ratio=0.999939315387  
+  n=25 k=17  points= 1171 pairs=     1171  max ratio=1.000000000000  best off-centre ratio=0.999931178155  
+  n=25 k=18  points= 1171 pairs=     1171  max ratio=1.000000000000  best off-centre ratio=0.999922523692  
+  n=25 k=19  points= 1171 pairs=     1171  max ratio=1.000000000000  best off-centre ratio=0.999913350970  
+  n=25 k=20  points= 1171 pairs=     1171  max ratio=1.000000000000  best off-centre ratio=0.999903658960  
+  n=25 k=21  points= 1171 pairs=     1171  max ratio=1.000000000000  best off-centre ratio=0.999893446632  
+  n=25 k=22  points= 1171 pairs=     1171  max ratio=1.000000000000  best off-centre ratio=0.999882712954  
+  n=25 k=23  points= 1171 pairs=     1171  max ratio=1.000000000000  best off-centre ratio=0.999871456893  
+  n=25 k=24  points= 1171 pairs=     1171  max ratio=1.000000000000  best off-centre ratio=0.999859677413  
+  [n=25 done, 59.4s]
+  n=26 k= 5  points= 1213 pairs=     1213  max ratio=1.000000000000  best off-centre ratio=1.000000000000  
+  n=26 k= 6  points= 1213 pairs=     1213  max ratio=1.000000000000  best off-centre ratio=1.000000000000  
+  n=26 k= 7  points= 1213 pairs=     1213  max ratio=1.000000000000  best off-centre ratio=1.000000000000  
+  n=26 k= 8  points= 1213 pairs=     1213  max ratio=1.000000000000  best off-centre ratio=1.000000000000  
+  n=26 k= 9  points= 1213 pairs=     1213  max ratio=1.000000000000  best off-centre ratio=1.000000000000  
+  n=26 k=10  points= 1213 pairs=     1213  max ratio=1.000000000000  best off-centre ratio=1.000000000000  
+  n=26 k=11  points= 1213 pairs=     1213  max ratio=1.000000000000  best off-centre ratio=1.000000000000  
+  n=26 k=12  points= 1213 pairs=     1213  max ratio=1.000000000000  best off-centre ratio=1.000000000000  
+  n=26 k=13  points= 1213 pairs=     1213  max ratio=1.000000000000  best off-centre ratio=1.000000000000  
+  n=26 k=14  points= 1213 pairs=     1213  max ratio=1.000000000000  best off-centre ratio=1.000000000000  
+  n=26 k=15  points= 1213 pairs=     1213  max ratio=1.000000000000  best off-centre ratio=1.000000000000  
+  n=26 k=16  points= 1213 pairs=     1213  max ratio=1.000000000000  best off-centre ratio=1.000000000000  
+  n=26 k=17  points= 1213 pairs=     1213  max ratio=1.000000000000  best off-centre ratio=1.000000000000  
+  n=26 k=18  points= 1213 pairs=     1213  max ratio=1.000000000000  best off-centre ratio=1.000000000000  
+  n=26 k=19  points= 1213 pairs=     1213  max ratio=1.000000000000  best off-centre ratio=1.000000000000  
+  n=26 k=20  points= 1213 pairs=     1213  max ratio=1.000000000000  best off-centre ratio=1.000000000000  
+  n=26 k=21  points= 1213 pairs=     1213  max ratio=1.000000000000  best off-centre ratio=1.000000000000  
+  n=26 k=22  points= 1213 pairs=     1213  max ratio=1.000000000000  best off-centre ratio=1.000000000000  
+  n=26 k=23  points= 1213 pairs=     1213  max ratio=1.000000000000  best off-centre ratio=1.000000000000  
+  n=26 k=24  points= 1213 pairs=     1213  max ratio=1.000000000000  best off-centre ratio=1.000000000000  
+  n=26 k=25  points= 1213 pairs=     1213  max ratio=1.000000000000  best off-centre ratio=1.000000000000  
+  [n=26 done, 70.5s]
+  n=27 k= 5  points= 1255 pairs=     1255  max ratio=1.000000000000  best off-centre ratio=1.000000000000  
+  n=27 k= 6  points= 1255 pairs=     1255  max ratio=1.000000000000  best off-centre ratio=1.000000000000  
+  n=27 k= 7  points= 1255 pairs=     1255  max ratio=1.000000000000  best off-centre ratio=1.000000000000  
+  n=27 k= 8  points= 1255 pairs=     1255  max ratio=1.000000000000  best off-centre ratio=1.000000000000  
+  n=27 k= 9  points= 1255 pairs=     1255  max ratio=1.000000000000  best off-centre ratio=1.000000000000  
+  n=27 k=10  points= 1255 pairs=     1255  max ratio=1.000000000000  best off-centre ratio=1.000000000000  
+  n=27 k=11  points= 1255 pairs=     1255  max ratio=1.000000000000  best off-centre ratio=1.000000000000  
+  n=27 k=12  points= 1255 pairs=     1255  max ratio=1.000000000000  best off-centre ratio=1.000000000000  
+  n=27 k=13  points= 1255 pairs=     1255  max ratio=1.000000000000  best off-centre ratio=1.000000000000  
+  n=27 k=14  points= 1255 pairs=     1255  max ratio=1.000000000000  best off-centre ratio=1.000000000000  
+  n=27 k=15  points= 1255 pairs=     1255  max ratio=1.000000000000  best off-centre ratio=1.000000000000  
+  n=27 k=16  points= 1255 pairs=     1255  max ratio=1.000000000000  best off-centre ratio=1.000000000000  
+  n=27 k=17  points= 1255 pairs=     1255  max ratio=1.000000000000  best off-centre ratio=1.000000000000  
+  n=27 k=18  points= 1255 pairs=     1255  max ratio=1.000000000000  best off-centre ratio=1.000000000000  
+  n=27 k=19  points= 1255 pairs=     1255  max ratio=1.000000000000  best off-centre ratio=1.000000000000  
+  n=27 k=20  points= 1255 pairs=     1255  max ratio=1.000000000000  best off-centre ratio=0.999999999999  
+  n=27 k=21  points= 1255 pairs=     1255  max ratio=1.000000000000  best off-centre ratio=0.999999999999  
+  n=27 k=22  points= 1255 pairs=     1255  max ratio=1.000000000000  best off-centre ratio=0.999999999999  
+  n=27 k=23  points= 1255 pairs=     1255  max ratio=1.000000000000  best off-centre ratio=0.999999999999  
+  n=27 k=24  points= 1255 pairs=     1255  max ratio=1.000000000000  best off-centre ratio=0.999999999999  
+  n=27 k=25  points= 1255 pairs=     1255  max ratio=1.000000000000  best off-centre ratio=0.999999999999  
+  n=27 k=26  points= 1255 pairs=     1255  max ratio=1.000000000000  best off-centre ratio=0.999999999999  
+  [n=27 done, 83.7s]
+  n=28 k= 5  points= 1297 pairs=     1297  max ratio=1.000000000000  best off-centre ratio=0.999995999776  
+  n=28 k= 6  points= 1297 pairs=     1297  max ratio=1.000000000000  best off-centre ratio=0.999993996071  
+  n=28 k= 7  points= 1297 pairs=     1297  max ratio=1.000000000000  best off-centre ratio=0.999991589486  
+  n=28 k= 8  points= 1297 pairs=     1297  max ratio=1.000000000000  best off-centre ratio=0.999988779296  
+  n=28 k= 9  points= 1297 pairs=     1297  max ratio=1.000000000000  best off-centre ratio=0.999985564781  
+  n=28 k=10  points= 1297 pairs=     1297  max ratio=1.000000000000  best off-centre ratio=0.999981945221  
+  n=28 k=11  points= 1297 pairs=     1297  max ratio=1.000000000000  best off-centre ratio=0.999977919893  
+  n=28 k=12  points= 1297 pairs=     1297  max ratio=1.000000000000  best off-centre ratio=0.999973488075  
+  n=28 k=13  points= 1297 pairs=     1297  max ratio=1.000000000000  best off-centre ratio=0.999968649045  
+  n=28 k=14  points= 1297 pairs=     1297  max ratio=1.000000000000  best off-centre ratio=0.999963402077  
+  n=28 k=15  points= 1297 pairs=     1297  max ratio=1.000000000000  best off-centre ratio=0.999957746446  
+  n=28 k=16  points= 1297 pairs=     1297  max ratio=1.000000000000  best off-centre ratio=0.999951681427  
+  n=28 k=17  points= 1297 pairs=     1297  max ratio=1.000000000000  best off-centre ratio=0.999945206291  
+  n=28 k=18  points= 1297 pairs=     1297  max ratio=1.000000000000  best off-centre ratio=0.999938320311  
+  n=28 k=19  points= 1297 pairs=     1297  max ratio=1.000000000000  best off-centre ratio=0.999931022759  
+  n=28 k=20  points= 1297 pairs=     1297  max ratio=1.000000000000  best off-centre ratio=0.999923312902  
+  n=28 k=21  points= 1297 pairs=     1297  max ratio=1.000000000000  best off-centre ratio=0.999915190012  
+  n=28 k=22  points= 1297 pairs=     1297  max ratio=1.000000000000  best off-centre ratio=0.999906653354  
+  n=28 k=23  points= 1297 pairs=     1297  max ratio=1.000000000000  best off-centre ratio=0.999897702197  
+  n=28 k=24  points= 1297 pairs=     1297  max ratio=1.000000000000  best off-centre ratio=0.999888335807  
+  n=28 k=25  points= 1297 pairs=     1297  max ratio=1.000000000000  best off-centre ratio=0.999878553448  
+  n=28 k=26  points= 1297 pairs=     1297  max ratio=1.000000000000  best off-centre ratio=0.999868354384  
+  n=28 k=27  points= 1297 pairs=     1297  max ratio=1.000000000000  best off-centre ratio=0.999857737878  
+  [n=28 done, 97.5s]
+  n=29 k= 5  points= 1339 pairs=     1339  max ratio=1.000000000000  best off-centre ratio=1.000000000000  
+  n=29 k= 6  points= 1339 pairs=     1339  max ratio=1.000000000000  best off-centre ratio=1.000000000000  
+  n=29 k= 7  points= 1339 pairs=     1339  max ratio=1.000000000000  best off-centre ratio=1.000000000000  
+  n=29 k= 8  points= 1339 pairs=     1339  max ratio=1.000000000000  best off-centre ratio=1.000000000000  
+  n=29 k= 9  points= 1339 pairs=     1339  max ratio=1.000000000000  best off-centre ratio=1.000000000000  
+  n=29 k=10  points= 1339 pairs=     1339  max ratio=1.000000000000  best off-centre ratio=1.000000000000  
+  n=29 k=11  points= 1339 pairs=     1339  max ratio=1.000000000000  best off-centre ratio=1.000000000000  
+  n=29 k=12  points= 1339 pairs=     1339  max ratio=1.000000000000  best off-centre ratio=1.000000000000  
+  n=29 k=13  points= 1339 pairs=     1339  max ratio=1.000000000000  best off-centre ratio=1.000000000000  
+  n=29 k=14  points= 1339 pairs=     1339  max ratio=1.000000000000  best off-centre ratio=1.000000000000  
+  n=29 k=15  points= 1339 pairs=     1339  max ratio=1.000000000000  best off-centre ratio=1.000000000000  
+  n=29 k=16  points= 1339 pairs=     1339  max ratio=1.000000000000  best off-centre ratio=1.000000000000  
+  n=29 k=17  points= 1339 pairs=     1339  max ratio=1.000000000000  best off-centre ratio=1.000000000000  
+  n=29 k=18  points= 1339 pairs=     1339  max ratio=1.000000000000  best off-centre ratio=1.000000000000  
+  n=29 k=19  points= 1339 pairs=     1339  max ratio=1.000000000000  best off-centre ratio=1.000000000000  
+  n=29 k=20  points= 1339 pairs=     1339  max ratio=1.000000000000  best off-centre ratio=1.000000000000  
+  n=29 k=21  points= 1339 pairs=     1339  max ratio=1.000000000000  best off-centre ratio=1.000000000000  
+  n=29 k=22  points= 1339 pairs=     1339  max ratio=1.000000000000  best off-centre ratio=1.000000000000  
+  n=29 k=23  points= 1339 pairs=     1339  max ratio=1.000000000000  best off-centre ratio=1.000000000000  
+  n=29 k=24  points= 1339 pairs=     1339  max ratio=1.000000000000  best off-centre ratio=1.000000000000  
+  n=29 k=25  points= 1339 pairs=     1339  max ratio=1.000000000000  best off-centre ratio=1.000000000000  
+  n=29 k=26  points= 1339 pairs=     1339  max ratio=1.000000000000  best off-centre ratio=1.000000000000  
+  n=29 k=27  points= 1339 pairs=     1339  max ratio=1.000000000000  best off-centre ratio=1.000000000000  
+  n=29 k=28  points= 1339 pairs=     1339  max ratio=1.000000000000  best off-centre ratio=1.000000000000  
+  [n=29 done, 115.4s]
+  n=30 k= 5  points= 1381 pairs=     1381  max ratio=1.000000000000  best off-centre ratio=0.999996516187  
+  n=30 k= 6  points= 1381 pairs=     1381  max ratio=1.000000000000  best off-centre ratio=0.999994771364  
+  n=30 k= 7  points= 1381 pairs=     1381  max ratio=1.000000000000  best off-centre ratio=0.999992675835  
+  n=30 k= 8  points= 1381 pairs=     1381  max ratio=1.000000000000  best off-centre ratio=0.999990229015  
+  n=30 k= 9  points= 1381 pairs=     1381  max ratio=1.000000000000  best off-centre ratio=0.999987430316  
+  n=30 k=10  points= 1381 pairs=     1381  max ratio=1.000000000000  best off-centre ratio=0.999984279155  
+  n=30 k=11  points= 1381 pairs=     1381  max ratio=1.000000000000  best off-centre ratio=0.999980774944  
+  n=30 k=12  points= 1381 pairs=     1381  max ratio=1.000000000000  best off-centre ratio=0.999976917098  
+  n=30 k=13  points= 1381 pairs=     1381  max ratio=1.000000000000  best off-centre ratio=0.999972705028  
+  n=30 k=14  points= 1381 pairs=     1381  max ratio=1.000000000000  best off-centre ratio=0.999968138146  
+  n=30 k=15  points= 1381 pairs=     1381  max ratio=1.000000000000  best off-centre ratio=0.999963215864  
+  n=30 k=16  points= 1381 pairs=     1381  max ratio=1.000000000000  best off-centre ratio=0.999957937592  
+  n=30 k=17  points= 1381 pairs=     1381  max ratio=1.000000000000  best off-centre ratio=0.999952302739  
+  n=30 k=18  points= 1381 pairs=     1381  max ratio=1.000000000000  best off-centre ratio=0.999946310715  
+  n=30 k=19  points= 1381 pairs=     1381  max ratio=1.000000000000  best off-centre ratio=0.999939960927  
+  n=30 k=20  points= 1381 pairs=     1381  max ratio=1.000000000000  best off-centre ratio=0.999933252783  
+  n=30 k=21  points= 1381 pairs=     1381  max ratio=1.000000000000  best off-centre ratio=0.999926185690  
+  n=30 k=22  points= 1381 pairs=     1381  max ratio=1.000000000000  best off-centre ratio=0.999918759053  
+  n=30 k=23  points= 1381 pairs=     1381  max ratio=1.000000000000  best off-centre ratio=0.999910972278  
+  n=30 k=24  points= 1381 pairs=     1381  max ratio=1.000000000000  best off-centre ratio=0.999902824768  
+  n=30 k=25  points= 1381 pairs=     1381  max ratio=1.000000000000  best off-centre ratio=0.999894315929  
+  n=30 k=26  points= 1381 pairs=     1381  max ratio=1.000000000000  best off-centre ratio=0.999885445162  
+  n=30 k=27  points= 1381 pairs=     1381  max ratio=1.000000000000  best off-centre ratio=0.999876211871  
+  n=30 k=28  points= 1381 pairs=     1381  max ratio=1.000000000000  best off-centre ratio=0.999866615455  
+  n=30 k=29  points= 1381 pairs=     1381  max ratio=1.000000000000  best off-centre ratio=0.999856655317  
+  [n=30 done, 132.7s]
+
+==========================================================================
+cells scanned: 325   hits (ratio > 1): 0
+total family points evaluated: 403465
+Maclaurin (a <= 1) violations: 0
+
+TOP 10 by max ratio Phi_k/(2 - k!/n^k)  [exact]
+  n= 6 k= 5  ratio = 1  (= 1.000000000000000)  Phi=643/324  bound=643/324  at ('centre', 'centre')
+  n= 7 k= 5  ratio = 1  (= 1.000000000000000)  Phi=33494/16807  bound=33494/16807  at ('centre', 'centre')
+  n= 7 k= 6  ratio = 1  (= 1.000000000000000)  Phi=234578/117649  bound=234578/117649  at ('centre', 'centre')
+  n= 8 k= 5  ratio = 1  (= 1.000000000000000)  Phi=8177/4096  bound=8177/4096  at ('centre', 'centre')
+  n= 8 k= 6  ratio = 1  (= 1.000000000000000)  Phi=32723/16384  bound=32723/16384  at ('centre', 'centre')
+  n= 8 k= 7  ratio = 1  (= 1.000000000000000)  Phi=261829/131072  bound=261829/131072  at ('centre', 'centre')
+  n= 9 k= 5  ratio = 1  (= 1.000000000000000)  Phi=39326/19683  bound=39326/19683  at ('centre', 'centre')
+  n= 9 k= 6  ratio = 1  (= 1.000000000000000)  Phi=118018/59049  bound=118018/59049  at ('centre', 'centre')
+  n= 9 k= 7  ratio = 1  (= 1.000000000000000)  Phi=1062322/531441  bound=1062322/531441  at ('centre', 'centre')
+  n= 9 k= 8  ratio = 1  (= 1.000000000000000)  Phi=9561458/4782969  bound=9561458/4782969  at ('centre', 'centre')
+
+TOP 10 by best STRICTLY OFF-CENTRE ratio  [exact]
+  n=17 k= 5  ratio = 567175278170106659511453888125267757218007163/567175278170107273584213469010332955443200000
+       (= 0.999999999999999)  Phi=399459437232134404740374480053461550859/199738159106586108290203975994572800000  at u=2val p=3 a=7864319/7864320 (refined), v=centre
+  n=17 k= 6  ratio = 943658333132401159007428949198490457796224318960919793/943658333132402691577909144235964266190475362304000000
+       (= 0.999999999999998)  Phi=664615051468141622013645704601583439597244172449/332312482011711581003927493274209800421376000000  at u=2val p=3 a=7864319/7864320 (refined), v=centre
+  n=17 k= 7  ratio = 294378083061663961957854845281478746943803383189005487899781073/294378083061664631292026251121943662262742956390156861440000000
+       (= 0.999999999999998)  Phi=12195846361398861747753257392303207789641259365804629617/6097960629913468448348549815781211774516283310080000000  at u=2val p=3 a=7864319/7864320 (refined), v=centre
+  n=29 k= 5  ratio = 770353581698624808777798311390092824537841465093/770353581698626715255200748840501637021696000000
+       (= 0.999999999999998)  Phi=1089176129004772938588479418208735742283253/544589657556948213290889179905916928000000  at u=2val p=8 a=5242881/5242880 (refined), v=centre
+  n=17 k= 8  ratio = 65594244239747428322993571515843279450020825623688745777325805492991191/65594244239747627181149507277107527471594599763045698907406336000000000
+       (= 0.999999999999997)  Phi=159853917156249682376375895517513845081866864700049234153773767/79927189568401813646194112145407498970939828601880576000000000  at u=2val p=3 a=7864319/7864320 (refined), v=centre
+  n=29 k= 6  ratio = 82645193595740460540355320952117963668863754706185205154779/82645193595740767337577092519174319470469944822464512000000
+       (= 0.999999999999996)  Phi=4029281518833511498568672137875745706340671344456871/2014641978721869020780567752037446369394294784000000  at u=2val p=8 a=5242881/5242880 (refined), v=centre
+  n=17 k= 9  ratio = 639445047735519125223620402966401818300092432435151603302997509825002802449207/639445047735521617670811509392315203745603833543254717851398286868480000000000
+       (= 0.999999999999996)  Phi=91666754921434362589044673029421898200444098904148178695681444326327/45833447586104336017273551668662476209895735313462397501440000000000  at u=2val p=3 a=7864319/7864320 (refined), v=centre
+  n=17 k=10  ratio = 4085265980552322199441907467956884177740018111624851208294542847231304507072024952672997/4085265980552342104037725205756806809310978818341550900589071497947425825357824000000000
+       (= 0.999999999999995)  Phi=34449271723452017581344105783873417238326536383673509976760258264356266484501/17224651363959223383323669606483761796089518789854414257013229879296000000000  at u=2val p=3 a=7864319/7864320 (refined), v=centre
+  n=29 k= 7  ratio = 219899258507292686433059468786104139241724541266798362370498763568791/219899258507293829274078918019162536688967964114041967948595200000000
+       (= 0.999999999999995)  Phi=369688360802001383589093455846705343353080370005866603153071/184844207404522971404225403476536519370474304149913600000000  at u=2val p=8 a=5242881/5242880 (refined), v=centre
+  n=22 k= 5  ratio = 282773733063882001630231734465664978211002709/282773733063883634507831103904703682969600000
+       (= 0.999999999999994)  Phi=19313826450644218402447355676911753173349/9657025655068662992071959853714636800000  at u=2val p=6 a=3932159/3932160 (refined), v=centre
+
+TOP 10 by ratio at FIXED separation ||u - 1||_inf >= 1/10  [exact]
+  n=22 k= 5  ratio = 37580972983863529/37585193854950000
+       (= 0.999887698568145)  Phi=2566831021369/1283574600000  at u=2val p=21 a=209/210, v=centre
+  n=22 k= 6  ratio = 243062270505623961293/243103092240720600000
+       (= 0.999832080560060)  Phi=1509225465881143/754741864800000  at u=2val p=21 a=209/210, v=centre
+  n=18 k= 5  ratio = 657441552162213/657556656950000
+       (= 0.999824950768013)  Phi=100204473733/50112600000  at u=2val p=17 a=171/170, v=centre
+  n=30 k= 5  ratio = 103473510326562213/103493259806375936
+       (= 0.999809171342649)  Phi=1277450744772373/638848860160000  at u=2val p=28 a=111/112, v=centre
+  n=24 k= 5  ratio = 11170014212945079/11172240371050000
+       (= 0.999800742014942)  Phi=137901410036359/68964966400000  at u=2val p=22 a=111/110, v=centre
+  n=23 k= 5  ratio = 53060205883806006239/53072374447769600000
+       (= 0.999770717551453)  Phi=189608405786879/94826828800000  at u=2val p=22 a=437/440, v=centre
+  n=22 k= 7  ratio = 25992488851151874659773/25998581426427303750000
+       (= 0.999765657395859)  Phi=14672082333688693/7337768130000000  at u=2val p=21 a=209/210, v=centre
+  n=27 k= 5  ratio = 8348223631685103/8350244864000000
+       (= 0.999757943348031)  Phi=958227990563/479232000000  at u=2val p=3 a=9/10, v=centre
+  n=18 k= 6  ratio = 2279853609307958853/2280454761440600000
+       (= 0.999736389362856)  Phi=38609521063997/19310055200000  at u=2val p=17 a=171/170, v=centre
+  n=30 k= 6  ratio = 7242474588727375827/7244542496660783104
+       (= 0.999714556449305)  Phi=89413266527498467/44719420211200000  at u=2val p=28 a=111/112, v=centre
+
+NO COUNTEREXAMPLE FOUND on the rank-one slice in the scanned range.
+elapsed 132.7s

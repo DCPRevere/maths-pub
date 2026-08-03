@@ -1,0 +1,42 @@
+[guard] MemoryMax=8G  swap=off  CPUQuota=400%  threads=4
+==========================================================================
+CONTROL: build_cb(5, out) at the DEFAULT witness, against the stored
+  /home/ae/src/dcprevere/maths/problems/permanents/leanproj/congruence_blocks_n5.json
+==========================================================================
+  witness feasible, B = 350, setup 1 s
+  21 blocks IDENTICAL to the stored (k = 4, n = 5) set, entry for entry over Q (28 s)
+  ==> the `name` argument does not disturb the historical path
+
+==========================================================================
+BUILD: build_cb(5, out, name='diag_n5_k5.json')  --  the k = n cell
+==========================================================================
+  witness feasible, B = 350, setup 1 s
+  C_b reproducing the stored design: 21 of 21
+  h_b unchanged from (5,4):          0 of 21
+  ==> C_b belongs to the DESIGN and is already kernel-checked in CongruenceBlocksN5/;
+      only the 21 h_b are new at this cell, and they are the SMALL factors.
+  21 blocks over sides ['sigma_0', 'sigma_11']; largest C_b 48x48, largest h_b 16x16
+    14x14 trivial              h_b  14 PD   C_b   1 PD   least pivot 1.000000e+00
+    7x7 sign                   h_b   7 PD   C_b   1 PD   least pivot 1.000000e+00
+    16x16 Ind(V'|1)            h_b  16 PD   C_b   6 PD   least pivot 1.698765e-01
+    10x10 (V'|V')+             h_b  10 PD   C_b   9 PD   least pivot 1.864131e-02
+    4x4 (V'|V')-               h_b   4 PD   C_b   9 PD   least pivot 1.864131e-02
+    Ind(1|(m-2,2))             h_b   4 PD   C_b   4 PD   least pivot 7.500000e-01
+    Ind(V'|(m-2,2))            h_b   3 PD   C_b  12 PD   least pivot 1.274074e-01
+    Ind(V'|(m-2,1,1))          h_b   2 PD   C_b  18 PD   least pivot 1.022479e-02
+    Ind(1|(m-2,1,1))           h_b   1 PD   C_b   6 PD   least pivot 6.018952e-02
+    ((m-2,2)|(m-2,2))+         h_b   1 PD   C_b   4 PD   least pivot 5.625000e-01
+    ((m-2,1,1)|(m-2,1,1))+     h_b   1 PD   C_b   9 PD   least pivot 7.824641e-03
+    (1|1) ext +                h_b   4 PD   C_b   1 PD   least pivot 1.000000e+00
+    (1|1) ext -                h_b   1 PD   C_b   1 PD   least pivot 1.000000e+00
+    Ind(1|V)                   h_b   5 PD   C_b   8 PD   least pivot 6.261313e-03
+    (V|V) ext +                h_b   5 PD   C_b  16 PD   least pivot 9.611756e-04
+    (V|V) ext -                h_b   1 PD   C_b  16 PD   least pivot 9.611756e-04
+    Ind(1|(n-2,2))             h_b   2 PD   C_b  10 PD   least pivot 6.240342e-02
+    Ind(V|(n-2,2))             h_b   2 PD   C_b  40 PD   least pivot 6.607421e-03
+    Ind(V|(n-2,1,1))           h_b   1 PD   C_b  48 PD   least pivot 7.675011e-05
+    ((n-2,2)|(n-2,2)) ext +    h_b   1 PD   C_b  25 PD   least pivot 1.564261e-03
+    ((n-2,1,1)|(n-2,1,1)) ext + h_b   1 PD   C_b  36 PD   least pivot 1.049151e-05
+  wrote /home/ae/src/dcprevere/maths/problems/permanents/leanproj/congruence_blocks_n5k5.json: 21 blocks, build 27 s, total 27 s
+
+ALL PASS

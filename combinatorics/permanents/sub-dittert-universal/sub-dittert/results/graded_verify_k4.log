@@ -1,0 +1,76 @@
+==========================================================================
+VERIFIER FOR the k = 4 part of results/paper_b.typ
+==========================================================================
+
+SEC 4.  THE EXPANSION, and the d = 2 cross part.
+    n=5: expansion matches at d = 2, 3, 4: True;  d = 2 cross part identically zero: True
+    n=6: expansion matches at d = 2, 3, 4: True;  d = 2 cross part identically zero: True
+    n=7: expansion matches at d = 2, 3, 4: True;  d = 2 cross part identically zero: True
+
+SEC 4.  THE END-TO-END IDENTITY, with every t_d in place.
+    F from the 1992 functional must equal F_line + F_centred + cross.
+    n=5: holds to float tolerance on F_line: True
+    n=6: holds to float tolerance on F_line: True
+
+SEC 5.  THE FIVE REDUCTIONS, against brute force.
+    n=5: X_1, X_2, Y_1, Y_2, Y_3 all exact: True
+    n=6: X_1, X_2, Y_1, Y_2, Y_3 all exact: True
+    n=7: X_1, X_2, Y_1, Y_2, Y_3 all exact: True
+
+SEC 6.  THE PER-ENTRY BOUND AND THE MERGE, both signs of sum z^3.
+    n=5: holds True   configs 5   with sum z^3 < 0: 2
+    n=6: holds True   configs 5   with sum z^3 < 0: 2
+    n=8: holds True   configs 5   with sum z^3 < 0: 2
+
+SEC 7.  THE FOUR COLLAR FACTS.
+    n=5: G1 True  G2 True  G3 True  G4 True
+    n=6: G1 True  G2 True  G3 True  G4 True
+    n=7: G1 True  G2 True  G3 True  G4 True
+
+SEC 8.  EVERY BUDGET LINE, recomputed from the layer identity.
+    core3 and xinv reproduced from t_3, t_2 at n = 10, 12, 16, 20: True
+
+SEC 9.  THE SENSITIVITY TABLE, PARSED OUT OF ITS COMMITTED RECORD.
+    parsed 10 rows
+     c    | record | recomputed | match
+     1.00 |     9 | 9          | True
+     1.25 |     9 | 9          | True
+     1.50 |     9 | 9          | True
+     1.58 |    10 | 10         | True
+     1.63 |    10 | 10         | True
+     2.00 |    10 | 10         | True
+     2.34 |    10 | 10         | True
+     2.53 |    10 | 10         | True
+     3.00 |    11 | 11         | True
+     4.00 |    11 | 11         | True
+    admissible band 1.58..2.53 thresholds: [10, 10, 10, 10, 10]   flat at 10: True
+    my own substitute c: honest 10, conditional 9
+
+SEC 10.  MUTATION CONTROLS, each with a separating witness.
+    M1  a t_d factor dropped from a cross term
+      separating witness : generic collar points with Y_1+Y_2+Y_3 nonzero, so dropping t_4 changes the sum
+      must be caught by  : the end-to-end identity
+      rejected           : True   -> FIRES
+
+    M2  merge coefficient (3n-4)/3 replaced by (n-2)
+      separating witness : n >= 5, where (3n-4)/3 != (n-2) as rationals
+      must be caught by  : the budget-line check
+      rejected           : True   -> FIRES
+
+    M4  c rescaled in the sensitivity recomputation
+      separating witness : the table spans c = 1.00 to 4.00, where doubling crosses a threshold
+      must be caught by  : the sensitivity audit
+      rejected           : True   -> FIRES
+
+    M3 (the d = 2 cross part assumed nonzero) is verified directly
+    rather than by injection: Sec 4 asserts parts[1] == 0 exactly on
+    witnesses with p + q > 0, so a nonzero claim fails immediately.
+    The separating property is that the line block is NONZERO there;
+    on a doubly stochastic point the cross part is trivially zero and
+    the check would be vacuous.
+    witnesses have a nonzero line block: True
+
+==========================================================================
+TOTAL FAILURES: 0
+VERDICT: ALL CHECKS PASS
+==========================================================================

@@ -1,0 +1,69 @@
+Running as unit: run-p839911-i853635.scope; invocation ID: 0a769805653c49a8bf14de5e5dd5d084
+==============================================================================
+[1]  THE IDENTITY: rho_new = 1 at EVERY (k,n)
+==============================================================================
+  [ok]   rho_new(n,k) = 1 exactly for every 1 <= k <= n, n = 3..44   0 exceptions
+  [ok]   phi(m,n) := C_new/C_ref = 1/rho_ref(n,k), EXACTLY -- the refinement buys precisely the missing factor, no more and no less
+  [ok]   the arithmetic behind it: n! m! C(n,m) = (m!)^2 C(n,k)^2 k!  (n = 2..59)
+
+  phi(m,n) at the pre-registered cells (NOTES 44 prediction 2):
+    (n,k) = (10,8), m = 2:  phi = 1.00600   1/rho_ref = 1.00600
+    (n,k) = (10,5), m = 5:  phi = 1.08273   1/rho_ref = 1.08273
+
+==============================================================================
+[2]  LEMMA U, by its own proof (Newton log-concavity + one certificate S_0)
+==============================================================================
+  [ok]   Newton: d_t = c_t/C(n,t) is log-concave on every tested vector
+  [ok]   the S_0 certificate gives c_m >= G(n,m) f(S_0)/S_0^m (2160 cases, exact)   tightest ratio 1.000000000 at (n,m) = (2, 1)
+  [ok]   and the certificate is an EQUALITY at the extremal a = (1,...,1)
+  [ok]   SHARPNESS: at a = (1,...,1), c_m = G(n,m) * inf_S f/S^m exactly
+
+==============================================================================
+[3]  the refinement degenerates correctly where CAPACITY.md 2.4 was sharp
+==============================================================================
+  [ok]   G(n,1) = ((n-1)/n)^(n-1) = g(n), Gurvits' single-variable factor
+  [ok]   G(n,0) = G(n,n) = 1
+  [ok]   C_new = C_ref at m = 0 (k = n) and m = 1 (k = n-1) -- the two lines where rho_ref was already 1
+  [ok]   C_new > C_ref strictly for every m >= 2
+
+==============================================================================
+[4]  the S-route reproduces per(M_k(A)) = (m!)^2 sigma_k(A), exactly
+==============================================================================
+  [ok]   [x_1..x_n]( L^m e_{n-m}(Ax) ) = m! sigma_k(A)   (the S-route bookkeeping)
+  [ok]   per(M_k(A)) = (m!)^2 sigma_k(A)   (CAPACITY.md (B1), re-derived here)
+
+==============================================================================
+[5]  THE CONSEQUENCE ON THE FACE: Tverberg-Friedland, tight at J_n/n
+==============================================================================
+  [ok]   sigma_k(J_n/n) = C(n,k)^2 gamma EXACTLY -- the refined bound is tight there
+  [ok]   sigma_k(A) >= C(n,k)^2 gamma on Omega_n test points (Tverberg-Friedland)
+
+==============================================================================
+[6]  the new region
+==============================================================================
+  [ok]   R_new = R_chi = {3 <= k <= n-1} minus exactly [(4, 3), (5, 3), (5, 4), (6, 5)], n <= 300
+  [ok]   every excluded cell is covered elsewhere: (4,3),(5,3) are k = 3 (closed at every n); (5,4) is k = 4 at n = 5; (6,5) is k = 5 at n = 6 (anchor)
+  [ok]   (C0) is now free at every k, so the region is R_chi and not the line k = n-1
+
+==============================================================================
+[7]  float corroboration: per(M_k(A)) >= C_new cap(M_k(A))
+==============================================================================
+  no displayed constant rests on this; the exact content is blocks [1]-[6]
+  [ok]   per >= C_new * cap on every tested (k,n), n = 3..6   worst ratio 1.000000000 at (n,k,trial) = (5, 3, 0)
+  [ok]   the worst ratio is attained at trial 0, i.e. at J_n/n, and equals 1 -- the refined constant is SHARP
+
+==============================================================================
+[8]  mutation controls -- each must FIRE
+==============================================================================
+  [fired] MB1  G(n,m) loses its C(n,m): rho_new != 1 somewhere
+  [fired] MB2  G(n,m) uses m instead of m^m: rho_new != 1 somewhere
+  [fired] MB3  the old C_ref gives rho < 1 at every m >= 2 (so the gain is real)
+  [fired] MB4  the old per-variable charge g(n)^m is strictly below G(n,m) for m >= 2
+  [fired] MB5  Lemma U with 2 G(n,m) is FALSE at a = (1,...,1)
+  [fired] MB6  a rho outside the Newton window fails to certify (the window is load-bearing, not decorative)
+  [fired] MB7  sigma_k(J_n/n) != C(n,k)^2 gamma would break block [5]'s tightness
+
+==============================================================================
+RESULT: ALL 20 CHECKS PASS, ALL 7 MUTATION CONTROLS FIRE
+==============================================================================
+EXIT=0

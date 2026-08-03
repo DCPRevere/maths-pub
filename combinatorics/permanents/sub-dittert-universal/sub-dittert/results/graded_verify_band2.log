@@ -1,0 +1,94 @@
+========================================================================
+GRADED VERIFIER -- band 2 identity half, and the block-algebra
+correction to PARAMETRIC.md section 10 item 2
+========================================================================
+
+[1] the primal block algebra at deg_basis = 2 is CLOSED FORM in n
+  Ind(V'|1) 16x16          closed form in n verified at n = 5, 6: True
+  (V'|V') 14x14            closed form in n verified at n = 5, 6: True
+  sigma_0 ten blocks       closed form in n verified at n = 5, 6: True
+  tail six blocks          closed form in n verified at n = 5, 6: True
+
+[2] the band-2 rhs law as an identity in Q(n)
+  k = 1: 0 mismatches over 87 rows of Q(n)
+  k = 2: 0 mismatches over 87 rows of Q(n)
+  k = 3: 0 mismatches over 87 rows of Q(n)
+  k = 4: 0 mismatches over 87 rows of Q(n)
+  k = 5: 0 mismatches over 87 rows of Q(n)
+
+[3] closed-form rhs vs the trusted path, at k = 4 AND k = 5
+  Lemma 1 in band 2 at n = 5: 69252 matrix entries compared, 0 mismatches (k = 4 vs k = 5)
+  closed-form rhs vs trusted rhs at (n,k) = (5,4): 0 cumulative mismatches over 87 rows
+  closed-form rhs vs trusted rhs at (n,k) = (5,5): 0 cumulative mismatches over 87 rows
+
+[4] the design sizes, with band 1 as the control
+  band 1: rank 11, free 8, d(sigma_0) 0, d(sigma_11) 4, design positivity sees 4
+  band 2: rank 86, free 354, d(sigma_0) 0, d(sigma_11) 33, design positivity sees 336
+  band-1 CONTROL returns 4, the dimension law B1 designs in: True
+
+[5] the C2 calibration gate, design D1, the filtration, and D1s
+  GATE k = 2: C2 lift of law B1 violates 0 of 87 band-2 rows over Q(n)
+  GATE k = 3: C2 lift of law B1 violates 0 of 87 band-2 rows over Q(n)
+  D1 k = 2: rank 86, inconsistent rows 0
+  D1 k = 3: rank 86, inconsistent rows 0
+  D1 k = 4: rank 86, inconsistent rows 0
+  D1 k = 5: rank 86, inconsistent rows 0
+  FILTRATION: 75 rows of degree >= 4; the 14 band-1 (1,1) classes have rank 0 there (must be 0)
+  FILTRATION: rank on all columns 75, on lambda alone 28  -> generic-target need 47
+  SHARP: the four band right-hand sides span 2 dimensions of the degree->=4 row space modulo lambda
+  D1s (2 Gram parameters, the scalar direction): INCONSISTENT, 5 rows at k = 4 and 12 at k = 5
+
+[6] what the 2-dimensional quotient pins: an all-zero diagonal
+  rhs_H(2) in span(lambda, rhs_H(4), rhs_H(5)): True
+  rhs_H(3) in span(lambda, rhs_H(4), rhs_H(5)): True
+  dim of the quotient spanned by the four rhs mod lambda: 2
+  k=2 sigma_0   (2,2) block: NOT PD, first bad pivot 0; diagonal: 325 zero, 0 negative; nonzero free coords 0 of 339
+  k=2 sigma_11  (2,2) block: NOT PD, first bad pivot 0; diagonal: 325 zero, 0 negative; nonzero free coords 0 of 339
+  k=3 sigma_0   (2,2) block: NOT PD, first bad pivot 0; diagonal: 325 zero, 0 negative; nonzero free coords 0 of 339
+  k=3 sigma_11  (2,2) block: NOT PD, first bad pivot 0; diagonal: 325 zero, 0 negative; nonzero free coords 0 of 339
+  k=4 sigma_0   (2,2) block: NOT PD, first bad pivot 0; diagonal: 325 zero, 0 negative; nonzero free coords 5 of 339
+  k=4 sigma_11  (2,2) block: NOT PD, first bad pivot 0; diagonal: 325 zero, 0 negative; nonzero free coords 5 of 339
+  k=5 sigma_0   (2,2) block: NOT PD, first bad pivot 0; diagonal: 325 zero, 0 negative; nonzero free coords 12 of 339
+  k=5 sigma_11  (2,2) block: NOT PD, first bad pivot 0; diagonal: 325 zero, 0 negative; nonzero free coords 12 of 339
+
+[7] design D2, the scaled-identity family: one PD test, and it fails
+  h: rank 75, inconsistent 0, nonzero coords 19
+  n=5 sigma_0   M = I - Gram(h) on the 325-dim degree-2 basis: NOT PD (first bad pivot 1);  min diagonal +1, max |off-diagonal| 3
+  n=5 sigma_11  M = I - Gram(h) on the 325-dim degree-2 basis: NOT PD (first bad pivot 34);  min diagonal +1, max |off-diagonal| 0.5
+
+========================================================================
+MUTATION CONTROLS -- every one MUST be caught
+========================================================================
+
+(M1) add 1/10^7 to one entry of c^[5]
+  rhs law rejected: True
+
+(M2) add 1/10^9 to one entry of c^[2]
+  rhs law rejected: True
+
+(M3) shift one trusted-path rhs comparison by 1/10^6
+  cross-validation rejected: True
+
+(M4) add 1 to one entry of the band-2 constraint matrix
+  design sizes rejected: True
+
+(M5) add 1 to a band-2 matrix entry under the gate and the families
+  gate / D1 / filtration rejected: True
+
+========================================================================
+  PASS  [1] block algebra closed form and validated
+  PASS  [2] rhs law over Q(n), k = 1..5
+  PASS  [3] cross-validated against build_sdp
+  PASS  [4] design sizes 4 and 336
+  PASS  [5] gate, D1, filtration bound, D1s failure
+  PASS  [6] the quotient carries no positivity information
+  PASS  [7] D2 reduced to I - Gram(h), which is NOT PD
+  CAUGHT  M1 c^[5] entry perturbed
+  CAUGHT  M2 c^[2] entry perturbed
+  CAUGHT  M3 trusted rhs comparison shifted
+  CAUGHT  M4 constraint matrix damaged
+  CAUGHT  M5 matrix damaged under the gate
+
+TOTAL: 7/7 checks pass, 5/5 mutations caught
+VERDICT: PASS -- band 2 identity half and the correction verified
+========================================================================

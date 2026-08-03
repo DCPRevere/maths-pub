@@ -1,0 +1,4 @@
+closed forms verified for 5<=n<=12, 2<=k<n : True
+lam_int(12,11) = -875/35831808  lam_row(12,11) = -179149415/35831808
+cases: [(13, 2, True), (13, 3, True), (13, 5, True), (13, 12, True), (14, 2, True), (14, 3, True), (14, 5, True), (14, 13, True), (15, 2, True), (15, 3, True), (15, 5, True), (15, 14, True)]
+closed forms hold outside the scanned range (n=13,14,15): True

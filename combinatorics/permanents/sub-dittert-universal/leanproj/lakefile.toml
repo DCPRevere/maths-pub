@@ -1,0 +1,94 @@
+name = "permanents"
+defaultTargets = ["PermanentExpansion", "Certificate", "RookSum", "SubDittertK3", "SubDittertLinear", "SubDittertUniversal", "SubDittertK2", "SubDittertM", "SubDittertMaclaurin", "NewtonInequalities", "GradedInequalities", "TverbergStability", "LayerIdentity", "StabilityK3", "SigmaFour", "StabilityK4", "StabilityK5Atoms", "PaddingLift", "ShiftedCoeffs", "Capacity", "Chi", "LemmaB6", "BorderPayment", "Gurvits", "LemmaU", "Theta", "LemmaT", "TheoremE", "Dittert"]
+
+[[require]]
+name = "mathlib"
+scope = "leanprover-community"
+rev = "v4.14.0"
+
+[[lean_lib]]
+name = "PermanentExpansion"
+
+[[lean_lib]]
+name = "Certificate"
+
+[[lean_lib]]
+name = "RookSum"
+
+[[lean_lib]]
+name = "SubDittertK3"
+
+[[lean_lib]]
+name = "SubDittertLinear"
+
+[[lean_lib]]
+name = "SubDittertUniversal"
+
+[[lean_lib]]
+name = "SubDittertK2"
+
+[[lean_lib]]
+name = "SubDittertM"
+
+[[lean_lib]]
+name = "SubDittertMaclaurin"
+
+[[lean_lib]]
+name = "NewtonInequalities"
+
+[[lean_lib]]
+name = "GradedInequalities"
+
+[[lean_lib]]
+name = "TverbergStability"
+
+[[lean_lib]]
+name = "LayerIdentity"
+
+[[lean_lib]]
+name = "StabilityK3"
+
+[[lean_lib]]
+name = "SigmaFour"
+
+[[lean_lib]]
+name = "StabilityK4"
+
+[[lean_lib]]
+name = "StabilityK5Atoms"
+
+[[lean_lib]]
+name = "PaddingLift"
+
+[[lean_lib]]
+name = "ShiftedCoeffs"
+
+[[lean_lib]]
+name = "Capacity"
+
+[[lean_lib]]
+name = "Chi"
+
+[[lean_lib]]
+name = "LemmaB6"
+
+[[lean_lib]]
+name = "BorderPayment"
+
+[[lean_lib]]
+name = "Gurvits"
+
+[[lean_lib]]
+name = "LemmaU"
+
+[[lean_lib]]
+name = "Theta"
+
+[[lean_lib]]
+name = "LemmaT"
+
+[[lean_lib]]
+name = "TheoremE"
+
+[[lean_lib]]
+name = "Dittert"

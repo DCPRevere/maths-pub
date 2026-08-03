@@ -1,0 +1,101 @@
+[guard] MemoryMax=8G  swap=off  CPUQuota=400%  threads=4
+==============================================================================
+[1]  theta < 1 on all of R_new -- the slope of the deficit
+==============================================================================
+  [ok]   theta(n,k) < 1 at every cell of R_new (6899 cells, n <= 120)
+  [ok]   theta < 1 IS condition (C3) -- the same inequality, rearranged
+  [ok]   theta > 0 everywhere (the deficit slope is < 1, never trivial)
+
+  the deficit slope 1 - theta at the tightest cells and along k = n-1:
+    (k,n) = (6,7):  theta = 0.269123, 1 - theta = 0.730877
+    (k,n) = (7,8):  theta = 0.138356, 1 - theta = 0.861644
+    (k,n) = (8,9):  theta = 0.068699, 1 - theta = 0.931301
+    (k,n) = (9,10):  theta = 0.033103, 1 - theta = 0.966897
+    (k,n) = (5,10):  theta = 0.013583, 1 - theta = 0.986417
+    (k,n) = (6,12):  theta = 0.003187, 1 - theta = 0.996813
+    (k,n) = (10,20):  theta = 0.000007, 1 - theta = 0.999993
+    (k,n) = (20,40):  theta = 0.000000, 1 - theta = 1.000000
+    worst cell of R_new: (k,n) = (6,7), 1 - theta = 0.730877
+  [ok]   the slope is bounded away from 0 on R_new: min(1 - theta) > 1/5   min = 0.730877
+
+==============================================================================
+[2]  D(A) = 0  iff  A in Omega_n  (Maclaurin equality)
+==============================================================================
+  [ok]   D(A) = 0 on Omega_n (J and permutation matrices), every k
+  [ok]   D(A) > 0 strictly at every off-face point tested (120 points)
+
+==============================================================================
+[3]  the arithmetic that produces the (1 - theta) D deficit
+==============================================================================
+  [ok]   2 - D - gamma(1 - theta D/gamma) = 2 - gamma - (1 - theta) D, exactly
+  [ok]   1 - x <= exp(-x) is the only analytic step, and it is used in the safe direction (a lower bound on cap/cap_0)
+
+==============================================================================
+[4]  the Koenig corner: sigma_k = 0 forces D > gamma
+==============================================================================
+  [ok]   z = (n-k+1)/(n-1) >= 2/(n-1) at every cell of R_new
+  [ok]   4/(3(n-1)^2) > 6/n^3 at every cell of R_new
+  [ok]   gamma(n,k) <= 6/n^3 on 3 <= k <= n-1 (NOTES 41.4's uniform cap)
+  [ok]   hence sigma_k(A) = 0 => D(A) >= 4/(3(n-1)^2) > gamma, so D = gamma and sigma_k = 0 are incompatible
+  [ok]   direct witness: A with one nonzero row has sigma_3 = 0 and D > gamma (n = 6)   D = 1.0000 vs gamma = 0.027778
+
+==============================================================================
+[5]  THE DEFICIT, MEASURED exactly at off-face cells
+==============================================================================
+  [ok]   Theorem E holds at every off-face cell tested (81 cells)   tightest slack 9.7985e-06 at (n,k,D/gamma) = (7, 3, 0.005061335848)
+  [ok]   Phi_k(A) < 2 - gamma STRICTLY at every off-face point tested   smallest measured deficit 5.2265e-05 at (n,k) = (7, 3)
+  [ok]   at A = J_n/n the deficit is exactly 0 (so the bound is not slack there)
+
+==============================================================================
+[6]  LEMMA T -- the TAIL: theta < 1 at EVERY cell, PROVED (LIFT.md B.13.3)
+==============================================================================
+  (T0)  gamma is non-increasing in k
+  [ok]   gamma(n,k+1)*n = gamma(n,k)*(k+1) exactly, so the ratio is (k+1)/n <= 1
+  [ok]   hence gamma(n,k) <= gamma(n,3) = 6/n^3 on 3 <= k <= n-1 (12403 cells, n <= 160)
+  (T1)  kappa is small
+  [ok]   (k-1)^2 - 4(k-2) = (k-3)^2, so (k-2)/(k-1)^2 <= 1/4 (equality at k = 3)
+  [ok]   kappa <= (3/4) gamma (n-1) <= 9(n-1)/(2n^3) at every cell
+  [ok]   n >= 10 ==> 1 - kappa >= 191/200 > 0 (so theta is defined and positive)
+  (T2)  small k: 3 <= k <= n/2
+  [ok]   Lambda <= 24k/n^3 <= 12/n^2 on every Case-A cell (6084 cells)
+  [ok]   Xi <= 27 gamma <= 162/n^3 on every Case-A cell
+  (T3)  large k: n/2 < k <= n-1  -- m may be 1, gamma does the work
+  [ok]   gamma <= h!/n^h with h = floor(n/2)+1 on every Case-B cell (6319 cells)
+  [ok]   Lambda <= 2 gamma n^2 <= B(n) on every Case-B cell
+  [ok]   Xi <= 12 gamma n^2 <= 6 B(n) on every Case-B cell
+  (T4)  B decays
+  [ok]   the decay condition (n+4)(n+2) <= 2n^2 holds exactly for n >= 8
+  [ok]   and floor(n/2)+2 <= (n+4)/2, so B(n+2) <= B(n) for every n >= 8
+  [ok]   B(10) = 18/125 and B(11) = 1440/14641 < 18/125
+  [ok]   hence B(n) <= 18/125 for every n >= 10 (checked to n = 160)
+  (T5)  assembly at n >= 10
+  [ok]   (C1) gamma <= 6/n^3 <= 6/1000 < 1/12 at every tail cell (12382 cells)
+  [ok]   (C2) Xi <= max(162/1000, 108/125) < 1 at every tail cell
+  [ok]   (C3) theta = Lambda/(1-kappa) <= (200/191)(18/125) = 144/955 < 1 at every tail cell   144/955 = 0.150785
+  [ok]   so EVERY cell with n >= 10 lies in R_new -- no exclusions in the tail
+  the exact finite part below the crossover: 4 <= n <= 9
+  [ok]   all 21 cells with 4 <= n <= 9 decided exactly over Q; 4 fail
+  [ok]   the failures are exactly the four cells excluded from R_new: (k,n) = (3,4),(3,5),(4,5),(5,6)
+  [ok]   three of the four fail (C2) ONLY; (3,4) fails all three
+  [ok]   so R_new = {3 <= k <= n-1} minus those four, at EVERY n -- the definition and the enumeration agree, tail included
+  the global maximum of theta, and where it sits
+  [ok]   max theta over R_new = 155520/577877 at (k,n) = (6,7)   1 - theta = 422357/577877 = 0.7308769859
+  [ok]   the tail ceiling 144/955 is BELOW that, so the swept maximum is GLOBAL: 1 - theta >= 422357/577877 on all of R_new
+  [ok]   the tight corner is m = 1 (k = n-1) at the smallest admitted n -- the one place where (n-k) in the denominator of theta gives nothing
+  [ok]   and the tail's own maximum is far under its ceiling   max theta over n >= 10 is 0.0361796 at (k,n) = (3,10)
+
+==============================================================================
+[7]  mutation controls -- each must FIRE
+==============================================================================
+  [fired] MS1  theta without its gamma factor: 1 - theta goes <= 0 somewhere, so the deficit stops being positive
+  [fired] MS2  slope 1 instead of 1 - theta (Phi <= 2 - gamma - D) is FALSE
+  [fired] MS3  claiming D = 0 off the face is false
+  [fired] MS4  a floor 1/n^4 in place of 4/(3(n-1)^2) fails to beat gamma somewhere
+  [fired] MS5  'D = 0 implies A = J_n/n' is FALSE -- permutation matrices have D = 0, so Friedland 1982 on the face is still load-bearing
+  [fired] MS6  crossover perturbed DOWN: Lemma T's certificate fails at every n_1 < 10 (6B(9) = 160/81, 6B(8) = 45/16) and holds at 10
+  [fired] MS7  finite part truncated to n <= 8 leaves the n = 9 row covered by neither half (6 orphan cells)
+  [fired] MS8  (T3) with the polynomial cap 6/n^3 in place of h!/n^h fails to certify the tail at n = 10 (Lambda ceiling 12/n = 6/5 > 1)
+
+==============================================================================
+RESULT: ALL 42 CHECKS PASS, ALL 8 MUTATION CONTROLS FIRE
+==============================================================================

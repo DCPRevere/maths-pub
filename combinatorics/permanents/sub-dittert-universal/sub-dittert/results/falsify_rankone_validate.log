@@ -1,0 +1,21 @@
+[guard] MemoryMax=2G  swap=off  CPUQuota=100%  threads=1
+======================================================================
+(n,k) = (4,3)   gamma = 3!/4^3 = 3/32   bound 2-gamma = 61/32
+  case 0: closed=61/32  direct_sigma=61/32  buildF=61/32  -> AGREE
+  case 1: closed=1243/864  direct_sigma=1243/864  buildF=1243/864  -> AGREE
+  case 2: closed=67999/42592  direct_sigma=67999/42592  buildF=67999/42592  -> AGREE
+  case 3: closed=16/27  direct_sigma=16/27  buildF=16/27  -> AGREE
+  case 4: closed=669037/493848  direct_sigma=669037/493848  buildF=669037/493848  -> AGREE
+  case 5: closed=0  direct_sigma=0  buildF=0  -> AGREE
+  sigma_k(x y^T) = k! e_k(x) e_k(y) on all cases: OK
+======================================================================
+(n,k) = (5,4)   gamma = 4!/5^4 = 24/625   bound 2-gamma = 1226/625
+  case 0: closed=1226/625  direct_sigma=1226/625  buildF=1226/625  -> AGREE
+  case 1: closed=154976/108045  direct_sigma=154976/108045  buildF=154976/108045  -> AGREE
+  case 2: closed=5766869425/3722098081  direct_sigma=5766869425/3722098081  buildF=5766869425/3722098081  -> AGREE
+  case 3: closed=125/256  direct_sigma=125/256  buildF=125/256  -> AGREE
+  case 4: closed=66857999225/52753366562  direct_sigma=66857999225/52753366562  buildF=66857999225/52753366562  -> AGREE
+  case 5: closed=0  direct_sigma=0  buildF=0  -> AGREE
+  sigma_k(x y^T) = k! e_k(x) e_k(y) on all cases: OK
+
+VALIDATION PASSED

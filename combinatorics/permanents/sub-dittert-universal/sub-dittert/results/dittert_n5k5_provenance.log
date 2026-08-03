@@ -1,0 +1,10 @@
+=== PROVENANCE of results/cache/diag_cell_n5_k5.pkl ===
+The (5,5) solve read a cell from cache that this agent did not build.
+Rebuild it from k4_pinrank with K = 5 and compare, and separate it from k = 4.
+  (k=5, n=5): B = 350, rows = 87, vars = 51/356/33 = 440, NO canonical blocks
+  (k=5, n=5) loaded from cache: B = 350, vars = 440, blocks = 21
+  (k=4, n=5) loaded from cache: B = 350, vars = 440, blocks = 21
+  cached cell declares k = 5, n = 5
+  fresh K=5 build vs cache: srows IDENTICAL, srhs IDENTICAL
+  (5,5) vs (5,4): 3 of 87 integer rows differ, 18 of 87 rhs entries differ
+  VERDICT: the cached (5,5) cell IS the k = 5 cell

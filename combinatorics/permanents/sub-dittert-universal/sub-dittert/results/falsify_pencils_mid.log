@@ -1,0 +1,27 @@
+[guard] MemoryMax=3G  swap=off  CPUQuota=200%  threads=2
+  n=11 |S|=4: 120/120 supports (28s)
+  n=11 |S|=5: 210/210 supports (75s)
+  n=11 |S|=6: 252/252 supports (135s)
+  n=12 |S|=4: 165/165 supports (228s)
+  n=12 |S|=5: 330/330 supports (414s)
+  n=12 |S|=6: 462/462 supports (670s)
+  n=12 |S|=7: 55/462 supports (700s)
+
+coverage of the previously-skipped band:
+  n=11 |S|=4: 120/120  COMPLETE
+  n=11 |S|=5: 210/210  COMPLETE
+  n=11 |S|=6: 252/252  COMPLETE
+  n=12 |S|=4: 165/165  COMPLETE
+  n=12 |S|=5: 330/330  COMPLETE
+  n=12 |S|=6: 462/462  COMPLETE
+  n=12 |S|=7: 55/462  PARTIAL
+
+TOP-5 by Phi_k/M at t=1:
+  0.999992406091  n=12 k=9 circ:0.1.2.3.7.9.10  exact=121494156657242112/121495079279849275
+  0.999992406091  n=12 k=9 circ:0.1.2.3.6.8.11  exact=121494156657242112/121495079279849275
+  0.999992406091  n=12 k=9 circ:0.1.2.3.5.6.8  exact=121494156657242112/121495079279849275
+  0.999992406091  n=12 k=9 circ:0.1.2.3.4.7.9  exact=121494156657242112/121495079279849275
+  0.999992405358  n=12 k=9 circ:0.1.2.3.6.7.10  exact=121494156568160256/121495079279849275
+
+evaluations=10576  hits=0
+VERDICT: no point with Phi_k > 2 - k!/n^k found

@@ -1,0 +1,116 @@
+==========================================================================
+VERIFIER FOR UNIFORM-COLLAR.md
+==========================================================================
+
+SEC 1.  THEOREM X1, the general cross-term reduction.
+    X_{d,j} = sum_{r,r'} kappa^{(d,j)}_{r,r'} Theta_j[r,r']
+    must equal sum_{|S|=|T|=j} per(z[S|T]) sigma_{d-j}(L^(S,T)).
+    n=5: exact at every (d,j) with 2 <= d <= 5: True
+    n=6: exact at every (d,j) with 2 <= d <= 6: True
+    n=7: exact at every (d,j) with 2 <= d <= 5: True
+
+SEC 2.  THEOREM X2, the survivor set and its count.
+    n=5: survivor-restricted sum equals the full sum: True
+    n=6: survivor-restricted sum equals the full sum: True
+    |S(j,m)| closed form vs enumeration, j<=7, m<=6: True
+    N(d) closed form, 3 <= d <= 11: True   values [3, 8, 17, 31, 51, 78]
+    N(1) = 0, N(2) = 0  -- the d = 2 cross part is EMPTY, not merely small
+
+SEC 3.  THE ATOM EXPANSION AND THE ANNIHILATION PRINCIPLE.
+    Theta_j[r,r'] expands over pairs of set partitions.  A term dies
+    exactly when some degree-1 vertex is undecorated, because a lone
+    line sum of z appears.  Dropping those changes NOTHING.
+    dropped expansion = Theta: True   undropped = Theta: True   j=1 rule: True
+
+SEC 4.  THE STORED k = 4 INSTANCE, from graded_y_bounds.
+    The paper's X_1, X_2, Y_1, Y_2, Y_3 must BE the (3,j), (4,j)
+    cases of Theorem X1 -- not merely agree numerically by design.
+    n=5: X_1, X_2, Y_1, Y_2, Y_3 all exact: True   (2 stored-sampler points)
+    n=6: X_1, X_2, Y_1, Y_2, Y_3 all exact: True   (2 stored-sampler points)
+    n=7: X_1, X_2, Y_1, Y_2, Y_3 all exact: True   (2 stored-sampler points)
+
+SEC 5.  THE k = 5 INSTANCE, hand table vs theorem vs brute force.
+    n=5: coefficients True   blocks against brute force True
+    n=6: coefficients True   blocks against brute force True
+    n=7: coefficients True   blocks against brute force True
+
+SEC 6.  LEMMA CB, the caps.  Compared as SQUARES, so exactly.
+    per atom  I^2 <= Q^j P^l ;  per moment  Theta^2 <= W^2 Q^j P^l.
+    n=5 k=4: atoms True   moments True   worst atom slack^2 1.0000  (1 = attained, at the double edge)
+    n=6 k=5: atoms True   moments True   worst atom slack^2 1.0000  (1 = attained, at the double edge)
+    n=7 k=5: atoms True   moments True   worst atom slack^2 1.0000  (1 = attained, at the double edge)
+
+SEC 7.  THE MERGE.  z_ij >= -(1/n + x_i + y_j) on the collar, so
+    every ODD one-sided step degrades: p_m(z) >= -sum_ij d_ij^{m-2}
+    z_ij^2 with d_ij = 1/n + x_i + y_j.  Both signs of p_m are tested;
+    a lower bound tested only where the quantity is positive proves
+    nothing.
+    n=6 k=4: entry True  step True  binomial True  eta True   points 5   with p_3 < 0: 2
+    n=8 k=5: entry True  step True  binomial True  eta True   points 5   with p_3 < 0: 4
+    n=10 k=5: entry True  step True  binomial True  eta True   points 5   with p_3 < 0: 4
+    n=12 k=6: entry True  step True  binomial True  eta True   points 5   with p_3 < 0: 3
+    Xi_a = sum_{u+v=a} C(a,u) D_{u,v} and D_{u,v} is the DOUBLE-EDGE
+    atom, whose coefficient inside Theta_2[u,v] is (u+1)(v+1)/2:
+    dbl_coef = (u+1)(v+1)/2 and Theta_2[1,0] = D_{1,0}: True
+
+SEC 8.  THE MERGE COEFFICIENT, charged once at the SUMMED weight.
+    k=4, (u,v)=(1,0), n = 10, 12, 16, 20:  t_3 (3n-4)/3  True
+    the two sources and their sum, as multiples of t_3 at k = 4:
+      n= 10  cross side 8   merge side 2/3   sum 26/3
+      n= 20  cross side 18   merge side 2/3   sum 56/3
+    the merge INEQUALITY it certifies, at k = 4:
+      (2/3) p_3(z) + (2-n) Xi  >=  -(2/3) Q/n - ((3n-4)/3) Xi
+    holds at n = 6, 8, 10, 12: True;   slice bound already false at 4/4 of them
+
+SEC 9.  THE END-TO-END IDENTITY, EXACTLY over QQ.
+    F from the 1992 functional = F_line + F_centred + sum_d t_d X_d,
+    with every t_d in place and no floating point anywhere.
+    n=5 k=4: exact True   (X_4 nonzero and t_4 != 1: True)
+    n=6 k=4: exact True   (X_4 nonzero and t_4 != 1: True)
+    n=6 k=5: exact True   (X_5 nonzero and t_5 != 1: True)
+    n=7 k=5: exact True   (X_5 nonzero and t_5 != 1: True)
+
+SEC 10.  THE BUDGET.
+    Psi(n,k) = (2/t_2)[ sum_m t_m C_m + G2 + g1^2/(2 lam_line) ] < 1.
+    C_m is the SIBLING'S interface, carried as a symbol; the table
+    below instantiates it and nothing in the collar depends on that.
+    V_{j,m}, the aggregate cross cap, is free of both n and k:
+        j\m         1        2        3        4
+        1           0        1        2        4
+        2           8       22    148/3    292/3
+        3          36      132      376      912
+        4         192      888     3088     8936
+      k | Ntilde | Psi(Ntilde) | Psi(Ntilde-1) | collar-only
+      4 |     22 |    0.906533 |        1.0258 |     21
+      5 |     28 |    0.911065 |        1.0386 |     27
+      6 |     35 |    0.956915 |        1.0941 |     34
+      8 |     53 |    0.966238 |        1.0892 |     51
+     10 |     75 |    0.998864 |        1.1119 |     73
+     12 |    103 |    0.918010 |        1.0106 |    101
+    each Ntilde has Psi < 1 at it and Psi >= 1 one below: True
+
+SEC 11.  MUTATION CONTROLS, each with a separating witness.
+    M1  a t_d factor dropped from a cross term
+      separating witness : points with X_k nonzero at n > k, where t_k != 1; at n = k the coefficient t_k IS 1 and the fault would be invisible
+      must be caught by  : the exact end-to-end identity (Sec 9)
+      rejected           : True   -> FIRES
+
+    M2  the merge coefficient (3n-4)/3 replaced by (n-2)
+      separating witness : the saturated collar point A_11 = 0, where p_3(z) < -Q/n so the slice estimate the wrong coefficient silently assumes is false
+      must be caught by  : the merge inequality (Sec 8)
+      rejected           : True   -> FIRES
+
+    M3  one survivor dropped from S(j,m)
+      separating witness : generic points where the dropped Theta_j[r,r'] is nonzero
+      must be caught by  : Theorem X1 against brute force
+      rejected           : True   -> FIRES
+
+    M4  the annihilation applied to a DECORATED leaf
+      separating witness : the drop removes a surviving atom, so the expansion no longer reproduces Theta
+      must be caught by  : the atom expansion (Sec 3)
+      rejected           : True   -> FIRES
+
+==========================================================================
+TOTAL FAILURES: 0
+VERDICT: ALL CHECKS PASS
+==========================================================================

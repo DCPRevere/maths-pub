@@ -1,0 +1,21 @@
+[guard] MemoryMax=4G  swap=off  CPUQuota=100%  threads=4
+V1  core census and the realisation formula e_min = 2e - maxcut
+    11 cores at e <= 12; by e: {8: 1, 9: 1, 10: 1, 11: 2, 12: 6}
+V2  toolkit atoms at every witness
+V3  L-WHEEL, step by step  (W_3 = K_4, W_4, W_5)
+V4  L-PRISM, step by step  (prism, Q_3)
+V5b L-ROOT2, step by step  (complement of P_6, the last e = 12 core)
+V5  every core at e <= 12 is closed by a named lemma
+    {'L-WHEEL': 2, 'L-CS2': 6, 'L-PRISM': 2, 'L-ROOT2': 1}
+V6  |S_core| <= Q at every witness, with per-edge D matrices
+V6b THE ENTRY BOUND IS NOT CONSUMED: the same bound holds for merely-centred ||z||_op <= 1 that VIOLATE it
+V7  P4: |S_G|/Q -> 1 at B = P - J/n (U5.md sec 7 said <= 0.09)
+    K_33 ratio: n=5 0.1200 ... n=14 0.5335  (monotone up, the 0.09 figure is an n=5,6 artefact)
+V9  the five e = 9 residues all reduce to the K_4 core
+    5/5 reduce to K_4; |S| <= beta^2 Q at every witness
+V10 the weighted-core patterns: |S_G(B)| <= Q exactly
+    6 patterns, each certified only via the core lemmas, each |S| <= Q at every witness
+V8  mutation controls
+    {'no_matching': 8, 'half_constant': 2, 'tighter_arc': 4, 'no_cover': 6, 'emin_formula': 8, 'sep_z_admissible': 2}
+
+RESULT: 727 checks, 0 failures; 6 controls fired at 30 positions

@@ -1,0 +1,135 @@
+[guard] MemoryMax=6G  swap=off  CPUQuota=200%  threads=4
+
+
+==============================================================================
+[1] gamma_n, m_n, and reproduction of the audited criteria
+==============================================================================
+  [ok]   gamma_16 * 10^12 in (1134226, 1134227)   = 1134226.712551
+  [ok]   m_16 * 10^12 in (1136699, 1136700)   = 1136699.314279
+  [ok]   m_16 - gamma_16 > 2472/10^12   = 2472.601728e-12
+  [ok]   1024 m_16^2/(1-gamma_16) < 1324/10^12   = 1323.09688e-12
+
+    n    Lam_Pang     Lam_Kaf    audit 3.3
+   14    0.178289    0.534864    0.534864
+  [ok]   Lambda_Kaf(14) reproduces the audit to 6 dp
+   15    0.329041    0.987121    0.987121
+  [ok]   Lambda_Kaf(15) reproduces the audit to 6 dp
+   16    0.622934    1.868799    1.868799
+  [ok]   Lambda_Kaf(16) reproduces the audit to 6 dp
+   17    1.205958    3.617874    3.617874
+  [ok]   Lambda_Kaf(17) reproduces the audit to 6 dp
+  [ok]   Lambda_Kaf = 3(1-gamma) Lambda_Pang exactly, n=4..40
+
+==============================================================================
+[2] the index-budget constant G_n
+==============================================================================
+  [ok]   G_n = floor((n^2-1)/2) for 3 <= n <= 200   exceptions []
+  [ok]   G_15 = 112 (vs Kafidov's n^2/2 = 112.5)
+  [ok]   G_14 = 97  (vs Kafidov's n^2/2 = 98)
+  [ok]   G_n < n^2/2 for every n (strict improvement on Kafidov)
+  [ok]   odd n: G_n = 2 max_a a(n-a) (the |I|+|J| = n+1 tie costs nothing)
+  [ok]   even n: G_n = 2 max_a a(n-a) - 1 (the tie DOES cost one unit)
+    n= 13  G_n=    84   G_n/(n^2/2) = 0.99408284   gain 0.5952%
+    n= 14  G_n=    97   G_n/(n^2/2) = 0.98979592   gain 1.0309%
+    n= 15  G_n=   112   G_n/(n^2/2) = 0.99555556   gain 0.4464%
+    n= 16  G_n=   127   G_n/(n^2/2) = 0.99218750   gain 0.7874%
+    n= 17  G_n=   144   G_n/(n^2/2) = 0.99653979   gain 0.3472%
+
+==============================================================================
+[3] the deficit lemma -- binary divergence, both branches
+==============================================================================
+  [ok]   x(1-x) <= Mmax on [q,p], 500-point exact grid (n=15, a=7,8)
+  [ok]   1/2 never lies inside [q,p] in the relevant range (no 1/4 collapse)
+  [ok]   Mmax is attained at an endpoint (concavity + 1/2 outside)
+  [ok]   Mmax(7/15, q) = 56/225 for the deficient-side branch
+  [ok]   Mmax(8/15, q) > 56/225 (p > 1/2 branch is handled, not assumed away)
+  [ok]   2 G_n / n = 224/15 at n = 15 (vs Kafidov's n = 15)
+
+==============================================================================
+[3b] the dilation step is TIGHT: exact n = 2 witness
+==============================================================================
+  [ok]   n=2: cap = (1-T)^2 exactly on the whole witness family (T = e)
+  [ok]   n=2: T = e is strictly below t_R + t_C = 2e (the index tie is real)
+
+==============================================================================
+[4] Sturm certificates for the improved criterion
+==============================================================================
+    n     Lam_Kaf     Lam_new    gain%  #roots  verdict
+    4    0.029122    0.100090 243.6890       2  fails
+  [ok]   n=4: Sturm verdict agrees with Lambda_new <= 1
+    5    0.022637    0.062905 177.8825       2  fails
+  [ok]   n=5: Sturm verdict agrees with Lambda_new <= 1
+    6    0.021855    0.049992 128.7436       2  fails
+  [ok]   n=6: Sturm verdict agrees with Lambda_new <= 1
+    7    0.024685    0.045031  82.4230       2  fails
+  [ok]   n=7: Sturm verdict agrees with Lambda_new <= 1
+    8    0.031367    0.047896  52.6944       2  fails
+  [ok]   n=8: Sturm verdict agrees with Lambda_new <= 1
+    9    0.043658    0.056723  29.9262       2  fails
+  [ok]   n=9: Sturm verdict agrees with Lambda_new <= 1
+   10    0.065309    0.076965  17.8483       2  fails
+  [ok]   n=10: Sturm verdict agrees with Lambda_new <= 1
+   11    0.103563    0.113047   9.1580       2  fails
+  [ok]   n=11: Sturm verdict agrees with Lambda_new <= 1
+   12    0.172305    0.182013   5.6342       2  fails
+  [ok]   n=12: Sturm verdict agrees with Lambda_new <= 1
+   13    0.298440    0.306427   2.6762       2  fails
+  [ok]   n=13: Sturm verdict agrees with Lambda_new <= 1
+   14    0.534864    0.545728   2.0311       2  fails
+  [ok]   n=14: Sturm verdict agrees with Lambda_new <= 1
+   15    0.987121    0.996179   0.9176       2  fails
+  [ok]   n=15: Sturm verdict agrees with Lambda_new <= 1
+   16    1.868799    1.887592   1.0056       0  CLOSES
+  [ok]   n=16: Sturm verdict agrees with Lambda_new > 1
+   17    3.617874    3.634040   0.4468       0  CLOSES
+  [ok]   n=17: Sturm verdict agrees with Lambda_new > 1
+   18    7.143566    7.191144   0.6660       0  CLOSES
+  [ok]   n=18: Sturm verdict agrees with Lambda_new > 1
+   19   14.355072   14.397820   0.2978       0  CLOSES
+  [ok]   n=19: Sturm verdict agrees with Lambda_new > 1
+   20   29.304168   29.454013   0.5113       0  CLOSES
+  [ok]   n=20: Sturm verdict agrees with Lambda_new > 1
+   21   60.675081   60.815322   0.2311       0  CLOSES
+  [ok]   n=21: Sturm verdict agrees with Lambda_new > 1
+   22  127.252790  127.782942   0.4166       0  CLOSES
+  [ok]   n=22: Sturm verdict agrees with Lambda_new > 1
+   23  270.021159  270.534511   0.1901       0  CLOSES
+  [ok]   n=23: Sturm verdict agrees with Lambda_new > 1
+   24  579.114416  581.134023   0.3487       0  CLOSES
+  [ok]   n=24: Sturm verdict agrees with Lambda_new > 1
+  [ok]   improved criterion CLOSES n = 16
+  [ok]   improved criterion FAILS  n = 15
+  [ok]   Lambda_new > Lambda_Kaf for every 4 <= n <= 24 (strict improvement)
+  [ok]   floor of the improved criterion is n = 16
+
+==============================================================================
+[5] the n = 15 shortfall, exact, and the two reduction thresholds
+==============================================================================
+    m_15      = 2.99374612583e-06
+    gamma_15  = 2.98628137255e-06
+    m - gamma = 7.464753277e-09
+    loss(new) = 7.493388755e-09   at u* = 0.00033373634
+    shortfall = 2.8635478e-11    ( 0.3836% of the numerator )
+  [ok]   n = 15 shortfall is positive (the cell does NOT close)
+  [ok]   shortfall is below 0.4% of the loss   = 0.3821%
+  [ok]   Kafidov's own shortfall was ~1.29%
+    threshold (i):  floor m_15 -> m_15 (1 + eps),  eps* = 9.61311e-06
+  [ok]   eps* < 1e-5 (a one-in-10^5 improvement in the floor closes n = 15)   eps* = 9.6131e-06
+  [ok]   Sturm confirms the criterion CLOSES at floor m(1+eps*+1e-12)
+  [ok]   Sturm confirms the criterion FAILS at floor m(1+eps*/2)
+    threshold (ii): dilation deficit T -> (1-kappa) T,  kappa* = 0.00192147
+  [ok]   kappa* < 0.2% (the audit's '1.31x in the dilation' is a 0.2% target)   kappa* = 0.1921%
+
+==============================================================================
+[6] mutation controls -- every one of these must FIRE
+==============================================================================
+  [fires] M1  G_15 -> 112.5 (Kafidov's constant): n=15 loss grows
+  [fires] M2  Bernoulli 1-nu in place of (1-u)^n: n=15 loss grows
+  [fires] M3  floor m_n -> gamma_n: no n in 4..24 closes
+  [fires] M4  G_15 -> 56 (deficit budget halved): n=15 closes spuriously
+  [fires] M5  dropping ell^2/2 leaves n=15 failing (term is genuinely negligible)
+  [fires] M6  corrupt m_n exponent base: audited m_16 window breaks
+
+==============================================================================
+RESULT: ALL 61 CHECKS PASS
+==============================================================================

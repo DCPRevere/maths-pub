@@ -1,0 +1,79 @@
+Running as unit: run-p558160-i602826.scope; invocation ID: f690c0733cf04a0588f2a36e755594e0
+==============================================================================
+[1]  rho_ref = 1 exactly on the line k = n-1
+==============================================================================
+  [ok]   C_ref * cap_0 / C(n,k)^2 == gamma  for n = 3..40 (k = n-1)
+  [ok]   k = n-2: the same ratio is < gamma for n = 4..20 (route dead there)
+
+==============================================================================
+[2]  the entropy witness W(A): doubly stochastic, supported, and exact
+==============================================================================
+  [ok]   W(A) is doubly stochastic, entrywise >= 0 (56 matrices, n = 3..9)
+  [ok]   supp(W) subset supp(M) on the same matrices
+  [ok]   sum_ij W log(M/W) == log cap_0 - (1/n) sum chi   EXACT in the log-module
+  [ok]   on Omega_n the witness value equals log cap_0 exactly (Lemma C: tight)
+
+  [2c] float corroboration only -- no displayed constant rests on this
+  [ok]   float: witness bound <= true log cap on every test matrix   tightest slack 4.441e-16
+
+==============================================================================
+[3]  chi(t) = (1-t)log(1-t) + t : chi >= 0 and chi(t) <= t^2 for t <= 1
+==============================================================================
+  [ok]   telescoping: sum_(m=2..400) 1/(m(m-1)) = 1 - 1/400
+  [ok]   coefficientwise: chi(t)/t^2 <= sum 1/(m(m-1)) = 1 on 0 <= t <= 1
+  [ok]   t < 0: chi(t)/t^2 <= 1/2 on a rational grid of (-1, 0)
+  [ok]   chi >= 0 on a rational grid of (-1, 1)
+
+==============================================================================
+[4]  Ehat_k(u) = max{ E_k(r) : r >= 0, sum r = n, r_1 = u },  k = n-1
+==============================================================================
+  [ok]   closed form Ehat = (1 - z/m)^m (1+z) matches e_k directly
+  [ok]   Ehat is the MAXIMUM over the fibre r_1 = u (Maclaurin on the rest)
+  [ok]   1 - Ehat is nondecreasing in |u - 1| (both branches), n = 4..11
+  [ok]   1 - Ehat >= (z^2/2)(1 - 2z/3) for -m <= z <= 3/2, n = 4..15
+  [ok]   |z| = 1/2  =>  1 - Ehat >= 1/12  (n = 4..15)
+
+==============================================================================
+[5]  Newton / Maclaurin chain:  1 - E_k(r) >= (n-2)||R||^2 (1-kappa)/(n(n-1))
+==============================================================================
+  [ok]   Newton: E_k(v) <= E_2(v)^(k-1) for 2 <= k <= n, n = 3..9
+  [ok]   E_2(v) = 1 - ||R||^2/(n(n-1)) identically
+  [ok]   convexity step: 1 - s^p >= p(1-s)s^(p-1) for p >= 1, s in [0,1]
+  [ok]   Bernoulli step: s^p >= 1 - p(1-s) for p >= 1, s in [0,1]
+
+==============================================================================
+[6]  the three closing conditions, and their reach to every n >= 7
+==============================================================================
+  [ok]   (C1)(C2)(C3) all hold, exactly, for every n = 7..600
+  [ok]   (C3) is equivalent to  gamma k^2/n <= (n-2)(1-kappa)/(n(n-1))  for n = 7..600   n=7 ratio 0.269123
+  [ok]   (C2) FAILS at n = 5 and n = 6 (these are k = 4, 5: anchors cover them)   n=5 C2 margin 3.2768, n=6 1.80845
+  [ok]   gamma(n+1)/gamma(n) = (n/(n+1))^n <= 2/5 for n = 7..600   value at n=7 is 0.392696
+  [ok]   (C2) ratio test: (2/5)(n/(n-1))^4 ((n-2)/(n-1))^2 < 1 for n >= 7   n=7 value 0.514618
+  [ok]   (C3) ratio test: both terms shrink faster than (n-2) grows, n >= 7
+  [ok]   (C1) gamma is decreasing, so gamma <= gamma(7) < 1/12 for all n >= 7   gamma(7) = 0.0061199
+
+==============================================================================
+[7]  end to end on { D < gamma }
+==============================================================================
+  [ok]   L3 region bound |z_i| < sqrt(3 gamma) on all 144 points, n = 7..12
+  [ok]   k |R_i| <= 1 on all points (so chi(kR) <= (kR)^2 applies)
+  [ok]   surrogate  k^2(||R||^2+||C||^2)/n <= D/gamma  on all points   worst ratio 0.0890461 at n = 7
+  [ok]   Phi_6(A) <= 2 - gamma at n = 7 on {D < gamma} points, from the definition
+
+==============================================================================
+[8]  mutation controls -- each must FIRE
+==============================================================================
+  [fired] M1  W_{i,n+1} = 1 - ((k-1)/n) r_i : row sums leave 1
+  [fired] M2  W_ij = ((k+1)/n) A_ij : row sums leave 1
+  [fired] M3  closed form prefactor 1/n -> 1/(n-1) : identity breaks
+  [fired] M4  log cap_0 exponent n+1 -> n : identity breaks
+  [fired] M4b chi's log argument (1-t) -> (1-2t) : identity breaks
+  [ok]   recorded: chi's linear term is invisible in the sum (sum R = 0)
+  [fired] M5  k^2 -> k^3 in the comparison: (C3) fails at n = 7
+  [fired] M6  Newton exponent k-1 -> k : E_k <= E_2^k is FALSE somewhere
+  [fired] M7  A with r_1 > n/k : W acquires a negative entry (L3 is load-bearing)
+  [fired] M8  the k = n-1 identity is FALSE at k = n-2 (n = 8)
+
+==============================================================================
+RESULT: ALL 32 CHECKS PASS, ALL 9 MUTATION CONTROLS FIRE
+==============================================================================

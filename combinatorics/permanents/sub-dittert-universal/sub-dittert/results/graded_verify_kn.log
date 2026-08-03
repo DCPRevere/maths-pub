@@ -1,0 +1,93 @@
+[guard] MemoryMax=4G  swap=off  CPUQuota=200%  threads=2
+==============================================================================
+graded_verify_kn.py -- THEOREM K: the capacity chain at k = n
+==============================================================================
+
+[1] The k = n identifications, and (K1) the refinement is a NO-OP
+  [ok]   [1a] G(n,0) = 1, C_new(n,n) = C_ref(n,n) = n!/n^n, cap_0 = 1, n = 2..44
+  [ok]   [1b] rho_new(n,n) = 1 exactly (Theorem H' at m = 0), n = 2..44
+  [ok]   [1c] C_new = C_ref at m = 0 and m = 1, C_new > C_ref at m >= 2, n = 4..19
+  [ok]   [1d] sigma_n = per, C(n,n) = 1, E_n(r) = prod r_i, D = (1-prod r)+(1-prod c)
+
+[2] (K2) the broken step is (S3): at m = 0 it asserts cap(A) >= 1,
+    which holds IFF A is doubly stochastic
+  [ok]   [2a] cap(A) <= prod r_i (x = 1) and prod r_i <= 1 by AM-GM: so cap <= 1
+  [ok]   [2b] A doubly stochastic ==> cap(A) = 1 exactly (Lemma B6 with W = A, kept in Q by q-th powers)
+  [ok]   [2c] off the face cap(A) < 1 strictly (an explicit rational x is needed -- x = 1 is blind), so (S3) FAILS at every off-face point   n=3:cap<=0.995075758 n=4:cap<=0.995075758 n=5:cap<=0.995075758 n=6:cap<=0.995075758 n=7:cap<=0.995075758
+  [ok]   [2d] (C2) and (C3) both degenerate to '(positive) <= 0' at m = 0, while (S4) itself is the vacuous 0 <= D/gamma
+
+[3] (K3) EXACT violating witnesses of (*)  gamma(1-cap) <= D
+    A(n,eps,t) = (1-eps) I + (eps/n) J + t(E_12 - E_11)
+     n         gamma           eps             t      Psi <= (exact)   D<gamma
+  [ok]   [3.2] n = 2: exact rational witness with Psi < 0   Psi <= -4067/2080000  = -1.955288e-03
+        2  5.000000e-01  1.000000e-01  4.750000e-02       -1.955288e-03      True
+  [ok]   [3.3] n = 3: exact rational witness with Psi < 0   Psi <= -369248/1012854375  = -3.645618e-04
+        3  2.222222e-01  4.444444e-02  2.172840e-02       -3.645618e-04      True
+  [ok]   [3.4] n = 4: exact rational witness with Psi < 0   Psi <= -163137393/2589982720000  = -6.298783e-05
+        4  9.375000e-02  1.875000e-02  9.287109e-03       -6.298783e-05      True
+  [ok]   [3.5] n = 5: exact rational witness with Psi < 0   Psi <= -245612263248/23555755615234375  = -1.042685e-05
+        5  3.840000e-02  7.680000e-03  3.825254e-03       -1.042685e-05      True
+  [ok]   [3.6] n = 6: exact rational witness with Psi < 0   Psi <= -7978157/4760622968832  = -1.675864e-06
+        6  1.543210e-02  3.086420e-03  1.540828e-03       -1.675864e-06      True
+  [ok]   [3.7] n = 7: exact rational witness with Psi < 0   Psi <= -1865035578245568/7088505561080957332837  = -2.631070e-07
+        7  6.119899e-03  1.223980e-03  6.116154e-04       -2.631070e-07      True
+  [ok]   [3z] (*) is FALSE at every n = 2..7 -- the chain at k = n cannot be repaired by any capacity lower bound
+  [ok]   [3y] Cheon-Hwang's own margin at every witness is positive and > 100x the certificate deficit: this is a CERTIFICATE failure, not a counterexample   n=2:margin=0.3645(186x) n=3:margin=0.6725(1.84e+03x) n=4:margin=0.8425(1.34e+04x) n=5:margin=0.9276(8.9e+04x) n=6:margin=0.9677(5.77e+05x) n=7:margin=0.9860(3.75e+06x)
+
+[4] (K4) the second-order law over Q, and the sharp threshold
+  [ok]   [4a] near-identity family: dD = 1 and dcap = 1/(eps(2-eps)) EXACTLY, n = 2..7, five eps
+  [ok]   [4b] sigma_2(A_0) = 1 - eps exactly, so 1 - sigma_2^2 = eps(2-eps)
+     n         gamma    eps* = 1-sqrt(1-gamma)   below: viol   above: safe
+     2  5.000000e-01               0.292893219          True          True
+     3  2.222222e-01               0.118082896          True          True
+     4  9.375000e-02               0.048028362          True          True
+     5  3.840000e-02               0.019387946          True          True
+     6  1.543210e-02               0.007746050          True          True
+     7  6.119899e-03               0.003064646          True          True
+  [ok]   [4c] the measured threshold in eps is exactly 1 - sqrt(1-gamma): below it (*) fails, above it (*) holds, n = 2..7
+  [ok]   [4d] gamma > 1 - sigma_2^2 on a neighbourhood of I_n at every n = 3..7
+
+[5] (K5) the degree refinement does not save it,
+    and CAPACITY.md section 5's witness IS defeated by it
+  [ok]   [5a] the new witnesses are strictly POSITIVE, so every column degree is n and the degree-refined constant is exactly n!/n^n
+  [ok]   [5b] section 5's witness: degrees (2,1,..,1), degree-refined constant = 1, per = cap = 1-t exactly, so its certificate is POSITIVE   n=3:Psi=+6.790e-01 n=4:Psi=+8.616e-01 n=5:Psi=+9.428e-01 n=6:Psi=+9.769e-01 n=7:Psi=+9.908e-01
+  [ok]   [5c] section 5's witness reproduced: with the UNREFINED gamma its certificate is negative (-gamma^2/4 at t = gamma/2)
+  [ok]   [5z] so the new witness is STRICTLY STRONGER than section 5's: it survives the degree refinement, section 5's does not
+
+[6] (K6) the second extremal structure and the rank-one family are SAFE
+  [ok]   [6a] (I+C^t)/2: v^T H^+ v = 4(n-1)/n exactly, ratio = 2(n-1)/n, gamma*ratio < 1 at every n = 3..7   n=3:g*r=0.2963 n=4:g*r=0.1406 n=5:g*r=0.0614 n=6:g*r=0.0257 n=7:g*r=0.0105
+  [ok]   [6b] (I+C^t)/2 pushed off the face: EXACT lower bound cap^2 >= 1-4t^2 certifies gamma(1-cap) <= D at every n = 3..7 and every t
+  [ok]   [6c] rank-one A_ij = r_i c_j/n: cap = (prod r)(prod c) and (*) holds by '1 - uv <= (1-u)+(1-v) = D, gamma <= 1'
+  [ok]   [6d] random Birkhoff mixtures: gamma*ratio stays below 1 away from the near-decomposable corner   worst gamma*ratio = 0.308238
+
+[7] corroboration: the second-order law against a minimised capacity
+    (float; corroborative only -- no claim rests on it)
+  [ok]   [7a] measured (1-cap)/t^2 matches the exact prediction 1/(eps(2-eps))   n=3,eps=0.250:2.2849vs2.2857 n=3,eps=0.083:6.2537vs6.2609 n=5,eps=0.250:2.2849vs2.2857 n=5,eps=0.083:6.2537vs6.2609
+
+[9] the STABILITY probe: the exact factorisation is a tautology, and
+    the cheap scale-invariant strengthening of Gurvits is FALSE
+  [ok]   [9a] 'cap(A)per(B) >= gamma - D' IS Dittert (per(A) = cap(A)per(B)), so the factorisation is a tautology and only separate bounds carry content
+  [ok]   [9b] S' would IMPLY Dittert in one line: gamma(1-pq) <= (1-p)+(1-q) for every p,q in (0,1], every n -- because 1-pq <= (1-p)+(1-q) and gamma <= 1
+  [ok]   [9c] S' is TIGHT on the whole rank-one family and at J_n/n (equality)
+  [ok]   [9d] CONJECTURE S' IS FALSE inside {D < gamma}: n = 3, per = 1/6 < gamma*p*q = 392/2187, with D = 11/54 = (11/12)*gamma   ratio = 0.929847, Dittert margin = 4/27
+  [ok]   [9e] S' fails globally by a wide margin as well   min per/(gamma*p*q) = 0.176109
+  [ok]   [9f] (I+C^t)/2 at n = 3: per = 1/4 and Dittert's margin is exactly 1/36 -- the second extremal structure, and S' survives it (ratio 9/8)
+
+[8] mutation controls
+  [fired] MK1  'C_new(n,n) > C_ref(n,n)' is FALSE at every n
+  [fired] MK2  with gamma replaced by 1 the witnesses would need dcap <= 1, which is false -- so the calibration is gamma, checked by the converse
+  [fired] MK3  eps raised above 1 - sqrt(1-gamma): the violation DISAPPEARS, so the threshold is load-bearing
+  [fired] MK4  a zero-line-sum direction gives dD = dcap = 0 (A stays doubly stochastic): the route is SILENT there, not violated
+  [fired] MK5  with the trivial x = 1 (cap <= prod r) the certificate STOPS firing: the rational witness x is load-bearing
+  [fired] MK6  '(I+C^t)/2 is a violator' is FALSE at every n = 3..7
+  [fired] MK7  ascending instead of descending labelling gives a strictly worse constant on section 5's witness: the greedy rule is load-bearing
+  [fired] MK8  'per >= gamma * prod(r)' (dropping prod(c)) is FALSE already on the rank-one family, where S' holds with equality
+  [fired] MK9  'the S' witness is in the trivial branch D >= gamma' is FALSE: D = 11/54 against gamma = 12/54
+
+==============================================================================
+RESULT: ALL 35 CHECKS PASS, ALL 9 MUTATION CONTROLS FIRE
+VERDICT: the capacity chain does NOT extend to k = n.  The broken step is
+         (S3), and the obstruction is sharp and spectral:
+         gamma > 1 - sigma_2(A_0)^2 on a neighbourhood of every
+         permutation matrix in Omega_n, at every n >= 2.
+==============================================================================

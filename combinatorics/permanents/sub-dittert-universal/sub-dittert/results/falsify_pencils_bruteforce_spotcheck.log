@@ -1,0 +1,6 @@
+n=8 k=5 circ01: sigma match=True Phi match=True ratio=0.998480057 <=1: True
+n=8 k=6 circ01: sigma match=True Phi match=True ratio=0.998022361 <=1: True
+n=9 k=5 blockJ3: sigma match=True Phi match=True ratio=0.999608972 <=1: True
+n=7 k=6 Fano: sigma match=True Phi match=True ratio=0.998351790 <=1: True
+n=8 k=7 ident: sigma match=True Phi match=True ratio=0.938627883 <=1: True
+BRUTE-FORCE SPOT CHECK PASS

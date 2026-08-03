@@ -1,0 +1,18 @@
+[guard] MemoryMax=3G  swap=off  CPUQuota=200%  threads=2
+n=4 k=3 trial=0  sigma_k match=True  Phi match=True  Phi=158993/85750
+n=4 k=3 trial=1  sigma_k match=True  Phi match=True  Phi=176535/101306
+n=4 k=3 trial=2  sigma_k match=True  Phi match=True  Phi=42233/24389
+n=4 k=3 trial=3  sigma_k match=True  Phi match=True  Phi=463544/274625
+n=4 k=3 trial=4  sigma_k match=True  Phi match=True  Phi=391036/226981
+n=4 k=3 trial=5  sigma_k match=True  Phi match=True  Phi=57479/35937
+n=4 k=3  Phi(J/n) == M : True   (M = 61/32)
+n=4 k=3  reference-Ryser cross-check: True
+n=5 k=4 trial=0  sigma_k match=True  Phi match=True  Phi=174990975/104060401
+n=5 k=4 trial=1  sigma_k match=True  Phi match=True  Phi=48141550/28647703
+n=5 k=4 trial=2  sigma_k match=True  Phi match=True  Phi=551920625/303595776
+n=5 k=4 trial=3  sigma_k match=True  Phi match=True  Phi=165667475/96059601
+n=5 k=4 trial=4  sigma_k match=True  Phi match=True  Phi=337948750/200533921
+n=5 k=4 trial=5  sigma_k match=True  Phi match=True  Phi=370607300/214358881
+n=5 k=4  Phi(J/n) == M : True   (M = 1226/625)
+n=5 k=4  reference-Ryser cross-check: True
+VALIDATION PASS

@@ -1,0 +1,28 @@
+[guard] MemoryMax=8G  swap=off  CPUQuota=400%  threads=4
+[PASS] graded_verify_band1.py  (4 s)  TOTAL: 7/7 checks pass, 5/5 mutations caught | VERDICT: PASS -- band 1 positivity theorem verified
+[PASS] graded_verify_band2.py  (115 s)  TOTAL: 6/6 checks pass, 5/5 mutations caught | VERDICT: PASS -- band 2 identity half and the correction verified
+[PASS] graded_verify_borderrows.py  (313 s)  RESULT: ALL 20 CHECKS PASS, ALL 7 MUTATION CONTROLS FIRE
+[PASS] graded_verify_canon.py  (566 s)  
+[PASS] graded_verify_capfrontier.py  (112 s)  RESULT: ALL 29 CHECKS PASS, ALL 10 MUTATION CONTROLS FIRE
+[PASS] graded_verify_collar.py  (38 s)  TOTAL FAILURES: 0 | VERDICT: ALL CHECKS PASS
+[PASS] graded_verify_d15.py  (12 s)  RESULT: ALL 61 CHECKS PASS
+[PASS] graded_verify_evenlayer.py  (89 s)  TOTAL after controls: 771 checks, 0 failures
+[PASS] graded_verify_gap.py  (3 s)  
+[PASS] graded_verify_k4.py  (6 s)  TOTAL FAILURES: 0 | VERDICT: ALL CHECKS PASS
+[PASS] graded_verify_kn.py  (3 s)  RESULT: ALL 35 CHECKS PASS, ALL 9 MUTATION CONTROLS FIRE | VERDICT: the capacity chain does NOT extend to k = n.  The broken step is
+[PASS] graded_verify_ksk.py  (37 s)  RESULT: ALL CHECKS PASS
+[PASS] graded_verify_oddlayer.py  (16 s)  TOTAL after controls: 458 checks, 0 failures
+[PASS] graded_verify_rat.py  (7 s)  
+[PASS] graded_verify_stability.py  (6 s)  TOTAL FAILURES: 0 | VERDICT: ALL CHECKS PASS
+[PASS] graded_verify_strict.py  (84 s)  RESULT: ALL 16 CHECKS PASS, ALL 5 MUTATION CONTROLS FIRE
+[PASS] graded_verify_thmb.py  (80 s)  RESULT: ALL 32 CHECKS PASS, ALL 9 MUTATION CONTROLS FIRE
+[PASS] graded_verify_u5.py  (76 s)  
+[PASS] graded_verify_u5core3.py  (4 s)  
+[PASS] graded_verify_uniformG.py  (4 s)  TOTAL FAILURES: 0 | VERDICT: ALL CHECKS PASS
+[PASS] graded_verify_universal.py  (103 s)  TOTAL FAILURES: 0 | VERDICT: ALL CHECKS PASS
+[PASS] bern_verify.py  (18 s)  VERIFIER: ALL GRADES PASS
+
+========================================================================
+VERIFIERS: 22/22 pass
+OVERALL: ALL VERIFIERS PASS
+========================================================================

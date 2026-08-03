@@ -1,0 +1,25 @@
+h2_anchor K = 4 -- k enters only rhs, which check [4] never reads
+
+=== assembled-Gram test, H2 point at n = 5 ===
+  point: diag_n5_k5.json, kind feasible, stored least BLOCK pivot 20671530800600195717993237127446823745076281241176833991773484662555836908816/6006198430482401308974395311551600721272755771700053600499020864570276771610371
+  B = 350; orbit split 51 + 356 + 33 = 440 (sigma_0 | sigma_11 | lambda)   [6 s to build]
+  the 33 lambda coefficients of THIS point: 5 positive, 28 negative, 0 zero -- mixed sign, exactly as the (5,4) anchor's are, and unconstrained by construction
+    sigma_0  G0: assembled 350x350, symmetric, longest numerator 15 digits  (0 s)
+    sigma_0  G0: pivot 50/350 done, least so far 1.154601e-04, 10 s elapsed
+    sigma_0  G0: pivot 100/350 done, least so far 1.154601e-04, 35 s elapsed
+    sigma_0  G0: pivot 150/350 done, least so far 1.154601e-04, 55 s elapsed
+    sigma_0  G0: pivot 200/350 done, least so far 1.154601e-04, 79 s elapsed
+    sigma_0  G0: pivot 250/350 done, least so far 1.154601e-04, 91 s elapsed
+    sigma_0  G0: pivot 300/350 done, least so far 1.154601e-04, 95 s elapsed
+    sigma_0  G0: pivot 350/350 done, least so far 1.154601e-04, 96 s elapsed
+    sigma_0  G0: POSITIVE DEFINITE over Q, least pivot 478863476050814879887896/4147437524981822715696589375 = 1.154601e-04  (96 s)
+    sigma_11 H : assembled 350x350, symmetric, longest numerator 13 digits  (0 s)
+    sigma_11 H : pivot 50/350 done, least so far 6.128638e-04, 10 s elapsed
+    sigma_11 H : pivot 100/350 done, least so far 6.702804e-05, 36 s elapsed
+    sigma_11 H : pivot 150/350 done, least so far 5.792206e-05, 59 s elapsed
+    sigma_11 H : pivot 200/350 done, least so far 5.792206e-05, 82 s elapsed
+    sigma_11 H : pivot 250/350 done, least so far 5.167550e-05, 97 s elapsed
+    sigma_11 H : pivot 300/350 done, least so far 3.780293e-05, 105 s elapsed
+    sigma_11 H : pivot 350/350 done, least so far 3.171934e-05, 106 s elapsed
+    sigma_11 H : POSITIVE DEFINITE over Q, least pivot 409397646866909243859173116843181080112182101046955768145868198097850238633483169451832144169355394303382241701106390361070074818157936887006198043197449166807184978746880/12906876930986150510740510324979665169223866418342878585850498103493687920150618980379388595711276397154176261223971456252543266890256519091666724491812272672786355044560585743 = 3.171934e-05  (106 s)
+  ==> n = 5: both assembled Grams positive definite over Q. Anchor check (4) holds at B x B, not only block-wise.
