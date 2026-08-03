@@ -11,6 +11,13 @@ README, the paper, the formalisation, and the exact computational artifacts.
 ### combinatorics
 
 - **permanents**
+  - [`sub-dittert-universal/`](combinatorics/permanents/sub-dittert-universal/README.md) —
+    **The Cheon–Hwang Sub-Dittert Conjecture, in Full.**
+    The complete conjecture — inequality and equality, every 2 ≤ k ≤ n,
+    every n, the Dittert endpoint included — via one capacity mechanism with
+    explicitly graded provenance. Paper, exact verification kit (22 graded
+    verifiers with fault-injection controls), and the Lean development to
+    date.
   - [`sub-dittert-k3/`](combinatorics/permanents/sub-dittert-k3/README.md) —
     **The Cheon–Hwang Sub-Dittert Conjecture at k = 3, for Every Dimension.**
     The k = 3 case of the 1992 Cheon–Hwang conjecture, proved for every
